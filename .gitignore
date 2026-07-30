@@ -1,0 +1,10 @@
+.playwright-mcp/
+.od-skills/
+*.artifact.json
+
+# Local visual-audit outputs
+audit-*.png
+verify-*.png
+browser-connection-*.png
+desktop-*-preview*.png
+tablet-*-preview*.png

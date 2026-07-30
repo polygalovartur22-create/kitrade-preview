@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Каталог автозапчастей | Китрейд</title>
+    <meta name="description" content="Каталог автозапчастей под заказ из Китая с проверкой совместимости по VIN." />
+    <link rel="stylesheet" href="./catalog-v2.css?v=9" />
+    <link rel="stylesheet" href="./catalog-responsive.css?v=3" />
+    <link rel="stylesheet" href="./catalog-adaptive-final.css?v=1" />
+  </head>
+  <body>
+    <header class="site-header" data-catalog-header>
+      <div class="site-header-shell">
+        <a class="brand" href="./index.html" aria-label="Китрейд, на главную">
+          <img src="https://res.cloudinary.com/dtc5ancbn/image/upload/q_100/v1776353780/noroot.png_sqb5vc.webp" alt="Китрейд" />
+        </a>
+        <nav class="top-nav" aria-label="Навигация">
+          <a href="./index.html#company">О компании</a>
+          <a href="./index.html#about">Преимущества</a>
+          <a href="./index.html#workflow">Доставка</a>
+          <a href="./index.html#orders">Кейсы</a>
+          <a class="active" href="#catalog">Каталог</a>
+        </nav>
+        <div class="site-header-actions">
+          <a class="header-cta" href="tel:+79964574301">Связаться с нами</a>
+          <button
+            class="catalog-menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="catalog-mobile-navigation"
+            aria-label="Открыть меню"
+            data-catalog-menu-toggle
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <nav
+        class="catalog-mobile-nav"
+        id="catalog-mobile-navigation"
+        aria-label="Мобильная навигация"
+        hidden
+        data-catalog-mobile-nav
+      >
+        <a href="./index.html#company">О компании</a>
+        <a href="./index.html#about">Преимущества</a>
+        <a href="./index.html#workflow">Доставка</a>
+        <a href="./index.html#orders">Кейсы</a>
+        <a class="active" href="#catalog">Каталог</a>
+        <a class="catalog-mobile-contact" href="tel:+79964574301">Связаться с нами</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="catalog-hero" aria-labelledby="catalog-title">
+        <div class="hero-art" aria-hidden="true">
+          <img src="./assets/hero-parts-static.png" alt="" />
+        </div>
+        <div class="hero-shell">
+          <div class="hero-copy">
+            <p class="hero-kicker">Каталог под заказ</p>
+            <h1 id="catalog-title">Найдите нужную деталь.<br />Совместимость<br />проверим по VIN.</h1>
+            <p class="hero-description">
+              Каталог помогает собрать точный запрос:<br />
+              деталь, кузов, год, качество и фото.<br />
+              Китрейд проверит поставщика в Китае<br />
+              и вернется с ценой.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="catalog-workspace" id="catalog" aria-label="Каталог автозапчастей">
+        <aside class="filter-panel">
+          <div class="panel-heading">
+            <div>
+              <span>Подбор запчасти</span>
+              <h2>Фильтры каталога</h2>
+            </div>
+            <button id="resetFilters" type="button">Сбросить</button>
+          </div>
+
+          <div class="catalog-filter-stack">
+            <div class="filter-group filter-dropdown" id="brandFilters">
+              <button class="filter-trigger" type="button" data-filter-toggle aria-expanded="false">
+                <span><small>Марка</small><strong data-filter-summary>Все марки</strong></span>
+                <i aria-hidden="true"></i>
+              </button>
+              <div class="filter-popover" data-filter-popover hidden>
+                <label class="filter-search"><span aria-hidden="true"></span><input type="search" data-filter-search placeholder="Найти марку" autocomplete="off" /></label>
+                <div class="filter-options" data-filter-options></div>
+                <p class="filter-empty" data-filter-empty hidden>Марка не найдена</p>
+              </div>
+            </div>
+
+            <div class="filter-group filter-dropdown is-disabled" id="modelFilters">
+              <button class="filter-trigger" type="button" data-filter-toggle aria-expanded="false" disabled>
+                <span><small>Модель</small><strong data-filter-summary>Сначала выберите марку</strong></span>
+                <i aria-hidden="true"></i>
+              </button>
+              <div class="filter-popover" data-filter-popover hidden>
+                <label class="filter-search"><span aria-hidden="true"></span><input type="search" data-filter-search placeholder="Найти модель" autocomplete="off" /></label>
+                <div class="filter-options" data-filter-options></div>
+                <p class="filter-empty" data-filter-empty hidden>Модель не найдена</p>
+              </div>
+            </div>
+
+            <div class="filter-group filter-dropdown" id="typeFilters">
+              <button class="filter-trigger" type="button" data-filter-toggle aria-expanded="false">
+                <span><small>Категория</small><strong data-filter-summary>Все категории</strong></span>
+                <i aria-hidden="true"></i>
+              </button>
+              <div class="filter-popover" data-filter-popover hidden>
+                <label class="filter-search"><span aria-hidden="true"></span><input type="search" data-filter-search placeholder="Найти категорию" autocomplete="off" /></label>
+                <div class="filter-options" data-filter-options></div>
+                <p class="filter-empty" data-filter-empty hidden>Категория не найдена</p>
+              </div>
+            </div>
+          </div>
+
+          <fieldset class="filter-condition" id="conditionFilters">
+            <legend>Состояние</legend>
+            <div>
+              <label><input type="radio" name="condition" value="" checked /><span>Любая</span></label>
+              <label><input type="radio" name="condition" value="Новое" /><span>Новая</span></label>
+              <label><input type="radio" name="condition" value="Б/у" /><span>Б/у</span></label>
+            </div>
+          </fieldset>
+
+          <p class="filter-note">Выберите несколько значений, если хотите сравнить варианты.</p>
+        </aside>
+
+        <section class="results-panel" aria-live="polite">
+          <form class="catalog-search" id="catalogSearch">
+            <label for="catalogQuery">
+              <span>Название детали, артикул или OEM</span>
+              <input id="catalogQuery" type="search" placeholder="Например: передняя фара или 81110-0R180" autocomplete="off" />
+            </label>
+            <button type="submit">Найти</button>
+          </form>
+
+          <nav class="catalog-tabs" id="catalogTabs" aria-label="Категории каталога">
+            <button class="active" type="button" data-category="">Популярное</button>
+            <button type="button" data-category="Оптика">Оптика</button>
+            <button type="button" data-category="Кузов">Кузов</button>
+            <button type="button" data-category="Подвеска">Подвеска</button>
+            <button type="button" data-category="Двигатель">Двигатель</button>
+            <button type="button" data-category="Салон">Салон</button>
+          </nav>
+
+          <div class="results-toolbar">
+            <div>
+              <p id="resultCount">Найдено 0 позиций</p>
+              <h2 id="resultSummary">Chery / Geely / Haval</h2>
+            </div>
+          </div>
+
+          <div class="parts-grid" id="partsGrid"></div>
+          <button class="load-more" id="loadMore" type="button" hidden>Показать еще</button>
+          <div class="empty-state" id="emptyState" hidden>
+            <h3>Ничего не найдено</h3>
+            <p>Сбросьте часть фильтров или отправьте запрос менеджеру для ручного подбора.</p>
+          </div>
+        </section>
+
+        <aside class="request-panel" id="request">
+          <p class="request-kicker"><span></span>Заявка</p>
+          <h2>Соберите корзину<br />запроса</h2>
+          <p class="request-intro">Добавьте детали из каталога или опишите задачу. Мы уточним цену, срок и варианты качества.</p>
+
+          <div class="request-selection" id="requestSelection">
+            <strong>Позиции не выбраны</strong>
+            <p>Добавьте нужные детали из карточек каталога.</p>
+          </div>
+
+          <label class="request-comment">
+            <span>Комментарий</span>
+            <textarea id="requestComment" placeholder="VIN, год, город доставки, пожелания по оригиналу..."></textarea>
+          </label>
+          <button class="request-submit" id="requestSubmit" type="button">Отправить на расчет</button>
+          <small>Отправка заявки не является оплатой.</small>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="catalog-footer">
+      <a href="./index.html" aria-label="Китрейд, на главную"><img src="https://res.cloudinary.com/dtc5ancbn/image/upload/q_100/v1776353780/noroot.png_sqb5vc.webp" alt="Китрейд" /></a>
+      <p>© 2026 Китрейд. Все права защищены.</p>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./kitrade-parts-data.js"></script>
+    <script src="./catalog-app.js?v=14"></script>
+    <script src="./catalog-adaptive.js?v=1"></script>
+  </body>
+</html>
