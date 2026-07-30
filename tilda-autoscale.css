@@ -738,6 +738,49 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
   white-space: nowrap;
 }
 
+#catalog.catalog-autoscale .vehicle-part-search > button,
+#catalog.catalog-autoscale .vehicle-result-copy button,
+#catalog.catalog-autoscale .vehicle-request-tray-footer button {
+  border: 1px solid rgba(255, 247, 5, 0.92);
+  background:
+    radial-gradient(circle at 50% 22%, rgba(255, 255, 255, 0.38), transparent 34%),
+    linear-gradient(180deg, #fff705 0%, #e5d900 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.44),
+    0 10px 28px rgba(255, 247, 5, 0.1);
+  color: #080909;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  touch-action: manipulation;
+}
+
+#catalog.catalog-autoscale .vehicle-part-search > button:hover,
+#catalog.catalog-autoscale .vehicle-part-search > button:focus-visible,
+#catalog.catalog-autoscale .vehicle-result-copy button:hover,
+#catalog.catalog-autoscale .vehicle-result-copy button:focus-visible,
+#catalog.catalog-autoscale .vehicle-request-tray-footer button:hover,
+#catalog.catalog-autoscale .vehicle-request-tray-footer button:focus-visible {
+  border-color: #fff705;
+  filter: brightness(0.94);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.52),
+    0 12px 34px rgba(255, 247, 5, 0.16);
+}
+
+#catalog.catalog-autoscale .vehicle-request-tray-footer button:disabled {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: none;
+  color: rgba(255, 255, 255, 0.32);
+}
+
+#catalog.catalog-autoscale .vehicle-picker-fields select:focus,
+#catalog.catalog-autoscale .vehicle-brand-trigger:focus-visible,
+#catalog.catalog-autoscale .vehicle-part-search input:focus {
+  border-color: rgba(255, 247, 5, 0.72);
+  box-shadow: 0 0 0 2px rgba(255, 247, 5, 0.1);
+}
+
 /*
  * Catalog device artboards.
  *
@@ -747,11 +790,11 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
  */
 @media (min-width: 600px) and (max-width: 1199px) {
   body.reference-only #catalog.catalog-autoscale {
-    aspect-ratio: 834 / 820;
+    aspect-ratio: 834 / 880;
   }
 
   body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) {
-    aspect-ratio: 834 / 1100;
+    aspect-ratio: 834 / 1160;
   }
 
   body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading {
@@ -772,7 +815,7 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
 
   body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading > div > span {
     max-width: 60cqw;
-    margin-top: 1.7cqw;
+    margin-top: 2cqw;
     font-size: 1.75cqw;
     white-space: normal;
   }
@@ -784,27 +827,27 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-picker {
-    top: 27cqw;
+    top: 29cqw;
     left: 4cqw;
     width: 92cqw;
-    height: 54cqw;
+    height: 58cqw;
     grid-template-columns: 1fr;
-    grid-template-rows: 37cqw 17cqw;
+    grid-template-rows: 39cqw 19cqw;
     border-radius: 1cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) .vehicle-picker {
-    height: 87cqw;
-    grid-template-rows: 70cqw 17cqw;
+    height: 91cqw;
+    grid-template-rows: 72cqw 19cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-picker-main {
-    padding: 2.8cqw 3cqw;
+    padding: 3.2cqw 3.2cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro {
     gap: 3cqw;
-    margin-bottom: 2.4cqw;
+    margin-bottom: 2.8cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro > div {
@@ -818,6 +861,8 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
 
   body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro h3,
   body.reference-only #catalog.catalog-autoscale .vehicle-request-empty h3 {
+    max-width: 28cqw;
+    white-space: normal;
     font-size: 2.65cqw;
   }
 
@@ -861,11 +906,11 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
   body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) .vehicle-request-tray {
     display: grid;
     width: 100%;
-    height: 17cqw;
-    max-height: 17cqw;
-    grid-template-columns: 22cqw minmax(0, 1fr) 29cqw;
+    height: 19cqw;
+    max-height: 19cqw;
+    grid-template-columns: 23cqw minmax(0, 1fr) 30cqw;
     align-items: center;
-    padding: 2.2cqw 2.5cqw;
+    padding: 2.5cqw 2.7cqw;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-left: 0;
   }
@@ -936,7 +981,7 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
   }
 
   body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer {
-    top: 84cqw;
+    top: 91cqw;
     left: 4cqw;
     width: 92cqw;
     gap: 3cqw;
@@ -944,7 +989,7 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
   }
 
   body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) .catalog-preview-disclaimer {
-    top: 118cqw;
+    top: 124cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer > p,
@@ -956,15 +1001,15 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
 
 @media (max-width: 599px) {
   body.reference-only #catalog.catalog-autoscale {
-    aspect-ratio: 390 / 700;
+    aspect-ratio: 390 / 880;
   }
 
   body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) {
-    aspect-ratio: 390 / 1320;
+    aspect-ratio: 390 / 1440;
   }
 
   body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading {
-    top: 7cqw;
+    top: 8cqw;
     left: 5cqw;
     display: block;
     width: 90cqw;
@@ -981,39 +1026,45 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
   }
 
   body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading > div > span {
-    margin-top: 2.8cqw;
+    margin-top: 3.2cqw;
     font-size: 3.25cqw;
+    line-height: 1.52;
     white-space: normal;
   }
 
   body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading > a {
-    margin-top: 2.8cqw;
-    padding: 0;
+    min-height: 11cqw;
+    margin-top: 3.2cqw;
+    padding: 0 4cqw;
+    border: 1px solid rgba(255, 247, 5, 0.7);
+    border-radius: 1.2cqw;
+    background: rgba(255, 247, 5, 0.035);
+    color: #fff705;
     font-size: 3.25cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-picker {
-    top: 40cqw;
+    top: 64cqw;
     left: 4cqw;
     width: 92cqw;
-    height: 113cqw;
+    height: 136cqw;
     grid-template-columns: 1fr;
-    grid-template-rows: 79cqw 34cqw;
+    grid-template-rows: 94cqw 42cqw;
     border-radius: 2.2cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) .vehicle-picker {
-    height: 264cqw;
-    grid-template-rows: 230cqw 34cqw;
+    height: 270cqw;
+    grid-template-rows: 228cqw 42cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-picker-main {
-    padding: 5cqw;
+    padding: 6cqw 5cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro {
     display: block;
-    margin-bottom: 5cqw;
+    margin-bottom: 6cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro > div {
@@ -1036,7 +1087,7 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
 
   body.reference-only #catalog.catalog-autoscale .vehicle-picker-fields {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 3cqw 2.5cqw;
+    gap: 4cqw 3cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-picker-fields label > span,
@@ -1049,12 +1100,12 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
   body.reference-only #catalog.catalog-autoscale .vehicle-brand-trigger,
   body.reference-only #catalog.catalog-autoscale .vehicle-part-search input,
   body.reference-only #catalog.catalog-autoscale .vehicle-part-search > button {
-    height: 12cqw;
+    height: 13cqw;
     font-size: 3.25cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-picker-divider {
-    height: 8cqw;
+    height: 10cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-picker-divider span {
@@ -1062,19 +1113,19 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-part-search {
-    grid-template-columns: minmax(0, 1fr) 22cqw;
-    gap: 2.5cqw;
+    grid-template-columns: minmax(0, 1fr) 23cqw;
+    gap: 3cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-request-tray,
   body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) .vehicle-request-tray {
     display: grid;
     width: 100%;
-    height: 34cqw;
-    max-height: 34cqw;
+    height: 42cqw;
+    max-height: 42cqw;
     grid-template-columns: 1fr 30cqw;
     grid-template-rows: auto 1fr;
-    padding: 4cqw 5cqw;
+    padding: 5cqw;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-left: 0;
   }
@@ -1082,7 +1133,7 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
   body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-head {
     grid-column: 1 / -1;
     gap: 3cqw;
-    padding: 0 0 3cqw;
+    padding: 0 0 4cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-head > div {
@@ -1098,7 +1149,9 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-request-empty {
-    margin: 3cqw 0 0;
+    grid-column: 1;
+    grid-row: 2;
+    margin: 4cqw 0 0;
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-request-empty h3 {
@@ -1110,12 +1163,21 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-request-list {
+    grid-column: 1;
+    grid-row: 2;
     max-height: 14cqw;
-    margin: 2cqw 2cqw 0 0;
+    margin: 3cqw 3cqw 0 0;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-list:empty {
+    display: none;
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-footer {
-    margin: 3cqw 0 0;
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    margin: 4cqw 0 0;
     padding: 0;
     border: 0;
   }
@@ -1125,12 +1187,13 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
   }
 
   body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-footer button {
-    height: 11cqw;
+    height: 12cqw;
+    border-radius: 1.2cqw;
     font-size: 3cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer {
-    top: 159cqw;
+    top: 207cqw;
     left: 5cqw;
     display: block;
     width: 90cqw;
@@ -1138,7 +1201,7 @@ body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
   }
 
   body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) .catalog-preview-disclaimer {
-    top: 310cqw;
+    top: 338cqw;
   }
 
   body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer > p {
