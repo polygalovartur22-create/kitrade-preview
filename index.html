@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="./adaptive-v2.css?v=2" />
     <link rel="stylesheet" href="./responsive.css?v=4" />
     <link rel="stylesheet" href="./adaptive-final.css?v=1" />
+    <link rel="stylesheet" href="./tilda-autoscale.css?v=1" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -223,7 +224,7 @@
         </div>
       </section>
 
-      <section class="reference-company" id="company" aria-labelledby="company-title">
+      <section class="reference-company company-autoscale" id="company" aria-labelledby="company-title">
         <svg class="company-filter" width="0" height="0" aria-hidden="true" focusable="false">
           <filter id="company-chroma-key" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
             <feColorMatrix
@@ -236,26 +237,26 @@
           </filter>
         </svg>
 
-        <div class="company-shell">
-          <p class="company-kicker" data-reveal><strong>03</strong><span>/</span>О КОМПАНИИ</p>
-          <h2 class="company-title" id="company-title" data-reveal>
+        <div class="as-company__artboard">
+          <p class="as-company__kicker" data-reveal><strong>03</strong><span>/</span>О КОМПАНИИ</p>
+          <h2 class="as-company__title" id="company-title" data-reveal>
             KITRADE — поставки из Китая<br /> в Россию и Беларусь под ключ
           </h2>
 
-          <div class="company-copy" data-reveal>
+          <div class="as-company__copy" data-reveal>
             <h3>Компания KITRADE</h3>
             <p>
               Начинали с прямых поставок<br /> оригинальных автозапчастей из Китая.<br /> Сегодня доставляем запчасти и другие<br /> грузы
               — от поиска поставщика<br /> до получения.
             </p>
-            <div class="company-actions">
-              <a class="company-primary" href="#request">Рассчитать стоимость</a>
-              <a class="company-catalog" href="./catalog.html">Перейти в каталог <span aria-hidden="true">→</span></a>
+            <div class="as-company__actions">
+              <a class="as-company__primary" href="#request">Рассчитать стоимость</a>
+              <a class="as-company__catalog" href="./catalog.html">Перейти в каталог <span aria-hidden="true">→</span></a>
             </div>
           </div>
 
           <img
-            class="company-case"
+            class="as-company__case"
             src="./assets/kitrade-company-case-transparent.png"
             alt="Коробка передач в защитном транспортировочном кейсе"
             width="1250"
@@ -264,18 +265,18 @@
             data-reveal="scale"
           />
 
-          <div class="company-stats" data-reveal>
-            <p class="company-stats-title">KITRADE В ЦИФРАХ</p>
-            <div class="company-stats-grid">
-              <div class="company-stat">
-                <strong class="company-stat-number" data-company-count="4570">4 570</strong>
+          <div class="as-company__stats" data-reveal>
+            <p class="as-company__stats-title">KITRADE В ЦИФРАХ</p>
+            <div class="as-company__stats-grid">
+              <div class="as-company__stat">
+                <strong data-company-count="4570">4 570</strong>
                 <span>доставленных запчастей</span>
               </div>
-              <div class="company-stat">
-                <strong class="company-stat-number" data-company-count="1650">1 650</strong>
+              <div class="as-company__stat">
+                <strong data-company-count="1650">1 650</strong>
                 <span>обработанных заказов</span>
               </div>
-              <div class="company-stat company-stat-region">
+              <div class="as-company__stat as-company__stat--region">
                 <strong>Россия<br />и Беларусь</strong>
                 <span>направления доставки</span>
               </div>
