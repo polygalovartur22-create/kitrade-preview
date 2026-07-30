@@ -2,9 +2,9 @@
  * Tilda Zero Block analogue: Scale Grid Container → Autoscale to Window Width.
  *
  * Base artboard: 1920 × 1080.
- * There are intentionally no breakpoints, reflow rules, clamp(), or mobile
- * overrides in this file. Every coordinate, size, gap, and font is expressed
- * relative to the artboard width, so the entire composition scales as one.
+ * The company block uses one universal artboard. The interactive catalog
+ * below uses Tilda-style device ranges so controls remain readable and
+ * tappable; each range still scales as a fixed composition.
  */
 
 body.reference-only #company.company-autoscale {
@@ -229,4 +229,989 @@ body.reference-only #company.company-autoscale {
   font-size: 2.396cqw;
   font-weight: 520;
   line-height: 1.18;
+}
+
+/*
+ * Catalog master artboard: 1920 × 830 in the initial state and 1920 × 930
+ * after results appear.
+ *
+ * Desktop composition. Tablet and mobile device artboards are defined below.
+ */
+body.reference-only #catalog.catalog-autoscale {
+  position: relative;
+  container-type: inline-size;
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 1920 / 830;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: clip;
+  background:
+    radial-gradient(ellipse 46% 34% at 8% 0%, rgba(255, 247, 5, 0.05), transparent 72%),
+    linear-gradient(180deg, #030506 0%, #080a0b 62%, #050607 100%);
+  box-shadow: none;
+  color: #f5f5f3;
+  isolation: isolate;
+}
+
+body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) {
+  aspect-ratio: 1920 / 1070;
+}
+
+#catalog.catalog-autoscale .reference-catalog-preview-shell {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.catalog-autoscale [data-reveal],
+.catalog-autoscale [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading {
+  position: absolute;
+  top: 3.125cqw;
+  left: 6.25%;
+  display: flex;
+  width: 87.5%;
+  align-items: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2.083cqw;
+  margin: 0;
+}
+
+#catalog.catalog-autoscale .reference-catalog-preview-heading > div {
+  min-width: 0;
+}
+
+#catalog.catalog-autoscale .reference-catalog-preview-heading p {
+  margin: 0 0 0.729cqw;
+  color: #fff705;
+  font-size: 0.625cqw;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading h2 {
+  max-width: none;
+  margin: 0;
+  color: #f5f5f3;
+  font-size: 3.021cqw;
+  font-weight: 380;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+#catalog.catalog-autoscale .reference-catalog-preview-heading h2 > span {
+  display: block;
+  white-space: nowrap;
+}
+
+body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading > div > span {
+  display: block;
+  max-width: none;
+  margin-top: 0.781cqw;
+  color: rgba(255, 255, 255, 0.53);
+  font-size: 0.833cqw;
+  line-height: 1.45;
+  white-space: nowrap;
+}
+
+body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.938cqw;
+  margin: 0 0 0.313cqw;
+  padding: 0.625cqw 0 0.365cqw;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.833cqw;
+  line-height: 1;
+  text-align: right;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-picker {
+  position: absolute;
+  top: 14.167cqw;
+  left: 6.25%;
+  display: grid;
+  width: 87.5%;
+  height: 19.271cqw;
+  grid-template-columns: minmax(0, 1fr) 23.81%;
+  overflow: hidden;
+  border: 0.052cqw solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.417cqw;
+  background: #0a0d0e;
+  box-shadow: 0 1.563cqw 4.688cqw rgba(0, 0, 0, 0.24);
+}
+
+body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) .vehicle-picker {
+  height: 32.292cqw;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-picker-main {
+  min-width: 0;
+  padding: 1.458cqw 1.667cqw 1.563cqw;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2.083cqw;
+  margin-bottom: 1.198cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-picker-intro > div {
+  display: flex;
+  align-items: center;
+  gap: 0.833cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-picker-intro > div > span,
+#catalog.catalog-autoscale .vehicle-request-tray-head > span {
+  color: #fff705;
+  font-size: 0.625cqw;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+#catalog.catalog-autoscale .vehicle-picker-intro h3,
+#catalog.catalog-autoscale .vehicle-request-empty h3 {
+  max-width: none;
+  margin: 0;
+  color: #f5f5f3;
+  font-size: 1.25cqw;
+  font-weight: 430;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro > p {
+  max-width: none;
+  width: 24.479cqw;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.729cqw;
+  line-height: 1.45;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-picker-fields {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.521cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-picker-fields label {
+  position: relative;
+  display: block;
+}
+
+#catalog.catalog-autoscale .vehicle-picker-fields label > span,
+#catalog.catalog-autoscale .vehicle-part-search label > span {
+  display: block;
+  margin-bottom: 0.417cqw;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.625cqw;
+  white-space: nowrap;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-picker-fields select,
+body.reference-only #catalog.catalog-autoscale .vehicle-brand-trigger,
+body.reference-only #catalog.catalog-autoscale .vehicle-part-search input {
+  width: 100%;
+  height: 3.021cqw;
+  min-height: 0;
+  border: 0.052cqw solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.313cqw;
+  background: #111416;
+  color: #f4f4f2;
+  font-size: 0.729cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-picker-fields select {
+  padding: 0 2.188cqw 0 0.833cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-brand-trigger {
+  gap: 0.625cqw;
+  padding: 0 0.833cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-picker-fields label::after {
+  right: 0.833cqw;
+  bottom: 1.094cqw;
+  font-size: 0.885cqw;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-picker-divider {
+  height: 2.188cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-picker-divider span {
+  padding: 0 0.677cqw;
+  background: #0a0d0e;
+  font-size: 0.625cqw;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-part-search {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 6.875cqw;
+  align-items: end;
+  gap: 0.521cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-part-search input {
+  padding: 0 0.938cqw;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-part-search > button,
+#catalog.catalog-autoscale .vehicle-request-tray-footer button {
+  width: 100%;
+  height: 3.021cqw;
+  min-height: 0;
+  border-radius: 0.313cqw;
+  font-size: 0.729cqw;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-request-tray {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  height: 19.167cqw;
+  max-height: 19.167cqw;
+  gap: 0;
+  overflow: hidden;
+  padding: 1.354cqw 1.25cqw 1.25cqw;
+  border-top: 0;
+  border-left: 0.052cqw solid rgba(255, 255, 255, 0.1);
+  background:
+    radial-gradient(ellipse 85% 58% at 95% 100%, rgba(235, 221, 5, 0.09), transparent 76%),
+    #101315;
+  flex-direction: column;
+}
+
+body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) .vehicle-request-tray {
+  height: 32.188cqw;
+  max-height: 32.188cqw;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-head {
+  display: flex;
+  align-items: center;
+  gap: 0.833cqw;
+  padding: 0 0 0.938cqw;
+  border-bottom: 0.052cqw solid rgba(255, 255, 255, 0.1);
+}
+
+#catalog.catalog-autoscale .vehicle-request-tray-head > div {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.625cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-request-tray-head p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.677cqw;
+  white-space: nowrap;
+}
+
+#catalog.catalog-autoscale .vehicle-request-tray-head strong {
+  font-size: 1.146cqw;
+  font-weight: 450;
+  white-space: nowrap;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-request-empty {
+  margin-top: 1.198cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-request-empty p {
+  max-width: none;
+  margin: 0.625cqw 0 0;
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 0.677cqw;
+  line-height: 1.45;
+}
+
+#catalog.catalog-autoscale .vehicle-request-list {
+  gap: 0.417cqw;
+  max-height: 9.375cqw;
+  margin-top: 0.833cqw;
+  overflow-y: auto;
+}
+
+#catalog.catalog-autoscale .vehicle-request-item {
+  gap: 0.625cqw;
+  padding: 0.573cqw 0.625cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-request-item span {
+  margin-bottom: 0.26cqw;
+  font-size: 0.469cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-request-item strong {
+  font-size: 0.625cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-request-item > button {
+  font-size: 1.146cqw;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-footer {
+  min-height: 0;
+  margin-top: auto;
+  padding: 0.938cqw 0 0;
+  border-top: 0.052cqw solid rgba(255, 255, 255, 0.08);
+}
+
+#catalog.catalog-autoscale .vehicle-request-tray-footer p {
+  margin: 0 0 0.625cqw;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.573cqw;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+#catalog.catalog-autoscale .vehicle-request-tray-footer button {
+  white-space: nowrap;
+}
+
+body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer {
+  position: absolute;
+  top: 35.156cqw;
+  left: 6.25%;
+  display: grid;
+  width: 87.5%;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+  gap: 2.083cqw;
+  margin: 0;
+  padding: 0.938cqw 0 0;
+  border-top: 0.052cqw solid rgba(255, 255, 255, 0.1);
+}
+
+body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) .catalog-preview-disclaimer {
+  top: 49.219cqw;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-picker-results {
+  margin-top: 2.188cqw;
+  padding-top: 1.458cqw;
+  border-top: 0.052cqw solid rgba(255, 255, 255, 0.1);
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-picker-results > header {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1.25cqw;
+  margin-bottom: 0.938cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-picker-results > header div {
+  display: flex;
+  align-items: baseline;
+  gap: 0.729cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-picker-results > header span {
+  font-size: 0.625cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-picker-results > header h3 {
+  font-size: 1.25cqw;
+  white-space: nowrap;
+}
+
+#catalog.catalog-autoscale .vehicle-picker-results > header > button {
+  padding: 0.365cqw 0;
+  font-size: 0.677cqw;
+  white-space: nowrap;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.521cqw;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-result-card {
+  display: grid;
+  min-height: 9.271cqw;
+  grid-template-columns: 7.396cqw minmax(0, 1fr);
+  overflow: hidden;
+  border-radius: 0.313cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-result-copy {
+  padding: 0.833cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-result-copy p {
+  margin: 0 0 0.417cqw;
+  font-size: 0.521cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-result-copy h4 {
+  font-size: 0.833cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-result-copy small {
+  margin-top: 0.417cqw;
+  font-size: 0.573cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-result-copy > div {
+  gap: 0.625cqw;
+  padding-top: 0.729cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-result-copy strong {
+  font-size: 0.677cqw;
+}
+
+body.reference-only #catalog.catalog-autoscale .vehicle-result-copy button {
+  height: 1.771cqw;
+  min-height: 0;
+  padding: 0 0.625cqw;
+  border-radius: 0.208cqw;
+  font-size: 0.573cqw;
+}
+
+#catalog.catalog-autoscale .vehicle-results-empty {
+  padding: 1.875cqw 0 0.625cqw;
+  font-size: 0.729cqw;
+}
+
+#catalog.catalog-autoscale .catalog-preview-disclaimer > p {
+  max-width: 37.5cqw;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.625cqw;
+  line-height: 1.45;
+}
+
+#catalog.catalog-autoscale .catalog-preview-disclaimer > div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.563cqw;
+}
+
+#catalog.catalog-autoscale .catalog-preview-disclaimer > div > span {
+  max-width: 27.083cqw;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.677cqw;
+  line-height: 1.45;
+}
+
+body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
+  display: inline-flex;
+  width: auto;
+  min-height: 0;
+  align-items: center;
+  gap: 0.833cqw;
+  padding: 0;
+  background: transparent;
+  color: #fff705;
+  font-size: 0.677cqw;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/*
+ * Catalog device artboards.
+ *
+ * Tilda keeps a separate fixed composition for each screen range. Every
+ * composition still scales as one inside its range, but touch controls and
+ * type start from a useful device-sized master instead of a 1920px canvas.
+ */
+@media (min-width: 600px) and (max-width: 1199px) {
+  body.reference-only #catalog.catalog-autoscale {
+    aspect-ratio: 834 / 820;
+  }
+
+  body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) {
+    aspect-ratio: 834 / 1100;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading {
+    top: 5.2cqw;
+    left: 4cqw;
+    width: 92cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading p {
+    margin-bottom: 1.2cqw;
+    font-size: 1.35cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading h2 {
+    font-size: 5.55cqw;
+    line-height: 0.98;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading > div > span {
+    max-width: 60cqw;
+    margin-top: 1.7cqw;
+    font-size: 1.75cqw;
+    white-space: normal;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading > a {
+    gap: 1.6cqw;
+    margin-bottom: 0.7cqw;
+    font-size: 1.7cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker {
+    top: 27cqw;
+    left: 4cqw;
+    width: 92cqw;
+    height: 54cqw;
+    grid-template-columns: 1fr;
+    grid-template-rows: 37cqw 17cqw;
+    border-radius: 1cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) .vehicle-picker {
+    height: 87cqw;
+    grid-template-rows: 70cqw 17cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-main {
+    padding: 2.8cqw 3cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro {
+    gap: 3cqw;
+    margin-bottom: 2.4cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro > div {
+    gap: 1.5cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro > div > span,
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-head > span {
+    font-size: 1.25cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro h3,
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-empty h3 {
+    font-size: 2.65cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro > p {
+    width: 43cqw;
+    font-size: 1.55cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-fields {
+    gap: 1.2cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-fields label > span,
+  body.reference-only #catalog.catalog-autoscale .vehicle-part-search label > span {
+    margin-bottom: 0.7cqw;
+    font-size: 1.25cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-fields select,
+  body.reference-only #catalog.catalog-autoscale .vehicle-brand-trigger,
+  body.reference-only #catalog.catalog-autoscale .vehicle-part-search input,
+  body.reference-only #catalog.catalog-autoscale .vehicle-part-search > button {
+    height: 6.2cqw;
+    font-size: 1.6cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-divider {
+    height: 4.2cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-divider span {
+    font-size: 1.2cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-part-search {
+    grid-template-columns: minmax(0, 1fr) 14cqw;
+    gap: 1.2cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray,
+  body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) .vehicle-request-tray {
+    display: grid;
+    width: 100%;
+    height: 17cqw;
+    max-height: 17cqw;
+    grid-template-columns: 22cqw minmax(0, 1fr) 29cqw;
+    align-items: center;
+    padding: 2.2cqw 2.5cqw;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 0;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-head {
+    grid-column: 1;
+    grid-row: 1;
+    gap: 1.2cqw;
+    padding: 0;
+    border: 0;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-head > div {
+    display: block;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-head p {
+    margin-bottom: 0.5cqw;
+    font-size: 1.25cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-head strong {
+    font-size: 2.4cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-empty {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    padding: 0 2.5cqw;
+    border-left: 1px solid rgba(255, 255, 255, 0.09);
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-empty p {
+    margin-top: 0.8cqw;
+    font-size: 1.35cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-list {
+    grid-column: 2;
+    grid-row: 1;
+    max-height: 12cqw;
+    margin: 0 2cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-list:empty {
+    display: none;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-footer {
+    grid-column: 3;
+    grid-row: 1;
+    margin: 0;
+    padding: 0 0 0 2.2cqw;
+    border-top: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.09);
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-footer p {
+    margin-bottom: 1cqw;
+    font-size: 1.15cqw;
+    white-space: normal;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-footer button {
+    height: 5.5cqw;
+    font-size: 1.4cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer {
+    top: 84cqw;
+    left: 4cqw;
+    width: 92cqw;
+    gap: 3cqw;
+    padding-top: 2cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) .catalog-preview-disclaimer {
+    top: 118cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer > p,
+  body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer > div > span,
+  body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
+    font-size: 1.25cqw;
+  }
+}
+
+@media (max-width: 599px) {
+  body.reference-only #catalog.catalog-autoscale {
+    aspect-ratio: 390 / 700;
+  }
+
+  body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) {
+    aspect-ratio: 390 / 1320;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading {
+    top: 7cqw;
+    left: 5cqw;
+    display: block;
+    width: 90cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading p {
+    margin-bottom: 2.4cqw;
+    font-size: 2.7cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading h2 {
+    font-size: 6.35cqw;
+    line-height: 1;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading > div > span {
+    margin-top: 2.8cqw;
+    font-size: 3.25cqw;
+    white-space: normal;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .reference-catalog-preview-heading > a {
+    margin-top: 2.8cqw;
+    padding: 0;
+    font-size: 3.25cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker {
+    top: 40cqw;
+    left: 4cqw;
+    width: 92cqw;
+    height: 113cqw;
+    grid-template-columns: 1fr;
+    grid-template-rows: 79cqw 34cqw;
+    border-radius: 2.2cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) .vehicle-picker {
+    height: 264cqw;
+    grid-template-rows: 230cqw 34cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-main {
+    padding: 5cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro {
+    display: block;
+    margin-bottom: 5cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro > div {
+    gap: 3cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro > div > span,
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-head > span {
+    font-size: 2.7cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro h3,
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-empty h3 {
+    font-size: 5cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-intro > p {
+    display: none;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3cqw 2.5cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-fields label > span,
+  body.reference-only #catalog.catalog-autoscale .vehicle-part-search label > span {
+    margin-bottom: 1.4cqw;
+    font-size: 2.7cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-fields select,
+  body.reference-only #catalog.catalog-autoscale .vehicle-brand-trigger,
+  body.reference-only #catalog.catalog-autoscale .vehicle-part-search input,
+  body.reference-only #catalog.catalog-autoscale .vehicle-part-search > button {
+    height: 12cqw;
+    font-size: 3.25cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-divider {
+    height: 8cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-divider span {
+    font-size: 2.5cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-part-search {
+    grid-template-columns: minmax(0, 1fr) 22cqw;
+    gap: 2.5cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray,
+  body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) .vehicle-request-tray {
+    display: grid;
+    width: 100%;
+    height: 34cqw;
+    max-height: 34cqw;
+    grid-template-columns: 1fr 30cqw;
+    grid-template-rows: auto 1fr;
+    padding: 4cqw 5cqw;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 0;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-head {
+    grid-column: 1 / -1;
+    gap: 3cqw;
+    padding: 0 0 3cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-head > div {
+    display: flex;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-head p {
+    font-size: 3cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-head strong {
+    font-size: 4.4cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-empty {
+    margin: 3cqw 0 0;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-empty h3 {
+    font-size: 3.7cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-empty p {
+    display: none;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-list {
+    max-height: 14cqw;
+    margin: 2cqw 2cqw 0 0;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-footer {
+    margin: 3cqw 0 0;
+    padding: 0;
+    border: 0;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-footer p {
+    display: none;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-request-tray-footer button {
+    height: 11cqw;
+    font-size: 3cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer {
+    top: 159cqw;
+    left: 5cqw;
+    display: block;
+    width: 90cqw;
+    padding-top: 4cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale:has(.vehicle-picker-results:not([hidden])) .catalog-preview-disclaimer {
+    top: 310cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer > p {
+    display: none;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer > div {
+    align-items: center;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer > div > span {
+    max-width: 57cqw;
+    font-size: 3cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .catalog-preview-disclaimer a {
+    font-size: 3cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-results {
+    margin-top: 6cqw;
+    padding-top: 5cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-results > header {
+    margin-bottom: 4cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-results > header h3 {
+    font-size: 4.6cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-results > header span,
+  body.reference-only #catalog.catalog-autoscale .vehicle-picker-results > header > button {
+    font-size: 2.7cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-result-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-result-card {
+    min-height: 28cqw;
+    grid-template-columns: 24cqw minmax(0, 1fr);
+    border-radius: 1.5cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-result-copy {
+    padding: 3cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-result-copy p {
+    margin-bottom: 1.2cqw;
+    font-size: 2.3cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-result-copy h4 {
+    font-size: 3.6cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-result-copy small {
+    margin-top: 1.2cqw;
+    font-size: 2.5cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-result-copy strong {
+    font-size: 3cqw;
+  }
+
+  body.reference-only #catalog.catalog-autoscale .vehicle-result-copy button {
+    height: 8cqw;
+    padding-inline: 3cqw;
+    font-size: 2.5cqw;
+  }
 }
