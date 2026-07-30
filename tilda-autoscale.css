@@ -40,8 +40,7 @@ body.reference-only #company.company-autoscale {
 .as-company__kicker,
 .as-company__title,
 .as-company__copy,
-.as-company__case,
-.as-company__stats {
+.as-company__visual {
   position: absolute;
 }
 
@@ -147,23 +146,33 @@ body.reference-only #company.company-autoscale {
   font-size: 1.25em;
 }
 
-.as-company__case {
+.as-company__visual {
   top: 24.5%;
   left: 20%;
   z-index: 1;
-  display: block;
   width: 66cqw;
-  height: auto;
+  aspect-ratio: 1250 / 784;
+}
+
+.as-company__case {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   filter: grayscale(1) contrast(1.03);
   pointer-events: none;
   user-select: none;
 }
 
 .as-company__stats {
-  top: 36.5%;
-  left: 35.5%;
+  position: absolute;
+  top: 16.4%;
+  left: 24%;
   z-index: 4;
-  width: 51cqw;
+  width: 72%;
   text-align: center;
 }
 
