@@ -1,4 +1,9 @@
 (() => {
+  const sitePath = (value) => {
+    const path = String(value || "/");
+    const base = String(window.KITRADE_SITE_CONFIG?.basePath || "").replace(/\/$/, "");
+    return base && path.startsWith("/") && !path.startsWith(`${base}/`) ? `${base}${path}` : path;
+  };
   const catalogHeader = document.querySelector("[data-catalog-header]");
   const catalogMenuToggle = document.querySelector("[data-catalog-menu-toggle]");
   const catalogMobileNav = document.querySelector("[data-catalog-mobile-nav]");
@@ -60,7 +65,7 @@
         .join(" ")
         .toLocaleLowerCase("ru"),
       group: urlMap[String(item.id)]?.public_category || getGroup(item),
-      canonicalPath: urlMap[String(item.id)]?.canonical_path || "/catalog/",
+      canonicalPath: sitePath(urlMap[String(item.id)]?.canonical_path || "/catalog/"),
       image: normalizePhoto(item.photos?.[0]) || catalogFallbackPhoto(item),
       priceNumber: Number(String(item.price || "").replace(/\D/g, "")) || 0,
     }));
@@ -94,9 +99,9 @@
       .filter(Boolean)
       .join(" ")
       .toLocaleLowerCase("ru");
-    if (/фара|фонарь|оптика|автосвет/.test(subject)) return "/assets/01-catalog-led-headlamp.png";
-    if (/крыло/.test(subject)) return "/assets/02-catalog-front-fender.png";
-    if (/реш[её]тка|нижн[^ ]* бампер/.test(subject)) return "/assets/03-catalog-lower-grille.png";
+    if (/фара|фонарь|оптика|автосвет/.test(subject)) return sitePath("/assets/01-catalog-led-headlamp.png");
+    if (/крыло/.test(subject)) return sitePath("/assets/02-catalog-front-fender.png");
+    if (/реш[её]тка|нижн[^ ]* бампер/.test(subject)) return sitePath("/assets/03-catalog-lower-grille.png");
     return "";
   }
 
@@ -130,7 +135,8 @@
     const modelRoute = model ? routeMap.models?.[routeKey(brand, model)] : "";
     const categoryRoute = category ? routeMap.categories?.[routeKey(brand, model, category)] : "";
     const path = categoryRoute || modelRoute || brandRoute || "/catalog/";
-    if (window.location.pathname !== path) history.replaceState(null, "", path);
+    const browserPath = sitePath(path);
+    if (window.location.pathname !== browserPath) history.replaceState(null, "", browserPath);
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.href = new URL(path, window.KITRADE_CATALOG_URLS?.site_url || window.location.origin).href;
   }
@@ -225,10 +231,10 @@
     const selectedBrand = checkedValues("#brandFilters")[0] || routeDefaults.brand;
     const selectedModel = checkedValues("#modelFilters")[0] || routeDefaults.model;
     const hrefFor = (value) => {
-      if (filter.id === "brandFilters") return routeMap.brands?.[routeKey(value)] || "/catalog/";
-      if (filter.id === "modelFilters" && selectedBrand) return routeMap.models?.[routeKey(selectedBrand, value)] || "/catalog/";
-      if (filter.id === "typeFilters" && selectedBrand && selectedModel) return routeMap.categories?.[routeKey(selectedBrand, selectedModel, value)] || "/catalog/";
-      return "/catalog/";
+      if (filter.id === "brandFilters") return sitePath(routeMap.brands?.[routeKey(value)] || "/catalog/");
+      if (filter.id === "modelFilters" && selectedBrand) return sitePath(routeMap.models?.[routeKey(selectedBrand, value)] || "/catalog/");
+      if (filter.id === "typeFilters" && selectedBrand && selectedModel) return sitePath(routeMap.categories?.[routeKey(selectedBrand, selectedModel, value)] || "/catalog/");
+      return sitePath("/catalog/");
     };
     options.innerHTML = values.map((value) => `
       <label data-filter-value="${escapeHtml(value)}"><input type="checkbox" value="${escapeHtml(value)}" /><a href="${escapeHtml(hrefFor(value))}" data-filter-option-link>${escapeHtml(value)}</a><i aria-hidden="true"></i></label>
@@ -523,7 +529,7 @@
       createdAt: Date.now(),
     }));
     window.KITRADE_TRACK?.("request_open", { source: "catalog", product_count: selectedItems.length });
-    window.location.href = "/#request";
+    window.location.href = sitePath("/#request");
   });
 
   renderAllFilterOptions();
