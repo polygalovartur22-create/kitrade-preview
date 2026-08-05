@@ -78,7 +78,7 @@
     }
     dialog.querySelector("[data-quick-category]").textContent = route.public_category || item.category || "Запчасть";
     dialog.querySelector("[data-quick-title]").textContent = item.title || "Автозапчасть";
-    dialog.querySelector("[data-quick-meta]").textContent = [item.brand, item.model, item.article && `арт. ${item.article}`].filter(Boolean).join(" · ");
+    dialog.querySelector("[data-quick-meta]").textContent = [item.brand, item.model, item.catalogCode && `Код KITRADE: ${item.catalogCode}`].filter(Boolean).join(" · ");
     dialog.querySelector("[data-quick-description]").textContent = item.description || "";
     dialog.querySelector("[data-quick-price]").textContent = formatPrice(item.price);
     dialog.querySelector("[data-quick-page]").href = route.canonical_path;

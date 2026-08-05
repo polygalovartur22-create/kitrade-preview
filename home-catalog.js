@@ -139,14 +139,14 @@
       ...item,
       canonicalPath: urlMap[String(item.id)]?.canonical_path || "/catalog/",
       image: normalizePhoto(item.photos?.[0]) || fallbackPhoto(item),
-      search: [item.title, item.brand, item.model, item.article, item.category, item.detail]
+      search: [item.title, item.brand, item.model, item.catalogCode, item.category, item.detail]
         .filter(Boolean)
         .join(" ")
         .toLocaleLowerCase("ru"),
-      searchNormalized: normalizeSearch([item.title, item.brand, item.model, item.article, item.category, item.detail]
+      searchNormalized: normalizeSearch([item.title, item.brand, item.model, item.catalogCode, item.category, item.detail]
         .filter(Boolean)
         .join(" ")),
-      searchCompact: compactSearch([item.title, item.article].filter(Boolean).join(" ")),
+      searchCompact: compactSearch([item.title, item.catalogCode].filter(Boolean).join(" ")),
     }));
 
   const selected = new Map();
@@ -324,7 +324,7 @@
     <article class="vehicle-result-card">
       <a class="vehicle-result-photo" href="${escapeHtml(item.canonicalPath)}" data-product-link data-product-id="${escapeHtml(item.id)}">${imageMarkup(item)}</a>
       <div class="vehicle-result-copy">
-        <p>${escapeHtml([item.brand, item.model].filter(Boolean).join(" · ") || item.category)}</p>
+        <p>${escapeHtml([item.brand, item.model, item.catalogCode].filter(Boolean).join(" · ") || item.category)}</p>
         <h4><a class="vehicle-result-title-link" href="${escapeHtml(item.canonicalPath)}" data-product-link data-product-id="${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></h4>
         <small>${escapeHtml([item.condition, item.origin].filter(Boolean).join(" · ") || "Проверим по VIN")}</small>
         <div>
@@ -446,11 +446,14 @@
     if (!query) return;
     const normalizedQuery = normalizeSearch(query);
     const compactQuery = compactSearch(query);
+    const codeQuery = /^kt\d+$/.test(compactQuery) ? `KT-${compactQuery.slice(2)}` : "";
     const results = items
       .map((item) => {
-        const articleMatch = compactQuery.length >= 3 && item.searchCompact.includes(compactQuery);
-        const score = articleMatch
+        const exactCodeMatch = codeQuery && item.catalogCode === codeQuery;
+        const score = exactCodeMatch
           ? 130
+          : codeQuery
+            ? -1
           : fuzzyScore(normalizedQuery, item.searchNormalized, item.searchNormalized.split(" "));
         return { item, score };
       })
@@ -497,7 +500,7 @@
   requestButton.addEventListener("click", () => {
     const textarea = document.querySelector("#details");
     const vehicle = [brandSelect.value, modelSelect.value, yearSelect.value].filter(Boolean).join(", ");
-    const lines = [...selected.values()].map((item) => `• ${item.title}${item.article ? `, арт. ${item.article}` : ""}`);
+    const lines = [...selected.values()].map((item) => `• ${item.title}${item.catalogCode ? `, код KITRADE ${item.catalogCode}` : ""}`);
     if (textarea) textarea.value = `${vehicle ? `Автомобиль: ${vehicle}\n` : ""}Нужные детали:\n${lines.join("\n")}`;
     document.querySelector("#request")?.scrollIntoView({ behavior: "smooth", block: "start" });
   });

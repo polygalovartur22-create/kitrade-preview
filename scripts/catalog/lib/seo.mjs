@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import { catalogCode, publicCatalogItem } from "./public-copy.mjs";
 
 const clean = (value) => String(value ?? "").trim().replace(/\s+/g, " ");
 const norm = (value) => clean(value).toLocaleLowerCase("ru").replaceAll("ё", "е");
@@ -61,23 +62,21 @@ function shorten(value, max) {
 }
 
 function productSeo(product, item, brand, model, category, rules) {
+  const publicItem = publicCatalogItem(product, item || {});
   const price = numericPrice(item?.price);
-  const article = clean(item?.article);
-  const primaryArticle = shorten(article.split(/[\/,;]/)[0], 28);
-  const condition = clean(item?.condition);
-  const origin = validatedOrigin(item?.origin);
+  const publicCode = catalogCode(product);
+  const condition = clean(publicItem.condition);
+  const origin = validatedOrigin(publicItem.origin);
   const values = {
-    product_name: clean(item?.title || product.name),
-    article_clause: article ? `, арт. ${article}` : "",
+    product_name: publicItem.title,
     condition_clause: condition ? `, состояние: ${condition}` : "",
     origin_clause: origin ? `, происхождение: ${origin}` : "",
     price: price ? new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 }).format(price) : "",
   };
-  let h1 = values.product_name;
-  if (primaryArticle && !norm(h1).includes(norm(primaryArticle))) h1 += ` — арт. ${primaryArticle}`;
+  const h1 = values.product_name;
   const title = `${shorten(h1, 39)} | Купить под заказ — Китрейд`;
   const suffixParts = [
-    primaryArticle ? `Арт. ${primaryArticle}` : "",
+    `Код KITRADE: ${publicCode}`,
     condition ? `Состояние: ${condition}` : "",
     origin ? `Происхождение: ${origin}` : "",
     price ? `Цена детали ${values.price} ₽` : "",
@@ -86,7 +85,7 @@ function productSeo(product, item, brand, model, category, rules) {
   while (suffixParts.join(". ").length > 92 && suffixParts.length > 2) suffixParts.splice(suffixParts.length - 3, 1);
   const suffix = `${suffixParts.join(". ")}.`;
   const description = `${shorten(values.product_name, Math.max(36, 156 - suffix.length))}. ${suffix}`;
-  return { h1, title, description, price, article, condition, origin, itemCondition: itemCondition(condition) };
+  return { h1, title, description, price, catalogCode: publicCode, productName: publicItem.title, condition, origin, itemCondition: itemCondition(condition) };
 }
 
 function routeSeo(type, values, rules) {
@@ -109,8 +108,7 @@ function dedupeText(rows, field) {
     if (group.length < 2) continue;
     group.forEach((row, index) => {
       if (index === 0) return;
-      const primaryArticle = shorten(String(row.article_oem || "").split(/[\/,;]/)[0], 22);
-      const suffix = primaryArticle ? ` — арт. ${primaryArticle}` : ` — ${row.entity_id}`;
+      const suffix = ` — ${clean(row.catalog_code) || `KT-${row.entity_id}`}`;
       if (field === "description") {
         const marker = suffix.replace(/^ — /, "");
         row[field] = `${truncate(row[field], Math.max(80, 156 - marker.length)).replace(/\.$/, "")} ${marker}.`;
@@ -196,6 +194,7 @@ export function buildSeoState({ registry, items, indexes, config, rules }) {
     category: row.category || "",
     product_name: row.product_name || "",
     product_id: row.product_id || "",
+    catalog_code: row.catalog_code || "",
     article_oem: row.article_oem || "",
     condition: row.condition || "",
     primary_query: row.primary_query || row.h1,
@@ -279,11 +278,11 @@ export function buildSeoState({ registry, items, indexes, config, rules }) {
     const category = indexes.categories.get(product.category_id);
     const seo = productSeo(product, item, brand, model, category, rules);
     add({ page_type: "product", entity_id: product.product_id, canonical_path: product.canonical_path,
-      brand: brand?.name, model: model?.name, category: category?.name, product_name: item?.title || product.name,
-      product_id: product.product_id, article_oem: seo.article, condition: seo.condition, indexable: true,
+      brand: brand?.name, model: model?.name, category: category?.name, product_name: seo.productName,
+      product_id: product.product_id, catalog_code: seo.catalogCode, article_oem: "", condition: seo.condition, indexable: true,
       title: seo.title, description: seo.description, h1: seo.h1,
-      primary_query: item?.title || product.name,
-      secondary_queries: [seo.article && `${item?.title || product.name} ${seo.article}`, `${item?.title || product.name} цена`].filter(Boolean),
+      primary_query: seo.productName,
+      secondary_queries: [`${seo.productName} ${seo.catalogCode}`, `${seo.productName} цена`],
       intro_text: "", faq: [],
     });
   }
@@ -345,9 +344,8 @@ export function productStructuredData({ product, item, brand, model, category, s
   if (condition) offer.itemCondition = condition;
   const schema = {
     "@context": "https://schema.org", "@type": "Product", name: seo?.h1 || item?.title || product.name,
-    sku: String(product.product_id), url: offer.url, offers: offer,
+    sku: catalogCode(product), url: offer.url, offers: offer,
   };
-  if (clean(item?.article)) schema.mpn = clean(item.article);
   if (brand?.name) schema.brand = { "@type": "Brand", name: brand.name };
   if (category?.name) schema.category = category.name;
   if (model?.name) schema.model = model.name;

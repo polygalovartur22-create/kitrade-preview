@@ -55,7 +55,7 @@
       ...item,
       brand: item.brand || "Без марки",
       model: item.model || "Модель не указана",
-      search: [item.title, item.brand, item.model, item.article, item.category, item.subcategory, item.detail]
+      search: [item.title, item.brand, item.model, item.catalogCode, item.category, item.subcategory, item.detail]
         .filter(Boolean)
         .join(" ")
         .toLocaleLowerCase("ru"),
@@ -277,6 +277,8 @@
     const models = checkedValues("#modelFilters");
     const types = checkedValues("#typeFilters");
     const condition = selectedCondition().toLocaleLowerCase("ru");
+    const compactQuery = state.query.replace(/[\s-]+/g, "").toLocaleUpperCase("ru");
+    const codeQuery = /^KT\d+$/.test(compactQuery) ? `KT-${compactQuery.slice(2)}` : "";
 
     const filtered = items
       .filter((item) => {
@@ -285,10 +287,11 @@
         if (types.length && !types.includes(item.group)) return false;
         if (state.tab && item.group !== state.tab) return false;
         if (condition && !String(item.condition || "").toLocaleLowerCase("ru").startsWith(condition.slice(0, 5))) return false;
-        if (state.query && fuzzyScore(state.query, item.search) < 0) return false;
+        if (codeQuery && item.catalogCode !== codeQuery) return false;
+        if (state.query && !codeQuery && fuzzyScore(state.query, item.search) < 0) return false;
         return true;
       });
-    if (state.query) filtered.sort((left, right) => fuzzyScore(state.query, right.search) - fuzzyScore(state.query, left.search));
+    if (state.query && !codeQuery) filtered.sort((left, right) => fuzzyScore(state.query, right.search) - fuzzyScore(state.query, left.search));
     return filtered;
   }
 
@@ -306,10 +309,8 @@
     return `от ${new Intl.NumberFormat("ru-RU").format(item.priceNumber)} ₽`;
   }
 
-  function deliveryLabel(item) {
-    const match = String(item.description || "").match(/(\d+)[–-](\d+)\s*(дн|нед)/i);
-    if (!match) return "срок уточняется";
-    return `${match[1]}–${match[2]} ${match[3].toLowerCase().startsWith("нед") ? "недель" : "дней"}`;
+  function deliveryLabel() {
+    return "срок уточнит менеджер";
   }
 
   function cardMarkup(item) {
@@ -321,9 +322,9 @@
       <article class="part-card" data-id="${escapeHtml(item.id)}">
         <a class="part-photo" href="${escapeHtml(item.canonicalPath)}" data-product-link data-product-id="${escapeHtml(item.id)}">${image}</a>
         <div class="part-content">
-          <span class="part-category">${escapeHtml(item.group)}</span>
+          <span class="part-category">${escapeHtml([item.group, item.catalogCode].filter(Boolean).join(" · "))}</span>
           <h3><a class="part-title-link" href="${escapeHtml(item.canonicalPath)}" data-product-link data-product-id="${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></h3>
-          <p class="part-description">${escapeHtml(item.description || [item.brand, item.model, item.article].filter(Boolean).join(" · "))}</p>
+          <p class="part-description">${escapeHtml(item.description || [item.brand, item.model].filter(Boolean).join(" · "))}</p>
           <div class="part-meta">
             <strong class="part-price">${formatPrice(item)}</strong>
             <span class="part-time">${deliveryLabel(item)}</span>
@@ -512,10 +513,9 @@
       .map((id) => items.find((item) => String(item.id) === String(id)))
       .filter(Boolean);
     const comment = document.querySelector("#requestComment")?.value.trim();
-    const lines = selectedItems.map((item, index) => {
-      const article = item.article ? `, арт. ${item.article}` : "";
-      return `${index + 1}. ${item.title}${article}`;
-    });
+    const lines = selectedItems.map((item, index) => (
+      `${index + 1}. ${item.title}${item.catalogCode ? `, код KITRADE ${item.catalogCode}` : ""}`
+    ));
     if (comment) lines.push("", `Комментарий: ${comment}`);
 
     sessionStorage.setItem("kitradeCatalogDraft", JSON.stringify({
