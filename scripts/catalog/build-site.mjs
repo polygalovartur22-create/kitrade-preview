@@ -303,6 +303,15 @@ for (const filename of ["_headers"]) {
   const source = path.join(projectDir, filename);
   if (fs.existsSync(source)) fs.copyFileSync(source, path.join(outputDir, filename));
 }
+const headersOutputPath = path.join(outputDir, "_headers");
+if (isPreviewBuild && fs.existsSync(headersOutputPath)) {
+  const headers = fs.readFileSync(headersOutputPath, "utf8");
+  const previewHeaders = headers.replace(
+    /^\/\*\r?\n/,
+    "/*\n  X-Robots-Tag: noindex, nofollow, noarchive\n",
+  );
+  fs.writeFileSync(headersOutputPath, previewHeaders);
+}
 fs.copyFileSync(path.join(projectDir, "public", "catalog-urls.json"), path.join(outputDir, "catalog-urls.json"));
 for (const filename of ["seo-map.json", "seo-map.csv"]) {
   const source = path.join(projectDir, "public", filename);

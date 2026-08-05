@@ -65,14 +65,17 @@ for (const row of exportRows) {
 }
 const robots = fs.readFileSync(path.join(outputDir, "robots.txt"), "utf8");
 const runtimeConfig = fs.readFileSync(path.join(outputDir, "site-runtime-config.js"), "utf8");
+const headers = fs.readFileSync(path.join(outputDir, "_headers"), "utf8");
 if (isPreviewBuild) {
   assert.equal(robots, "User-agent: *\nDisallow: /\n", "Preview robots.txt must block all crawling");
   assert.ok(runtimeConfig.includes('"deploymentMode":"preview"'), "Preview runtime marker is missing");
   assert.ok(runtimeConfig.includes('"enabled":false'), "Analytics is enabled in preview runtime config");
+  assert.ok(headers.includes("X-Robots-Tag: noindex, nofollow, noarchive"), "Preview X-Robots-Tag header is missing");
 } else {
   assert.ok(robots.includes(`Sitemap: ${config.siteUrl}/sitemap.xml`));
   assert.ok(robots.includes("Allow: /"), "Production robots.txt must allow crawling");
   assert.ok(runtimeConfig.includes('"deploymentMode":"production"'), "Production runtime marker is missing");
+  assert.ok(!headers.includes("X-Robots-Tag"), "Production headers must not block indexing");
 }
 assert.ok(seoMap.length > 0 && seoMap.every((row) => row.indexable), "Promoted SEO map contains excluded rows");
 assert.ok(seoMap.filter((row) => row.page_type === "product").every((row) => typeof row.article_oem === "string"), "Product SEO map has an invalid article field");
@@ -97,5 +100,12 @@ for (const field of ["title", "description", "h1", "canonical_url"]) {
 const redirects = fs.readFileSync(path.join(outputDir, "_redirects"), "utf8");
 assert.ok(redirects.includes("/catalog.html /catalog/ 301!"));
 assert.ok(redirects.includes("/* /404.html 404"));
+for (const product of registry.entities.products) {
+  for (const legacyPath of product.legacy_paths || []) {
+    if (legacyPath !== product.canonical_path) {
+      assert.ok(redirects.includes(`${legacyPath} ${product.canonical_path} 301!`), `Missing static redirect: ${legacyPath}`);
+    }
+  }
+}
 
 console.log(`Verified ${registry.entities.products.length} permanent product pages and ${exportRows.length} exported URL records.`);
