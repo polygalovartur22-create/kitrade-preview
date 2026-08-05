@@ -8,8 +8,9 @@
   button.addEventListener("click", () => {
     window.KITRADE_TRACK?.("add_to_request", { product_id: product.id, page_type: "product" });
     window.KITRADE_TRACK?.("request_open", { source: "product_page" });
+    const article = product.article ? `, арт. ${product.article}` : "";
     sessionStorage.setItem("kitradeCatalogDraft", JSON.stringify({
-      details: `Позиция из каталога:\n1. ${product.title}${product.catalogCode ? `, код KITRADE ${product.catalogCode}` : ""}`,
+      details: `Позиция из каталога:\n1. ${product.title}${article}`,
       createdAt: Date.now(),
     }));
     window.location.href = "/#request";

@@ -43,7 +43,7 @@
     },
     "product": {
       "title": "{product_name} | Купить под заказ — Китрейд",
-      "description": "{product_name}{condition_clause}{origin_clause}. Цена детали {price} ₽. Проверка совместимости по VIN."
+      "description": "{product_name}{article_clause}{condition_clause}{origin_clause}. Цена детали {price} ₽. Проверка совместимости по VIN."
     }
   },
   "publicCategories": [

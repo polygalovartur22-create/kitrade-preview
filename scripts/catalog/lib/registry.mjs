@@ -1,6 +1,5 @@
 import crypto from "node:crypto";
 import { getPublicCategory, productNeedsReview } from "./domain.mjs";
-import { publicProductTitle } from "./public-copy.mjs";
 import { normalizedSourceName, stableSlug } from "./slug.mjs";
 
 export function createEmptyRegistry() {
@@ -66,7 +65,6 @@ function ensureNamedEntity(registry, type, plural, name, parentId = null) {
 function ensureProduct(registry, item, relations) {
   const sourceId = String(item.id || "").trim();
   if (!sourceId) throw new Error(`Product has no source ID: ${item.title || "unknown"}`);
-  const publicName = publicProductTitle(null, item);
   const previousIds = [item.previous_id, ...(Array.isArray(item.previous_ids) ? item.previous_ids : [])]
     .map((value) => String(value || "").trim())
     .filter(Boolean);
@@ -82,7 +80,7 @@ function ensureProduct(registry, item, relations) {
 
   if (!entry) {
     const productId = claimId(registry, "product");
-    const slug = stableSlug(publicName, productId, existingSlugs(registry.entities.products), {
+    const slug = stableSlug(item.title, productId, existingSlugs(registry.entities.products), {
       alwaysAppendId: true,
     });
     entry = {
@@ -90,7 +88,7 @@ function ensureProduct(registry, item, relations) {
       source_id: sourceId,
       source_aliases: [],
       source_fingerprint: fingerprint(item),
-      name: publicName,
+      name: item.title,
       slug,
       canonical_path: `/catalog/product/${slug}/`,
       brand_id: relations.brand?.id || null,
@@ -109,7 +107,7 @@ function ensureProduct(registry, item, relations) {
     aliases.delete(sourceId);
     entry.source_id = sourceId;
     entry.source_aliases = [...aliases];
-    entry.name = publicName;
+    entry.name = item.title;
     entry.source_fingerprint = fingerprint(item);
     entry.brand_id = relations.brand?.id || null;
     entry.model_id = relations.model?.id || null;

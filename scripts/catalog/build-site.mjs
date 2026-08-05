@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { readCatalogData, normalizePhoto } from "./lib/data.mjs";
 import { getPublicCategory, isVisibleCatalogItem } from "./lib/domain.mjs";
-import { catalogCode, publicCatalogItem } from "./lib/public-copy.mjs";
+import { publicCatalogItem } from "./lib/public-copy.mjs";
 import { registryIndexes, validateRegistry } from "./lib/registry.mjs";
 import { breadcrumbStructuredData, buildSeoState, organizationStructuredData, productStructuredData } from "./lib/seo.mjs";
 
@@ -116,7 +116,7 @@ function productCard(product, item) {
       <article class="part-card" data-id="${escapeHtml(publicItem.id)}">
         <a class="part-photo" href="${escapeHtml(product.canonical_path)}" data-product-link data-product-id="${escapeHtml(publicItem.id)}">${image}</a>
         <div class="part-content">
-          <span class="part-category">${escapeHtml(`${publicCategory} · ${publicItem.catalogCode}`)}</span>
+          <span class="part-category">${escapeHtml(publicCategory)}</span>
           <h3><a class="part-title-link" href="${escapeHtml(product.canonical_path)}" data-product-link data-product-id="${escapeHtml(publicItem.id)}">${escapeHtml(title)}</a></h3>
           <p class="part-description">${escapeHtml(publicItem.description)}</p>
           <div class="part-meta">
@@ -271,7 +271,6 @@ for (const product of registry.entities.products) {
   const publicId = String(product.product_id);
   publicBrowserProducts[publicId] = {
     product_id: product.product_id,
-    catalog_code: catalogCode(product),
     canonical_path: product.canonical_path,
     public_category: category?.name || product.public_category || null,
     brand_slug: brand?.slug || null,
@@ -375,7 +374,7 @@ function productPage(product, item) {
   const realPhoto = normalizePhoto(publicItem.photos?.[0]);
   const photo = realPhoto || fallbackPhoto(publicItem);
   const description = publicItem.description;
-  const meta = [publicItem.brand || brand?.name, publicItem.model || model?.name, `Код KITRADE: ${publicItem.catalogCode}`].filter(Boolean).join(" · ");
+  const meta = [publicItem.brand || brand?.name, publicItem.model || model?.name, publicItem.article && `арт. ${publicItem.article}`].filter(Boolean).join(" · ");
   const crumbs = [
     ['/', 'Главная'], ['/catalog/', 'Каталог'],
     brand ? [brandPath(brand), brand.name] : null,
@@ -387,7 +386,7 @@ function productPage(product, item) {
   const state = seoState.productState.get(product.product_id);
   const seo = seoState.seoByPath.get(product.canonical_path);
   const robots = state?.indexable ? "" : '<meta name="robots" content="noindex,follow" />';
-  const productData = { id: publicItem.id, title, catalogCode: publicItem.catalogCode };
+  const productData = { id: publicItem.id, title, article: publicItem.article || "" };
   const breadcrumbSchema = breadcrumbStructuredData([
     { name: "Главная", path: "/" }, { name: "Каталог", path: "/catalog/" },
     brand ? { name: brand.name, path: brandPath(brand) } : null,

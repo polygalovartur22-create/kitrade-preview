@@ -3,7 +3,6 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { readCatalogData } from "./lib/data.mjs";
-import { sensitiveArticle } from "./lib/public-copy.mjs";
 
 const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const outputDir = path.join(projectDir, "dist");
@@ -29,8 +28,11 @@ for (const product of registry.entities.products) {
     assert.ok(!html.includes('content="noindex,follow"'), `Indexable product is noindex: ${product.canonical_path}`);
     assert.ok(html.includes('"@type":"Product"'), `Missing Product schema for ${product.canonical_path}`);
     assert.ok(html.includes('"availability":"https://schema.org/PreOrder"'), `Wrong availability for ${product.canonical_path}`);
-    assert.ok(html.includes(`KT-${product.product_id}`), `Public KITRADE code is missing: ${product.canonical_path}`);
-    assert.ok(!html.includes('"mpn"'), `Private manufacturer number leaked into schema: ${product.canonical_path}`);
+    const article = String(product.source_snapshot?.article || "").trim();
+    if (article) {
+      assert.ok(html.includes(article), `Product article is missing: ${product.canonical_path}`);
+      assert.ok(html.includes('"mpn"'), `Product article is missing from schema: ${product.canonical_path}`);
+    }
   } else {
     assert.ok(html.includes('content="noindex,follow"'), `Excluded product is not noindex: ${product.canonical_path}`);
     assert.ok(!html.includes('"@type":"Product"'), `Excluded product leaked into Product schema: ${product.canonical_path}`);
@@ -41,16 +43,10 @@ assert.equal(publicItems.length, registry.entities.products.length, "Public cata
 const publicItemById = new Map(publicItems.map((item) => [String(item.id), item]));
 for (const product of registry.entities.products) {
   const item = publicItemById.get(String(product.product_id));
-  assert.ok(item, `Public catalog is missing KT-${product.product_id}`);
-  assert.equal(item.catalogCode, `KT-${product.product_id}`, `Wrong public code for ${product.product_id}`);
-  assert.ok(!Object.hasOwn(item, "article"), `Private article field leaked for ${product.product_id}`);
+  assert.ok(item, `Public catalog is missing product ${product.product_id}`);
+  assert.equal(item.article || "", String(product.source_snapshot?.article || "").trim(), `Wrong public article for ${product.product_id}`);
   assert.ok(!Object.hasOwn(item, "sourceSheet"), `Private source sheet leaked for ${product.product_id}`);
   assert.ok(!String(item.description).match(/большой ассортимент запчастей|оплата наличными|звоните будем рады/i), `Avito boilerplate leaked for ${product.product_id}`);
-  const privateArticle = sensitiveArticle(product.source_snapshot || {});
-  if (privateArticle) {
-    const publicCopy = [item.title, item.detail, item.description].join(" ").toLocaleLowerCase("ru");
-    assert.ok(!publicCopy.includes(privateArticle.toLocaleLowerCase("ru")), `Private article leaked into public copy for ${product.product_id}`);
-  }
 }
 
 const catalogHtml = fs.readFileSync(path.join(outputDir, "catalog", "index.html"), "utf8");
@@ -79,7 +75,7 @@ if (isPreviewBuild) {
   assert.ok(runtimeConfig.includes('"deploymentMode":"production"'), "Production runtime marker is missing");
 }
 assert.ok(seoMap.length > 0 && seoMap.every((row) => row.indexable), "Promoted SEO map contains excluded rows");
-assert.ok(seoMap.filter((row) => row.page_type === "product").every((row) => row.catalog_code === `KT-${row.product_id}` && row.article_oem === ""), "Product SEO map exposes a private article or wrong public code");
+assert.ok(seoMap.filter((row) => row.page_type === "product").every((row) => typeof row.article_oem === "string"), "Product SEO map has an invalid article field");
 for (const requiredField of ["page_type", "entity_id", "canonical_url", "title", "description", "h1", "robots", "validation_errors"]) {
   assert.ok(seoMap.every((row) => Object.hasOwn(row, requiredField)), `SEO map is missing ${requiredField}`);
 }

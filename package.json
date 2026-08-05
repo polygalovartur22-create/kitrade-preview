@@ -4,7 +4,6 @@
   "type": "module",
   "scripts": {
     "catalog:sync": "node ./scripts/catalog/sync-catalog.mjs",
-    "catalog:protect-public-urls": "node ./scripts/catalog/migrate-public-product-slugs.mjs",
     "build": "npm run catalog:sync && node ./scripts/catalog/build-site.mjs",
     "test": "node --test ./tests/*.test.mjs",
     "verify": "npm test && npm run build && node ./scripts/catalog/verify-build.mjs"
