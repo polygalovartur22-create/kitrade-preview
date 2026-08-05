@@ -2,7 +2,6 @@ services:
   - type: web
     name: kitrade-preview
     runtime: static
-    plan: free
     repo: https://github.com/polygalovartur22-create/kitrade-preview
     branch: main
     autoDeployTrigger: commit
