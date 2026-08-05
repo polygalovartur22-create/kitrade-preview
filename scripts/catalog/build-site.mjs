@@ -17,7 +17,15 @@ if (!fs.existsSync(registryPath)) {
 }
 
 const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
-const isPreviewBuild = process.env.KITRADE_BUILD_MODE === "preview";
+const deploymentMode = process.env.KITRADE_BUILD_MODE === "github-pages"
+  ? "github-pages"
+  : process.env.KITRADE_BUILD_MODE === "preview"
+    ? "preview"
+    : "production";
+const isNonProductionBuild = deploymentMode !== "production";
+const publicBasePath = deploymentMode === "github-pages"
+  ? String(process.env.GITHUB_PAGES_BASE_PATH || "/kitrade-preview").replace(/\/$/, "")
+  : "";
 const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
 const items = readCatalogData(path.join(projectDir, "kitrade-parts-data.js"));
 const publicUrlRows = JSON.parse(fs.readFileSync(path.join(projectDir, "public", "catalog-urls.json"), "utf8"));
@@ -308,15 +316,16 @@ for (const filename of ["seo-map.json", "seo-map.csv"]) {
   const source = path.join(projectDir, "public", filename);
   if (fs.existsSync(source)) fs.copyFileSync(source, path.join(outputDir, filename));
 }
-const runtimeAnalytics = { ...config.analytics, enabled: isPreviewBuild ? false : Boolean(config.analytics?.enabled) };
+const runtimeAnalytics = { ...config.analytics, enabled: isNonProductionBuild ? false : Boolean(config.analytics?.enabled) };
 fs.writeFileSync(path.join(outputDir, "site-runtime-config.js"), `window.KITRADE_SITE_CONFIG = ${safeJson({
-  deploymentMode: isPreviewBuild ? "preview" : "production",
+  deploymentMode,
+  basePath: publicBasePath,
   analytics: runtimeAnalytics,
 })};\n`);
 const sitemapUrls = [canonicalUrl("/"), canonicalUrl("/catalog/"), ...publicUrlRows.filter((row) => row.indexable).map((row) => row.canonical_url)];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...new Set(sitemapUrls)].map((url) => `  <url><loc>${escapeHtml(url)}</loc></url>`).join("\n")}\n</urlset>\n`;
 fs.writeFileSync(path.join(outputDir, "sitemap.xml"), sitemap);
-fs.writeFileSync(path.join(outputDir, "robots.txt"), isPreviewBuild
+fs.writeFileSync(path.join(outputDir, "robots.txt"), isNonProductionBuild
   ? "User-agent: *\nDisallow: /\n"
   : [
       "User-agent: *",
