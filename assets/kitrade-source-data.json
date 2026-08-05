@@ -1,0 +1,227 @@
+{
+  "videos": [
+    {
+      "id": 1,
+      "title": "Видео 1",
+      "src": "./assets/external-media/cloudinary-9651cfd651ffff9d.mp4",
+      "poster": "./assets/external-media/cloudinary-7ec0769440491d35.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Видео 2",
+      "src": "./assets/external-media/cloudinary-32512d0460dd4481.mp4",
+      "poster": "./assets/external-media/cloudinary-de9acae448ad18f6.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Видео 3",
+      "src": "./assets/external-media/cloudinary-4e3882ef5393845c.mp4",
+      "poster": "./assets/external-media/cloudinary-ee419c59102a8c4f.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Видео 4",
+      "src": "./assets/external-media/cloudinary-9f0d61f31999d4e8.mp4",
+      "poster": "./assets/external-media/cloudinary-dc0a87ee12deb629.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Видео 5",
+      "src": "./assets/external-media/cloudinary-971200a111c43393.mp4",
+      "poster": "./assets/external-media/cloudinary-dd5b07f06fc32884.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Видео 6",
+      "src": "./assets/external-media/cloudinary-1fc1009d8b482f03.mp4",
+      "poster": "./assets/external-media/cloudinary-d0a5b83657639dc8.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Видео 7",
+      "src": "./assets/external-media/cloudinary-84570822799e0459.mp4",
+      "poster": "./assets/external-media/cloudinary-8afb66ba4cf261a5.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Видео 8",
+      "src": "./assets/external-media/cloudinary-0464f01f4ecf4ce0.mp4",
+      "poster": "./assets/external-media/cloudinary-a3d64985bc8017f1.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Видео 9",
+      "src": "./assets/external-media/cloudinary-56a90e4af9c39682.mp4",
+      "poster": "./assets/external-media/cloudinary-52cf83957187cc29.jpg"
+    },
+    {
+      "id": 10,
+      "title": "Видео 10",
+      "src": "./assets/external-media/cloudinary-4d759e6649acd276.mp4",
+      "poster": "./assets/external-media/cloudinary-26745fd3e8144ab1.jpg"
+    },
+    {
+      "id": 11,
+      "title": "Видео 11",
+      "src": "./assets/external-media/cloudinary-72b5e6c56eff52ba.mp4",
+      "poster": "./assets/external-media/cloudinary-69ccab0446d29075.jpg"
+    },
+    {
+      "id": 12,
+      "title": "Видео 12",
+      "src": "./assets/external-media/cloudinary-56c6e63ee39c4508.mp4",
+      "poster": "./assets/external-media/cloudinary-de92255c7fc0b5a5.jpg"
+    },
+    {
+      "id": 13,
+      "title": "Видео 13",
+      "src": "./assets/external-media/cloudinary-a3ea18ce38d7571d.mp4",
+      "poster": "./assets/external-media/cloudinary-4728177a5bab026d.jpg"
+    },
+    {
+      "id": 14,
+      "title": "Видео 14",
+      "src": "./assets/external-media/cloudinary-231bbb7f7836558c.mp4",
+      "poster": "./assets/external-media/cloudinary-cc37172dfac6e76e.jpg"
+    },
+    {
+      "id": 15,
+      "title": "Видео 15",
+      "src": "./assets/external-media/cloudinary-b723d83af60e7ff3.mp4",
+      "poster": "./assets/external-media/cloudinary-c304e61b7b3a65ba.jpg"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "title": "Toyota RAV4",
+      "location": "Октябрьский, Башкортостан",
+      "sourceText": "Заказ Toyota Rav 4 - г. Октябрьский(Башкортостан)",
+      "cover": "./assets/external-media/cloudinary-4c44600d5fa6ed05.jpg",
+      "images": [
+        "./assets/external-media/cloudinary-d335dff63ee068b1.jpg",
+        "./assets/external-media/cloudinary-fadce6df561c9f46.jpg",
+        "./assets/external-media/cloudinary-d1218b932ce6f16f.jpg",
+        "./assets/external-media/cloudinary-3cc2d32ae9fde72b.jpg",
+        "./assets/external-media/cloudinary-89cfc854edaf18e5.jpg",
+        "./assets/external-media/cloudinary-8dc15c7c9c640f12.jpg",
+        "./assets/external-media/cloudinary-e9df9493a246d712.jpg",
+        "./assets/external-media/cloudinary-66d2a259173e07ee.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Geely Monjaro",
+      "location": "Новосибирск",
+      "sourceText": "Заказ в Новосибирск- Geely Monjaro",
+      "cover": "./assets/external-media/cloudinary-e1b7642ba9bd738f.jpg",
+      "images": [
+        "./assets/external-media/cloudinary-59158c0fef242374.jpg",
+        "./assets/external-media/cloudinary-e5f5feac42b68bba.jpg",
+        "./assets/external-media/cloudinary-42943440e9651da8.jpg",
+        "./assets/external-media/cloudinary-9b5b11178df5e843.jpg",
+        "./assets/external-media/cloudinary-bc62b4f3847571fd.jpg",
+        "./assets/external-media/cloudinary-8be00796b1a6a483.jpg",
+        "./assets/external-media/cloudinary-60f1052627bf898b.jpg",
+        "./assets/external-media/cloudinary-ebc9f9ea7257b89e.jpg",
+        "./assets/external-media/cloudinary-e7a1953b5769c85b.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Toyota Highlander, 2025",
+      "location": "Санкт-Петербург",
+      "sourceText": "Заказ в Санкт-Петербург:\n- Toyota Hilander 2025г.в.",
+      "cover": "./assets/external-media/cloudinary-007bad8cba0938d7.jpg",
+      "images": [
+        "./assets/external-media/cloudinary-6778b3c75708bc07.jpg",
+        "./assets/external-media/cloudinary-1a652b9c45018457.jpg",
+        "./assets/external-media/cloudinary-34d9f66e8fcfdfe4.jpg",
+        "./assets/external-media/cloudinary-44796b52ee0ac22f.jpg",
+        "./assets/external-media/cloudinary-5d7ff39f86af4219.jpg",
+        "./assets/external-media/cloudinary-40ee42090181b6d5.jpg",
+        "./assets/external-media/cloudinary-8edc0364dccff700.jpg",
+        "./assets/external-media/cloudinary-791a6b80596506d8.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Zeekr 001",
+      "location": "Иркутск",
+      "sourceText": "Заказ в Иркутск - Zeekr 001",
+      "cover": "./assets/external-media/cloudinary-682f26d380ea2367.jpg",
+      "images": [
+        "./assets/external-media/cloudinary-d4a04fff7cd86973.jpg",
+        "./assets/external-media/cloudinary-10424440aef05983.jpg",
+        "./assets/external-media/cloudinary-33d74299a71a61bb.jpg",
+        "./assets/external-media/cloudinary-6546c1f37799cb11.jpg",
+        "./assets/external-media/cloudinary-fde824d5ad0c01b5.jpg",
+        "./assets/external-media/cloudinary-06a03aad5543e7f5.jpg",
+        "./assets/external-media/cloudinary-af558a824a98bf49.jpg",
+        "./assets/external-media/cloudinary-d7c07f95b0ed0079.jpg",
+        "./assets/external-media/cloudinary-5fd4f8be82b96a88.jpg",
+        "./assets/external-media/cloudinary-4bdff5e56831da0b.jpg",
+        "./assets/external-media/cloudinary-6c75046e53180469.jpg",
+        "./assets/external-media/cloudinary-541d4e175824acb6.jpg",
+        "./assets/external-media/cloudinary-97edccb8edcb86e5.jpg",
+        "./assets/external-media/cloudinary-8fe928bf903384b1.jpg",
+        "./assets/external-media/cloudinary-40693d9d9172bb5e.jpg",
+        "./assets/external-media/cloudinary-7066367a1cce943c.jpg",
+        "./assets/external-media/cloudinary-ca177239bfa88d5a.jpg",
+        "./assets/external-media/cloudinary-c039833f624e098e.jpg",
+        "./assets/external-media/cloudinary-c40c1010b71f3411.jpg",
+        "./assets/external-media/cloudinary-3a04b7273a4c0ec6.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Geely Monjaro",
+      "location": "Санкт-Петербург",
+      "sourceText": "2Geely Monjaro - Санкт-Петербург",
+      "cover": "./assets/external-media/cloudinary-88d7c3ae9dd3d542.jpg",
+      "images": [
+        "./assets/external-media/cloudinary-88d7c3ae9dd3d542.jpg",
+        "./assets/external-media/cloudinary-115c2ffdae5ed855.jpg",
+        "./assets/external-media/cloudinary-8b920abf338242d1.jpg",
+        "./assets/external-media/cloudinary-3bff5b398dc287ff.jpg",
+        "./assets/external-media/cloudinary-b31a1ed039e9d718.jpg",
+        "./assets/external-media/cloudinary-71198574a1655d02.jpg",
+        "./assets/external-media/cloudinary-8dedae77a94c5043.jpg",
+        "./assets/external-media/cloudinary-3a5d8a3d0de8b13c.jpg",
+        "./assets/external-media/cloudinary-5f08011d8fc04142.jpg",
+        "./assets/external-media/cloudinary-03b989c8fbffe775.jpg",
+        "./assets/external-media/cloudinary-c296778a69e154bb.jpg",
+        "./assets/external-media/cloudinary-74310186555bd891.jpg",
+        "./assets/external-media/cloudinary-12f3a9ebee0a4133.jpg",
+        "./assets/external-media/cloudinary-199e6b2ed24d7e6c.jpg",
+        "./assets/external-media/cloudinary-c60ab6da3d85de55.jpg",
+        "./assets/external-media/cloudinary-1ea868bead9fb986.jpg",
+        "./assets/external-media/cloudinary-6e2609f75ec42e8d.jpg",
+        "./assets/external-media/cloudinary-fab6af7cf0c86508.jpg",
+        "./assets/external-media/cloudinary-544313a29087b39a.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Great Wall Poer",
+      "location": "Иркутск",
+      "sourceText": "Заказ в Иркутск Great Wall Poer",
+      "cover": "./assets/external-media/cloudinary-f82851bc03e54035.jpg",
+      "images": [
+        "./assets/external-media/cloudinary-f82851bc03e54035.jpg",
+        "./assets/external-media/cloudinary-9d04ff2b194acf5f.jpg",
+        "./assets/external-media/cloudinary-1daa7344a30389fd.jpg",
+        "./assets/external-media/cloudinary-cbda03c36d66fe5c.jpg",
+        "./assets/external-media/cloudinary-321ea7037b7e76eb.jpg",
+        "./assets/external-media/cloudinary-e820e207e5d3326f.jpg",
+        "./assets/external-media/cloudinary-833b60bdf553679b.jpg",
+        "./assets/external-media/cloudinary-c6b06d223e3d856f.jpg",
+        "./assets/external-media/cloudinary-3eeed432e2dae670.jpg",
+        "./assets/external-media/cloudinary-99ae757af8bf0b90.jpg",
+        "./assets/external-media/cloudinary-2ea7383f5051528d.jpg",
+        "./assets/external-media/cloudinary-8361f006a143dabd.jpg",
+        "./assets/external-media/cloudinary-9265016c580176f5.jpg"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+.product-page-main { min-height: 100vh; padding: 128px 24px 80px; background: #070809; color: #f7f7f3; }
+.product-page-shell { width: min(1240px, 100%); margin: 0 auto; }
+.catalog-breadcrumbs { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 28px; color: #a6aaa3; font-size: 14px; }
+.catalog-breadcrumbs a { color: inherit; text-decoration: none; }
+.catalog-breadcrumbs a:hover { color: #f3e600; }
+.product-page-layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(340px, .9fr); gap: 56px; }
+.product-page-gallery { min-height: 560px; display: grid; place-items: center; overflow: hidden; border-radius: 24px; background: #e9ebe6; color: #555; }
+.product-page-gallery img { width: 100%; height: 100%; max-height: 720px; object-fit: contain; }
+.product-page-content { display: flex; flex-direction: column; padding: 22px 0; }
+.product-page-category { margin: 0 0 18px; color: #f3e600; font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.product-page-content h1 { margin: 0; font-size: clamp(36px, 4.8vw, 68px); line-height: .98; }
+.product-page-meta { margin: 24px 0 0; color: #b8bbb5; line-height: 1.5; }
+.product-page-description { margin: 32px 0; color: #d6d8d2; font-size: 17px; line-height: 1.65; }
+.product-page-price { margin-top: auto; font-size: 32px; }
+.product-page-request { min-height: 56px; margin-top: 28px; border: 0; border-radius: 999px; background: #f3e600; color: #070809; font: inherit; font-weight: 900; cursor: pointer; }
+.catalog-route-links { width: min(1240px, calc(100% - 48px)); margin: 0 auto 28px; padding: 18px 22px; border: 1px solid rgba(255,255,255,.1); border-radius: 16px; background: rgba(255,255,255,.025); }
+.catalog-route-links strong { display: block; margin-bottom: 12px; color: #f3e600; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+.catalog-route-links div { display: flex; flex-wrap: wrap; gap: 8px; }
+.catalog-route-links a { padding: 8px 12px; border-radius: 999px; background: rgba(255,255,255,.07); color: #f4f4ef; font-size: 14px; text-decoration: none; }
+.catalog-route-links a:hover { background: #f3e600; color: #070809; }
+.vehicle-result-title-link { color: inherit; text-decoration: none; }
+.vehicle-result-title-link:hover { color: #fff705; }
+.vehicle-result-photo { display: block; color: inherit; text-decoration: none; }
+
+@media (max-width: 760px) {
+  .product-page-main { padding: 104px 18px 56px; }
+  .product-page-layout { grid-template-columns: 1fr; gap: 26px; }
+  .product-page-gallery { min-height: 320px; }
+  .product-page-content { padding: 0; }
+  .catalog-route-links { width: calc(100% - 32px); }
+}

@@ -1,0 +1,1 @@
+window.KITRADE_SITE_CONFIG = {"deploymentMode":"github-pages","basePath":"/kitrade-preview","analytics":{"provider":"yandex_metrika","counterId":108681044,"counterStatus":"pending_final_confirmation","enabled":false,"events":["product_view","add_to_request","request_open","request_submit_success"],"primaryConversion":"request_submit_success"}};
