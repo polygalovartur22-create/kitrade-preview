@@ -1,15 +1,18 @@
 [build]
-  publish = "."
+  command = "npm run build"
+  publish = "dist"
 
 [[redirects]]
   from = "/catalog"
-  to = "/catalog.html"
-  status = 200
+  to = "/catalog/"
+  status = 301
+  force = true
 
 [[redirects]]
-  from = "/catalog/"
-  to = "/catalog.html"
-  status = 200
+  from = "/catalog.html"
+  to = "/catalog/"
+  status = 301
+  force = true
 
 [[headers]]
   for = "/*"

@@ -40,8 +40,17 @@
   }
 
   const rawItems = Array.isArray(window.KITRADE_PARTS) ? window.KITRADE_PARTS : [];
+  const urlMap = window.KITRADE_CATALOG_URLS?.products || {};
+  const routeMap = window.KITRADE_CATALOG_URLS?.routes || { brands: {}, models: {}, categories: {} };
+  const routeDefaults = {
+    brand: document.body.dataset.catalogBrand || "",
+    model: document.body.dataset.catalogModel || "",
+    category: document.body.dataset.catalogCategory || "",
+  };
   const items = rawItems
-    .filter((item) => item && item.title && String(item.brand || "").trim().toLocaleLowerCase("ru") !== "маз")
+    .filter((item) => item && item.title
+      && String(item.brand || "").trim().toLocaleLowerCase("ru") !== "маз"
+      && (!urlMap[String(item.id)] || urlMap[String(item.id)].status === "active"))
     .map((item) => ({
       ...item,
       brand: item.brand || "Без марки",
@@ -50,13 +59,14 @@
         .filter(Boolean)
         .join(" ")
         .toLocaleLowerCase("ru"),
-      group: getGroup(item),
+      group: urlMap[String(item.id)]?.public_category || getGroup(item),
+      canonicalPath: urlMap[String(item.id)]?.canonical_path || "/catalog/",
       image: normalizePhoto(item.photos?.[0]) || catalogFallbackPhoto(item),
       priceNumber: Number(String(item.price || "").replace(/\D/g, "")) || 0,
     }));
 
   const state = {
-    tab: "",
+    tab: routeDefaults.category,
     query: "",
     visible: 12,
     selected: [],
@@ -84,9 +94,9 @@
       .filter(Boolean)
       .join(" ")
       .toLocaleLowerCase("ru");
-    if (/фара|фонарь|оптика|автосвет/.test(subject)) return "./assets/01-catalog-led-headlamp.png";
-    if (/крыло/.test(subject)) return "./assets/02-catalog-front-fender.png";
-    if (/реш[её]тка|нижн[^ ]* бампер/.test(subject)) return "./assets/03-catalog-lower-grille.png";
+    if (/фара|фонарь|оптика|автосвет/.test(subject)) return "/assets/01-catalog-led-headlamp.png";
+    if (/крыло/.test(subject)) return "/assets/02-catalog-front-fender.png";
+    if (/реш[её]тка|нижн[^ ]* бампер/.test(subject)) return "/assets/03-catalog-lower-grille.png";
     return "";
   }
 
@@ -104,6 +114,25 @@
 
   function checkedValues(selector) {
     return [...document.querySelectorAll(`${selector} input:checked`)].map((input) => input.value).filter(Boolean);
+  }
+
+  function routeKey(...values) {
+    return values.map((value) => String(value || "").trim().replace(/\s+/g, " ").toLocaleLowerCase("ru")).join("|");
+  }
+
+  function updateCatalogRoute() {
+    const brands = checkedValues("#brandFilters");
+    const models = checkedValues("#modelFilters");
+    const brand = brands.length === 1 ? brands[0] : "";
+    const model = brand && models.length === 1 ? models[0] : "";
+    const category = brand && model ? state.tab : "";
+    const brandRoute = brand ? routeMap.brands?.[routeKey(brand)] : "";
+    const modelRoute = model ? routeMap.models?.[routeKey(brand, model)] : "";
+    const categoryRoute = category ? routeMap.categories?.[routeKey(brand, model, category)] : "";
+    const path = categoryRoute || modelRoute || brandRoute || "/catalog/";
+    if (window.location.pathname !== path) history.replaceState(null, "", path);
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.href = new URL(path, window.KITRADE_CATALOG_URLS?.site_url || window.location.origin).href;
   }
 
   function unique(values) {
@@ -193,8 +222,16 @@
 
   function renderFilterOptions(filter, values) {
     const options = filter.querySelector("[data-filter-options]");
+    const selectedBrand = checkedValues("#brandFilters")[0] || routeDefaults.brand;
+    const selectedModel = checkedValues("#modelFilters")[0] || routeDefaults.model;
+    const hrefFor = (value) => {
+      if (filter.id === "brandFilters") return routeMap.brands?.[routeKey(value)] || "/catalog/";
+      if (filter.id === "modelFilters" && selectedBrand) return routeMap.models?.[routeKey(selectedBrand, value)] || "/catalog/";
+      if (filter.id === "typeFilters" && selectedBrand && selectedModel) return routeMap.categories?.[routeKey(selectedBrand, selectedModel, value)] || "/catalog/";
+      return "/catalog/";
+    };
     options.innerHTML = values.map((value) => `
-      <label data-filter-value="${escapeHtml(value)}"><input type="checkbox" value="${escapeHtml(value)}" /><span>${escapeHtml(value)}</span><i aria-hidden="true"></i></label>
+      <label data-filter-value="${escapeHtml(value)}"><input type="checkbox" value="${escapeHtml(value)}" /><a href="${escapeHtml(hrefFor(value))}" data-filter-option-link>${escapeHtml(value)}</a><i aria-hidden="true"></i></label>
     `).join("");
     const search = filter.querySelector("[data-filter-search]");
     if (search) search.value = "";
@@ -205,7 +242,7 @@
   function renderAllFilterOptions() {
     renderFilterOptions(document.querySelector("#brandFilters"), unique(items.map((item) => item.brand)));
     renderModelFilter([]);
-    renderFilterOptions(document.querySelector("#typeFilters"), unique(items.map((item) => item.category)));
+    renderFilterOptions(document.querySelector("#typeFilters"), unique(items.map((item) => item.group)));
   }
 
   function renderModelFilter(brands) {
@@ -245,7 +282,7 @@
       .filter((item) => {
         if (brands.length && !brands.some((brand) => item.brand.toLocaleLowerCase("ru") === brand.toLocaleLowerCase("ru"))) return false;
         if (models.length && !models.includes(item.model)) return false;
-        if (types.length && !types.includes(item.category)) return false;
+        if (types.length && !types.includes(item.group)) return false;
         if (state.tab && item.group !== state.tab) return false;
         if (condition && !String(item.condition || "").toLocaleLowerCase("ru").startsWith(condition.slice(0, 5))) return false;
         if (state.query && fuzzyScore(state.query, item.search) < 0) return false;
@@ -282,10 +319,10 @@
       : `<div class="photo-fallback">Фото уточняется</div>`;
     return `
       <article class="part-card" data-id="${escapeHtml(item.id)}">
-        <div class="part-photo">${image}</div>
+        <a class="part-photo" href="${escapeHtml(item.canonicalPath)}" data-product-link data-product-id="${escapeHtml(item.id)}">${image}</a>
         <div class="part-content">
           <span class="part-category">${escapeHtml(item.group)}</span>
-          <h3>${escapeHtml(item.title)}</h3>
+          <h3><a class="part-title-link" href="${escapeHtml(item.canonicalPath)}" data-product-link data-product-id="${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></h3>
           <p class="part-description">${escapeHtml(item.description || [item.brand, item.model, item.article].filter(Boolean).join(" · "))}</p>
           <div class="part-meta">
             <strong class="part-price">${formatPrice(item)}</strong>
@@ -302,9 +339,13 @@
     partsGrid.innerHTML = visible.map(cardMarkup).join("");
     resultCount.textContent = `Найдено ${filtered.length} ${plural(filtered.length)}`;
     const brands = checkedValues("#brandFilters");
-    resultSummary.textContent = brands.length ? brands.join(" / ") : (state.tab || "Все марки и категории");
+    const models = checkedValues("#modelFilters");
+    const types = checkedValues("#typeFilters");
+    resultSummary.textContent = [brands.join(" / "), models.join(" / "), state.tab || types.join(" / ")]
+      .filter(Boolean).join(" / ") || "Все марки и категории";
     emptyState.hidden = filtered.length > 0;
     loadMore.hidden = visible.length >= filtered.length;
+    updateCatalogRoute();
   }
 
   function plural(count) {
@@ -338,7 +379,10 @@
 
   document.querySelector(".filter-panel").addEventListener("change", (event) => {
     if (!event.target.matches("input")) return;
-    if (event.target.closest("#brandFilters")) renderModelFilter(checkedValues("#brandFilters"));
+    if (event.target.closest("#brandFilters")) {
+      renderModelFilter(checkedValues("#brandFilters"));
+      updateFilterSummary(document.querySelector("#modelFilters"));
+    }
     const filter = event.target.closest(".filter-dropdown");
     if (filter) {
       updateFilterSummary(filter);
@@ -351,6 +395,12 @@
   });
 
   document.querySelector(".filter-panel").addEventListener("click", (event) => {
+    const optionLink = event.target.closest("[data-filter-option-link]");
+    if (optionLink && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey && event.button === 0) {
+      event.preventDefault();
+      optionLink.closest("label")?.querySelector("input")?.click();
+      return;
+    }
     const trigger = event.target.closest("[data-filter-toggle]");
     if (!trigger || trigger.disabled) return;
     const filter = trigger.closest(".filter-dropdown");
@@ -437,6 +487,7 @@
     const id = button.dataset.add;
     if (state.selected.includes(id)) state.selected = state.selected.filter((itemId) => itemId !== id);
     else state.selected.push(id);
+    if (state.selected.includes(id)) window.KITRADE_TRACK?.("add_to_request", { product_id: id, page_type: "catalog" });
     renderRequest();
     render();
     showToast(state.selected.includes(id) ? "Позиция добавлена в заявку" : "Позиция удалена из заявки");
@@ -471,10 +522,35 @@
       details: `Позиции из каталога:\n${lines.join("\n")}`,
       createdAt: Date.now(),
     }));
-    window.location.href = "./index.html#request";
+    window.KITRADE_TRACK?.("request_open", { source: "catalog", product_count: selectedItems.length });
+    window.location.href = "/#request";
   });
 
   renderAllFilterOptions();
+  if (routeDefaults.brand) {
+    document.querySelectorAll("#brandFilters input").forEach((input) => {
+      input.checked = input.value.toLocaleLowerCase("ru") === routeDefaults.brand.toLocaleLowerCase("ru");
+    });
+    renderModelFilter([routeDefaults.brand]);
+    updateFilterSummary(document.querySelector("#brandFilters"));
+  }
+  if (routeDefaults.model) {
+    document.querySelectorAll("#modelFilters input").forEach((input) => {
+      input.checked = input.value.toLocaleLowerCase("ru") === routeDefaults.model.toLocaleLowerCase("ru");
+    });
+    updateFilterSummary(document.querySelector("#modelFilters"));
+  }
+  document.querySelectorAll("#catalogTabs button").forEach((button) => {
+    button.classList.toggle("active", button.dataset.category === routeDefaults.category);
+  });
+  document.addEventListener("kitrade:add-product", (event) => {
+    const id = String(event.detail?.id || "");
+    if (!id || state.selected.includes(id)) return;
+    state.selected.push(id);
+    renderRequest();
+    render();
+    showToast("Позиция добавлена в заявку");
+  });
   render();
   renderRequest();
 })();

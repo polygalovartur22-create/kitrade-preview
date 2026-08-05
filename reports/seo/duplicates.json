@@ -1,0 +1,50 @@
+[
+  {
+    "fingerprint": "6b3671d47a1e7ff06f139e42",
+    "primary_product_id": 1510,
+    "primary_url": "/catalog/product/panel-priborov-kia-seltos-1510/",
+    "duplicate_product_ids": [
+      1525
+    ],
+    "duplicate_urls": [
+      "/catalog/product/panel-priborov-kia-seltos-1525/"
+    ],
+    "action": "manual_review_no_automatic_merge"
+  },
+  {
+    "fingerprint": "5d5ae22a7d24db3eb5fd904d",
+    "primary_product_id": 1648,
+    "primary_url": "/catalog/product/steklo-lobovoe-changan-uni-k-original-1648/",
+    "duplicate_product_ids": [
+      1659
+    ],
+    "duplicate_urls": [
+      "/catalog/product/steklo-lobovoe-changan-uni-k-original-1659/"
+    ],
+    "action": "manual_review_no_automatic_merge"
+  },
+  {
+    "fingerprint": "b74b29fcd510bc96b768d3ab",
+    "primary_product_id": 1990,
+    "primary_url": "/catalog/product/kryshka-bagazhnika-lixiang-l7-original-1990/",
+    "duplicate_product_ids": [
+      2733
+    ],
+    "duplicate_urls": [
+      "/catalog/product/kryshka-bagazhnika-lixiang-l7-original-2733/"
+    ],
+    "action": "manual_review_no_automatic_merge"
+  },
+  {
+    "fingerprint": "9d69d4b42a9e5b74a1a79ffc",
+    "primary_product_id": 2275,
+    "primary_url": "/catalog/product/krylo-perednee-pravoe-geely-monjaro-original-2275/",
+    "duplicate_product_ids": [
+      2739
+    ],
+    "duplicate_urls": [
+      "/catalog/product/krylo-perednee-pravoe-geely-monjaro-original-2739/"
+    ],
+    "action": "manual_review_no_automatic_merge"
+  }
+]

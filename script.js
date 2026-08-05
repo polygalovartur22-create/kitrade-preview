@@ -488,6 +488,7 @@ if (requestForm) {
       formHead.hidden = true;
       successView.hidden = false;
       successView.focus();
+      window.KITRADE_TRACK?.("request_submit_success");
     } catch (error) {
       status.textContent = "Не удалось отправить заявку. Проверьте интернет и попробуйте ещё раз.";
     } finally {
@@ -511,6 +512,10 @@ if (requestForm) {
     showStep(1);
   });
 }
+
+document.addEventListener("click", (event) => {
+  if (event.target.closest('a[href="#request"], a[href="/#request"]')) window.KITRADE_TRACK?.("request_open");
+});
 
 const localOrderCovers = [
   "./assets/order-01-cover.jpg",
@@ -701,10 +706,19 @@ function selectOrder(index) {
   if (orderDetailLabel) orderDetailLabel.textContent = `ЗАКАЗ #${String(order.id).padStart(2, "0")}`;
   if (orderDetailTitle) orderDetailTitle.textContent = order.title;
   if (orderDetailLocation) orderDetailLocation.textContent = order.location;
+  let activeOrderButton = null;
   ordersDialogList?.querySelectorAll("button").forEach((button) => {
     button.classList.toggle("is-active", Number(button.dataset.orderIndex) === index);
+    if (Number(button.dataset.orderIndex) === index) activeOrderButton = button;
   });
   showOrderImage(0);
+  if (ordersDialog?.open && window.matchMedia("(max-width: 599px)").matches) {
+    activeOrderButton?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  }
 }
 
 function renderOrders(orders) {
@@ -773,6 +787,25 @@ document.querySelector("[data-order-image-prev]")?.addEventListener("click", () 
 document.querySelector("[data-order-image-next]")?.addEventListener("click", () => showOrderImage(activeOrderImage + 1));
 document.querySelector("[data-orders-close]")?.addEventListener("click", () => ordersDialog?.close());
 ordersDialog?.addEventListener("close", syncDialogLock);
+
+const orderDetail = document.querySelector("[data-order-detail]");
+let orderSwipeStartX = 0;
+let orderSwipeStartY = 0;
+
+orderDetail?.addEventListener("touchstart", (event) => {
+  const touch = event.changedTouches[0];
+  orderSwipeStartX = touch.clientX;
+  orderSwipeStartY = touch.clientY;
+}, { passive: true });
+
+orderDetail?.addEventListener("touchend", (event) => {
+  if (!window.matchMedia("(max-width: 599px)").matches) return;
+  const touch = event.changedTouches[0];
+  const deltaX = touch.clientX - orderSwipeStartX;
+  const deltaY = touch.clientY - orderSwipeStartY;
+  if (Math.abs(deltaX) < 52 || Math.abs(deltaX) <= Math.abs(deltaY) * 1.25) return;
+  showOrderImage(activeOrderImage + (deltaX < 0 ? 1 : -1));
+}, { passive: true });
 
 const privacyDialog = document.querySelector("[data-privacy-dialog]");
 

@@ -1,0 +1,1104 @@
+{
+  "approval_status": "pending_owner_approval",
+  "note": "Variants never change public display names. Empty Russian spellings require manual approval and are not guessed.",
+  "brands": [
+    {
+      "entity_id": "b1001",
+      "canonical": "Маз",
+      "russian_spelling": "Маз",
+      "transliteration": "maz",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1002",
+      "canonical": "Shacman",
+      "russian_spelling": null,
+      "transliteration": "shacman",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1003",
+      "canonical": "Aito",
+      "russian_spelling": null,
+      "transliteration": "aito",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1004",
+      "canonical": "Voyah",
+      "russian_spelling": null,
+      "transliteration": "voyah",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1005",
+      "canonical": "Geely",
+      "russian_spelling": null,
+      "transliteration": "geely",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1006",
+      "canonical": "Volkswagen",
+      "russian_spelling": null,
+      "transliteration": "volkswagen",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1007",
+      "canonical": "Changan",
+      "russian_spelling": null,
+      "transliteration": "changan",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1008",
+      "canonical": "Toyota",
+      "russian_spelling": null,
+      "transliteration": "toyota",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1009",
+      "canonical": "BAIC",
+      "russian_spelling": null,
+      "transliteration": "baic",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1010",
+      "canonical": "Livan",
+      "russian_spelling": null,
+      "transliteration": "livan",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1011",
+      "canonical": "Xiaomi",
+      "russian_spelling": null,
+      "transliteration": "xiaomi",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1012",
+      "canonical": "Nissan",
+      "russian_spelling": null,
+      "transliteration": "nissan",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1013",
+      "canonical": "Tank",
+      "russian_spelling": null,
+      "transliteration": "tank",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1014",
+      "canonical": "Li Auto",
+      "russian_spelling": null,
+      "transliteration": "li-auto",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1015",
+      "canonical": "Wey",
+      "russian_spelling": null,
+      "transliteration": "wey",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1016",
+      "canonical": "Fang Cheng Bao",
+      "russian_spelling": null,
+      "transliteration": "fang-cheng-bao",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1017",
+      "canonical": "Kia",
+      "russian_spelling": null,
+      "transliteration": "kia",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1018",
+      "canonical": "Haval",
+      "russian_spelling": null,
+      "transliteration": "haval",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1019",
+      "canonical": "Dongfeng",
+      "russian_spelling": null,
+      "transliteration": "dongfeng",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1020",
+      "canonical": "Hongqi",
+      "russian_spelling": null,
+      "transliteration": "hongqi",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1021",
+      "canonical": "BYD",
+      "russian_spelling": null,
+      "transliteration": "byd",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1022",
+      "canonical": "Exeed",
+      "russian_spelling": null,
+      "transliteration": "exeed",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1023",
+      "canonical": "BAW",
+      "russian_spelling": null,
+      "transliteration": "baw",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1024",
+      "canonical": "HiPhi",
+      "russian_spelling": null,
+      "transliteration": "hiphi",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1025",
+      "canonical": "Zeekr",
+      "russian_spelling": null,
+      "transliteration": "zeekr",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1026",
+      "canonical": "Mercedes-Benz",
+      "russian_spelling": null,
+      "transliteration": "mercedes-benz",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1027",
+      "canonical": "Honda",
+      "russian_spelling": null,
+      "transliteration": "honda",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1028",
+      "canonical": "Polar Stone (Jishi)",
+      "russian_spelling": null,
+      "transliteration": "polar-stone-jishi",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1029",
+      "canonical": "Chevrolet",
+      "russian_spelling": null,
+      "transliteration": "chevrolet",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1030",
+      "canonical": "Baojun",
+      "russian_spelling": null,
+      "transliteration": "baojun",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1031",
+      "canonical": "Trumpchi",
+      "russian_spelling": null,
+      "transliteration": "trumpchi",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1032",
+      "canonical": "Lexus",
+      "russian_spelling": null,
+      "transliteration": "lexus",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1033",
+      "canonical": "Bmw",
+      "russian_spelling": null,
+      "transliteration": "bmw",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1034",
+      "canonical": "Great Wall",
+      "russian_spelling": null,
+      "transliteration": "great-wall",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1035",
+      "canonical": "Chery",
+      "russian_spelling": null,
+      "transliteration": "chery",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1036",
+      "canonical": "Hyundai",
+      "russian_spelling": null,
+      "transliteration": "hyundai",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1037",
+      "canonical": "Omoda",
+      "russian_spelling": null,
+      "transliteration": "omoda",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1038",
+      "canonical": "Jetour",
+      "russian_spelling": null,
+      "transliteration": "jetour",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1039",
+      "canonical": "Audi",
+      "russian_spelling": null,
+      "transliteration": "audi",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "b1040",
+      "canonical": "Foton",
+      "russian_spelling": null,
+      "transliteration": "foton",
+      "alternatives": [],
+      "approval_status": "pending"
+    }
+  ],
+  "models": [
+    {
+      "entity_id": "m1001",
+      "canonical": "M8",
+      "russian_spelling": null,
+      "transliteration": "m8",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1002",
+      "canonical": "Free",
+      "russian_spelling": null,
+      "transliteration": "free",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1003",
+      "canonical": "Passion",
+      "russian_spelling": null,
+      "transliteration": "passion",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1004",
+      "canonical": "Galaxy M9",
+      "russian_spelling": null,
+      "transliteration": "galaxy-m9",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1005",
+      "canonical": "Tavendor",
+      "russian_spelling": null,
+      "transliteration": "tavendor",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1006",
+      "canonical": "Hunter Plus",
+      "russian_spelling": null,
+      "transliteration": "hunter-plus",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1007",
+      "canonical": "Corolla",
+      "russian_spelling": null,
+      "transliteration": "corolla",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1008",
+      "canonical": "Highlander",
+      "russian_spelling": null,
+      "transliteration": "highlander",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1009",
+      "canonical": "U5 Plus",
+      "russian_spelling": null,
+      "transliteration": "u5-plus",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1010",
+      "canonical": "X35",
+      "russian_spelling": null,
+      "transliteration": "x35",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1011",
+      "canonical": "X6 pro",
+      "russian_spelling": null,
+      "transliteration": "x6-pro",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1012",
+      "canonical": "Dream",
+      "russian_spelling": null,
+      "transliteration": "dream",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1013",
+      "canonical": "BJ40",
+      "russian_spelling": null,
+      "transliteration": "bj40",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1014",
+      "canonical": "Camry",
+      "russian_spelling": null,
+      "transliteration": "camry",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1015",
+      "canonical": "SU7",
+      "russian_spelling": null,
+      "transliteration": "su7",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1016",
+      "canonical": "X-Trail",
+      "russian_spelling": null,
+      "transliteration": "x-trail",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1017",
+      "canonical": "500",
+      "russian_spelling": null,
+      "transliteration": "500",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1018",
+      "canonical": "RAV4",
+      "russian_spelling": null,
+      "transliteration": "rav4",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1019",
+      "canonical": "L7",
+      "russian_spelling": null,
+      "transliteration": "l7",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1020",
+      "canonical": "Taishan",
+      "russian_spelling": null,
+      "transliteration": "taishan",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1021",
+      "canonical": "80",
+      "russian_spelling": null,
+      "transliteration": "80",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1022",
+      "canonical": "Titanium 7",
+      "russian_spelling": null,
+      "transliteration": "titanium-7",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1023",
+      "canonical": "Preface",
+      "russian_spelling": null,
+      "transliteration": "preface",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1024",
+      "canonical": "X55",
+      "russian_spelling": null,
+      "transliteration": "x55",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1025",
+      "canonical": "X3 pro",
+      "russian_spelling": null,
+      "transliteration": "x3-pro",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1026",
+      "canonical": "CS75 Plus",
+      "russian_spelling": null,
+      "transliteration": "cs75-plus",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1027",
+      "canonical": "Seltos",
+      "russian_spelling": null,
+      "transliteration": "seltos",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1028",
+      "canonical": "Shenlan (Deepal) S07",
+      "russian_spelling": null,
+      "transliteration": "shenlan-deepal-s07",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1029",
+      "canonical": "Xiaolong Max",
+      "russian_spelling": null,
+      "transliteration": "xiaolong-max",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1030",
+      "canonical": "DFSK iX5",
+      "russian_spelling": null,
+      "transliteration": "dfsk-ix5",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1031",
+      "canonical": "Tayron",
+      "russian_spelling": null,
+      "transliteration": "tayron",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1032",
+      "canonical": "HS5",
+      "russian_spelling": null,
+      "transliteration": "hs5",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1033",
+      "canonical": "Atlas",
+      "russian_spelling": null,
+      "transliteration": "atlas",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1034",
+      "canonical": "Tang L",
+      "russian_spelling": null,
+      "transliteration": "tang-l",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1035",
+      "canonical": "Bao 5 (Leopard 5)",
+      "russian_spelling": null,
+      "transliteration": "bao-5-leopard-5",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1036",
+      "canonical": "Exlantix ES",
+      "russian_spelling": null,
+      "transliteration": "exlantix-es",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1037",
+      "canonical": "212",
+      "russian_spelling": null,
+      "transliteration": "212",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1038",
+      "canonical": "Jolion",
+      "russian_spelling": null,
+      "transliteration": "jolion",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1039",
+      "canonical": "Seal 06 GT",
+      "russian_spelling": null,
+      "transliteration": "seal-06-gt",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1040",
+      "canonical": "Galaxy L7",
+      "russian_spelling": null,
+      "transliteration": "galaxy-l7",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1041",
+      "canonical": "CS95",
+      "russian_spelling": null,
+      "transliteration": "cs95",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1042",
+      "canonical": "Galaxy Starship 7",
+      "russian_spelling": null,
+      "transliteration": "galaxy-starship-7",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1043",
+      "canonical": "Monjaro",
+      "russian_spelling": null,
+      "transliteration": "monjaro",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1044",
+      "canonical": "K5",
+      "russian_spelling": null,
+      "transliteration": "k5",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1045",
+      "canonical": "X7",
+      "russian_spelling": null,
+      "transliteration": "x7",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1046",
+      "canonical": "K3",
+      "russian_spelling": null,
+      "transliteration": "k3",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1047",
+      "canonical": "Yangwang U8",
+      "russian_spelling": null,
+      "transliteration": "yangwang-u8",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1048",
+      "canonical": "07",
+      "russian_spelling": null,
+      "transliteration": "07",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1049",
+      "canonical": "Z",
+      "russian_spelling": null,
+      "transliteration": "z",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1050",
+      "canonical": "9X",
+      "russian_spelling": null,
+      "transliteration": "9x",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1051",
+      "canonical": "Talagon",
+      "russian_spelling": null,
+      "transliteration": "talagon",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1052",
+      "canonical": "Sportage (China)",
+      "russian_spelling": null,
+      "transliteration": "sportage-china",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1053",
+      "canonical": "Okavango",
+      "russian_spelling": null,
+      "transliteration": "okavango",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1054",
+      "canonical": "G-класс",
+      "russian_spelling": "G-класс",
+      "transliteration": "g-klass",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1055",
+      "canonical": "001",
+      "russian_spelling": null,
+      "transliteration": "001",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1056",
+      "canonical": "Pathfinder (China)",
+      "russian_spelling": null,
+      "transliteration": "pathfinder-china",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1057",
+      "canonical": "Crider",
+      "russian_spelling": null,
+      "transliteration": "crider",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1058",
+      "canonical": "01",
+      "russian_spelling": null,
+      "transliteration": "01",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1059",
+      "canonical": "Vision X6 Pro",
+      "russian_spelling": null,
+      "transliteration": "vision-x6-pro",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1060",
+      "canonical": "Monza",
+      "russian_spelling": null,
+      "transliteration": "monza",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1061",
+      "canonical": "Auchan Z6",
+      "russian_spelling": null,
+      "transliteration": "auchan-z6",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1062",
+      "canonical": "RS-5",
+      "russian_spelling": null,
+      "transliteration": "rs-5",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1063",
+      "canonical": "700",
+      "russian_spelling": null,
+      "transliteration": "700",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1064",
+      "canonical": "M8",
+      "russian_spelling": null,
+      "transliteration": "m8",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1065",
+      "canonical": "RX",
+      "russian_spelling": null,
+      "transliteration": "rx",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1066",
+      "canonical": "RC-5",
+      "russian_spelling": null,
+      "transliteration": "rc-5",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1067",
+      "canonical": "X5",
+      "russian_spelling": null,
+      "transliteration": "x5",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1068",
+      "canonical": "Venza",
+      "russian_spelling": null,
+      "transliteration": "venza",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1069",
+      "canonical": "Uni-K",
+      "russian_spelling": null,
+      "transliteration": "uni-k",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1070",
+      "canonical": "Poer",
+      "russian_spelling": null,
+      "transliteration": "poer",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1071",
+      "canonical": "Alsvin",
+      "russian_spelling": null,
+      "transliteration": "alsvin",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1072",
+      "canonical": "Tiggo 7 Pro Max",
+      "russian_spelling": null,
+      "transliteration": "tiggo-7-pro-max",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1073",
+      "canonical": "Camaro",
+      "russian_spelling": null,
+      "transliteration": "camaro",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1074",
+      "canonical": "Tiggo 4",
+      "russian_spelling": null,
+      "transliteration": "tiggo-4",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1075",
+      "canonical": "F7",
+      "russian_spelling": null,
+      "transliteration": "f7",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1076",
+      "canonical": "Coolray",
+      "russian_spelling": null,
+      "transliteration": "coolray",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1077",
+      "canonical": "Land Cruiser Prado",
+      "russian_spelling": null,
+      "transliteration": "land-cruiser-prado",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1078",
+      "canonical": "Santa Fe",
+      "russian_spelling": null,
+      "transliteration": "santa-fe",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1079",
+      "canonical": "VX",
+      "russian_spelling": null,
+      "transliteration": "vx",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1080",
+      "canonical": "CS35 Plus",
+      "russian_spelling": null,
+      "transliteration": "cs35-plus",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1081",
+      "canonical": "TXL",
+      "russian_spelling": null,
+      "transliteration": "txl",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1082",
+      "canonical": "C5",
+      "russian_spelling": null,
+      "transliteration": "c5",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1083",
+      "canonical": "Poer King Kong",
+      "russian_spelling": null,
+      "transliteration": "poer-king-kong",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1084",
+      "canonical": "T2",
+      "russian_spelling": null,
+      "transliteration": "t2",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1085",
+      "canonical": "007",
+      "russian_spelling": null,
+      "transliteration": "007",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1086",
+      "canonical": "Q5 Sportback",
+      "russian_spelling": null,
+      "transliteration": "q5-sportback",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1087",
+      "canonical": "L9",
+      "russian_spelling": null,
+      "transliteration": "l9",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1088",
+      "canonical": "G-класс AMG",
+      "russian_spelling": "G-класс AMG",
+      "transliteration": "g-klass-amg",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1089",
+      "canonical": "Atlas Pro",
+      "russian_spelling": null,
+      "transliteration": "atlas-pro",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1090",
+      "canonical": "300",
+      "russian_spelling": null,
+      "transliteration": "300",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1091",
+      "canonical": "H3",
+      "russian_spelling": null,
+      "transliteration": "h3",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1092",
+      "canonical": "Wildlander",
+      "russian_spelling": null,
+      "transliteration": "wildlander",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1093",
+      "canonical": "L6",
+      "russian_spelling": null,
+      "transliteration": "l6",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1094",
+      "canonical": "Tiggo 4 Pro",
+      "russian_spelling": null,
+      "transliteration": "tiggo-4-pro",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1095",
+      "canonical": "Tunland G7",
+      "russian_spelling": null,
+      "transliteration": "tunland-g7",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1096",
+      "canonical": "F7x",
+      "russian_spelling": null,
+      "transliteration": "f7x",
+      "alternatives": [],
+      "approval_status": "pending"
+    },
+    {
+      "entity_id": "m1097",
+      "canonical": "A8",
+      "russian_spelling": null,
+      "transliteration": "a8",
+      "alternatives": [],
+      "approval_status": "pending"
+    }
+  ]
+}

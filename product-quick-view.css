@@ -1,0 +1,33 @@
+.product-quick-view {
+  width: min(1040px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 1px solid #111311;
+  border-radius: 24px;
+  background: #111311;
+  color: #f7f7f3;
+  box-shadow: 0 28px 100px rgba(0, 0, 0, 0.7);
+}
+
+.product-quick-view::backdrop { background: rgba(2, 3, 3, 0.78); backdrop-filter: blur(8px); }
+.product-quick-view__shell { position: relative; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); min-height: 560px; }
+.product-quick-view__close { position: absolute; z-index: 2; top: 18px; right: 18px; width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; background: rgba(0,0,0,.52); color: #fff; font-size: 28px; cursor: pointer; }
+.product-quick-view__media { min-height: 520px; display: grid; place-items: center; overflow: hidden; border-radius: 23px 0 0 23px; background: #111311; color: #777b75; }
+.product-quick-view__media img { width: 100%; height: 100%; max-height: 680px; object-fit: contain; }
+.product-quick-view__content { display: flex; flex-direction: column; padding: 64px 48px 42px; }
+.product-quick-view__category { margin: 0 0 18px; color: #f3e600; font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.product-quick-view__content h2 { margin: 0; font-size: clamp(28px, 3vw, 48px); line-height: 1.02; }
+.product-quick-view__meta { margin: 20px 0 0; color: #b8bbb5; }
+.product-quick-view__description { margin: 26px 0; max-height: 180px; overflow: auto; color: #d6d8d2; line-height: 1.55; }
+.product-quick-view__price { margin-top: auto; font-size: 28px; }
+.product-quick-view__actions { display: grid; gap: 12px; margin-top: 26px; }
+.product-quick-view__actions button, .product-quick-view__actions a { min-height: 52px; display: grid; place-items: center; padding: 0 22px; border-radius: 999px; font: inherit; font-weight: 800; text-decoration: none; cursor: pointer; }
+.product-quick-view__actions button { border: 0; background: #f3e600; color: #080908; }
+.product-quick-view__actions a { border: 1px solid rgba(255,255,255,.2); color: #fff; }
+
+@media (max-width: 720px) {
+  .product-quick-view__shell { grid-template-columns: 1fr; }
+  .product-quick-view__media { min-height: 260px; max-height: 38dvh; border-radius: 23px 23px 0 0; }
+  .product-quick-view__content { padding: 30px 22px 24px; }
+  .product-quick-view__description { max-height: 120px; }
+}

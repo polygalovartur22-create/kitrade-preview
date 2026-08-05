@@ -323,12 +323,14 @@ h1, h2, h3, p { margin: 0; }
 .results-toolbar h2 { margin-top: 5px; font-size: 23px; font-weight: 620; }
 .parts-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .part-card { display: grid; grid-template-rows: 286px auto; min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: linear-gradient(145deg, #111315, #090b0c); }
-.part-photo { position: relative; overflow: hidden; border-bottom: 1px solid var(--line-soft); background: radial-gradient(circle at 55% 75%, rgba(255,244,5,0.13), transparent 28%), #0b0d0e; }
+.part-photo { position: relative; display: block; overflow: hidden; border-bottom: 1px solid var(--line-soft); background: radial-gradient(circle at 55% 75%, rgba(255,244,5,0.13), transparent 28%), #0b0d0e; color: inherit; text-decoration: none; }
 .part-photo img { display: block; width: 100%; height: 100%; padding: 10px; object-fit: contain; filter: contrast(1.05); }
 .photo-fallback { display: grid; height: 100%; place-items: center; padding: 20px; color: var(--dim); text-align: center; }
 .part-content { display: grid; gap: 11px; padding: 17px 20px 18px; }
 .part-category { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
 .part-content h3 { min-height: 2.5em; font-size: 19px; font-weight: 610; line-height: 1.25; }
+.part-title-link { color: inherit; text-decoration: none; }
+.part-title-link:hover { color: var(--accent); }
 .part-description { display: -webkit-box; min-height: 2.9em; overflow: hidden; color: var(--muted); font-size: 14px; line-height: 1.45; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .part-meta { display: flex; align-items: center; gap: 14px; padding-top: 13px; border-top: 1px solid var(--line-soft); }
 .part-price { margin-right: auto; font-size: 18px; font-weight: 650; white-space: nowrap; }
@@ -650,6 +652,12 @@ h1, h2, h3, p { margin: 0; }
 .filter-group .filter-options label:hover {
   background: #171a1c;
   color: #fff;
+}
+
+.filter-group .filter-options label > a {
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
 }
 
 .filter-group .filter-options label[hidden] {

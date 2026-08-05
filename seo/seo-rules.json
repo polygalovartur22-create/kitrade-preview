@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "source": "kitrade-parts-data.js",
+  "futureImportContract": {
+    "acceptedSources": ["xlsx", "avito_export"],
+    "normalizeBeforeSeo": true,
+    "requiredIdentityFields": ["source_id"],
+    "optionalIdentityFields": ["previous_id"]
+  },
+  "indexing": {
+    "minimumActiveProducts": 1,
+    "excludeStatuses": ["needs_review", "unlisted", "duplicate"],
+    "productAvailability": "https://schema.org/PreOrder",
+    "currency": "RUB"
+  },
+  "unverifiedFreeTextTopics": [
+    "availability",
+    "payment",
+    "delivery_time",
+    "delivery_terms",
+    "originality"
+  ],
+  "templates": {
+    "catalog": {
+      "title": "Каталог автозапчастей | Китрейд",
+      "description": "Каталог автозапчастей под заказ из Китая с проверкой совместимости по VIN.",
+      "h1": "Найдите нужную деталь. Совместимость проверим по VIN."
+    },
+    "brand": {
+      "title": "Запчасти {brand} под заказ из Китая | Китрейд",
+      "description": "Каталог запчастей {brand} под заказ из Китая. Подбор детали и обязательная проверка совместимости по VIN.",
+      "h1": "Запчасти {brand} под заказ из Китая"
+    },
+    "model": {
+      "title": "Запчасти для {brand} {model} под заказ | Китрейд",
+      "description": "Каталог запчастей для {brand} {model} под заказ из Китая с проверкой совместимости по VIN.",
+      "h1": "Запчасти для {brand} {model}"
+    },
+    "category": {
+      "title": "{category} для {brand} {model} | Китрейд",
+      "description": "{category} для {brand} {model} под заказ из Китая. Совместимость детали проверяется по VIN.",
+      "h1": "{category} для {brand} {model}"
+    },
+    "product": {
+      "title": "{product_name} | Купить под заказ — Китрейд",
+      "description": "{product_name}{article_clause}{condition_clause}{origin_clause}. Цена детали {price} ₽. Проверка совместимости по VIN."
+    }
+  },
+  "publicCategories": [
+    { "category_id": "c1001", "name": "Двигатель", "sourceAliases": ["Двигатель", "Двигатели"] },
+    { "category_id": "c1002", "name": "Оптика", "sourceAliases": ["Оптика", "Автосвет", "Фары", "Фонари"] },
+    { "category_id": "c1003", "name": "Система охлаждения", "sourceAliases": ["Система охлаждения", "Охлаждение"] },
+    { "category_id": "c1004", "name": "Тормозная система", "sourceAliases": ["Тормозная система", "Тормоза"] },
+    { "category_id": "c1005", "name": "Электрика", "sourceAliases": ["Электрика", "Электрооборудование"] },
+    { "category_id": "c1006", "name": "Салон", "sourceAliases": ["Салон", "Интерьер"] },
+    { "category_id": "c1007", "name": "Рулевое управление", "sourceAliases": ["Рулевое управление", "Рулевое"] },
+    { "category_id": "c1008", "name": "Топливная и выхлопная системы", "sourceAliases": ["Топливная и выхлопная системы", "Топливная система", "Выхлопная система"] },
+    { "category_id": "c1009", "name": "Стёкла", "sourceAliases": ["Стёкла", "Стекла", "Автостекла"] },
+    { "category_id": "c1010", "name": "Кузов", "sourceAliases": ["Кузов", "Кузовные запчасти"] },
+    { "category_id": "c1011", "name": "Трансмиссия и привод", "sourceAliases": ["Трансмиссия и привод", "Трансмиссия", "Привод"] },
+    { "category_id": "c1012", "name": "Колёса", "sourceAliases": ["Колёса", "Колеса", "Шины и диски"] },
+    { "category_id": "c1013", "name": "Подвеска", "sourceAliases": ["Подвеска", "Ходовая"] }
+  ]
+}

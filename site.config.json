@@ -1,0 +1,32 @@
+{
+  "siteUrl": "https://xn--d1abifc1bn.xn--p1ai",
+  "displayDomain": "китрейд.рф",
+  "catalogPath": "/catalog/",
+  "organization": {
+    "schemaType": "AutoPartsStore",
+    "name": "Китрейд",
+    "legalName": "ИП Заварзин Дмитрий Александрович",
+    "email": "kitrade@bk.ru",
+    "telephone": "+7-996-457-43-01",
+    "additionalTelephones": [],
+    "address": {
+      "addressLocality": "Барнаул",
+      "streetAddress": "пр-т. Ленина д. 3",
+      "addressCountry": "RU"
+    },
+    "businessDetailsStatus": "pending_final_confirmation"
+  },
+  "analytics": {
+    "provider": "yandex_metrika",
+    "counterId": 108681044,
+    "counterStatus": "pending_final_confirmation",
+    "enabled": true,
+    "events": [
+      "product_view",
+      "add_to_request",
+      "request_open",
+      "request_submit_success"
+    ],
+    "primaryConversion": "request_submit_success"
+  }
+}

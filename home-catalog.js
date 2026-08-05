@@ -1,5 +1,6 @@
 (() => {
   const source = Array.isArray(window.KITRADE_PARTS) ? window.KITRADE_PARTS : [];
+  const urlMap = window.KITRADE_CATALOG_URLS?.products || {};
   const root = document.querySelector(".vehicle-picker");
   if (!root || !source.length) return;
 
@@ -29,9 +30,9 @@
 
   const fallbackPhoto = (item) => {
     const value = [item.title, item.detail, item.category].filter(Boolean).join(" ").toLocaleLowerCase("ru");
-    if (/фар|фонар|оптик/.test(value)) return "./assets/01-catalog-led-headlamp.png";
-    if (/крыл/.test(value)) return "./assets/02-catalog-front-fender.png";
-    if (/реш[её]тк|бампер/.test(value)) return "./assets/03-catalog-lower-grille.png";
+    if (/фар|фонар|оптик/.test(value)) return "/assets/01-catalog-led-headlamp.png";
+    if (/крыл/.test(value)) return "/assets/02-catalog-front-fender.png";
+    if (/реш[её]тк|бампер/.test(value)) return "/assets/03-catalog-lower-grille.png";
     return "";
   };
 
@@ -131,9 +132,12 @@
   };
 
   const items = source
-    .filter((item) => item?.title && String(item.brand || "").trim().toLocaleLowerCase("ru") !== "маз")
+    .filter((item) => item?.title
+      && String(item.brand || "").trim().toLocaleLowerCase("ru") !== "маз"
+      && (!urlMap[String(item.id)] || urlMap[String(item.id)].status === "active"))
     .map((item) => ({
       ...item,
+      canonicalPath: urlMap[String(item.id)]?.canonical_path || "/catalog/",
       image: normalizePhoto(item.photos?.[0]) || fallbackPhoto(item),
       search: [item.title, item.brand, item.model, item.article, item.category, item.detail]
         .filter(Boolean)
@@ -318,10 +322,10 @@
 
   const resultCard = (item) => `
     <article class="vehicle-result-card">
-      <div class="vehicle-result-photo">${imageMarkup(item)}</div>
+      <a class="vehicle-result-photo" href="${escapeHtml(item.canonicalPath)}" data-product-link data-product-id="${escapeHtml(item.id)}">${imageMarkup(item)}</a>
       <div class="vehicle-result-copy">
         <p>${escapeHtml([item.brand, item.model].filter(Boolean).join(" · ") || item.category)}</p>
-        <h4>${escapeHtml(item.title)}</h4>
+        <h4><a class="vehicle-result-title-link" href="${escapeHtml(item.canonicalPath)}" data-product-link data-product-id="${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></h4>
         <small>${escapeHtml([item.condition, item.origin].filter(Boolean).join(" · ") || "Проверим по VIN")}</small>
         <div>
           <strong>${formatPrice(item.price)}</strong>
@@ -359,9 +363,9 @@
   const resetAfterBrand = () => {
     setOptions(modelSelect, unique(items.filter((item) => item.brand === brandSelect.value).map((item) => item.model)), "Выберите модель");
     setEnabled(modelSelect, Boolean(brandSelect.value));
-    setOptions(yearSelect, [], "Сначала выберите модель");
+    setOptions(yearSelect, [], "Сначала модель");
     setEnabled(yearSelect, false);
-    setOptions(categorySelect, [], "Сначала выберите год");
+    setOptions(categorySelect, [], "Сначала год");
     setEnabled(categorySelect, false);
   };
 
@@ -373,7 +377,7 @@
       .sort((a, b) => Number(b) - Number(a));
     setOptions(yearSelect, years, "Выберите год");
     setEnabled(yearSelect, Boolean(modelSelect.value));
-    setOptions(categorySelect, [], "Сначала выберите год");
+    setOptions(categorySelect, [], "Сначала год");
     setEnabled(categorySelect, false);
   };
 
@@ -470,6 +474,14 @@
     const button = event.target.closest("[data-remove-part]");
     if (!button) return;
     selected.delete(button.dataset.removePart);
+    renderRequest();
+  });
+
+  document.addEventListener("kitrade:add-product", (event) => {
+    const id = String(event.detail?.id || "");
+    const item = items.find((candidate) => String(candidate.id) === id);
+    if (!item || selected.has(id)) return;
+    selected.set(id, item);
     renderRequest();
   });
 

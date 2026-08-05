@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: kitrade-preview
+    runtime: static
+    plan: free
+    repo: https://github.com/polygalovartur22-create/kitrade-preview
+    branch: main
+    autoDeployTrigger: commit
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: KITRADE_BUILD_MODE
+        value: preview
+    headers:
+      - path: "/*"
+        name: X-Robots-Tag
+        value: noindex, nofollow, noarchive

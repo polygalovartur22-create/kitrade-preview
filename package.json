@@ -1,0 +1,11 @@
+{
+  "name": "kitrade-static-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "catalog:sync": "node ./scripts/catalog/sync-catalog.mjs",
+    "build": "npm run catalog:sync && node ./scripts/catalog/build-site.mjs",
+    "test": "node --test ./tests/*.test.mjs",
+    "verify": "npm test && npm run build && node ./scripts/catalog/verify-build.mjs"
+  }
+}

@@ -1,4 +1,4 @@
-/catalog /catalog.html 200
-/catalog/ /catalog.html 200
+/catalog.html /catalog/ 301!
+/catalog /catalog/ 301!
 /home / 301
 /* /404.html 404

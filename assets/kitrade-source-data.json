@@ -3,92 +3,92 @@
     {
       "id": 1,
       "title": "Видео 1",
-      "src": "https://res.cloudinary.com/dtc5ancbn/video/upload/v1777049194/VID_20260411_205703_275.mp4_jml1uf.mp4",
-      "poster": "https://res.cloudinary.com/dtc5ancbn/video/upload/so_0,q_auto,w_600/v1777049194/VID_20260411_205703_275.mp4_jml1uf.jpg"
+      "src": "./assets/external-media/cloudinary-9651cfd651ffff9d.mp4",
+      "poster": "./assets/external-media/cloudinary-7ec0769440491d35.jpg"
     },
     {
       "id": 2,
       "title": "Видео 2",
-      "src": "https://res.cloudinary.com/dtc5ancbn/video/upload/v1777049194/VID_20250828_135920_753_xeyjtt.mp4",
-      "poster": "https://res.cloudinary.com/dtc5ancbn/video/upload/so_0,q_auto,w_600/v1777049194/VID_20250828_135920_753_xeyjtt.jpg"
+      "src": "./assets/external-media/cloudinary-32512d0460dd4481.mp4",
+      "poster": "./assets/external-media/cloudinary-de9acae448ad18f6.jpg"
     },
     {
       "id": 3,
       "title": "Видео 3",
-      "src": "https://res.cloudinary.com/dtc5ancbn/video/upload/v1777049193/VID_20250828_135930_395_q8govc.mp4",
-      "poster": "https://res.cloudinary.com/dtc5ancbn/video/upload/so_0,q_auto,w_600/v1777049193/VID_20250828_135930_395_q8govc.jpg"
+      "src": "./assets/external-media/cloudinary-4e3882ef5393845c.mp4",
+      "poster": "./assets/external-media/cloudinary-ee419c59102a8c4f.jpg"
     },
     {
       "id": 4,
       "title": "Видео 4",
-      "src": "https://res.cloudinary.com/dtc5ancbn/video/upload/v1777049190/VID_20250828_141829_871_ptzqio.mp4",
-      "poster": "https://res.cloudinary.com/dtc5ancbn/video/upload/so_0,q_auto,w_600/v1777049190/VID_20250828_141829_871_ptzqio.jpg"
+      "src": "./assets/external-media/cloudinary-9f0d61f31999d4e8.mp4",
+      "poster": "./assets/external-media/cloudinary-dc0a87ee12deb629.jpg"
     },
     {
       "id": 5,
       "title": "Видео 5",
-      "src": "https://res.cloudinary.com/dtc5ancbn/video/upload/v1777049189/VID_20251010_145838_265_zz0dnl.mp4",
-      "poster": "https://res.cloudinary.com/dtc5ancbn/video/upload/so_0,q_auto,w_600/v1777049189/VID_20251010_145838_265_zz0dnl.jpg"
+      "src": "./assets/external-media/cloudinary-971200a111c43393.mp4",
+      "poster": "./assets/external-media/cloudinary-dd5b07f06fc32884.jpg"
     },
     {
       "id": 6,
       "title": "Видео 6",
-      "src": "https://res.cloudinary.com/dtc5ancbn/video/upload/v1777049176/VID_20251010_145837_466_a6vpdd.mp4",
-      "poster": "https://res.cloudinary.com/dtc5ancbn/video/upload/so_0,q_auto,w_600/v1777049176/VID_20251010_145837_466_a6vpdd.jpg"
+      "src": "./assets/external-media/cloudinary-1fc1009d8b482f03.mp4",
+      "poster": "./assets/external-media/cloudinary-d0a5b83657639dc8.jpg"
     },
     {
       "id": 7,
       "title": "Видео 7",
-      "src": "https://res.cloudinary.com/dtc5ancbn/video/upload/v1777049174/VID_20250828_135930_702_vtrvwo.mp4",
-      "poster": "https://res.cloudinary.com/dtc5ancbn/video/upload/so_0,q_auto,w_600/v1777049174/VID_20250828_135930_702_vtrvwo.jpg"
+      "src": "./assets/external-media/cloudinary-84570822799e0459.mp4",
+      "poster": "./assets/external-media/cloudinary-8afb66ba4cf261a5.jpg"
     },
     {
       "id": 8,
       "title": "Видео 8",
-      "src": "https://res.cloudinary.com/dtc5ancbn/video/upload/v1777049168/VID_20250828_135921_535_azc2ve.mp4",
-      "poster": "https://res.cloudinary.com/dtc5ancbn/video/upload/so_0,q_auto,w_600/v1777049168/VID_20250828_135921_535_azc2ve.jpg"
+      "src": "./assets/external-media/cloudinary-0464f01f4ecf4ce0.mp4",
+      "poster": "./assets/external-media/cloudinary-a3d64985bc8017f1.jpg"
     },
     {
       "id": 9,
       "title": "Видео 9",
-      "src": "https://res.cloudinary.com/dtc5ancbn/video/upload/v1777049166/VID_20250828_135930_934_qovvir.mp4",
-      "poster": "https://res.cloudinary.com/dtc5ancbn/video/upload/so_0,q_auto,w_600/v1777049166/VID_20250828_135930_934_qovvir.jpg"
+      "src": "./assets/external-media/cloudinary-56a90e4af9c39682.mp4",
+      "poster": "./assets/external-media/cloudinary-52cf83957187cc29.jpg"
     },
     {
       "id": 10,
       "title": "Видео 10",
-      "src": "https://res.cloudinary.com/dtc5ancbn/video/upload/v1777049164/VID_20250828_135921_108_i0hrvz.mp4",
-      "poster": "https://res.cloudinary.com/dtc5ancbn/video/upload/so_0,q_auto,w_600/v1777049164/VID_20250828_135921_108_i0hrvz.jpg"
+      "src": "./assets/external-media/cloudinary-4d759e6649acd276.mp4",
+      "poster": "./assets/external-media/cloudinary-26745fd3e8144ab1.jpg"
     },
     {
       "id": 11,
       "title": "Видео 11",
-      "src": "https://res.cloudinary.com/dtc5ancbn/video/upload/v1777049163/VID_20250828_135930_786_fzisru.mp4",
-      "poster": "https://res.cloudinary.com/dtc5ancbn/video/upload/so_0,q_auto,w_600/v1777049163/VID_20250828_135930_786_fzisru.jpg"
+      "src": "./assets/external-media/cloudinary-72b5e6c56eff52ba.mp4",
+      "poster": "./assets/external-media/cloudinary-69ccab0446d29075.jpg"
     },
     {
       "id": 12,
       "title": "Видео 12",
-      "src": "https://res.cloudinary.com/dtc5ancbn/video/upload/v1777049162/VID_20250828_135920_852_siho2m.mp4",
-      "poster": "https://res.cloudinary.com/dtc5ancbn/video/upload/so_0,q_auto,w_600/v1777049162/VID_20250828_135920_852_siho2m.jpg"
+      "src": "./assets/external-media/cloudinary-56c6e63ee39c4508.mp4",
+      "poster": "./assets/external-media/cloudinary-de92255c7fc0b5a5.jpg"
     },
     {
       "id": 13,
       "title": "Видео 13",
-      "src": "https://res.cloudinary.com/dtc5ancbn/video/upload/v1777049160/VID_20250828_135930_904_i2otyq.mp4",
-      "poster": "https://res.cloudinary.com/dtc5ancbn/video/upload/so_0,q_auto,w_600/v1777049160/VID_20250828_135930_904_i2otyq.jpg"
+      "src": "./assets/external-media/cloudinary-a3ea18ce38d7571d.mp4",
+      "poster": "./assets/external-media/cloudinary-4728177a5bab026d.jpg"
     },
     {
       "id": 14,
       "title": "Видео 14",
-      "src": "https://res.cloudinary.com/dtc5ancbn/video/upload/v1777049159/VID_20250828_135930_893_jmfd5n.mp4",
-      "poster": "https://res.cloudinary.com/dtc5ancbn/video/upload/so_0,q_auto,w_600/v1777049159/VID_20250828_135930_893_jmfd5n.jpg"
+      "src": "./assets/external-media/cloudinary-231bbb7f7836558c.mp4",
+      "poster": "./assets/external-media/cloudinary-cc37172dfac6e76e.jpg"
     },
     {
       "id": 15,
       "title": "Видео 15",
-      "src": "https://res.cloudinary.com/dtc5ancbn/video/upload/v1777049155/VID_20250828_135920_834_agrqce.mp4",
-      "poster": "https://res.cloudinary.com/dtc5ancbn/video/upload/so_0,q_auto,w_600/v1777049155/VID_20250828_135920_834_agrqce.jpg"
+      "src": "./assets/external-media/cloudinary-b723d83af60e7ff3.mp4",
+      "poster": "./assets/external-media/cloudinary-c304e61b7b3a65ba.jpg"
     }
   ],
   "orders": [
@@ -97,16 +97,16 @@
       "title": "Toyota RAV4",
       "location": "Октябрьский, Башкортостан",
       "sourceText": "Заказ Toyota Rav 4 - г. Октябрьский(Башкортостан)",
-      "cover": "https://res.cloudinary.com/dtc5ancbn/image/upload/v1776437048/%D0%BA%D0%B8%D1%82_4_itdnsi.jpg",
+      "cover": "./assets/external-media/cloudinary-4c44600d5fa6ed05.jpg",
       "images": [
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024209/photo_8_2026-04-24_16-49-28_rzpcgl.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024208/photo_7_2026-04-24_16-49-28_fivggz.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024206/photo_6_2026-04-24_16-49-28_yqof8j.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024205/photo_5_2026-04-24_16-49-28_rfasun.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024203/photo_4_2026-04-24_16-49-28_v8942b.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024201/photo_3_2026-04-24_16-49-28_j97pkx.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024200/photo_2_2026-04-24_16-49-28_rgz429.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024199/photo_1_2026-04-24_16-49-28_vdmwlz.jpg"
+        "./assets/external-media/cloudinary-d335dff63ee068b1.jpg",
+        "./assets/external-media/cloudinary-fadce6df561c9f46.jpg",
+        "./assets/external-media/cloudinary-d1218b932ce6f16f.jpg",
+        "./assets/external-media/cloudinary-3cc2d32ae9fde72b.jpg",
+        "./assets/external-media/cloudinary-89cfc854edaf18e5.jpg",
+        "./assets/external-media/cloudinary-8dc15c7c9c640f12.jpg",
+        "./assets/external-media/cloudinary-e9df9493a246d712.jpg",
+        "./assets/external-media/cloudinary-66d2a259173e07ee.jpg"
       ]
     },
     {
@@ -114,17 +114,17 @@
       "title": "Geely Monjaro",
       "location": "Новосибирск",
       "sourceText": "Заказ в Новосибирск- Geely Monjaro",
-      "cover": "https://res.cloudinary.com/dtc5ancbn/image/upload/v1776437054/%D0%BA%D0%B8%D1%82_3_ishhmr.jpg",
+      "cover": "./assets/external-media/cloudinary-e1b7642ba9bd738f.jpg",
       "images": [
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777023734/photo_5_2026-04-24_16-40-28_g58sjx.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777023733/photo_4_2026-04-24_16-40-28_lcq6oz.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777023731/photo_3_2026-04-24_16-40-28_q5s5sn.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777023730/photo_2_2026-04-24_16-40-28_er8isq.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777023728/photo_1_2026-04-24_16-40-28_byu0im.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777023727/photo_9_2026-04-24_16-40-28_cg8fla.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777023725/photo_8_2026-04-24_16-40-28_iozvav.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777023725/photo_7_2026-04-24_16-40-28_ck5vpq.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777023723/photo_6_2026-04-24_16-40-28_tatl6q.jpg"
+        "./assets/external-media/cloudinary-59158c0fef242374.jpg",
+        "./assets/external-media/cloudinary-e5f5feac42b68bba.jpg",
+        "./assets/external-media/cloudinary-42943440e9651da8.jpg",
+        "./assets/external-media/cloudinary-9b5b11178df5e843.jpg",
+        "./assets/external-media/cloudinary-bc62b4f3847571fd.jpg",
+        "./assets/external-media/cloudinary-8be00796b1a6a483.jpg",
+        "./assets/external-media/cloudinary-60f1052627bf898b.jpg",
+        "./assets/external-media/cloudinary-ebc9f9ea7257b89e.jpg",
+        "./assets/external-media/cloudinary-e7a1953b5769c85b.jpg"
       ]
     },
     {
@@ -132,16 +132,16 @@
       "title": "Toyota Highlander, 2025",
       "location": "Санкт-Петербург",
       "sourceText": "Заказ в Санкт-Петербург:\n- Toyota Hilander 2025г.в.",
-      "cover": "https://res.cloudinary.com/dtc5ancbn/image/upload/v1776437063/%D0%BA%D0%B8%D1%821_vcshrs.jpg",
+      "cover": "./assets/external-media/cloudinary-007bad8cba0938d7.jpg",
       "images": [
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777017402/photo_2026-04-24_14-55-14_cgd3ik.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777017402/photo_2026-04-24_14-55-16_r0xhcc.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777017401/photo_2026-04-24_14-55-08_y7ozzz.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777017401/photo_2026-04-24_14-55-10_pv7frf.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777017401/photo_2026-04-24_14-55-12_wy6yhq.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777017401/photo_2026-04-24_14-55-07_rqtycn.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777017401/photo_2026-04-24_14-55-04_wb08mh.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777017401/photo_2026-04-24_14-54-59_tpk2ds.jpg"
+        "./assets/external-media/cloudinary-6778b3c75708bc07.jpg",
+        "./assets/external-media/cloudinary-1a652b9c45018457.jpg",
+        "./assets/external-media/cloudinary-34d9f66e8fcfdfe4.jpg",
+        "./assets/external-media/cloudinary-44796b52ee0ac22f.jpg",
+        "./assets/external-media/cloudinary-5d7ff39f86af4219.jpg",
+        "./assets/external-media/cloudinary-40ee42090181b6d5.jpg",
+        "./assets/external-media/cloudinary-8edc0364dccff700.jpg",
+        "./assets/external-media/cloudinary-791a6b80596506d8.jpg"
       ]
     },
     {
@@ -149,28 +149,28 @@
       "title": "Zeekr 001",
       "location": "Иркутск",
       "sourceText": "Заказ в Иркутск - Zeekr 001",
-      "cover": "https://res.cloudinary.com/dtc5ancbn/image/upload/v1776437077/%D0%BA%D0%B8%D1%82_2_kv63fa.jpg",
+      "cover": "./assets/external-media/cloudinary-682f26d380ea2367.jpg",
       "images": [
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022471/photo_9_2026-04-24_16-19-37_oqaswh.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022471/photo_10_2026-04-24_16-19-37_mei6o1.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022471/photo_14_2026-04-24_16-19-37_q2mre9.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022471/photo_12_2026-04-24_16-19-37_inqym5.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022471/photo_15_2026-04-24_16-19-37_phdkdl.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022471/photo_11_2026-04-24_16-19-37_vn0vmr.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022471/photo_16_2026-04-24_16-19-37_g4cul7.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022470/photo_6_2026-04-24_16-19-37_lvsaic.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022470/photo_7_2026-04-24_16-19-37_dyfm6w.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022470/photo_8_2026-04-24_16-19-37_ackfgp.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022470/photo_2_2026-04-24_16-19-37_n9flfm.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022470/photo_4_2026-04-24_16-19-37_yy05pa.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022470/photo_21_2026-04-24_16-19-37_bl00m2.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022470/photo_3_2026-04-24_16-19-37_nbufvx.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022470/photo_1_2026-04-24_16-19-37_uwu4bl.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022470/photo_5_2026-04-24_16-19-37_qdxrfi.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022469/photo_18_2026-04-24_16-19-37_zzxm3l.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022469/photo_17_2026-04-24_16-19-37_vryxno.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022469/photo_19_2026-04-24_16-19-37_myw8ml.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022469/photo_20_2026-04-24_16-19-37_mpautq.jpg"
+        "./assets/external-media/cloudinary-d4a04fff7cd86973.jpg",
+        "./assets/external-media/cloudinary-10424440aef05983.jpg",
+        "./assets/external-media/cloudinary-33d74299a71a61bb.jpg",
+        "./assets/external-media/cloudinary-6546c1f37799cb11.jpg",
+        "./assets/external-media/cloudinary-fde824d5ad0c01b5.jpg",
+        "./assets/external-media/cloudinary-06a03aad5543e7f5.jpg",
+        "./assets/external-media/cloudinary-af558a824a98bf49.jpg",
+        "./assets/external-media/cloudinary-d7c07f95b0ed0079.jpg",
+        "./assets/external-media/cloudinary-5fd4f8be82b96a88.jpg",
+        "./assets/external-media/cloudinary-4bdff5e56831da0b.jpg",
+        "./assets/external-media/cloudinary-6c75046e53180469.jpg",
+        "./assets/external-media/cloudinary-541d4e175824acb6.jpg",
+        "./assets/external-media/cloudinary-97edccb8edcb86e5.jpg",
+        "./assets/external-media/cloudinary-8fe928bf903384b1.jpg",
+        "./assets/external-media/cloudinary-40693d9d9172bb5e.jpg",
+        "./assets/external-media/cloudinary-7066367a1cce943c.jpg",
+        "./assets/external-media/cloudinary-ca177239bfa88d5a.jpg",
+        "./assets/external-media/cloudinary-c039833f624e098e.jpg",
+        "./assets/external-media/cloudinary-c40c1010b71f3411.jpg",
+        "./assets/external-media/cloudinary-3a04b7273a4c0ec6.jpg"
       ]
     },
     {
@@ -178,27 +178,27 @@
       "title": "Geely Monjaro",
       "location": "Санкт-Петербург",
       "sourceText": "2Geely Monjaro - Санкт-Петербург",
-      "cover": "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024628/photo_19_2026-04-24_16-55-46_bcczvz.jpg",
+      "cover": "./assets/external-media/cloudinary-88d7c3ae9dd3d542.jpg",
       "images": [
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024628/photo_19_2026-04-24_16-55-46_bcczvz.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024626/photo_18_2026-04-24_16-55-46_ulivdp.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024624/photo_17_2026-04-24_16-55-46_mo8lbt.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024622/photo_16_2026-04-24_16-55-46_thvc3z.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024620/photo_15_2026-04-24_16-55-46_zchstx.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024618/photo_14_2026-04-24_16-55-46_gca8ky.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024616/photo_13_2026-04-24_16-55-46_y0wnir.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024614/photo_12_2026-04-24_16-55-46_phqdns.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024613/photo_11_2026-04-24_16-55-46_tcfzsi.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024611/photo_10_2026-04-24_16-55-46_zi5cqj.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024609/photo_9_2026-04-24_16-55-46_tanlzo.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024607/photo_8_2026-04-24_16-55-46_kjgbs1.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024605/photo_7_2026-04-24_16-55-46_loftxu.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024604/photo_6_2026-04-24_16-55-46_njdka9.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024602/photo_5_2026-04-24_16-55-46_jbvzst.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024600/photo_4_2026-04-24_16-55-46_mipuux.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024598/photo_3_2026-04-24_16-55-46_szzc9l.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024596/photo_2_2026-04-24_16-55-46_ctxhfm.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777024595/photo_1_2026-04-24_16-55-46_if7ptc.jpg"
+        "./assets/external-media/cloudinary-88d7c3ae9dd3d542.jpg",
+        "./assets/external-media/cloudinary-115c2ffdae5ed855.jpg",
+        "./assets/external-media/cloudinary-8b920abf338242d1.jpg",
+        "./assets/external-media/cloudinary-3bff5b398dc287ff.jpg",
+        "./assets/external-media/cloudinary-b31a1ed039e9d718.jpg",
+        "./assets/external-media/cloudinary-71198574a1655d02.jpg",
+        "./assets/external-media/cloudinary-8dedae77a94c5043.jpg",
+        "./assets/external-media/cloudinary-3a5d8a3d0de8b13c.jpg",
+        "./assets/external-media/cloudinary-5f08011d8fc04142.jpg",
+        "./assets/external-media/cloudinary-03b989c8fbffe775.jpg",
+        "./assets/external-media/cloudinary-c296778a69e154bb.jpg",
+        "./assets/external-media/cloudinary-74310186555bd891.jpg",
+        "./assets/external-media/cloudinary-12f3a9ebee0a4133.jpg",
+        "./assets/external-media/cloudinary-199e6b2ed24d7e6c.jpg",
+        "./assets/external-media/cloudinary-c60ab6da3d85de55.jpg",
+        "./assets/external-media/cloudinary-1ea868bead9fb986.jpg",
+        "./assets/external-media/cloudinary-6e2609f75ec42e8d.jpg",
+        "./assets/external-media/cloudinary-fab6af7cf0c86508.jpg",
+        "./assets/external-media/cloudinary-544313a29087b39a.jpg"
       ]
     },
     {
@@ -206,21 +206,21 @@
       "title": "Great Wall Poer",
       "location": "Иркутск",
       "sourceText": "Заказ в Иркутск Great Wall Poer",
-      "cover": "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022025/photo_2026-04-24_16-10-23_j4gnh3.jpg",
+      "cover": "./assets/external-media/cloudinary-f82851bc03e54035.jpg",
       "images": [
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022025/photo_2026-04-24_16-10-23_j4gnh3.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022024/photo_2026-04-24_16-10-22_blomip.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022024/photo_2026-04-24_16-10-21_muhqfi.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022024/photo_2026-04-24_16-10-19_auftgm.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022024/photo_2026-04-24_16-10-16_hzt8lz.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022024/photo_2026-04-24_16-10-18_zd8wnr.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022024/photo_2026-04-24_16-10-15_cczfl5.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022023/photo_2026-04-24_16-10-24_oil7bc.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022023/photo_2026-04-24_16-10-08_icepyp.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022023/photo_2026-04-24_16-10-13_nih1er.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022023/photo_2026-04-24_16-10-12_s3s5rr.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022023/photo_2026-04-24_16-10-10_yg5utm.jpg",
-        "https://res.cloudinary.com/dtc5ancbn/image/upload/v1777022023/photo_2026-04-24_16-10-06_fy3s99.jpg"
+        "./assets/external-media/cloudinary-f82851bc03e54035.jpg",
+        "./assets/external-media/cloudinary-9d04ff2b194acf5f.jpg",
+        "./assets/external-media/cloudinary-1daa7344a30389fd.jpg",
+        "./assets/external-media/cloudinary-cbda03c36d66fe5c.jpg",
+        "./assets/external-media/cloudinary-321ea7037b7e76eb.jpg",
+        "./assets/external-media/cloudinary-e820e207e5d3326f.jpg",
+        "./assets/external-media/cloudinary-833b60bdf553679b.jpg",
+        "./assets/external-media/cloudinary-c6b06d223e3d856f.jpg",
+        "./assets/external-media/cloudinary-3eeed432e2dae670.jpg",
+        "./assets/external-media/cloudinary-99ae757af8bf0b90.jpg",
+        "./assets/external-media/cloudinary-2ea7383f5051528d.jpg",
+        "./assets/external-media/cloudinary-8361f006a143dabd.jpg",
+        "./assets/external-media/cloudinary-9265016c580176f5.jpg"
       ]
     }
   ]

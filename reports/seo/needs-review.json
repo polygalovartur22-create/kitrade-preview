@@ -1,0 +1,121 @@
+[
+  {
+    "product_id": 1001,
+    "source_id": "7500756023",
+    "title": "Двигатель в сборе Weichai WP12.430E50",
+    "brand": "Маз",
+    "model": "",
+    "canonical_path": "/catalog/product/dvigatel-v-sbore-weichai-wp12-430e50-1001/",
+    "status": "unlisted",
+    "robots": "noindex,follow",
+    "action": "manual_review_required",
+    "reasons": [
+      "needs_review",
+      "missing_model"
+    ]
+  },
+  {
+    "product_id": 1002,
+    "source_id": "7596771238",
+    "title": "Двигатель WD615.47 Евро-2",
+    "brand": "",
+    "model": "",
+    "canonical_path": "/catalog/product/dvigatel-wd615-47-evro-2-1002/",
+    "status": "unlisted",
+    "robots": "noindex,follow",
+    "action": "manual_review_required",
+    "reasons": [
+      "needs_review",
+      "missing_brand",
+      "missing_model"
+    ]
+  },
+  {
+    "product_id": 1003,
+    "source_id": "7500528381",
+    "title": "Двигатель в сборе Eicha аналог Weichai WP12.430E50",
+    "brand": "Shacman",
+    "model": "",
+    "canonical_path": "/catalog/product/dvigatel-v-sbore-eicha-analog-weichai-wp12-430e50-1003/",
+    "status": "unlisted",
+    "robots": "noindex,follow",
+    "action": "manual_review_required",
+    "reasons": [
+      "needs_review",
+      "missing_model"
+    ]
+  },
+  {
+    "product_id": 1340,
+    "source_id": "7692131494",
+    "title": "Фара правая Geely Monjaro (оригинал)",
+    "brand": "Geely",
+    "model": "Monjaro",
+    "canonical_path": "/catalog/product/fara-pravaya-geely-monjaro-original-1340/",
+    "status": "unlisted",
+    "robots": "noindex,follow",
+    "action": "manual_review_required",
+    "reasons": [
+      "needs_review"
+    ]
+  },
+  {
+    "product_id": 1698,
+    "source_id": "7596312489",
+    "title": "Кпп Great Wall для двигателя GW4D20",
+    "brand": "Great Wall",
+    "model": "",
+    "canonical_path": "/catalog/product/kpp-great-wall-dlya-dvigatelya-gw4d20-1698/",
+    "status": "unlisted",
+    "robots": "noindex,follow",
+    "action": "manual_review_required",
+    "reasons": [
+      "needs_review",
+      "missing_model"
+    ]
+  },
+  {
+    "product_id": 1722,
+    "source_id": "4364844018",
+    "title": "Комплект колёс на багги - квадроцикл",
+    "brand": "",
+    "model": "",
+    "canonical_path": "/catalog/product/komplekt-koles-na-baggi-kvadrotsikl-1722/",
+    "status": "unlisted",
+    "robots": "noindex,follow",
+    "action": "manual_review_required",
+    "reasons": [
+      "needs_review",
+      "missing_brand",
+      "missing_model"
+    ]
+  },
+  {
+    "product_id": 2145,
+    "source_id": "4045053754",
+    "title": "Зеркало заднего вида правое Voyah Free (оригинал)",
+    "brand": "Voyah",
+    "model": "Free",
+    "canonical_path": "/catalog/product/zerkalo-zadnego-vida-pravoe-voyah-free-original-2145/",
+    "status": "unlisted",
+    "robots": "noindex,follow",
+    "action": "manual_review_required",
+    "reasons": [
+      "needs_review"
+    ]
+  },
+  {
+    "product_id": 2665,
+    "source_id": "4364971187",
+    "title": "Крышка багажника Changan Uni-K (оригинал)",
+    "brand": "Changan",
+    "model": "Uni-K",
+    "canonical_path": "/catalog/product/kryshka-bagazhnika-changan-uni-k-original-2665/",
+    "status": "unlisted",
+    "robots": "noindex,follow",
+    "action": "manual_review_required",
+    "reasons": [
+      "needs_review"
+    ]
+  }
+]
