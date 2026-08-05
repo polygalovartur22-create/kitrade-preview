@@ -514,7 +514,7 @@ if (requestForm) {
 }
 
 document.addEventListener("click", (event) => {
-  if (event.target.closest('a[href="#request"], a[href$="/#request"]')) window.KITRADE_TRACK?.("request_open");
+  if (event.target.closest('a[href="#request"], a[href="/#request"]')) window.KITRADE_TRACK?.("request_open");
 });
 
 const localOrderCovers = [

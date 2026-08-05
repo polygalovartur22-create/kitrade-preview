@@ -11,8 +11,7 @@ const config = JSON.parse(fs.readFileSync(path.join(projectDir, "site.config.jso
 const exportRows = JSON.parse(fs.readFileSync(path.join(outputDir, "catalog-urls.json"), "utf8"));
 const seoMap = JSON.parse(fs.readFileSync(path.join(outputDir, "seo-map.json"), "utf8"));
 const publicItems = readCatalogData(path.join(outputDir, "kitrade-parts-data.js"));
-const deploymentMode = process.env.KITRADE_BUILD_MODE || "production";
-const isNonProductionBuild = ["preview", "github-pages"].includes(deploymentMode);
+const isPreviewBuild = process.env.KITRADE_BUILD_MODE === "preview";
 
 const paths = exportRows.map((row) => row.canonical_path);
 assert.equal(new Set(paths).size, paths.length, "Export contains duplicate canonical paths");
@@ -66,9 +65,9 @@ for (const row of exportRows) {
 }
 const robots = fs.readFileSync(path.join(outputDir, "robots.txt"), "utf8");
 const runtimeConfig = fs.readFileSync(path.join(outputDir, "site-runtime-config.js"), "utf8");
-if (isNonProductionBuild) {
+if (isPreviewBuild) {
   assert.equal(robots, "User-agent: *\nDisallow: /\n", "Preview robots.txt must block all crawling");
-  assert.ok(runtimeConfig.includes(`"deploymentMode":"${deploymentMode}"`), "Preview runtime marker is missing");
+  assert.ok(runtimeConfig.includes('"deploymentMode":"preview"'), "Preview runtime marker is missing");
   assert.ok(runtimeConfig.includes('"enabled":false'), "Analytics is enabled in preview runtime config");
 } else {
   assert.ok(robots.includes(`Sitemap: ${config.siteUrl}/sitemap.xml`));

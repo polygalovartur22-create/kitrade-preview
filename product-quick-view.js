@@ -1,9 +1,4 @@
 (() => {
-  const sitePath = (value) => {
-    const path = String(value || "/");
-    const base = String(window.KITRADE_SITE_CONFIG?.basePath || "").replace(/\/$/, "");
-    return base && path.startsWith("/") && !path.startsWith(`${base}/`) ? `${base}${path}` : path;
-  };
   const source = Array.isArray(window.KITRADE_PARTS) ? window.KITRADE_PARTS : [];
   const urlMap = window.KITRADE_CATALOG_URLS?.products || {};
   const itemsById = new Map(source.map((item) => [String(item.id), item]));
@@ -20,9 +15,9 @@
 
   const fallbackPhoto = (item) => {
     const subject = [item.title, item.detail, item.category].filter(Boolean).join(" ").toLocaleLowerCase("ru");
-    if (/фар|фонар|оптик/.test(subject)) return sitePath("/assets/01-catalog-led-headlamp.png");
-    if (/крыл/.test(subject)) return sitePath("/assets/02-catalog-front-fender.png");
-    if (/реш[её]тк|бампер/.test(subject)) return sitePath("/assets/03-catalog-lower-grille.png");
+    if (/фар|фонар|оптик/.test(subject)) return "/assets/01-catalog-led-headlamp.png";
+    if (/крыл/.test(subject)) return "/assets/02-catalog-front-fender.png";
+    if (/реш[её]тк|бампер/.test(subject)) return "/assets/03-catalog-lower-grille.png";
     return "";
   };
 
@@ -86,7 +81,7 @@
     dialog.querySelector("[data-quick-meta]").textContent = [item.brand, item.model, item.article && `арт. ${item.article}`].filter(Boolean).join(" · ");
     dialog.querySelector("[data-quick-description]").textContent = item.description || "";
     dialog.querySelector("[data-quick-price]").textContent = formatPrice(item.price);
-    dialog.querySelector("[data-quick-page]").href = sitePath(route.canonical_path);
+    dialog.querySelector("[data-quick-page]").href = route.canonical_path;
     dialog.showModal();
     window.KITRADE_TRACK?.("product_view", { product_id: String(item.id), page_type: "quick_view" });
     return true;
