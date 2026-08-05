@@ -2,7 +2,6 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { readCatalogData } from "./lib/data.mjs";
 
 const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const outputDir = path.join(projectDir, "dist");
@@ -10,9 +9,7 @@ const registry = JSON.parse(fs.readFileSync(path.join(projectDir, "catalog-url-m
 const config = JSON.parse(fs.readFileSync(path.join(projectDir, "site.config.json"), "utf8"));
 const exportRows = JSON.parse(fs.readFileSync(path.join(outputDir, "catalog-urls.json"), "utf8"));
 const seoMap = JSON.parse(fs.readFileSync(path.join(outputDir, "seo-map.json"), "utf8"));
-const publicItems = readCatalogData(path.join(outputDir, "kitrade-parts-data.js"));
-const deploymentMode = process.env.KITRADE_BUILD_MODE || "production";
-const isNonProductionBuild = ["preview", "github-pages"].includes(deploymentMode);
+const isPreviewBuild = process.env.KITRADE_BUILD_MODE === "preview";
 
 const paths = exportRows.map((row) => row.canonical_path);
 assert.equal(new Set(paths).size, paths.length, "Export contains duplicate canonical paths");
@@ -29,25 +26,10 @@ for (const product of registry.entities.products) {
     assert.ok(!html.includes('content="noindex,follow"'), `Indexable product is noindex: ${product.canonical_path}`);
     assert.ok(html.includes('"@type":"Product"'), `Missing Product schema for ${product.canonical_path}`);
     assert.ok(html.includes('"availability":"https://schema.org/PreOrder"'), `Wrong availability for ${product.canonical_path}`);
-    const article = String(product.source_snapshot?.article || "").trim();
-    if (article) {
-      assert.ok(html.includes(article), `Product article is missing: ${product.canonical_path}`);
-      assert.ok(html.includes('"mpn"'), `Product article is missing from schema: ${product.canonical_path}`);
-    }
   } else {
     assert.ok(html.includes('content="noindex,follow"'), `Excluded product is not noindex: ${product.canonical_path}`);
     assert.ok(!html.includes('"@type":"Product"'), `Excluded product leaked into Product schema: ${product.canonical_path}`);
   }
-}
-
-assert.equal(publicItems.length, registry.entities.products.length, "Public catalog item count does not match registry");
-const publicItemById = new Map(publicItems.map((item) => [String(item.id), item]));
-for (const product of registry.entities.products) {
-  const item = publicItemById.get(String(product.product_id));
-  assert.ok(item, `Public catalog is missing product ${product.product_id}`);
-  assert.equal(item.article || "", String(product.source_snapshot?.article || "").trim(), `Wrong public article for ${product.product_id}`);
-  assert.ok(!Object.hasOwn(item, "sourceSheet"), `Private source sheet leaked for ${product.product_id}`);
-  assert.ok(!String(item.description).match(/большой ассортимент запчастей|оплата наличными|звоните будем рады/i), `Avito boilerplate leaked for ${product.product_id}`);
 }
 
 const catalogHtml = fs.readFileSync(path.join(outputDir, "catalog", "index.html"), "utf8");
@@ -66,20 +48,16 @@ for (const row of exportRows) {
 }
 const robots = fs.readFileSync(path.join(outputDir, "robots.txt"), "utf8");
 const runtimeConfig = fs.readFileSync(path.join(outputDir, "site-runtime-config.js"), "utf8");
-const headers = fs.readFileSync(path.join(outputDir, "_headers"), "utf8");
-if (isNonProductionBuild) {
+if (isPreviewBuild) {
   assert.equal(robots, "User-agent: *\nDisallow: /\n", "Preview robots.txt must block all crawling");
-  assert.ok(runtimeConfig.includes(`"deploymentMode":"${deploymentMode}"`), "Preview runtime marker is missing");
+  assert.ok(runtimeConfig.includes('"deploymentMode":"preview"'), "Preview runtime marker is missing");
   assert.ok(runtimeConfig.includes('"enabled":false'), "Analytics is enabled in preview runtime config");
-  assert.ok(headers.includes("X-Robots-Tag: noindex, nofollow, noarchive"), "Preview X-Robots-Tag header is missing");
 } else {
   assert.ok(robots.includes(`Sitemap: ${config.siteUrl}/sitemap.xml`));
   assert.ok(robots.includes("Allow: /"), "Production robots.txt must allow crawling");
   assert.ok(runtimeConfig.includes('"deploymentMode":"production"'), "Production runtime marker is missing");
-  assert.ok(!headers.includes("X-Robots-Tag"), "Production headers must not block indexing");
 }
 assert.ok(seoMap.length > 0 && seoMap.every((row) => row.indexable), "Promoted SEO map contains excluded rows");
-assert.ok(seoMap.filter((row) => row.page_type === "product").every((row) => typeof row.article_oem === "string"), "Product SEO map has an invalid article field");
 for (const requiredField of ["page_type", "entity_id", "canonical_url", "title", "description", "h1", "robots", "validation_errors"]) {
   assert.ok(seoMap.every((row) => Object.hasOwn(row, requiredField)), `SEO map is missing ${requiredField}`);
 }
@@ -101,12 +79,5 @@ for (const field of ["title", "description", "h1", "canonical_url"]) {
 const redirects = fs.readFileSync(path.join(outputDir, "_redirects"), "utf8");
 assert.ok(redirects.includes("/catalog.html /catalog/ 301!"));
 assert.ok(redirects.includes("/* /404.html 404"));
-for (const product of registry.entities.products) {
-  for (const legacyPath of product.legacy_paths || []) {
-    if (legacyPath !== product.canonical_path) {
-      assert.ok(redirects.includes(`${legacyPath} ${product.canonical_path} 301!`), `Missing static redirect: ${legacyPath}`);
-    }
-  }
-}
 
 console.log(`Verified ${registry.entities.products.length} permanent product pages and ${exportRows.length} exported URL records.`);

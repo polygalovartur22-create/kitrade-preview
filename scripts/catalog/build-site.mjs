@@ -3,7 +3,6 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { readCatalogData, normalizePhoto } from "./lib/data.mjs";
 import { getPublicCategory, isVisibleCatalogItem } from "./lib/domain.mjs";
-import { publicCatalogItem } from "./lib/public-copy.mjs";
 import { registryIndexes, validateRegistry } from "./lib/registry.mjs";
 import { breadcrumbStructuredData, buildSeoState, organizationStructuredData, productStructuredData } from "./lib/seo.mjs";
 
@@ -17,15 +16,7 @@ if (!fs.existsSync(registryPath)) {
 }
 
 const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
-const deploymentMode = process.env.KITRADE_BUILD_MODE === "github-pages"
-  ? "github-pages"
-  : process.env.KITRADE_BUILD_MODE === "preview"
-    ? "preview"
-    : "production";
-const isNonProductionBuild = deploymentMode !== "production";
-const publicBasePath = deploymentMode === "github-pages"
-  ? String(process.env.GITHUB_PAGES_BASE_PATH || "/kitrade-preview").replace(/\/$/, "")
-  : "";
+const isPreviewBuild = process.env.KITRADE_BUILD_MODE === "preview";
 const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
 const items = readCatalogData(path.join(projectDir, "kitrade-parts-data.js"));
 const publicUrlRows = JSON.parse(fs.readFileSync(path.join(projectDir, "public", "catalog-urls.json"), "utf8"));
@@ -99,8 +90,10 @@ function formatPrice(item) {
   return price ? `от ${new Intl.NumberFormat("ru-RU").format(price)} ₽` : "Цена по запросу";
 }
 
-function deliveryLabel() {
-  return "срок уточнит менеджер";
+function deliveryLabel(item) {
+  const match = String(item?.description || "").match(/(\d+)[–-](\d+)\s*(дн|нед)/i);
+  if (!match) return "срок уточняется";
+  return `${match[1]}–${match[2]} ${match[3].toLowerCase().startsWith("нед") ? "недель" : "дней"}`;
 }
 
 function fallbackPhoto(item) {
@@ -113,24 +106,24 @@ function fallbackPhoto(item) {
 }
 
 function productCard(product, item) {
-  const publicItem = publicCatalogItem(product, item || {});
-  const title = publicItem.title;
-  const publicCategory = indexes.categories.get(product.category_id)?.name || product.public_category || getPublicCategory(publicItem);
-  const photo = normalizePhoto(publicItem.photos?.[0]) || fallbackPhoto(publicItem);
+  const title = item?.title || product.name;
+  const publicCategory = indexes.categories.get(product.category_id)?.name || product.public_category || getPublicCategory(item || {});
+  const photo = normalizePhoto(item?.photos?.[0]) || fallbackPhoto(item);
   const image = photo
     ? `<img src="${escapeHtml(photo)}" alt="${escapeHtml(title)}" loading="lazy" /><div class="photo-fallback" hidden>Фото уточняется</div>`
     : '<div class="photo-fallback">Фото уточняется</div>';
+  const description = item?.description || [item?.brand, item?.model, item?.article].filter(Boolean).join(" · ");
   return `
-      <article class="part-card" data-id="${escapeHtml(publicItem.id)}">
-        <a class="part-photo" href="${escapeHtml(product.canonical_path)}" data-product-link data-product-id="${escapeHtml(publicItem.id)}">${image}</a>
+      <article class="part-card" data-id="${escapeHtml(item?.id || product.source_id)}">
+        <a class="part-photo" href="${escapeHtml(product.canonical_path)}" data-product-link data-product-id="${escapeHtml(item?.id || product.source_id)}">${image}</a>
         <div class="part-content">
           <span class="part-category">${escapeHtml(publicCategory)}</span>
-          <h3><a class="part-title-link" href="${escapeHtml(product.canonical_path)}" data-product-link data-product-id="${escapeHtml(publicItem.id)}">${escapeHtml(title)}</a></h3>
-          <p class="part-description">${escapeHtml(publicItem.description)}</p>
+          <h3><a class="part-title-link" href="${escapeHtml(product.canonical_path)}" data-product-link data-product-id="${escapeHtml(item?.id || product.source_id)}">${escapeHtml(title)}</a></h3>
+          <p class="part-description">${escapeHtml(description)}</p>
           <div class="part-meta">
-            <strong class="part-price">${escapeHtml(formatPrice(publicItem))}</strong>
-            <span class="part-time">${escapeHtml(deliveryLabel())}</span>
-            <button class="card-action" type="button" data-add="${escapeHtml(publicItem.id)}">В заявку</button>
+            <strong class="part-price">${escapeHtml(formatPrice(item))}</strong>
+            <span class="part-time">${escapeHtml(deliveryLabel(item))}</span>
+            <button class="card-action" type="button" data-add="${escapeHtml(item?.id || product.source_id)}">В заявку</button>
           </div>
         </div>
       </article>`;
@@ -176,7 +169,7 @@ function catalogPage({ routePath, titleParts = [], brand = null, model = null, c
     .replace(
       /<h1 id="catalog-title">[\s\S]*?<\/h1>/,
       routePath === "/catalog/"
-        ? '<h1 id="catalog-title">Автозапчасти из Китая<br />под заказ<br />для вашего автомобиля</h1>'
+        ? '<h1 id="catalog-title">Найдите нужную деталь.<br />Совместимость<br />проверим по VIN.</h1>'
         : `<h1 id="catalog-title">${escapeHtml(seo.h1)}</h1>`,
     )
     .replace('<p id="resultCount">Найдено 0 позиций</p>', `<p id="resultCount">Найдено ${products.length} позиций</p>`)
@@ -196,7 +189,6 @@ function currentProductRows() {
 }
 
 const allProductRows = currentProductRows();
-const publicCatalogItems = allProductRows.map(({ product, item }) => publicCatalogItem(product, item || {}));
 const visibleRows = allProductRows.filter(({ product, item }) => product.status === "active" && isVisibleCatalogItem(item));
 
 const modelsByBrand = new Map();
@@ -233,17 +225,6 @@ for (const entry of fs.readdirSync(catalogOutputDir, { withFileTypes: true })) {
   if (path.dirname(staleTarget) !== catalogOutputDir) throw new Error(`Unsafe stale route target: ${staleTarget}`);
   fs.rmSync(staleTarget, { recursive: true, force: true });
 }
-const productOutputDir = path.join(catalogOutputDir, "product");
-fs.mkdirSync(productOutputDir, { recursive: true });
-const currentProductDirectories = new Set(allProductRows.map(({ product }) => (
-  product.canonical_path.replace(/^\/catalog\/product\/|\/$/g, "")
-)));
-for (const entry of fs.readdirSync(productOutputDir, { withFileTypes: true })) {
-  if (currentProductDirectories.has(entry.name)) continue;
-  const staleTarget = path.resolve(productOutputDir, entry.name);
-  if (path.dirname(staleTarget) !== productOutputDir) throw new Error(`Unsafe stale product target: ${staleTarget}`);
-  fs.rmSync(staleTarget, { recursive: true, force: true });
-}
 
 for (const directory of ["assets", "source-dist2"]) {
   const source = path.join(projectDir, directory);
@@ -253,52 +234,6 @@ for (const filename of fs.readdirSync(projectDir)) {
   if (!/\.(?:css|js|html)$/i.test(filename) || filename === "catalog.html") continue;
   fs.copyFileSync(path.join(projectDir, filename), path.join(outputDir, filename));
 }
-const runtimeRouteKey = (...values) => values
-  .map((value) => String(value || "").trim().replace(/\s+/g, " ").toLocaleLowerCase("ru"))
-  .join("|");
-const publicBrowserRoutes = { brands: {}, models: {}, categories: {} };
-const publicBrowserProducts = {};
-for (const brand of registry.entities.brands) {
-  for (const name of new Set([brand.name, ...(brand.source_names || [])])) {
-    publicBrowserRoutes.brands[runtimeRouteKey(name)] = brandPath(brand);
-  }
-}
-for (const model of registry.entities.models) {
-  const brand = indexes.brands.get(model.parent_id);
-  if (!brand) continue;
-  for (const brandName of new Set([brand.name, ...(brand.source_names || [])])) {
-    for (const modelName of new Set([model.name, ...(model.source_names || [])])) {
-      publicBrowserRoutes.models[runtimeRouteKey(brandName, modelName)] = modelPath(brand, model);
-    }
-  }
-}
-for (const product of registry.entities.products) {
-  const brand = indexes.brands.get(product.brand_id);
-  const model = indexes.models.get(product.model_id);
-  const category = indexes.categories.get(product.category_id);
-  const publicId = String(product.product_id);
-  publicBrowserProducts[publicId] = {
-    product_id: product.product_id,
-    canonical_path: product.canonical_path,
-    public_category: category?.name || product.public_category || null,
-    brand_slug: brand?.slug || null,
-    model_slug: model?.slug || null,
-    category_slug: category?.slug || null,
-    status: product.status,
-    indexable: Boolean(seoState.productState.get(product.product_id)?.indexable),
-  };
-  if (brand && model && category) {
-    publicBrowserRoutes.categories[runtimeRouteKey(brand.name, model.name, category.name)] = categoryPath(brand, model, category);
-  }
-}
-fs.writeFileSync(
-  path.join(outputDir, "kitrade-parts-data.js"),
-  `window.KITRADE_PARTS = ${safeJson(publicCatalogItems)};\n`,
-);
-fs.writeFileSync(
-  path.join(outputDir, "catalog-url-data.js"),
-  `window.KITRADE_CATALOG_URLS = ${safeJson({ site_url: config.siteUrl, products: publicBrowserProducts, routes: publicBrowserRoutes })};\n`,
-);
 const homeOutputPath = path.join(outputDir, "index.html");
 if (fs.existsSync(homeOutputPath)) {
   const homeHtml = fs.readFileSync(homeOutputPath, "utf8").replace(
@@ -311,30 +246,20 @@ for (const filename of ["_headers"]) {
   const source = path.join(projectDir, filename);
   if (fs.existsSync(source)) fs.copyFileSync(source, path.join(outputDir, filename));
 }
-const headersOutputPath = path.join(outputDir, "_headers");
-if (isNonProductionBuild && fs.existsSync(headersOutputPath)) {
-  const headers = fs.readFileSync(headersOutputPath, "utf8");
-  const previewHeaders = headers.replace(
-    /^\/\*\r?\n/,
-    "/*\n  X-Robots-Tag: noindex, nofollow, noarchive\n",
-  );
-  fs.writeFileSync(headersOutputPath, previewHeaders);
-}
 fs.copyFileSync(path.join(projectDir, "public", "catalog-urls.json"), path.join(outputDir, "catalog-urls.json"));
 for (const filename of ["seo-map.json", "seo-map.csv"]) {
   const source = path.join(projectDir, "public", filename);
   if (fs.existsSync(source)) fs.copyFileSync(source, path.join(outputDir, filename));
 }
-const runtimeAnalytics = { ...config.analytics, enabled: isNonProductionBuild ? false : Boolean(config.analytics?.enabled) };
+const runtimeAnalytics = { ...config.analytics, enabled: isPreviewBuild ? false : Boolean(config.analytics?.enabled) };
 fs.writeFileSync(path.join(outputDir, "site-runtime-config.js"), `window.KITRADE_SITE_CONFIG = ${safeJson({
-  deploymentMode,
-  basePath: publicBasePath,
+  deploymentMode: isPreviewBuild ? "preview" : "production",
   analytics: runtimeAnalytics,
 })};\n`);
 const sitemapUrls = [canonicalUrl("/"), canonicalUrl("/catalog/"), ...publicUrlRows.filter((row) => row.indexable).map((row) => row.canonical_url)];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...new Set(sitemapUrls)].map((url) => `  <url><loc>${escapeHtml(url)}</loc></url>`).join("\n")}\n</urlset>\n`;
 fs.writeFileSync(path.join(outputDir, "sitemap.xml"), sitemap);
-fs.writeFileSync(path.join(outputDir, "robots.txt"), isNonProductionBuild
+fs.writeFileSync(path.join(outputDir, "robots.txt"), isPreviewBuild
   ? "User-agent: *\nDisallow: /\n"
   : [
       "User-agent: *",
@@ -387,12 +312,11 @@ function productPage(product, item) {
   const brand = indexes.brands.get(product.brand_id);
   const model = indexes.models.get(product.model_id);
   const category = indexes.categories.get(product.category_id);
-  const publicItem = publicCatalogItem(product, item || {});
-  const title = publicItem.title;
-  const realPhoto = normalizePhoto(publicItem.photos?.[0]);
-  const photo = realPhoto || fallbackPhoto(publicItem);
-  const description = publicItem.description;
-  const meta = [publicItem.brand || brand?.name, publicItem.model || model?.name, publicItem.article && `арт. ${publicItem.article}`].filter(Boolean).join(" · ");
+  const title = item?.title || product.name;
+  const realPhoto = normalizePhoto(item?.photos?.[0]);
+  const photo = realPhoto || fallbackPhoto(item);
+  const description = item?.description || "";
+  const meta = [item?.brand || brand?.name, item?.model || model?.name, item?.article && `арт. ${item.article}`].filter(Boolean).join(" · ");
   const crumbs = [
     ['/', 'Главная'], ['/catalog/', 'Каталог'],
     brand ? [brandPath(brand), brand.name] : null,
@@ -404,7 +328,7 @@ function productPage(product, item) {
   const state = seoState.productState.get(product.product_id);
   const seo = seoState.seoByPath.get(product.canonical_path);
   const robots = state?.indexable ? "" : '<meta name="robots" content="noindex,follow" />';
-  const productData = { id: publicItem.id, title, article: publicItem.article || "" };
+  const productData = { id: String(item?.id || product.source_id), title, article: item?.article || "" };
   const breadcrumbSchema = breadcrumbStructuredData([
     { name: "Главная", path: "/" }, { name: "Каталог", path: "/catalog/" },
     brand ? { name: brand.name, path: brandPath(brand) } : null,
@@ -415,7 +339,7 @@ function productPage(product, item) {
   const schemas = state?.indexable ? [
     organizationSchema,
     breadcrumbSchema,
-    productStructuredData({ product, item: publicItem, brand, model, category, seo, config, state, image: realPhoto }),
+    productStructuredData({ product, item, brand, model, category, seo, config, state, image: realPhoto }),
   ] : [organizationSchema];
   return `<!doctype html>
 <html lang="ru">
@@ -449,7 +373,7 @@ function productPage(product, item) {
           <h1>${escapeHtml(seo?.h1 || title)}</h1>
           <p class="product-page-meta">${escapeHtml(meta)}</p>
           ${description ? `<p class="product-page-description">${escapeHtml(description)}</p>` : ""}
-          <strong class="product-page-price">${escapeHtml(formatPrice(publicItem))}</strong>
+          <strong class="product-page-price">${escapeHtml(formatPrice(item))}</strong>
           <button class="product-page-request" type="button" data-product-request>Добавить в заявку</button>
         </div>
       </article>
@@ -458,7 +382,7 @@ function productPage(product, item) {
   <script id="product-page-data" type="application/json">${safeJson(productData)}</script>
   <script src="/site-runtime-config.js?v=1"></script>
   <script src="/analytics.js?v=1"></script>
-  <script src="/product-page.js?v=2"></script>
+  <script src="/product-page.js?v=1"></script>
 </body>
 </html>`;
 }

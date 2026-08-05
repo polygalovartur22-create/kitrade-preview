@@ -88,7 +88,7 @@ function ensureProduct(registry, item, relations) {
       source_id: sourceId,
       source_aliases: [],
       source_fingerprint: fingerprint(item),
-      name: item.title,
+      name: String(item.title || "").trim(),
       slug,
       canonical_path: `/catalog/product/${slug}/`,
       brand_id: relations.brand?.id || null,
@@ -107,7 +107,7 @@ function ensureProduct(registry, item, relations) {
     aliases.delete(sourceId);
     entry.source_id = sourceId;
     entry.source_aliases = [...aliases];
-    entry.name = item.title;
+    entry.name = String(item.title || "").trim();
     entry.source_fingerprint = fingerprint(item);
     entry.brand_id = relations.brand?.id || null;
     entry.model_id = relations.model?.id || null;

@@ -1,9 +1,4 @@
 (() => {
-  const sitePath = (value) => {
-    const path = String(value || "/");
-    const base = String(window.KITRADE_SITE_CONFIG?.basePath || "").replace(/\/$/, "");
-    return base && path.startsWith("/") && !path.startsWith(`${base}/`) ? `${base}${path}` : path;
-  };
   const dataNode = document.querySelector("#product-page-data");
   const button = document.querySelector("[data-product-request]");
   if (!dataNode || !button) return;
@@ -18,6 +13,6 @@
       details: `Позиция из каталога:\n1. ${product.title}${article}`,
       createdAt: Date.now(),
     }));
-    window.location.href = sitePath("/#request");
+    window.location.href = "/#request";
   });
 })();

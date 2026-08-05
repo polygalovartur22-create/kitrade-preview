@@ -342,16 +342,6 @@ h1, h2, h3, p { margin: 0; }
 .request-kicker span { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
 .request-panel > h2 { margin-top: 26px; font-size: 31px; font-weight: 560; line-height: 1.05; }
 .request-intro { margin-top: 18px; color: var(--muted); font-size: 16px; line-height: 1.5; }
-.request-panel > .request-price-note {
-  display: block;
-  margin-top: 16px;
-  padding: 11px 13px;
-  border-left: 2px solid var(--accent);
-  background: rgba(255, 244, 5, 0.05);
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 13px;
-  line-height: 1.45;
-}
 .request-selection { margin-top: 24px; padding: 18px 16px; border: 1px solid rgba(255,244,5,0.55); border-radius: 10px; }
 .request-selection strong { display: block; color: var(--accent); font-size: 14px; }
 .request-selection p { margin-top: 9px; color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.4; }

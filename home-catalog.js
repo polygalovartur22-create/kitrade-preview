@@ -1,9 +1,4 @@
 (() => {
-  const sitePath = (value) => {
-    const path = String(value || "/");
-    const base = String(window.KITRADE_SITE_CONFIG?.basePath || "").replace(/\/$/, "");
-    return base && path.startsWith("/") && !path.startsWith(`${base}/`) ? `${base}${path}` : path;
-  };
   const source = Array.isArray(window.KITRADE_PARTS) ? window.KITRADE_PARTS : [];
   const urlMap = window.KITRADE_CATALOG_URLS?.products || {};
   const root = document.querySelector(".vehicle-picker");
@@ -35,9 +30,9 @@
 
   const fallbackPhoto = (item) => {
     const value = [item.title, item.detail, item.category].filter(Boolean).join(" ").toLocaleLowerCase("ru");
-    if (/фар|фонар|оптик/.test(value)) return sitePath("/assets/01-catalog-led-headlamp.png");
-    if (/крыл/.test(value)) return sitePath("/assets/02-catalog-front-fender.png");
-    if (/реш[её]тк|бампер/.test(value)) return sitePath("/assets/03-catalog-lower-grille.png");
+    if (/фар|фонар|оптик/.test(value)) return "/assets/01-catalog-led-headlamp.png";
+    if (/крыл/.test(value)) return "/assets/02-catalog-front-fender.png";
+    if (/реш[её]тк|бампер/.test(value)) return "/assets/03-catalog-lower-grille.png";
     return "";
   };
 
@@ -142,7 +137,7 @@
       && (!urlMap[String(item.id)] || urlMap[String(item.id)].status === "active"))
     .map((item) => ({
       ...item,
-      canonicalPath: sitePath(urlMap[String(item.id)]?.canonical_path || "/catalog/"),
+      canonicalPath: urlMap[String(item.id)]?.canonical_path || "/catalog/",
       image: normalizePhoto(item.photos?.[0]) || fallbackPhoto(item),
       search: [item.title, item.brand, item.model, item.article, item.category, item.detail]
         .filter(Boolean)
@@ -329,7 +324,7 @@
     <article class="vehicle-result-card">
       <a class="vehicle-result-photo" href="${escapeHtml(item.canonicalPath)}" data-product-link data-product-id="${escapeHtml(item.id)}">${imageMarkup(item)}</a>
       <div class="vehicle-result-copy">
-        <p>${escapeHtml([item.brand, item.model, item.article].filter(Boolean).join(" · ") || item.category)}</p>
+        <p>${escapeHtml([item.brand, item.model].filter(Boolean).join(" · ") || item.category)}</p>
         <h4><a class="vehicle-result-title-link" href="${escapeHtml(item.canonicalPath)}" data-product-link data-product-id="${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></h4>
         <small>${escapeHtml([item.condition, item.origin].filter(Boolean).join(" · ") || "Проверим по VIN")}</small>
         <div>

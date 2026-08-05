@@ -1,5 +1,4 @@
 import crypto from "node:crypto";
-import { publicCatalogItem } from "./public-copy.mjs";
 
 const clean = (value) => String(value ?? "").trim().replace(/\s+/g, " ");
 const norm = (value) => clean(value).toLocaleLowerCase("ru").replaceAll("ё", "е");
@@ -62,14 +61,13 @@ function shorten(value, max) {
 }
 
 function productSeo(product, item, brand, model, category, rules) {
-  const publicItem = publicCatalogItem(product, item || {});
   const price = numericPrice(item?.price);
-  const article = clean(publicItem.article);
+  const article = clean(item?.article);
   const primaryArticle = shorten(article.split(/[\/,;]/)[0], 28);
-  const condition = clean(publicItem.condition);
-  const origin = validatedOrigin(publicItem.origin);
+  const condition = clean(item?.condition);
+  const origin = validatedOrigin(item?.origin);
   const values = {
-    product_name: publicItem.title,
+    product_name: clean(item?.title || product.name),
     article_clause: article ? `, арт. ${article}` : "",
     condition_clause: condition ? `, состояние: ${condition}` : "",
     origin_clause: origin ? `, происхождение: ${origin}` : "",
@@ -82,10 +80,13 @@ function productSeo(product, item, brand, model, category, rules) {
     primaryArticle ? `Арт. ${primaryArticle}` : "",
     condition ? `Состояние: ${condition}` : "",
     origin ? `Происхождение: ${origin}` : "",
+    price ? `Цена детали ${values.price} ₽` : "",
+    "Проверка совместимости по VIN",
   ].filter(Boolean);
+  while (suffixParts.join(". ").length > 92 && suffixParts.length > 2) suffixParts.splice(suffixParts.length - 3, 1);
   const suffix = `${suffixParts.join(". ")}.`;
   const description = `${shorten(values.product_name, Math.max(36, 156 - suffix.length))}. ${suffix}`;
-  return { h1, title, description, price, article, productName: publicItem.title, condition, origin, itemCondition: itemCondition(condition) };
+  return { h1, title, description, price, article, condition, origin, itemCondition: itemCondition(condition) };
 }
 
 function routeSeo(type, values, rules) {
@@ -195,7 +196,6 @@ export function buildSeoState({ registry, items, indexes, config, rules }) {
     category: row.category || "",
     product_name: row.product_name || "",
     product_id: row.product_id || "",
-    catalog_code: row.catalog_code || "",
     article_oem: row.article_oem || "",
     condition: row.condition || "",
     primary_query: row.primary_query || row.h1,
@@ -279,11 +279,11 @@ export function buildSeoState({ registry, items, indexes, config, rules }) {
     const category = indexes.categories.get(product.category_id);
     const seo = productSeo(product, item, brand, model, category, rules);
     add({ page_type: "product", entity_id: product.product_id, canonical_path: product.canonical_path,
-      brand: brand?.name, model: model?.name, category: category?.name, product_name: seo.productName,
+      brand: brand?.name, model: model?.name, category: category?.name, product_name: item?.title || product.name,
       product_id: product.product_id, article_oem: seo.article, condition: seo.condition, indexable: true,
       title: seo.title, description: seo.description, h1: seo.h1,
-      primary_query: seo.productName,
-      secondary_queries: [seo.article && `${seo.productName} ${seo.article}`, `${seo.productName} цена`].filter(Boolean),
+      primary_query: item?.title || product.name,
+      secondary_queries: [seo.article && `${item?.title || product.name} ${seo.article}`, `${item?.title || product.name} цена`].filter(Boolean),
       intro_text: "", faq: [],
     });
   }
