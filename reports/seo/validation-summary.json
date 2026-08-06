@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T19:27:10.965Z",
+  "generated_at": "2026-08-06T21:52:37.463Z",
   "source": "kitrade-parts-data.js",
   "source_products": 1941,
   "promoted_pages": 2399,
@@ -8,10 +8,18 @@
   "duplicate_groups": 4,
   "image_manual_review": 1892,
   "probable_identity_matches": 0,
+  "direct_semantics": {
+    "brands_total": 40,
+    "brands_from_direct": 11,
+    "models_total": 97,
+    "models_from_direct": 76,
+    "pages_with_2_to_6_secondary_queries": 137
+  },
   "pending_business_confirmation": [
     "organization.address",
     "organization.email",
     "organization.telephone",
-    "analytics.counterId"
+    "analytics.counterId",
+    "reports/seo/needs-owner-confirmation.json"
   ]
 }

@@ -125,7 +125,7 @@
 
   const formatPrice = (value) => {
     const price = Number(String(value || "").replace(/\D/g, ""));
-    return price ? `от ${new Intl.NumberFormat("ru-RU").format(price)} ₽` : "Цена по запросу";
+    return price ? `${new Intl.NumberFormat("ru-RU").format(price)} ₽` : "Цена по запросу";
   };
 
   const formatPositionCount = (value) => {
@@ -140,19 +140,28 @@
     .filter((item) => item?.title
       && String(item.brand || "").trim().toLocaleLowerCase("ru") !== "маз"
       && (!urlMap[String(item.id)] || urlMap[String(item.id)].status === "active"))
-    .map((item) => ({
+    .map((item) => {
+      const safe = urlMap[String(item.id)] || {};
+      const title = safe.title || item.title;
+      const article = safe.article || "";
+      return ({
       ...item,
-      canonicalPath: sitePath(urlMap[String(item.id)]?.canonical_path || "/catalog/"),
+      title,
+      article,
+      condition: safe.condition || "",
+      origin: safe.origin || "",
+      canonicalPath: sitePath(safe.canonical_path || "/catalog/"),
       image: normalizePhoto(item.photos?.[0]) || fallbackPhoto(item),
-      search: [item.title, item.brand, item.model, item.article, item.category, item.detail]
+      search: [title, item.brand, item.model, article, item.category, item.detail]
         .filter(Boolean)
         .join(" ")
         .toLocaleLowerCase("ru"),
-      searchNormalized: normalizeSearch([item.title, item.brand, item.model, item.article, item.category, item.detail]
+      searchNormalized: normalizeSearch([title, item.brand, item.model, article, item.category, item.detail]
         .filter(Boolean)
         .join(" ")),
-      searchCompact: compactSearch([item.title, item.article].filter(Boolean).join(" ")),
-    }));
+      searchCompact: compactSearch([title, article].filter(Boolean).join(" ")),
+    });
+    });
 
   const selected = new Map();
   let currentResults = [];

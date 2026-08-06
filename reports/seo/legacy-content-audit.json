@@ -1,0 +1,28 @@
+{
+  "status": "removed_after_dependency_audit",
+  "css_evidence": "reference-hero.css hides every main section outside the reference-only allowlist",
+  "javascript_evidence": "script.js binds the first data-request-form, which is the visible reference form; removed duplicate fields were later in DOM",
+  "removed_blocks": [
+    "catalog-dock",
+    "advantages",
+    "about-legacy",
+    "gallery",
+    "supplier-section",
+    "cases",
+    "legacy-request",
+    "legacy-contacts"
+  ],
+  "retained_blocks": [
+    "reference-hero",
+    "reference-catalog-preview",
+    "reference-process",
+    "reference-company",
+    "reference-workflow",
+    "reference-suppliers",
+    "reference-orders",
+    "guarantee-section",
+    "reference-faq",
+    "reference-request",
+    "reference-contacts"
+  ]
+}

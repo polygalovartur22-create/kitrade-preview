@@ -1,8 +1,8 @@
 import crypto from "node:crypto";
+import { createProductContent, numericPrice, schemaCondition } from "./product-content.mjs";
 
 const clean = (value) => String(value ?? "").trim().replace(/\s+/g, " ");
 const norm = (value) => clean(value).toLocaleLowerCase("ru").replaceAll("ё", "е");
-const numericPrice = (value) => Number(String(value ?? "").replace(/[^\d.,]/g, "").replace(",", ".")) || 0;
 
 export function fillTemplate(template, values) {
   return String(template || "").replace(/\{([a-z_]+)\}/g, (_, key) => clean(values[key]));
@@ -34,19 +34,6 @@ function structuredProductFingerprint(item, product) {
   return crypto.createHash("sha256").update(fields.map(norm).join("|")).digest("hex").slice(0, 24);
 }
 
-function itemCondition(value) {
-  const condition = norm(value);
-  if (!condition) return "";
-  if (condition.startsWith("нов")) return "https://schema.org/NewCondition";
-  if (condition.includes("б/у") || condition.includes("бу") || condition.includes("used")) return "https://schema.org/UsedCondition";
-  return "";
-}
-
-function validatedOrigin(value) {
-  const origin = clean(value);
-  return !origin || ["не знаю", "unknown"].includes(norm(origin)) ? "" : origin;
-}
-
 function truncate(value, max = 158) {
   const text = clean(value);
   if (text.length <= max) return text;
@@ -60,33 +47,10 @@ function shorten(value, max) {
   return text.slice(0, max).replace(/\s+\S*$/, "").replace(/[.,;:!?/-]+$/, "");
 }
 
-function productSeo(product, item, brand, model, category, rules) {
-  const price = numericPrice(item?.price);
-  const article = clean(item?.article);
-  const primaryArticle = shorten(article.split(/[\/,;]/)[0], 28);
-  const condition = clean(item?.condition);
-  const origin = validatedOrigin(item?.origin);
-  const values = {
-    product_name: clean(item?.title || product.name),
-    article_clause: article ? `, арт. ${article}` : "",
-    condition_clause: condition ? `, состояние: ${condition}` : "",
-    origin_clause: origin ? `, происхождение: ${origin}` : "",
-    price: price ? new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 }).format(price) : "",
-  };
-  let h1 = values.product_name;
-  if (primaryArticle && !norm(h1).includes(norm(primaryArticle))) h1 += ` — арт. ${primaryArticle}`;
-  const title = `${shorten(h1, 39)} | Купить под заказ — Китрейд`;
-  const suffixParts = [
-    primaryArticle ? `Арт. ${primaryArticle}` : "",
-    condition ? `Состояние: ${condition}` : "",
-    origin ? `Происхождение: ${origin}` : "",
-    price ? `Цена детали ${values.price} ₽` : "",
-    "Проверка совместимости по VIN",
-  ].filter(Boolean);
-  while (suffixParts.join(". ").length > 92 && suffixParts.length > 2) suffixParts.splice(suffixParts.length - 3, 1);
-  const suffix = `${suffixParts.join(". ")}.`;
-  const description = `${shorten(values.product_name, Math.max(36, 156 - suffix.length))}. ${suffix}`;
-  return { h1, title, description, price, article, condition, origin, itemCondition: itemCondition(condition) };
+function productSeo(product, item, brand, model, category, overrides) {
+  const content = createProductContent({ item, product, brand, model, category, overrides });
+  const description = truncate(`Цена указана за деталь; доставка рассчитывается отдельно. Проверка по VIN. ${content.h1}${content.article ? `. OEM ${content.article}` : ""}.`, 158);
+  return { ...content, description };
 }
 
 function routeSeo(type, values, rules) {
@@ -98,9 +62,23 @@ function routeSeo(type, values, rules) {
   };
 }
 
+function directModelEntry(directSemantics, brand, model) {
+  const exact = directSemantics.models?.[`${norm(brand.name)}|${norm(model.name)}`];
+  if (exact) return exact;
+  const aliases = {
+    "polar stone (jishi)|01": ["polar stone/jishi|01"],
+    "changan|auchan z6": ["changan|oshan z6"],
+    "exeed|exlantix es": ["exlantix|es"],
+    "fang cheng bao|bao 5 (leopard 5)": ["fangchengbao|bao 5"],
+    "fang cheng bao|titanium 7": ["fangchengbao|titanium 7"],
+  };
+  const key = `${norm(brand.name)}|${norm(model.name)}`;
+  return (aliases[key] || []).map((alias) => directSemantics.models?.[alias]).find(Boolean) || null;
+}
+
 function dedupeText(rows, field) {
   const groups = new Map();
-  for (const row of rows.filter((entry) => entry.indexable)) {
+  for (const row of rows.filter((entry) => entry.indexable && entry.page_type !== "product")) {
     const key = norm(row[field]);
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(row);
@@ -123,7 +101,7 @@ function dedupeText(rows, field) {
   }
 }
 
-export function buildSeoState({ registry, items, indexes, config, rules }) {
+export function buildSeoState({ registry, items, indexes, config, rules, overrides = {}, directSemantics = {} }) {
   const itemBySourceId = new Map(items.map((item) => [String(item.id), item]));
   const paths = routePaths(indexes);
   const products = registry.entities.products.map((product) => ({
@@ -163,11 +141,17 @@ export function buildSeoState({ registry, items, indexes, config, rules }) {
     if (!product.category_id) validationErrors.push("missing_category");
     if (duplicateSecondaryIds.has(product.product_id)) validationErrors.push("full_duplicate");
     const indexable = validationErrors.length === 0;
+    const brand = indexes.brands.get(product.brand_id);
+    const model = indexes.models.get(product.model_id);
+    const category = indexes.categories.get(product.category_id);
+    const productOverride = overrides.products?.[String(product.source_id)] || overrides.products?.[String(product.product_id)] || {};
+    const content = createProductContent({ item, product, brand, model, category, overrides: productOverride });
     productState.set(product.product_id, {
       indexable,
       robots: indexable ? "index,follow" : "noindex,follow",
       validationErrors,
       item,
+      content,
       duplicateOf: duplicateReport.find((group) => group.duplicate_product_ids.includes(product.product_id))?.primary_product_id || null,
     });
   }
@@ -224,18 +208,21 @@ export function buildSeoState({ registry, items, indexes, config, rules }) {
     ...rules.templates.catalog,
     primary_query: "каталог автозапчастей из Китая",
     secondary_queries: ["автозапчасти под заказ", "подбор запчастей по VIN"],
-    intro_text: "Каталог деталей под заказ из Китая с обязательной проверкой совместимости по VIN.",
+    intro_text: "Детали под заказ из Китая. Цена указана за деталь, доставка рассчитывается отдельно. Совместимость проверим по VIN.",
     faq: [{ question: "Как проверить совместимость детали?", answer: "Совместимость подтверждается менеджером по VIN перед заказом." }],
   });
 
   for (const brand of registry.entities.brands) {
     const count = brandCounts.get(brand.id) || 0;
     const seo = routeSeo("brand", { brand: brand.name }, rules);
+    const direct = directSemantics.brands?.[norm(brand.name)] || {};
+    const fallbackSecondary = [`автозапчасти ${brand.name}`, `детали ${brand.name} из Китая`];
     add({ page_type: "brand", entity_id: brand.id, canonical_path: paths.brand(brand), brand: brand.name,
-      brand_variants: brand.source_names || [brand.name], indexable: count > 0, status: count ? "active" : "unlisted",
+      brand_variants: [...new Set([...(brand.source_names || [brand.name]), ...(direct.brand_variants || [])])], indexable: count > 0, status: count ? "active" : "unlisted",
       validation_errors: count ? [] : ["no_verified_active_products"], ...seo,
-      primary_query: `запчасти ${brand.name}`, secondary_queries: [`автозапчасти ${brand.name}`, `детали ${brand.name} из Китая`],
-      intro_text: `Запчасти ${brand.name} под заказ из Китая с проверкой совместимости по VIN.`,
+      primary_query: direct.primary_query || `запчасти ${brand.name}`,
+      secondary_queries: [...new Set([...(direct.secondary_queries || []), ...fallbackSecondary])].slice(0, 6),
+      intro_text: `Запчасти ${brand.name} под заказ из Китая. Цена указана за деталь; доставка рассчитывается отдельно. Проверим по VIN.`,
       faq: [{ question: `Как подобрать запчасть для ${brand.name}?`, answer: "Перед заказом совместимость детали проверяется по VIN." }],
     });
   }
@@ -245,11 +232,15 @@ export function buildSeoState({ registry, items, indexes, config, rules }) {
     if (!brand) continue;
     const count = modelCounts.get(model.id) || 0;
     const seo = routeSeo("model", { brand: brand.name, model: model.name }, rules);
+    const direct = directModelEntry(directSemantics, brand, model) || {};
+    const directVariants = direct.model_variants || [];
+    const fallbackSecondary = [`детали ${brand.name} ${model.name}`, `${brand.name} ${model.name} запчасти из Китая`];
     add({ page_type: "model", entity_id: model.id, canonical_path: paths.model(brand, model), brand: brand.name, model: model.name,
-      brand_variants: brand.source_names || [brand.name], model_variants: model.source_names || [model.name],
+      brand_variants: brand.source_names || [brand.name], model_variants: [...new Set([...(model.source_names || [model.name]), ...directVariants])],
       indexable: count > 0, status: count ? "active" : "unlisted", validation_errors: count ? [] : ["no_verified_active_products"], ...seo,
-      primary_query: `запчасти ${brand.name} ${model.name}`, secondary_queries: [`детали ${brand.name} ${model.name}`, `${brand.name} ${model.name} запчасти из Китая`],
-      intro_text: `Каталог запчастей для ${brand.name} ${model.name} под заказ из Китая.`,
+      primary_query: direct.primary_query || `запчасти ${brand.name} ${model.name}`,
+      secondary_queries: [...new Set([...(direct.secondary_queries || []), ...fallbackSecondary])].slice(0, 6),
+      intro_text: `Запчасти для ${brand.name} ${model.name} под заказ из Китая. Цена указана за деталь; доставка рассчитывается отдельно. Проверим по VIN.`,
       faq: [{ question: `Как проверить деталь для ${brand.name} ${model.name}?`, answer: "Совместимость подтверждается менеджером по VIN перед заказом." }],
     });
   }
@@ -260,13 +251,19 @@ export function buildSeoState({ registry, items, indexes, config, rules }) {
     const model = indexes.models.get(modelId);
     const category = indexes.categories.get(categoryId);
     if (!brand || !model || !category) continue;
-    const seo = routeSeo("category", { brand: brand.name, model: model.name, category: category.name }, rules);
+    const categorySeoLabels = {
+      "Кузов": "Кузовные запчасти", "Оптика": "Фары и оптика", "Электрика": "Автоэлектрика",
+      "Стёкла": "Автомобильные стёкла", "Колёса": "Колёса и комплектующие", "Подвеска": "Запчасти подвески",
+      "Двигатель": "Запчасти двигателя", "Салон": "Детали салона", "Тормозная система": "Запчасти тормозной системы",
+    };
+    const seoCategory = categorySeoLabels[category.name] || category.name;
+    const seo = routeSeo("category", { brand: brand.name, model: model.name, category: seoCategory }, rules);
     add({ page_type: "category", entity_id: entityId, canonical_path: paths.category(brand, model, category), brand: brand.name,
       model: model.name, category: category.name, brand_variants: brand.source_names || [brand.name], model_variants: model.source_names || [model.name],
       indexable: count > 0, status: "active", ...seo,
-      primary_query: `${category.name} ${brand.name} ${model.name}`,
-      secondary_queries: [`купить ${category.name.toLocaleLowerCase("ru")} ${brand.name} ${model.name}`],
-      intro_text: `${category.name} для ${brand.name} ${model.name} под заказ из Китая.`,
+      primary_query: `${seoCategory} ${brand.name} ${model.name}`,
+      secondary_queries: [`купить ${seoCategory.toLocaleLowerCase("ru")} ${brand.name} ${model.name}`, `${seoCategory} ${brand.name} ${model.name} из Китая`],
+      intro_text: `${seoCategory} для ${brand.name} ${model.name} под заказ из Китая. Цена указана за деталь; доставка рассчитывается отдельно.`,
       faq: [{ question: "Как проверить совместимость?", answer: "Совместимость конкретной детали проверяется по VIN перед заказом." }],
     });
   }
@@ -277,13 +274,14 @@ export function buildSeoState({ registry, items, indexes, config, rules }) {
     const brand = indexes.brands.get(product.brand_id);
     const model = indexes.models.get(product.model_id);
     const category = indexes.categories.get(product.category_id);
-    const seo = productSeo(product, item, brand, model, category, rules);
+    const productOverride = overrides.products?.[String(product.source_id)] || overrides.products?.[String(product.product_id)] || {};
+    const seo = productSeo(product, item, brand, model, category, productOverride);
     add({ page_type: "product", entity_id: product.product_id, canonical_path: product.canonical_path,
-      brand: brand?.name, model: model?.name, category: category?.name, product_name: item?.title || product.name,
+      brand: brand?.name, model: model?.name, category: category?.name, product_name: seo.h1,
       product_id: product.product_id, article_oem: seo.article, condition: seo.condition, indexable: true,
       title: seo.title, description: seo.description, h1: seo.h1,
-      primary_query: item?.title || product.name,
-      secondary_queries: [seo.article && `${item?.title || product.name} ${seo.article}`, `${item?.title || product.name} цена`].filter(Boolean),
+      primary_query: seo.article ? `${seo.h1} ${seo.article}` : seo.h1,
+      secondary_queries: [seo.article && `${seo.h1} OEM ${seo.article}`, `${seo.h1} цена`, `${seo.h1} под заказ`].filter(Boolean),
       intro_text: "", faq: [],
     });
   }
@@ -337,17 +335,18 @@ export function buildSeoState({ registry, items, indexes, config, rules }) {
 }
 
 export function productStructuredData({ product, item, brand, model, category, seo, config, state, image }) {
+  const content = state?.content || createProductContent({ item, product, brand, model, category });
   const offer = {
     "@type": "Offer", url: new URL(product.canonical_path, `${config.siteUrl}/`).href,
-    priceCurrency: "RUB", price: numericPrice(item?.price), availability: "https://schema.org/PreOrder",
+    priceCurrency: "RUB", price: content.price, availability: "https://schema.org/PreOrder",
   };
-  const condition = itemCondition(item?.condition);
+  const condition = schemaCondition(content.condition);
   if (condition) offer.itemCondition = condition;
   const schema = {
-    "@context": "https://schema.org", "@type": "Product", name: seo?.h1 || item?.title || product.name,
+    "@context": "https://schema.org", "@type": "Product", name: seo?.h1 || content.h1,
     sku: String(product.product_id), url: offer.url, offers: offer,
   };
-  if (clean(item?.article)) schema.mpn = clean(item.article);
+  if (content.article) schema.mpn = content.article;
   if (brand?.name) schema.brand = { "@type": "Brand", name: brand.name };
   if (category?.name) schema.category = category.name;
   if (model?.name) schema.model = model.name;

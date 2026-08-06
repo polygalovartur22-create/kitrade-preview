@@ -18,7 +18,9 @@ validateRegistry(registry);
 const indexes = registryIndexes(registry);
 const rules = JSON.parse(fs.readFileSync(path.join(projectDir, "seo", "seo-rules.json"), "utf8"));
 const overrides = JSON.parse(fs.readFileSync(path.join(projectDir, "seo", "seo-overrides.json"), "utf8"));
-const seoState = buildSeoState({ registry, items, indexes, config, rules, overrides });
+const directSemanticsPath = path.join(projectDir, "seo", "direct-semantics.json");
+const directSemantics = fs.existsSync(directSemanticsPath) ? JSON.parse(fs.readFileSync(directSemanticsPath, "utf8")) : {};
+const seoState = buildSeoState({ registry, items, indexes, config, rules, overrides, directSemantics });
 
 function canonicalUrl(canonicalPath) {
   return new URL(canonicalPath, `${config.siteUrl}/`).href;
@@ -124,6 +126,7 @@ for (const product of registry.entities.products) {
   const brand = indexes.brands.get(product.brand_id);
   const model = indexes.models.get(product.model_id);
   const category = indexes.categories.get(product.category_id);
+  const content = seoState.productState.get(product.product_id)?.content || {};
   browserProducts[String(product.source_id)] = {
     product_id: product.product_id,
     slug: product.slug,
@@ -134,6 +137,15 @@ for (const product of registry.entities.products) {
     category_slug: category?.slug || null,
     status: product.status,
     indexable: Boolean(seoState.productState.get(product.product_id)?.indexable),
+    title: content.h1 || product.name,
+    article: content.article || "",
+    condition: content.condition || "",
+    origin: content.origin || "",
+    description: content.description || "",
+    card_description: content.cardDescription || "",
+    quick_description: content.quickDescription || "",
+    meta: content.meta || "",
+    price_label: content.priceLabel || "Цена по запросу",
   };
   for (const alias of product.source_aliases || []) browserProducts[String(alias)] = browserProducts[String(product.source_id)];
 }
@@ -154,12 +166,94 @@ fs.writeFileSync(path.join(reportsDir, "images-review.json"), `${JSON.stringify(
 fs.writeFileSync(path.join(reportsDir, "images-review.csv"), toCsv(seoState.imageReport));
 fs.writeFileSync(path.join(reportsDir, "identity-probable-matches.json"), `${JSON.stringify(seoState.probableMatches, null, 2)}\n`);
 fs.writeFileSync(path.join(reportsDir, "search-variants-draft.json"), `${JSON.stringify(seoState.variants, null, 2)}\n`);
+const normalizationRows = registry.entities.products.map((product) => {
+  const item = items.find((entry) => String(entry.id) === String(product.source_id)) || product.source_snapshot || {};
+  const content = seoState.productState.get(product.product_id)?.content || {};
+  const rawTitle = String(item.title || "").trim();
+  const rawArticle = String(item.article || "").trim();
+  const unbalancedBefore = (rawTitle.match(/\(/g) || []).length !== (rawTitle.match(/\)/g) || []).length;
+  return {
+    product_id: product.product_id, source_id: product.source_id, canonical_path: product.canonical_path,
+    raw_title: rawTitle, public_h1: content.h1 || "", raw_article: rawArticle, public_oem: content.article || "",
+    repaired_parentheses: unbalancedBefore,
+    corrected_name_or_case: rawTitle !== (content.h1 || ""),
+    suppressed_invalid_article: Boolean(rawArticle && !content.article),
+  };
+});
+fs.writeFileSync(path.join(reportsDir, "catalog-content-normalization.json"), `${JSON.stringify({
+  products: normalizationRows.length,
+  repaired_parentheses: normalizationRows.filter((row) => row.repaired_parentheses).length,
+  corrected_name_or_case: normalizationRows.filter((row) => row.corrected_name_or_case).length,
+  suppressed_invalid_articles: normalizationRows.filter((row) => row.suppressed_invalid_article).length,
+  rows: normalizationRows.filter((row) => row.repaired_parentheses || row.suppressed_invalid_article || row.corrected_name_or_case),
+}, null, 2)}\n`);
+
+const directModelAliases = {
+  "polar stone (jishi)|01": "polar stone/jishi|01",
+  "changan|auchan z6": "changan|oshan z6",
+  "exeed|exlantix es": "exlantix|es",
+  "fang cheng bao|bao 5 (leopard 5)": "fangchengbao|bao 5",
+  "fang cheng bao|titanium 7": "fangchengbao|titanium 7",
+};
+const directCoverage = {
+  sources: directSemantics.generated_from || [],
+  brands: registry.entities.brands.map((brand) => ({
+    entity_id: brand.id, name: brand.name, canonical_path: brandPath(brand),
+    direct_material_match: Boolean(directSemantics.brands?.[String(brand.name).toLocaleLowerCase("ru").replaceAll("ё", "е")]),
+    primary_query: seoState.seoByPath.get(brandPath(brand))?.primary_query || "",
+    secondary_queries: seoState.seoByPath.get(brandPath(brand))?.secondary_queries || [],
+  })),
+  models: registry.entities.models.map((model) => {
+    const brand = indexes.brands.get(model.parent_id);
+    const key = `${String(brand?.name || "").toLocaleLowerCase("ru").replaceAll("ё", "е")}|${String(model.name).toLocaleLowerCase("ru").replaceAll("ё", "е")}`;
+    const route = brand ? modelPath(brand, model) : "";
+    const seo = seoState.seoByPath.get(route);
+    const directKey = directSemantics.models?.[key] ? key : directModelAliases[key];
+    return { entity_id: model.id, brand: brand?.name || "", model: model.name, canonical_path: route,
+      direct_material_match: Boolean(directKey && directSemantics.models?.[directKey]), primary_query: seo?.primary_query || "",
+      secondary_queries: seo?.secondary_queries || [], model_variants: seo?.model_variants || [] };
+  }),
+};
+directCoverage.summary = {
+  brands_total: directCoverage.brands.length,
+  brands_from_direct: directCoverage.brands.filter((row) => row.direct_material_match).length,
+  models_total: directCoverage.models.length,
+  models_from_direct: directCoverage.models.filter((row) => row.direct_material_match).length,
+  pages_with_2_to_6_secondary_queries: [...directCoverage.brands, ...directCoverage.models].filter((row) => row.secondary_queries.length >= 2 && row.secondary_queries.length <= 6).length,
+};
+fs.writeFileSync(path.join(reportsDir, "direct-semantics-coverage.json"), `${JSON.stringify(directCoverage, null, 2)}\n`);
+
+const categoryRecommendations = seoState.seoRows.filter((row) => row.page_type === "category")
+  .map((row) => ({ canonical_path: row.canonical_path, brand: row.brand, model: row.model, category: row.category,
+    primary_query: row.primary_query, recommendation: "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста." }))
+  .sort((left, right) => left.canonical_path.localeCompare(right.canonical_path, "ru"))
+  .slice(0, 40);
+fs.writeFileSync(path.join(reportsDir, "category-wordstat-recommendations.json"), `${JSON.stringify({ count: categoryRecommendations.length, pages: categoryRecommendations }, null, 2)}\n`);
+
+const ownerConfirmation = [
+  { claim: "До 30% ниже рынка / 20–30% ниже предложений", location: "/#about", status: "needs-owner-confirmation", action: "Сохранено в существующей визуальной карточке без признания подтверждённым." },
+  { claim: "4 570 доставленных запчастей", location: "/#company", status: "needs-owner-confirmation", action: "Защищённый владельцем блок №3 оставлен без изменений." },
+  { claim: "1 650 обработанных заказов", location: "/#company", status: "needs-owner-confirmation", action: "Защищённый владельцем блок №3 оставлен без изменений." },
+  { claim: "Гарантия и обмен новых деталей", location: "/#guarantee", status: "needs-owner-confirmation", action: "Оставлено без расширения условий; требуется документальное подтверждение." },
+  { claim: "Контрактные запчасти обмену и возврату не подлежат", location: "/#guarantee", status: "needs-owner-confirmation", action: "Требуется юридическая проверка до production." },
+  { claim: "Фиксированные сроки 15–45 дней и авиадоставка от 2 дней", location: "/#faq", status: "neutralized", action: "Заменено на расчёт срока после проверки заказа." },
+  { claim: "Автомобили только от 2020 года", location: "/#request", status: "removed", action: "Неподтверждённое ограничение удалено из видимой формы." },
+];
+fs.writeFileSync(path.join(reportsDir, "needs-owner-confirmation.json"), `${JSON.stringify(ownerConfirmation, null, 2)}\n`);
+fs.writeFileSync(path.join(reportsDir, "legacy-content-audit.json"), `${JSON.stringify({
+  status: "removed_after_dependency_audit",
+  css_evidence: "reference-hero.css hides every main section outside the reference-only allowlist",
+  javascript_evidence: "script.js binds the first data-request-form, which is the visible reference form; removed duplicate fields were later in DOM",
+  removed_blocks: ["catalog-dock", "advantages", "about-legacy", "gallery", "supplier-section", "cases", "legacy-request", "legacy-contacts"],
+  retained_blocks: ["reference-hero", "reference-catalog-preview", "reference-process", "reference-company", "reference-workflow", "reference-suppliers", "reference-orders", "guarantee-section", "reference-faq", "reference-request", "reference-contacts"],
+}, null, 2)}\n`);
 fs.writeFileSync(path.join(reportsDir, "validation-summary.json"), `${JSON.stringify({
   generated_at: new Date().toISOString(), source: rules.source, source_products: items.length,
   promoted_pages: promotedSeoRows.length, excluded_products: exportRows.filter((row) => row.entity_type === "product" && !row.indexable).length,
   needs_review: seoState.needsReview.length, duplicate_groups: seoState.duplicateReport.length,
   image_manual_review: seoState.imageReport.length, probable_identity_matches: seoState.probableMatches.length,
-  pending_business_confirmation: ["organization.address", "organization.email", "organization.telephone", "analytics.counterId"],
+  direct_semantics: directCoverage.summary,
+  pending_business_confirmation: ["organization.address", "organization.email", "organization.telephone", "analytics.counterId", "reports/seo/needs-owner-confirmation.json"],
 }, null, 2)}\n`);
 fs.writeFileSync(
   path.join(projectDir, "catalog-url-data.js"),

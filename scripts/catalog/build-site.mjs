@@ -33,7 +33,9 @@ const indexes = registryIndexes(registry);
 const itemBySourceId = new Map(items.map((item) => [String(item.id), item]));
 const rules = JSON.parse(fs.readFileSync(path.join(projectDir, "seo", "seo-rules.json"), "utf8"));
 const overrides = JSON.parse(fs.readFileSync(path.join(projectDir, "seo", "seo-overrides.json"), "utf8"));
-const seoState = buildSeoState({ registry, items, indexes, config, rules, overrides });
+const directSemanticsPath = path.join(projectDir, "seo", "direct-semantics.json");
+const directSemantics = fs.existsSync(directSemanticsPath) ? JSON.parse(fs.readFileSync(directSemanticsPath, "utf8")) : {};
+const seoState = buildSeoState({ registry, items, indexes, config, rules, overrides, directSemantics });
 const organizationSchema = organizationStructuredData(config);
 
 for (const item of items) {
@@ -95,13 +97,11 @@ function copyTree(source, destination) {
 
 function formatPrice(item) {
   const price = Number(String(item?.price || "").replace(/\D/g, ""));
-  return price ? `от ${new Intl.NumberFormat("ru-RU").format(price)} ₽` : "Цена по запросу";
+  return price ? `${new Intl.NumberFormat("ru-RU").format(price)} ₽` : "Цена по запросу";
 }
 
-function deliveryLabel(item) {
-  const match = String(item?.description || "").match(/(\d+)[–-](\d+)\s*(дн|нед)/i);
-  if (!match) return "срок уточняется";
-  return `${match[1]}–${match[2]} ${match[3].toLowerCase().startsWith("нед") ? "недель" : "дней"}`;
+function deliveryLabel() {
+  return "доставка отдельно";
 }
 
 function fallbackPhoto(item) {
@@ -114,13 +114,14 @@ function fallbackPhoto(item) {
 }
 
 function productCard(product, item) {
-  const title = item?.title || product.name;
+  const content = seoState.productState.get(product.product_id)?.content || {};
+  const title = content.h1 || product.name;
   const publicCategory = indexes.categories.get(product.category_id)?.name || product.public_category || getPublicCategory(item || {});
   const photo = normalizePhoto(item?.photos?.[0]) || fallbackPhoto(item);
   const image = photo
     ? `<img src="${escapeHtml(photo)}" alt="${escapeHtml(title)}" loading="lazy" /><div class="photo-fallback" hidden>Фото уточняется</div>`
     : '<div class="photo-fallback">Фото уточняется</div>';
-  const description = item?.description || [item?.brand, item?.model, item?.article].filter(Boolean).join(" · ");
+  const description = content.cardDescription || "Цена — за деталь. Доставка отдельно. Проверка по VIN.";
   return `
       <article class="part-card" data-id="${escapeHtml(item?.id || product.source_id)}">
         <a class="part-photo" href="${escapeHtml(product.canonical_path)}" data-product-link data-product-id="${escapeHtml(item?.id || product.source_id)}">${image}</a>
@@ -180,6 +181,7 @@ function catalogPage({ routePath, titleParts = [], brand = null, model = null, c
         ? '<h1 id="catalog-title">Найдите нужную деталь.<br />Совместимость<br />проверим по VIN.</h1>'
         : `<h1 id="catalog-title">${escapeHtml(seo.h1)}</h1>`,
     )
+    .replace(/<p class="hero-description">[\s\S]*?<\/p>/, `<p class="hero-description">${escapeHtml(seo.intro_text || seo.description)}</p>`)
     .replace('<p id="resultCount">Найдено 0 позиций</p>', `<p id="resultCount">Найдено ${products.length} позиций</p>`)
     .replace('<h2 id="resultSummary">Chery / Geely / Haval</h2>', `<h2 id="resultSummary">${escapeHtml(summary)}</h2>`)
     .replace('<div class="parts-grid" id="partsGrid"></div>', `<div class="parts-grid" id="partsGrid">${visibleCards}</div>`);
@@ -254,6 +256,11 @@ for (const filename of ["_headers"]) {
   const source = path.join(projectDir, filename);
   if (fs.existsSync(source)) fs.copyFileSync(source, path.join(outputDir, filename));
 }
+if (isNonProductionBuild) {
+  const headersPath = path.join(outputDir, "_headers");
+  const headers = fs.existsSync(headersPath) ? fs.readFileSync(headersPath, "utf8").trimEnd() : "";
+  fs.writeFileSync(headersPath, `${headers}\n\n/*\n  X-Robots-Tag: noindex, nofollow, noarchive\n`);
+}
 fs.copyFileSync(path.join(projectDir, "public", "catalog-urls.json"), path.join(outputDir, "catalog-urls.json"));
 for (const filename of ["seo-map.json", "seo-map.csv"]) {
   const source = path.join(projectDir, "public", filename);
@@ -321,11 +328,13 @@ function productPage(product, item) {
   const brand = indexes.brands.get(product.brand_id);
   const model = indexes.models.get(product.model_id);
   const category = indexes.categories.get(product.category_id);
-  const title = item?.title || product.name;
+  const state = seoState.productState.get(product.product_id);
+  const content = state?.content || {};
+  const title = content.h1 || product.name;
   const realPhoto = normalizePhoto(item?.photos?.[0]);
   const photo = realPhoto || fallbackPhoto(item);
-  const description = item?.description || "";
-  const meta = [item?.brand || brand?.name, item?.model || model?.name, item?.article && `арт. ${item.article}`].filter(Boolean).join(" · ");
+  const description = content.description || "";
+  const meta = content.meta || [brand?.name, model?.name].filter(Boolean).join(" · ");
   const crumbs = [
     ['/', 'Главная'], ['/catalog/', 'Каталог'],
     brand ? [brandPath(brand), brand.name] : null,
@@ -334,10 +343,9 @@ function productPage(product, item) {
   ].filter(Boolean);
   const breadcrumbHtml = crumbs.map(([href, label]) => `<a href="${href}">${escapeHtml(label)}</a><span aria-hidden="true">/</span>`).join("")
     + `<span aria-current="page">${escapeHtml(title)}</span>`;
-  const state = seoState.productState.get(product.product_id);
   const seo = seoState.seoByPath.get(product.canonical_path);
   const robots = state?.indexable ? "" : '<meta name="robots" content="noindex,follow" />';
-  const productData = { id: String(item?.id || product.source_id), title, article: item?.article || "" };
+  const productData = { id: String(item?.id || product.source_id), title, article: content.article || "" };
   const breadcrumbSchema = breadcrumbStructuredData([
     { name: "Главная", path: "/" }, { name: "Каталог", path: "/catalog/" },
     brand ? { name: brand.name, path: brandPath(brand) } : null,
@@ -397,6 +405,23 @@ function productPage(product, item) {
 }
 
 for (const { product, item } of allProductRows) writeRoute(product.canonical_path, productPage(product, item));
+
+if (isNonProductionBuild) {
+  const addPreviewRobotsMeta = (directory) => {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      const target = path.join(directory, entry.name);
+      if (entry.isDirectory()) addPreviewRobotsMeta(target);
+      else if (entry.isFile() && entry.name.toLocaleLowerCase("ru").endsWith(".html")) {
+        let html = fs.readFileSync(target, "utf8");
+        if (!/<head[\s>]/i.test(html)) continue;
+        html = html.replace(/\s*<meta name="robots" content="[^"]*"\s*\/>/gi, "");
+        html = html.replace(/<head([^>]*)>/i, '<head$1>\n  <meta name="robots" content="noindex,nofollow,noarchive" />');
+        fs.writeFileSync(target, html);
+      }
+    }
+  };
+  addPreviewRobotsMeta(outputDir);
+}
 
 const redirects = [
   "/catalog.html /catalog/ 301!",

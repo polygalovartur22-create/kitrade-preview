@@ -28,7 +28,7 @@
 
   const formatPrice = (value) => {
     const price = Number(String(value || "").replace(/\D/g, ""));
-    return price ? `от ${new Intl.NumberFormat("ru-RU").format(price)} ₽` : "Цена по запросу";
+    return price ? `${new Intl.NumberFormat("ru-RU").format(price)} ₽` : "Цена по запросу";
   };
 
   function createDialog() {
@@ -82,9 +82,9 @@
       media.textContent = "Фото уточняется";
     }
     dialog.querySelector("[data-quick-category]").textContent = route.public_category || item.category || "Запчасть";
-    dialog.querySelector("[data-quick-title]").textContent = item.title || "Автозапчасть";
-    dialog.querySelector("[data-quick-meta]").textContent = [item.brand, item.model, item.article && `арт. ${item.article}`].filter(Boolean).join(" · ");
-    dialog.querySelector("[data-quick-description]").textContent = item.description || "";
+    dialog.querySelector("[data-quick-title]").textContent = route.title || item.title || "Автозапчасть";
+    dialog.querySelector("[data-quick-meta]").textContent = route.meta || [item.brand, item.model].filter(Boolean).join(" · ");
+    dialog.querySelector("[data-quick-description]").textContent = route.quick_description || "Цена — за деталь. Доставка отдельно. Проверка по VIN. Заказ — от 50 000 ₽; детали можно объединить.";
     dialog.querySelector("[data-quick-price]").textContent = formatPrice(item.price);
     dialog.querySelector("[data-quick-page]").href = sitePath(route.canonical_path);
     dialog.showModal();

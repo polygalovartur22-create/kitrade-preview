@@ -18,32 +18,35 @@
     "payment",
     "delivery_time",
     "delivery_terms",
-    "originality"
+    "originality",
+    "warranty",
+    "stock",
+    "country_of_origin"
   ],
   "templates": {
     "catalog": {
       "title": "Каталог автозапчастей | Китрейд",
-      "description": "Каталог автозапчастей под заказ из Китая с проверкой совместимости по VIN.",
+      "description": "Каталог автозапчастей под заказ из Китая. Цена указана за деталь, доставка рассчитывается отдельно. Проверка совместимости по VIN.",
       "h1": "Найдите нужную деталь. Совместимость проверим по VIN."
     },
     "brand": {
       "title": "Запчасти {brand} под заказ из Китая | Китрейд",
-      "description": "Каталог запчастей {brand} под заказ из Китая. Подбор детали и обязательная проверка совместимости по VIN.",
+      "description": "Запчасти {brand} под заказ из Китая. Цена указана за деталь, доставка рассчитывается отдельно. Проверка по VIN.",
       "h1": "Запчасти {brand} под заказ из Китая"
     },
     "model": {
       "title": "Запчасти для {brand} {model} под заказ | Китрейд",
-      "description": "Каталог запчастей для {brand} {model} под заказ из Китая с проверкой совместимости по VIN.",
+      "description": "Запчасти для {brand} {model} под заказ из Китая. Цена указана за деталь, доставка рассчитывается отдельно. Проверка по VIN.",
       "h1": "Запчасти для {brand} {model}"
     },
     "category": {
       "title": "{category} для {brand} {model} | Китрейд",
-      "description": "{category} для {brand} {model} под заказ из Китая. Совместимость детали проверяется по VIN.",
+      "description": "{category} для {brand} {model} под заказ из Китая. Цена указана за деталь, доставка отдельно. Проверка по VIN.",
       "h1": "{category} для {brand} {model}"
     },
     "product": {
-      "title": "{product_name} | Купить под заказ — Китрейд",
-      "description": "{product_name}{article_clause}{condition_clause}{origin_clause}. Цена детали {price} ₽. Проверка совместимости по VIN."
+      "title": "{product_name} под заказ | KITRADE",
+      "description": "{product_name}{article_clause}{condition_clause}. Цена указана за деталь; доставка рассчитывается отдельно. Проверка по VIN."
     }
   },
   "publicCategories": [

@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "seo:import-direct": "node ./scripts/catalog/import-direct-semantics.mjs",
     "catalog:sync": "node ./scripts/catalog/sync-catalog.mjs",
     "build": "npm run catalog:sync && node ./scripts/catalog/build-site.mjs",
     "build:github-pages": "npm run build && node ./scripts/catalog/build-github-pages.mjs",

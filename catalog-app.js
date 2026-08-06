@@ -56,19 +56,29 @@
     .filter((item) => item && item.title
       && String(item.brand || "").trim().toLocaleLowerCase("ru") !== "маз"
       && (!urlMap[String(item.id)] || urlMap[String(item.id)].status === "active"))
-    .map((item) => ({
+    .map((item) => {
+      const safe = urlMap[String(item.id)] || {};
+      const title = safe.title || item.title;
+      const article = safe.article || "";
+      return ({
       ...item,
+      title,
+      article,
+      cardDescription: safe.card_description || "Цена — за деталь. Доставка отдельно. Проверка по VIN.",
+      condition: safe.condition || "",
+      origin: safe.origin || "",
       brand: item.brand || "Без марки",
       model: item.model || "Модель не указана",
-      search: [item.title, item.brand, item.model, item.article, item.category, item.subcategory, item.detail]
+      search: [title, item.brand, item.model, article, item.category, item.subcategory, item.detail]
         .filter(Boolean)
         .join(" ")
         .toLocaleLowerCase("ru"),
-      group: urlMap[String(item.id)]?.public_category || getGroup(item),
-      canonicalPath: sitePath(urlMap[String(item.id)]?.canonical_path || "/catalog/"),
+      group: safe.public_category || getGroup(item),
+      canonicalPath: sitePath(safe.canonical_path || "/catalog/"),
       image: normalizePhoto(item.photos?.[0]) || catalogFallbackPhoto(item),
       priceNumber: Number(String(item.price || "").replace(/\D/g, "")) || 0,
-    }));
+    });
+    });
 
   const state = {
     tab: routeDefaults.category,
@@ -309,13 +319,11 @@
 
   function formatPrice(item) {
     if (!item.priceNumber) return "Цена по запросу";
-    return `от ${new Intl.NumberFormat("ru-RU").format(item.priceNumber)} ₽`;
+    return `${new Intl.NumberFormat("ru-RU").format(item.priceNumber)} ₽`;
   }
 
-  function deliveryLabel(item) {
-    const match = String(item.description || "").match(/(\d+)[–-](\d+)\s*(дн|нед)/i);
-    if (!match) return "срок уточняется";
-    return `${match[1]}–${match[2]} ${match[3].toLowerCase().startsWith("нед") ? "недель" : "дней"}`;
+  function deliveryLabel() {
+    return "доставка отдельно";
   }
 
   function cardMarkup(item) {
@@ -329,7 +337,7 @@
         <div class="part-content">
           <span class="part-category">${escapeHtml(item.group)}</span>
           <h3><a class="part-title-link" href="${escapeHtml(item.canonicalPath)}" data-product-link data-product-id="${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></h3>
-          <p class="part-description">${escapeHtml(item.description || [item.brand, item.model, item.article].filter(Boolean).join(" · "))}</p>
+          <p class="part-description">${escapeHtml(item.cardDescription)}</p>
           <div class="part-meta">
             <strong class="part-price">${formatPrice(item)}</strong>
             <span class="part-time">${deliveryLabel(item)}</span>

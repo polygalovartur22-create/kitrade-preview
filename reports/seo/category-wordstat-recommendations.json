@@ -1,0 +1,325 @@
+{
+  "count": 40,
+  "pages": [
+    {
+      "canonical_path": "/catalog/aito/m8/dvigatel/",
+      "brand": "Aito",
+      "model": "M8",
+      "category": "Двигатель",
+      "primary_query": "Запчасти двигателя Aito M8",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/aito/m8/kuzov/",
+      "brand": "Aito",
+      "model": "M8",
+      "category": "Кузов",
+      "primary_query": "Кузовные запчасти Aito M8",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/aito/m8/optika/",
+      "brand": "Aito",
+      "model": "M8",
+      "category": "Оптика",
+      "primary_query": "Фары и оптика Aito M8",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/aito/m8/sistema-ohlazhdeniya/",
+      "brand": "Aito",
+      "model": "M8",
+      "category": "Система охлаждения",
+      "primary_query": "Система охлаждения Aito M8",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/aito/m8/stekla/",
+      "brand": "Aito",
+      "model": "M8",
+      "category": "Стёкла",
+      "primary_query": "Автомобильные стёкла Aito M8",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/audi/a8/kuzov/",
+      "brand": "Audi",
+      "model": "A8",
+      "category": "Кузов",
+      "primary_query": "Кузовные запчасти Audi A8",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/audi/q5-sportback/kuzov/",
+      "brand": "Audi",
+      "model": "Q5 Sportback",
+      "category": "Кузов",
+      "primary_query": "Кузовные запчасти Audi Q5 Sportback",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/bj40/kuzov/",
+      "brand": "BAIC",
+      "model": "BJ40",
+      "category": "Кузов",
+      "primary_query": "Кузовные запчасти BAIC BJ40",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/bj40/optika/",
+      "brand": "BAIC",
+      "model": "BJ40",
+      "category": "Оптика",
+      "primary_query": "Фары и оптика BAIC BJ40",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/bj40/stekla/",
+      "brand": "BAIC",
+      "model": "BJ40",
+      "category": "Стёкла",
+      "primary_query": "Автомобильные стёкла BAIC BJ40",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/u5-plus/dvigatel/",
+      "brand": "BAIC",
+      "model": "U5 Plus",
+      "category": "Двигатель",
+      "primary_query": "Запчасти двигателя BAIC U5 Plus",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/u5-plus/elektrika/",
+      "brand": "BAIC",
+      "model": "U5 Plus",
+      "category": "Электрика",
+      "primary_query": "Автоэлектрика BAIC U5 Plus",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/u5-plus/kuzov/",
+      "brand": "BAIC",
+      "model": "U5 Plus",
+      "category": "Кузов",
+      "primary_query": "Кузовные запчасти BAIC U5 Plus",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/u5-plus/optika/",
+      "brand": "BAIC",
+      "model": "U5 Plus",
+      "category": "Оптика",
+      "primary_query": "Фары и оптика BAIC U5 Plus",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/u5-plus/sistema-ohlazhdeniya/",
+      "brand": "BAIC",
+      "model": "U5 Plus",
+      "category": "Система охлаждения",
+      "primary_query": "Система охлаждения BAIC U5 Plus",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/u5-plus/stekla/",
+      "brand": "BAIC",
+      "model": "U5 Plus",
+      "category": "Стёкла",
+      "primary_query": "Автомобильные стёкла BAIC U5 Plus",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/x35/kuzov/",
+      "brand": "BAIC",
+      "model": "X35",
+      "category": "Кузов",
+      "primary_query": "Кузовные запчасти BAIC X35",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/x35/optika/",
+      "brand": "BAIC",
+      "model": "X35",
+      "category": "Оптика",
+      "primary_query": "Фары и оптика BAIC X35",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/x35/stekla/",
+      "brand": "BAIC",
+      "model": "X35",
+      "category": "Стёкла",
+      "primary_query": "Автомобильные стёкла BAIC X35",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/x55/elektrika/",
+      "brand": "BAIC",
+      "model": "X55",
+      "category": "Электрика",
+      "primary_query": "Автоэлектрика BAIC X55",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/x55/kuzov/",
+      "brand": "BAIC",
+      "model": "X55",
+      "category": "Кузов",
+      "primary_query": "Кузовные запчасти BAIC X55",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/x55/optika/",
+      "brand": "BAIC",
+      "model": "X55",
+      "category": "Оптика",
+      "primary_query": "Фары и оптика BAIC X55",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/x7/dvigatel/",
+      "brand": "BAIC",
+      "model": "X7",
+      "category": "Двигатель",
+      "primary_query": "Запчасти двигателя BAIC X7",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/x7/elektrika/",
+      "brand": "BAIC",
+      "model": "X7",
+      "category": "Электрика",
+      "primary_query": "Автоэлектрика BAIC X7",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/x7/kuzov/",
+      "brand": "BAIC",
+      "model": "X7",
+      "category": "Кузов",
+      "primary_query": "Кузовные запчасти BAIC X7",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/x7/optika/",
+      "brand": "BAIC",
+      "model": "X7",
+      "category": "Оптика",
+      "primary_query": "Фары и оптика BAIC X7",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/x7/sistema-ohlazhdeniya/",
+      "brand": "BAIC",
+      "model": "X7",
+      "category": "Система охлаждения",
+      "primary_query": "Система охлаждения BAIC X7",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baic/x7/stekla/",
+      "brand": "BAIC",
+      "model": "X7",
+      "category": "Стёкла",
+      "primary_query": "Автомобильные стёкла BAIC X7",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baojun/rc-5/kuzov/",
+      "brand": "Baojun",
+      "model": "RC-5",
+      "category": "Кузов",
+      "primary_query": "Кузовные запчасти Baojun RC-5",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baojun/rs-5/kuzov/",
+      "brand": "Baojun",
+      "model": "RS-5",
+      "category": "Кузов",
+      "primary_query": "Кузовные запчасти Baojun RS-5",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baojun/rs-5/rulevoe-upravlenie/",
+      "brand": "Baojun",
+      "model": "RS-5",
+      "category": "Рулевое управление",
+      "primary_query": "Рулевое управление Baojun RS-5",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baojun/rs-5/tormoznaya-sistema/",
+      "brand": "Baojun",
+      "model": "RS-5",
+      "category": "Тормозная система",
+      "primary_query": "Запчасти тормозной системы Baojun RS-5",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baw/212/dvigatel/",
+      "brand": "BAW",
+      "model": "212",
+      "category": "Двигатель",
+      "primary_query": "Запчасти двигателя BAW 212",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baw/212/kuzov/",
+      "brand": "BAW",
+      "model": "212",
+      "category": "Кузов",
+      "primary_query": "Кузовные запчасти BAW 212",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baw/212/optika/",
+      "brand": "BAW",
+      "model": "212",
+      "category": "Оптика",
+      "primary_query": "Фары и оптика BAW 212",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baw/212/sistema-ohlazhdeniya/",
+      "brand": "BAW",
+      "model": "212",
+      "category": "Система охлаждения",
+      "primary_query": "Система охлаждения BAW 212",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/baw/212/stekla/",
+      "brand": "BAW",
+      "model": "212",
+      "category": "Стёкла",
+      "primary_query": "Автомобильные стёкла BAW 212",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/bmw/x5/stekla/",
+      "brand": "Bmw",
+      "model": "X5",
+      "category": "Стёкла",
+      "primary_query": "Автомобильные стёкла Bmw X5",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/byd/seal-06-gt/dvigatel/",
+      "brand": "BYD",
+      "model": "Seal 06 GT",
+      "category": "Двигатель",
+      "primary_query": "Запчасти двигателя BYD Seal 06 GT",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    },
+    {
+      "canonical_path": "/catalog/byd/seal-06-gt/kuzov/",
+      "brand": "BYD",
+      "model": "Seal 06 GT",
+      "category": "Кузов",
+      "primary_query": "Кузовные запчасти BYD Seal 06 GT",
+      "recommendation": "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста."
+    }
+  ]
+}
