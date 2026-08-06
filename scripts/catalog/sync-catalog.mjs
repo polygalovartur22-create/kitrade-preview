@@ -231,11 +231,11 @@ const categoryRecommendations = seoState.seoRows.filter((row) => row.page_type =
 fs.writeFileSync(path.join(reportsDir, "category-wordstat-recommendations.json"), `${JSON.stringify({ count: categoryRecommendations.length, pages: categoryRecommendations }, null, 2)}\n`);
 
 const ownerConfirmation = [
-  { claim: "До 30% ниже рынка / 20–30% ниже предложений", location: "/#about", status: "needs-owner-confirmation", action: "Сохранено в существующей визуальной карточке без признания подтверждённым." },
-  { claim: "4 570 доставленных запчастей", location: "/#company", status: "needs-owner-confirmation", action: "Защищённый владельцем блок №3 оставлен без изменений." },
-  { claim: "1 650 обработанных заказов", location: "/#company", status: "needs-owner-confirmation", action: "Защищённый владельцем блок №3 оставлен без изменений." },
-  { claim: "Гарантия и обмен новых деталей", location: "/#guarantee", status: "needs-owner-confirmation", action: "Оставлено без расширения условий; требуется документальное подтверждение." },
-  { claim: "Контрактные запчасти обмену и возврату не подлежат", location: "/#guarantee", status: "needs-owner-confirmation", action: "Требуется юридическая проверка до production." },
+  { claim: "До 30% ниже рынка / 20–30% ниже предложений", location: "/#top, /#about", status: "confirmed-by-owner", action: "Подтверждено владельцем 2026-08-07; формулировка возвращена в первый экран и сохранена в карточке преимуществ." },
+  { claim: "4 570 доставленных запчастей", location: "/#company", status: "confirmed-by-owner", action: "Подтверждено владельцем 2026-08-07; защищённый блок №3 оставлен без изменений." },
+  { claim: "1 650 обработанных заказов", location: "/#company", status: "confirmed-by-owner", action: "Подтверждено владельцем 2026-08-07; защищённый блок №3 оставлен без изменений." },
+  { claim: "Гарантия и обмен новых деталей", location: "/#guarantee", status: "confirmed-by-owner", action: "Условия гарантии и возврата подтверждены владельцем 2026-08-07." },
+  { claim: "Контрактные запчасти обмену и возврату не подлежат", location: "/#guarantee", status: "confirmed-by-owner", action: "Условия гарантии и возврата подтверждены владельцем 2026-08-07." },
   { claim: "Фиксированные сроки 15–45 дней и авиадоставка от 2 дней", location: "/#faq", status: "neutralized", action: "Заменено на расчёт срока после проверки заказа." },
   { claim: "Автомобили только от 2020 года", location: "/#request", status: "removed", action: "Неподтверждённое ограничение удалено из видимой формы." },
 ];
