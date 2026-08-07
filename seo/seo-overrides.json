@@ -11,7 +11,9 @@
       "byd|yangwang u8": ["Yangwang U8L", "BYD Yangwang U8L"],
       "bmw|x5": ["X5Li", "BMW X5Li"],
       "mercedes-benz|g-класс": ["G-Class", "Mercedes G-Class", "Mercedes-Benz G-Class"],
-      "mercedes-benz|g-класс amg": ["G-Class", "Mercedes G-Class", "Mercedes-Benz G-Class", "Merc G-Class"]
+      "mercedes-benz|g-класс amg": ["G-Class", "Mercedes G-Class", "Mercedes-Benz G-Class", "Merc G-Class"],
+      "fang cheng bao|bao 5 (leopard 5)": ["BYD FangChengBao Bao 5", "BYD FangChengBao Leopard 5", "FangChengBao Bao 5", "FangChengBao Leopard 5", "BYD Leopard 5", "Leopard 5", "Bao 5"],
+      "fang cheng bao|titanium 7": ["BYD FangChengBao Titanium 7", "FangChengBao Titanium 7", "Fang Cheng Bao Titanium 7", "BYD Leopard 7", "Leopard 7", "Titanium 7"]
     }
   },
   "products": {

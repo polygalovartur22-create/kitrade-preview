@@ -1,4 +1,10 @@
 # Production example for китрейд.рф. Replace certificate and root paths before enabling.
+# This file is a static example only; it is not installed by the build.
+map $arg_v $versioned_asset_cache {
+    default "no-cache";
+    ~.+ "public, max-age=2592000, immutable";
+}
+
 server {
     listen 80;
     listen [::]:80;
@@ -33,15 +39,40 @@ server {
 
     location / {
         try_files $uri $uri/ =404;
+        add_header Cache-Control "no-cache" always;
     }
 
     error_page 404 /404.html;
     location = /404.html { internal; }
 
-    location ~* \.(?:css|js|json|xml|png|jpe?g|webp|gif|svg|ico|woff2?|mp4)$ {
+    location = /robots.txt {
         try_files $uri =404;
-        expires 30d;
+        add_header Cache-Control "public, max-age=300" always;
+    }
+
+    location = /sitemap.xml {
+        try_files $uri =404;
+        add_header Cache-Control "no-cache" always;
+    }
+
+    location ~* ^/(?:catalog-runtime-data|catalog-url-data|site-runtime-config)\.js$ {
+        try_files $uri =404;
+        add_header Cache-Control "public, max-age=300, must-revalidate" always;
+    }
+
+    location ~* ^/(?:catalog-urls|seo-map|search-target-map)\.json$ {
+        try_files $uri =404;
+        add_header Cache-Control "public, max-age=300, must-revalidate" always;
+    }
+
+    location ~* [.-][0-9a-f]{8,}\.(?:css|js|png|jpe?g|webp|gif|svg|ico|woff2?|mp4)$ {
+        try_files $uri =404;
         add_header Cache-Control "public, max-age=2592000, immutable";
+    }
+
+    location ~* \.(?:css|js|png|jpe?g|webp|gif|svg|ico|woff2?|mp4)$ {
+        try_files $uri =404;
+        add_header Cache-Control $versioned_asset_cache always;
     }
 
     gzip on;

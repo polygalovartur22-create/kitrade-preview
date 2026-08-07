@@ -10,6 +10,8 @@ const registry = JSON.parse(fs.readFileSync(path.join(projectDir, "catalog-url-m
 const config = JSON.parse(fs.readFileSync(path.join(projectDir, "site.config.json"), "utf8"));
 const exportRows = JSON.parse(fs.readFileSync(path.join(outputDir, "catalog-urls.json"), "utf8"));
 const seoMap = JSON.parse(fs.readFileSync(path.join(outputDir, "seo-map.json"), "utf8"));
+const duplicateReport = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "duplicates.json"), "utf8"));
+const needsReviewReport = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "needs-review.json"), "utf8"));
 const sourceItems = readCatalogData(path.join(projectDir, "kitrade-parts-data.js"));
 const sourceById = new Map(sourceItems.map((item) => [String(item.id), item]));
 const deploymentMode = process.env.KITRADE_BUILD_MODE || "production";
@@ -30,6 +32,9 @@ for (const row of seoMap.filter((entry) => entry.page_type === "product")) {
   assert.ok(!forbiddenProductMetadata.test(`${row.title} ${row.description} ${row.h1}`), `Invalid article leaked into metadata: ${row.canonical_path}`);
   assert.ok(balanced(row.title) && balanced(row.h1), `Unbalanced parentheses in metadata: ${row.canonical_path}`);
   assert.ok([...row.title].length <= 75, `Product title exceeds 75 characters: ${row.canonical_path}`);
+  assert.ok(!/—\s*№\s*\d+/u.test(row.title), `Artificial product ID leaked into title: ${row.canonical_path}`);
+  assert.ok(!/Каталожный номер\s+\d+/iu.test(row.description), `Artificial product ID leaked into description: ${row.canonical_path}`);
+  assert.ok(!/BYD\s+FangChengBao\s+Fang Cheng Bao|Fang Cheng Bao\s+Fang Cheng Bao|\(Leopard 5\)\s*\(Leopard 5\)/iu.test(JSON.stringify(row)), `Repeated Fang Cheng Bao alias: ${row.canonical_path}`);
   if (row.article_oem) {
     assert.ok(/\d/.test(row.article_oem), `OEM has no digits: ${row.canonical_path}`);
     assert.ok(!/[\/,;]/.test(row.article_oem), `More than one OEM leaked into metadata: ${row.canonical_path}`);
@@ -41,7 +46,9 @@ for (const product of registry.entities.products) {
   const file = path.join(outputDir, ...product.canonical_path.replace(/^\/+|\/+$/g, "").split("/"), "index.html");
   assert.ok(fs.existsSync(file), `Missing product page ${product.canonical_path}`);
   const html = fs.readFileSync(file, "utf8");
-  assert.ok(html.includes(`rel="canonical" href="${config.siteUrl}${product.canonical_path}"`), `Wrong canonical for ${product.canonical_path}`);
+  const exported = exportRows.find((row) => row.entity_type === "product" && String(row.id) === String(product.product_id));
+  assert.ok(exported, `Missing exported product ${product.product_id}`);
+  assert.ok(html.includes(`rel="canonical" href="${config.siteUrl}${exported.canonical_target_path || product.canonical_path}"`), `Wrong canonical for ${product.canonical_path}`);
   assert.ok(html.includes("data-product-request"), `Missing request control for ${product.canonical_path}`);
   assert.ok(html.includes("Минимальная общая сумма заказа — 50 000 ₽"), `Missing total order rule: ${product.canonical_path}`);
   assert.ok(!/Минимальная сумма заказа\s*—\s*15\s*000|Мин\. сумма заказа\s*—\s*15\s*000|Заказ от 15\s*000/.test(html), `Old minimum order rule leaked: ${product.canonical_path}`);
@@ -49,8 +56,6 @@ for (const product of registry.entities.products) {
   const source = sourceById.get(String(product.source_id));
   const rawDescription = String(source?.description || "").trim();
   if (rawDescription.length >= 24) assert.ok(!html.includes(escapeHtml(rawDescription)), `Raw source description leaked: ${product.canonical_path}`);
-  const exported = exportRows.find((row) => row.entity_type === "product" && String(row.id) === String(product.product_id));
-  assert.ok(exported, `Missing exported product ${product.product_id}`);
   if (exported.indexable) {
     assert.ok(!html.includes('content="noindex,follow"'), `Indexable product is noindex: ${product.canonical_path}`);
     assert.ok(html.includes('"@type":"Product"'), `Missing Product schema for ${product.canonical_path}`);
@@ -71,6 +76,9 @@ assert.ok(catalogHtml.includes('id="catalog-results"'), "Direct catalog results 
 assert.ok(catalogHtml.includes("Общий заказ — от 50 000 ₽"), "Catalog request cart misses the total order rule");
 assert.ok(!/Минимальная сумма заказа\s*—\s*15\s*000|Заказ от 15\s*000/.test(catalogHtml), "Catalog contains the old minimum order rule");
 const homeHtml = fs.readFileSync(path.join(outputDir, "index.html"), "utf8");
+assert.equal((homeHtml.match(/<footer\b/g) || []).length, 1, "Home must contain exactly one user-facing footer");
+assert.ok(homeHtml.includes('class="reference-footer"'), "Visible reference footer is missing");
+assert.ok(!homeHtml.includes('class="site-footer"'), "Hidden legacy footer remains in DOM");
 assert.ok(homeHtml.includes("Минимальная общая сумма заказа — 50 000 ₽"), "Home form/FAQ misses the total order rule");
 assert.ok(homeHtml.includes("Цена — за деталь · Доставка отдельно · Заказ от 50 000 ₽"), "Home request cart misses the price and order clarification");
 assert.ok(homeHtml.includes('content="Автозапчасти под заказ из Китая: новые и контрактные детали, проверка по VIN и доставка по России. Общий заказ — от 50 000 ₽."'), "Home SEO description differs from the approved wording");
@@ -84,6 +92,13 @@ for (const clientFile of ["catalog-app.js", "home-catalog.js", "product-quick-vi
 }
 const runtimeCatalogSource = fs.readFileSync(path.join(outputDir, "catalog-runtime-data.js"), "utf8");
 assert.ok(!runtimeCatalogSource.includes('"description":'), "Raw marketplace descriptions leaked into public runtime data");
+const homeCatalogLoader = fs.readFileSync(path.join(outputDir, "home-catalog-loader.js"), "utf8");
+assert.ok(!homeCatalogLoader.includes("IntersectionObserver"), "Home still preloads the full catalog on viewport intersection");
+assert.ok(homeCatalogLoader.includes('addEventListener("pointerdown", start') && homeCatalogLoader.includes('addEventListener("focusin", start'), "Full home catalog is not gated by a real interaction");
+const nginxExample = fs.readFileSync(path.join(projectDir, "deployment", "nginx-kitrade.conf.example"), "utf8");
+assert.ok(nginxExample.includes("location = /robots.txt") && nginxExample.includes("location = /sitemap.xml"), "Nginx example lacks short-cache crawler resources");
+assert.ok(nginxExample.includes("catalog-runtime-data|catalog-url-data|site-runtime-config"), "Nginx example lacks mutable catalog-data caching");
+assert.ok(nginxExample.includes("[0-9a-f]{8,}") && nginxExample.includes("immutable"), "Nginx example does not limit immutable caching to versioned assets");
 const formScript = fs.readFileSync(path.join(outputDir, "script.js"), "utf8");
 assert.ok(formScript.indexOf('KITRADE_TRACK?.("request_submit_attempt")') < formScript.indexOf("await fetch("), "Submission attempt is not tracked before the request");
 assert.ok(formScript.includes('response.type === "opaque"'), "Opaque no-cors responses are not handled separately");
@@ -199,7 +214,9 @@ for (const page of htmlPages) {
   }
 }
 assert.deepEqual(missingStaticResources, [], `Missing static resources:\n${missingStaticResources.slice(0, 20).join("\n")}`);
-const indexableHtmlPages = htmlPages.filter((page) => page.canonical && sitemapUrlSet.has(page.canonical));
+const indexableHtmlPages = htmlPages.filter((page) => page.canonical
+  && sitemapUrlSet.has(page.canonical)
+  && new URL(page.canonical).pathname === page.route);
 const duplicateGroups = (field) => [...indexableHtmlPages.reduce((groups, page) => {
   const key = String(page[field] || "").trim().toLocaleLowerCase("ru").replaceAll("ё", "е");
   if (!key) return groups;
@@ -210,6 +227,10 @@ const duplicateGroups = (field) => [...indexableHtmlPages.reduce((groups, page) 
 assert.equal(duplicateGroups("title").length, 0, "Indexable pages contain duplicate titles");
 assert.equal(duplicateGroups("description").length, 0, "Indexable pages contain duplicate descriptions");
 assert.equal(duplicateGroups("canonical").length, 0, "Indexable pages contain duplicate canonical URLs");
+assert.equal(new Set(seoMap.map((row) => String(row.primary_query || "").trim().toLocaleLowerCase("ru"))).size, seoMap.length, "Indexable SEO map contains duplicate primary queries");
+assert.equal(needsReviewReport.length, 8, "Insufficient-data report must contain the known 8 products");
+assert.equal(duplicateReport.filter((group) => group.classification === "confirmed_full_duplicate").length, 4, "Exact duplicate report must preserve the 4 confirmed source pairs");
+assert.ok(duplicateReport.every((group) => group.primary && group.secondary_pages?.length && group.matching_fields && group.differing_fields && group.action), "Duplicate report lacks transparent comparison data");
 assert.ok(indexableHtmlPages.every((page) => page.title && page.description && page.canonical), "Indexable page has incomplete metadata");
 assert.ok(indexableHtmlPages.every((page) => [...page.title].length <= 75), "Indexable page title exceeds 75 characters");
 
@@ -265,9 +286,27 @@ for (const file of catalogIndexFiles) {
   const canonical = extract(html, /<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)/i);
   assert.equal(canonical, new URL(route, `${config.siteUrl}/`).href, `Pagination canonical is not self-referencing: ${route}`);
   if (/\/page\/\d+\/$/.test(route)) assert.ok(sitemapUrlSet.has(canonical), `Pagination page is missing from sitemap: ${route}`);
+  const description = extract(html, /<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)/i);
+  assert.ok(!/VIN Страница|отдельно Страница|\.\.|  /u.test(description), `Broken pagination description punctuation: ${route}`);
+  if (/\/page\/\d+\/$/.test(route)) assert.ok(/[.!?] Страница \d+\.$/u.test(description), `Pagination description has no sentence boundary: ${route}`);
 }
 
+const catalogAppSource = fs.readFileSync(path.join(outputDir, "catalog-app.js"), "utf8");
+assert.ok(catalogAppSource.includes("const PAGE_SIZE = 24"), "Client pagination does not use the shared 24-card size");
+assert.ok(!/visible\s*(?::|=|\+=)\s*12\b/.test(catalogAppSource), "Legacy 12-card client pagination remains");
+const rootPageFiles = [1, 2, 3].map((pageNumber) => pageNumber === 1
+  ? path.join(outputDir, "catalog", "index.html")
+  : path.join(outputDir, "catalog", "page", String(pageNumber), "index.html"));
+const rootPageIds = rootPageFiles.map((file) => [...fs.readFileSync(file, "utf8").matchAll(/<article class="part-card" data-id="([^"]+)"/g)].map((match) => match[1]));
+assert.deepEqual(rootPageIds.map((ids) => ids.length), [24, 24, 24], "Catalog pages 1–3 must each contain exactly 24 cards");
+assert.equal(new Set(rootPageIds.flat()).size, 72, "Catalog pages 1–3 contain a gap or duplicate product");
+assert.ok(fs.readFileSync(rootPageFiles[0], "utf8").includes('id="loadMore" href="/catalog/page/2/"'), "First catalog page does not link to page 2");
+
 const searchTargetMap = JSON.parse(fs.readFileSync(path.join(outputDir, "search-target-map.json"), "utf8"));
+assert.equal(searchTargetMap.groups.length, 107, "Search target map must preserve all 107 source groups");
+assert.deepEqual(searchTargetMap.source_groups, { total: 107, wide: 1, brands: 25, models: 81 }, "Search target source totals changed");
+assert.ok(searchTargetMap.groups.every((group) => group.source_row && group.match_status && Object.hasOwn(group, "missing_reason")), "Search target group lost source traceability");
+assert.equal(new Set(searchTargetMap.groups.map((group) => group.source_row)).size, 107, "Source landing rows are duplicated or missing");
 assert.ok(Array.isArray(searchTargetMap.groups) && searchTargetMap.groups.length > 0, "Search target map is empty");
 for (const group of searchTargetMap.groups) {
   assert.ok(group.search_group && group.queries?.length && group.canonical_path && group.canonical_url, "Search target group is incomplete");

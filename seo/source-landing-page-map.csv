@@ -1,0 +1,108 @@
+﻿group_type;group_name;brand;model;economic_priority;landing_type;suggested_path;final_url;status
+WIDE;WIDE | Китайские авто;;;;catalog_root;/catalog/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Geely;Geely;;;brand_filter;/catalog/geely/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Voyah;Voyah;;;brand_filter;/catalog/voyah/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | BAIC;BAIC;;;brand_filter;/catalog/baic/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Changan;Changan;;;brand_filter;/catalog/changan/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Livan;Livan;;;brand_filter;/catalog/livan/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | BYD;BYD;;;brand_filter;/catalog/byd/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Haval;Haval;;;brand_filter;/catalog/haval/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Tank;Tank;;;brand_filter;/catalog/tank/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Wey;Wey;;;brand_filter;/catalog/wey/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Fang Cheng Bao;Fang Cheng Bao;;;brand_filter;/catalog/fang-cheng-bao/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Hongqi;Hongqi;;;brand_filter;/catalog/hongqi/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Li Auto;Li Auto;;;brand_filter;/catalog/li-auto/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Zeekr;Zeekr;;;brand_filter;/catalog/zeekr/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Exeed;Exeed;;;brand_filter;/catalog/exeed/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Aito;Aito;;;brand_filter;/catalog/aito/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Xiaomi;Xiaomi;;;brand_filter;/catalog/xiaomi/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Polar Stone (Jishi);Polar Stone (Jishi);;;brand_filter;/catalog/polar-stone-jishi/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | BAW;BAW;;;brand_filter;/catalog/baw/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Chery;Chery;;;brand_filter;/catalog/chery/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | HiPhi;HiPhi;;;brand_filter;/catalog/hiphi/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Great Wall;Great Wall;;;brand_filter;/catalog/great-wall/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Dongfeng;Dongfeng;;;brand_filter;/catalog/dongfeng/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Baojun;Baojun;;;brand_filter;/catalog/baojun/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Omoda;Omoda;;;brand_filter;/catalog/omoda/;;WAITING_FOR_SITE_ROUTES
+BRAND;BRAND | Jetour;Jetour;;;brand_filter;/catalog/jetour/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Aito | M8;Aito;M8;P3_long_tail_medium_value;model_filter;/catalog/aito/m8/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Audi | A8;Audi;A8;P2_long_tail_high_value;model_filter;/catalog/audi/a8/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Audi | Q5 Sportback;Audi;Q5 Sportback;P2_long_tail_high_value;model_filter;/catalog/audi/q5-sportback/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | BAIC | BJ40;BAIC;BJ40;P2_high_demand_medium_value;model_filter;/catalog/baic/bj40/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | BAIC | U5 Plus;BAIC;U5 Plus;P4_low_value_controlled;model_filter;/catalog/baic/u5-plus/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | BAIC | X35;BAIC;X35;P4_low_value_controlled;model_filter;/catalog/baic/x35/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | BAIC | X55;BAIC;X55;P2_high_demand_medium_value;model_filter;/catalog/baic/x55/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | BAIC | X7;BAIC;X7;P4_low_value_controlled;model_filter;/catalog/baic/x7/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Baojun | RC-5;Baojun;RC-5;P3_long_tail_medium_value;model_filter;/catalog/baojun/rc-5/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Baojun | RS-5;Baojun;RS-5;P4_low_value_controlled;model_filter;/catalog/baojun/rs-5/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | BAW | 212;BAW;212;P3_long_tail_medium_value;model_filter;/catalog/baw/212/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | BMW | X5;BMW;X5;P3_long_tail_medium_value;model_filter;/catalog/bmw/x5/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | BYD | Seal 06 GT;BYD;Seal 06 GT;P3_long_tail_medium_value;model_filter;/catalog/byd/seal-06-gt/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | BYD | Tang L;BYD;Tang L;P3_long_tail_medium_value;model_filter;/catalog/byd/tang-l/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | BYD | Yangwang U8;BYD;Yangwang U8;P2_long_tail_high_value;model_filter;/catalog/byd/yangwang-u8/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Changan | Alsvin;Changan;Alsvin;P1_high_demand_high_value;model_filter;/catalog/changan/alsvin/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Changan | Auchan Z6;Changan;Auchan Z6;P3_long_tail_medium_value;model_filter;/catalog/changan/auchan-z6/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Changan | CS35 Plus;Changan;CS35 Plus;P1_high_demand_high_value;model_filter;/catalog/changan/cs35-plus/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Changan | CS75 Plus;Changan;CS75 Plus;P2_high_demand_medium_value;model_filter;/catalog/changan/cs75-plus/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Changan | CS95;Changan;CS95;P3_long_tail_medium_value;model_filter;/catalog/changan/cs95/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Changan | Hunter Plus;Changan;Hunter Plus;P4_low_value_controlled;model_filter;/catalog/changan/hunter-plus/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Changan | Shenlan (Deepal) S07;Changan;Shenlan (Deepal) S07;P2_long_tail_high_value;model_filter;/catalog/changan/shenlan-deepal-s07/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Changan | UNI-K;Changan;UNI-K;P1_high_demand_high_value;model_filter;/catalog/changan/uni-k/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Chery | Tiggo 4;Chery;Tiggo 4;P1_high_demand_high_value;model_filter;/catalog/chery/tiggo-4/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Chery | Tiggo 4 Pro;Chery;Tiggo 4 Pro;P2_high_demand_medium_value;model_filter;/catalog/chery/tiggo-4-pro/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Chery | Tiggo 7 Pro Max;Chery;Tiggo 7 Pro Max;P1_high_demand_high_value;model_filter;/catalog/chery/tiggo-7-pro-max/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Chevrolet | Camaro;Chevrolet;Camaro;P2_long_tail_high_value;model_filter;/catalog/chevrolet/camaro/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Chevrolet | Monza;Chevrolet;Monza;P2_high_demand_medium_value;model_filter;/catalog/chevrolet/monza/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Dongfeng | DFSK iX5;Dongfeng;DFSK iX5;P3_long_tail_medium_value;model_filter;/catalog/dongfeng/dfsk-ix5/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Exeed | Exlantix ES;Exeed;Exlantix ES;P3_long_tail_medium_value;model_filter;/catalog/exeed/exlantix-es/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Exeed | TXL;Exeed;TXL;P1_high_demand_high_value;model_filter;/catalog/exeed/txl/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Exeed | VX;Exeed;VX;P1_high_demand_high_value;model_filter;/catalog/exeed/vx/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Fang Cheng Bao | Bao 5;Fang Cheng Bao;Bao 5;P3_long_tail_medium_value;model_filter;/catalog/fang-cheng-bao/bao-5/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Fang Cheng Bao | Titanium 7;Fang Cheng Bao;Titanium 7;P2_long_tail_high_value;model_filter;/catalog/fang-cheng-bao/titanium-7/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Foton | Tunland G7;Foton;Tunland G7;P2_high_demand_medium_value;model_filter;/catalog/foton/tunland-g7/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Geely | Atlas;Geely;Atlas;P2_high_demand_medium_value;model_filter;/catalog/geely/atlas/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Geely | Atlas Pro;Geely;Atlas Pro;P1_high_demand_high_value;model_filter;/catalog/geely/atlas-pro/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Geely | Coolray;Geely;Coolray;P1_high_demand_high_value;model_filter;/catalog/geely/coolray/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Geely | Galaxy L7;Geely;Galaxy L7;P3_long_tail_medium_value;model_filter;/catalog/geely/galaxy-l7/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Geely | Galaxy M9;Geely;Galaxy M9;P2_long_tail_high_value;model_filter;/catalog/geely/galaxy-m9/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Geely | Galaxy Starship 7;Geely;Galaxy Starship 7;P2_high_demand_medium_value;model_filter;/catalog/geely/galaxy-starship-7/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Geely | Monjaro;Geely;Monjaro;P2_high_demand_medium_value;model_filter;/catalog/geely/monjaro/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Geely | Okavango;Geely;Okavango;P2_high_demand_medium_value;model_filter;/catalog/geely/okavango/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Geely | Preface;Geely;Preface;P2_high_demand_medium_value;model_filter;/catalog/geely/preface/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Geely | Vision X6 Pro;Geely;Vision X6 Pro;P2_high_demand_medium_value;model_filter;/catalog/geely/vision-x6-pro/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Great Wall | Poer;Great Wall;Poer;P2_high_demand_medium_value;model_filter;/catalog/great-wall/poer/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Great Wall | Poer King Kong;Great Wall;Poer King Kong;P3_long_tail_medium_value;model_filter;/catalog/great-wall/poer-king-kong/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Haval | F7;Haval;F7;P1_high_demand_high_value;model_filter;/catalog/haval/f7/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Haval | F7x;Haval;F7x;P2_high_demand_medium_value;model_filter;/catalog/haval/f7x/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Haval | H3;Haval;H3;P1_high_demand_high_value;model_filter;/catalog/haval/h3/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Haval | Jolion;Haval;Jolion;P2_high_demand_medium_value;model_filter;/catalog/haval/jolion/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Haval | Xiaolong Max;Haval;Xiaolong Max;P3_long_tail_medium_value;model_filter;/catalog/haval/xiaolong-max/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | HiPhi | Z;HiPhi;Z;P1_high_demand_high_value;model_filter;/catalog/hiphi/z/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Honda | Crider;Honda;Crider;P1_high_demand_high_value;model_filter;/catalog/honda/crider/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Hongqi | HS5;Hongqi;HS5;P4_low_value_controlled;model_filter;/catalog/hongqi/hs5/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Hyundai | Santa Fe;Hyundai;Santa Fe;P2_long_tail_high_value;model_filter;/catalog/hyundai/santa-fe/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Jetour | T2;Jetour;T2;P1_high_demand_high_value;model_filter;/catalog/jetour/t2/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Lexus | RX;Lexus;RX;P3_long_tail_medium_value;model_filter;/catalog/lexus/rx/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Li Auto | L6;Li Auto;L6;P2_long_tail_high_value;model_filter;/catalog/li-auto/l6/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Li Auto | L7;Li Auto;L7;P2_long_tail_high_value;model_filter;/catalog/li-auto/l7/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Li Auto | L9;Li Auto;L9;P2_long_tail_high_value;model_filter;/catalog/li-auto/l9/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Livan | X3 Pro;Livan;X3 Pro;P4_low_value_controlled;model_filter;/catalog/livan/x3-pro/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Livan | X6 Pro;Livan;X6 Pro;P4_low_value_controlled;model_filter;/catalog/livan/x6-pro/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Mercedes-Benz | G-класс;Mercedes-Benz;G-класс;P3_long_tail_medium_value;model_filter;/catalog/mercedes-benz/g-klass/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Mercedes-Benz | G-класс AMG;Mercedes-Benz;G-класс AMG;P2_long_tail_high_value;model_filter;/catalog/mercedes-benz/g-klass-amg/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Omoda | C5;Omoda;C5;P1_high_demand_high_value;model_filter;/catalog/omoda/c5/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Polar Stone/Jishi | 01;Polar Stone/Jishi;01;P3_long_tail_medium_value;model_filter;/catalog/polar-stone-jishi/01/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Tank | 300;Tank;300;P1_high_demand_high_value;model_filter;/catalog/tank/300/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Tank | 500;Tank;500;P2_high_demand_medium_value;model_filter;/catalog/tank/500/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Tank | 700;Tank;700;P3_long_tail_medium_value;model_filter;/catalog/tank/700/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Trumpchi | M8;Trumpchi;M8;P4_low_value_controlled;model_filter;/catalog/trumpchi/m8/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Voyah | Dream;Voyah;Dream;P2_high_demand_medium_value;model_filter;/catalog/voyah/dream/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Voyah | Free;Voyah;Free;P1_high_demand_high_value;model_filter;/catalog/voyah/free/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Voyah | Passion;Voyah;Passion;P2_high_demand_medium_value;model_filter;/catalog/voyah/passion/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Voyah | Taishan;Voyah;Taishan;P2_long_tail_high_value;model_filter;/catalog/voyah/taishan/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Wey | 07;Wey;07;P3_long_tail_medium_value;model_filter;/catalog/wey/07/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Wey | 80;Wey;80;P3_long_tail_medium_value;model_filter;/catalog/wey/80/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Xiaomi | SU7;Xiaomi;SU7;P3_long_tail_medium_value;model_filter;/catalog/xiaomi/su7/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Zeekr | 001;Zeekr;001;P1_high_demand_high_value;model_filter;/catalog/zeekr/001/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Zeekr | 007;Zeekr;007;P2_long_tail_high_value;model_filter;/catalog/zeekr/007/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Zeekr | 9X;Zeekr;9X;P1_high_demand_high_value;model_filter;/catalog/zeekr/9x/;;WAITING_FOR_SITE_ROUTES

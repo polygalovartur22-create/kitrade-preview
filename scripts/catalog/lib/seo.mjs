@@ -31,7 +31,31 @@ function structuredProductFingerprint(item, product) {
     item?.yearFrom,
     item?.yearTo,
   ];
-  return crypto.createHash("sha256").update(fields.map(norm).join("|")).digest("hex").slice(0, 24);
+  const serialized = fields.map((value) => (
+    value && typeof value === "object" ? JSON.stringify(value) : norm(value)
+  ));
+  return crypto.createHash("sha256").update(serialized.join("|")).digest("hex").slice(0, 24);
+}
+
+function duplicateFacts(item, product) {
+  return {
+    product_id: product.product_id,
+    source_id: product.source_id,
+    canonical_path: product.canonical_path,
+    title: clean(item?.title || product.name),
+    detail: clean(item?.detail),
+    brand: clean(item?.brand),
+    model: clean(item?.model),
+    category_id: product.category_id || "",
+    oem: clean(item?.article),
+    price: numericPrice(item?.price),
+    condition: clean(item?.condition),
+    compatibility: item?.compatibility || [],
+    side: clean(item?.side),
+    generation: clean(item?.generation),
+    year_from: item?.yearFrom || null,
+    year_to: item?.yearTo || null,
+  };
 }
 
 function truncate(value, max = 158) {
@@ -67,10 +91,39 @@ function contentOverrides(overrides, product) {
   };
 }
 
-function productSeo(product, item, brand, model, category, overrides) {
-  const content = createProductContent({ item, product, brand, model, category, overrides });
+function productSeo(product, item, brand, model, category, overrides, preparedContent = null) {
+  const content = preparedContent || createProductContent({ item, product, brand, model, category, overrides });
   const description = truncate(`Цена указана за деталь; доставка рассчитывается отдельно. Проверка по VIN. ${content.h1}${content.article ? `. OEM ${content.article}` : ""}.`, 158);
   return { ...content, description };
+}
+
+function yearRange(item) {
+  const from = Number(item?.yearFrom) || 0;
+  const to = Number(item?.yearTo) || 0;
+  if (from && to) return from === to ? String(from) : `${from}–${to}`;
+  if (from) return `с ${from}`;
+  if (to) return `до ${to}`;
+  return "";
+}
+
+function addContentQualifier(content, qualifier) {
+  const vehicle = clean(content.h1).slice(clean(content.detail).length).trim();
+  const detail = clean(`${content.detail}, ${qualifier}`);
+  const h1 = clean(`${detail} ${vehicle}`);
+  const suffix = `${content.article ? `, ${content.article}` : ""} | KITRADE`;
+  const title = `${shorten(`${qualifier} — ${h1}`, Math.max(24, 75 - suffix.length))}${suffix}`;
+  return { ...content, detail, h1, title };
+}
+
+function titleFromContent(content) {
+  const suffix = `${content.article ? `, ${content.article}` : ""} | KITRADE`;
+  return `${shorten(content.h1, Math.max(24, 75 - suffix.length))}${suffix}`;
+}
+
+function comparisonFields(facts) {
+  const fields = ["title", "detail", "brand", "model", "category_id", "oem", "price", "condition", "compatibility", "side", "generation", "year_from", "year_to"];
+  const matching = fields.filter((field) => new Set(facts.map((entry) => JSON.stringify(entry[field]))).size === 1);
+  return { matching, differing: fields.filter((field) => !matching.includes(field)) };
 }
 
 function routeSeo(type, values, rules) {
@@ -96,33 +149,17 @@ function directModelEntry(directSemantics, brand, model) {
   return (aliases[key] || []).map((alias) => directSemantics.models?.[alias]).find(Boolean) || null;
 }
 
-function dedupeText(rows, field) {
-  const groups = new Map();
-  for (const row of rows.filter((entry) => entry.indexable && (field !== "h1" || entry.page_type !== "product"))) {
-    const key = norm(row[field]);
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(row);
-  }
-  for (const group of groups.values()) {
-    if (group.length < 2) continue;
-    group.forEach((row, index) => {
-      if (index === 0) return;
-      const primaryArticle = shorten(String(row.article_oem || "").split(/[\/,;]/)[0], 22);
-      const suffix = row.page_type === "product"
-        ? ` — №${row.entity_id}`
-        : primaryArticle ? ` — арт. ${primaryArticle}` : ` — ${row.entity_id}`;
-      if (field === "description") {
-        const marker = row.page_type === "product" ? `Каталожный номер ${row.entity_id}` : suffix.replace(/^ — /, "");
-        row[field] = `${truncate(row[field], Math.max(80, 156 - marker.length)).replace(/\.$/, "")} ${marker}.`;
-      } else if (field === "title") {
-        const titleSuffix = row[field].match(/\s+\|\s+(?:KITRADE|Китрейд)$/i)?.[0] || "";
-        const titleBody = titleSuffix ? row[field].slice(0, -titleSuffix.length) : row[field];
-        row[field] = `${shorten(titleBody, Math.max(35, 75 - titleSuffix.length - suffix.length))}${suffix}${titleSuffix}`;
-      } else {
-        row[field] = `${row[field]}${suffix}`;
-      }
-    });
-  }
+export function normalizePublicQuery(value) {
+  return clean(value)
+    .replace(/\b(?:BYD\s+)?Fang\s*Cheng\s*Bao\s+(?:Bao\s*5|Leopard\s*5)\b/gi, "Fang Cheng Bao Bao 5 (Leopard 5)")
+    .replace(/\b(?:BYD\s+)?Fang\s*Cheng\s*Bao\s+Titanium\s*7\b/gi, "Fang Cheng Bao Titanium 7")
+    .replace(/\bBYD\s+Leopard\s*5\b/gi, "Fang Cheng Bao Bao 5 (Leopard 5)")
+    .replace(/\bBYD\s+Leopard\s*7\b/gi, "Fang Cheng Bao Titanium 7")
+    .replace(/\bBYD\s+Fang\s*Cheng\s*Bao\b/gi, "Fang Cheng Bao")
+    .replace(/\bFangChengBao\b/gi, "Fang Cheng Bao")
+    .replace(/(?:Fang Cheng Bao\s+){2,}/gi, "Fang Cheng Bao ")
+    .replace(/Fang Cheng Bao\s+Fang Cheng Bao/gi, "Fang Cheng Bao")
+    .replace(/\(Leopard 5\)\s*\(Leopard 5\)/gi, "(Leopard 5)");
 }
 
 export function buildSeoState({ registry, items, indexes, config, rules, overrides = {}, directSemantics = {} }) {
@@ -146,13 +183,27 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     rows.sort((a, b) => Number(a.product.product_id) - Number(b.product.product_id));
     const primary = rows[0].product;
     for (const row of rows.slice(1)) duplicateSecondaryIds.add(row.product.product_id);
+    const facts = rows.map(({ item, product }) => duplicateFacts(item, product));
+    const comparedFields = ["title", "detail", "brand", "model", "category_id", "oem", "price", "condition", "compatibility", "side", "generation", "year_from", "year_to"];
+    const matchingFields = comparedFields.filter((field) => new Set(facts.map((entry) => JSON.stringify(entry[field]))).size === 1);
+    const differingFields = comparedFields.filter((field) => !matchingFields.includes(field));
     duplicateReport.push({
       fingerprint,
+      classification: "confirmed_full_duplicate",
+      primary: facts[0],
+      secondary_pages: facts.slice(1).map((entry) => ({
+        ...entry,
+        robots: "noindex,follow",
+        canonical_path_target: primary.canonical_path,
+        reason: "Все подтверждённые идентификационные поля совпадают с основной страницей.",
+      })),
+      matching_fields: matchingFields,
+      differing_fields: differingFields,
+      action: "secondary_noindex_canonical_to_primary",
       primary_product_id: primary.product_id,
       primary_url: primary.canonical_path,
       duplicate_product_ids: rows.slice(1).map(({ product }) => product.product_id),
       duplicate_urls: rows.slice(1).map(({ product }) => product.canonical_path),
-      action: "manual_review_no_automatic_merge",
     });
   }
 
@@ -177,7 +228,96 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
       item,
       content,
       duplicateOf: duplicateReport.find((group) => group.duplicate_product_ids.includes(product.product_id))?.primary_product_id || null,
+      canonicalPath: duplicateReport.find((group) => group.duplicate_product_ids.includes(product.product_id))?.primary_url || product.canonical_path,
     });
+  }
+
+  const currentlyIndexable = () => products.filter(({ product }) => productState.get(product.product_id)?.indexable);
+  const groupsBy = (selector) => {
+    const groups = new Map();
+    for (const row of currentlyIndexable()) {
+      const key = norm(selector(row, productState.get(row.product.product_id)));
+      if (!key) continue;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(row);
+    }
+    return [...groups.values()].filter((rows) => rows.length > 1);
+  };
+
+  // A shortened SEO title may hide a real distinction that is already present in H1.
+  // Rebuild only those colliding titles from the full H1, keeping public data factual.
+  for (const rows of groupsBy((row, state) => state.content.title)) {
+    const distinctH1 = new Set(rows.map(({ product }) => norm(productState.get(product.product_id).content.h1)));
+    if (distinctH1.size !== rows.length) continue;
+    for (const { product } of rows) {
+      const state = productState.get(product.product_id);
+      state.content.title = titleFromContent(state.content);
+    }
+  }
+
+  // If H1 really is the same, use only confirmed condition or generation/year data.
+  for (const rows of groupsBy((row, state) => state.content.title)) {
+    const states = rows.map(({ product }) => productState.get(product.product_id));
+    const conditions = states.map((state) => clean(state.content.condition));
+    const generationLabels = rows.map(({ item }) => clean([
+      item?.generation && `поколение ${item.generation}`,
+      yearRange(item),
+    ].filter(Boolean).join(", ")));
+    const conditionIsUseful = conditions.every(Boolean) && new Set(conditions.map(norm)).size === rows.length;
+    const generationIsUseful = generationLabels.every(Boolean) && new Set(generationLabels.map(norm)).size === rows.length;
+    if (!conditionIsUseful && !generationIsUseful) continue;
+    rows.forEach(({ product }, index) => {
+      const qualifier = conditionIsUseful ? conditions[index].toLocaleLowerCase("ru") : generationLabels[index];
+      const state = productState.get(product.product_id);
+      state.content = addContentQualifier(state.content, qualifier);
+    });
+  }
+
+  // Remaining metadata collisions are either confirmed duplicates (valid OEM present)
+  // or conservative manual-review candidates (OEM absent). Both pages stay accessible.
+  for (const rows of groupsBy((row, state) => state.content.title)) {
+    rows.sort((left, right) => Number(left.product.product_id) - Number(right.product.product_id));
+    const primaryRow = rows[0];
+    const primaryState = productState.get(primaryRow.product.product_id);
+    const facts = rows.map(({ item, product }) => duplicateFacts(item, product));
+    const { matching, differing } = comparisonFields(facts);
+    const articles = rows.map(({ product }) => clean(productState.get(product.product_id).content.article));
+    const confirmed = articles.every(Boolean) && new Set(articles.map(norm)).size === 1;
+    const fingerprint = crypto.createHash("sha256")
+      .update(rows.map(({ product }) => product.product_id).join("|"))
+      .digest("hex").slice(0, 24);
+    const secondaries = [];
+    for (let index = 1; index < rows.length; index += 1) {
+      const { product } = rows[index];
+      const state = productState.get(product.product_id);
+      state.indexable = false;
+      state.robots = "noindex,follow";
+      state.duplicateOf = confirmed ? primaryRow.product.product_id : null;
+      state.canonicalPath = confirmed ? primaryRow.product.canonical_path : product.canonical_path;
+      state.validationErrors.push(confirmed ? "confirmed_metadata_duplicate" : "metadata_duplicate_needs_manual_review");
+      secondaries.push({
+        ...facts[index],
+        robots: "noindex,follow",
+        canonical_path_target: state.canonicalPath,
+        reason: confirmed
+          ? "Confirmed detail, vehicle, OEM, condition and compatibility match the primary page."
+          : "The public metadata collides, but no verified OEM is available; manual identity review is required.",
+      });
+    }
+    duplicateReport.push({
+      fingerprint,
+      classification: confirmed ? "confirmed_metadata_duplicate" : "pending_manual_identity_review",
+      primary: facts[0],
+      secondary_pages: secondaries,
+      matching_fields: matching,
+      differing_fields: differing,
+      action: confirmed ? "secondary_noindex_canonical_to_primary" : "secondary_noindex_self_canonical_pending_review",
+      primary_product_id: primaryRow.product.product_id,
+      primary_url: primaryRow.product.canonical_path,
+      duplicate_product_ids: rows.slice(1).map(({ product }) => product.product_id),
+      duplicate_urls: rows.slice(1).map(({ product }) => product.canonical_path),
+    });
+    primaryState.content.title = titleFromContent(primaryState.content);
   }
 
   const activeProducts = products.filter(({ product }) => productState.get(product.product_id).indexable);
@@ -206,8 +346,8 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     product_id: row.product_id || "",
     article_oem: row.article_oem || "",
     condition: row.condition || "",
-    primary_query: row.primary_query || row.h1,
-    secondary_queries: row.secondary_queries || [],
+    primary_query: normalizePublicQuery(row.primary_query || row.h1),
+    secondary_queries: [...new Set((row.secondary_queries || []).map(normalizePublicQuery).filter(Boolean))],
     search_intent: row.search_intent || "commercial",
     title: row.title,
     description: row.description,
@@ -299,7 +439,7 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     const model = indexes.models.get(product.model_id);
     const category = indexes.categories.get(product.category_id);
     const productOverride = contentOverrides(overrides, product);
-    const seo = productSeo(product, item, brand, model, category, productOverride);
+    const seo = productSeo(product, item, brand, model, category, productOverride, state.content);
     add({ page_type: "product", entity_id: product.product_id, canonical_path: product.canonical_path,
       brand: brand?.name, model: model?.name, category: category?.name, product_name: seo.h1,
       product_id: product.product_id, article_oem: seo.article, condition: seo.condition, indexable: true,
@@ -310,8 +450,6 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     });
   }
 
-  for (const row of seoRows) row.title = fitTitle(row.title);
-  for (const field of ["title", "description", "h1"]) dedupeText(seoRows, field);
   for (const row of seoRows) row.title = fitTitle(row.title);
   const seoByPath = new Map(seoRows.map((row) => [row.canonical_path, row]));
 

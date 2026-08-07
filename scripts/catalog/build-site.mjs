@@ -91,6 +91,11 @@ function paginatedTitle(title, pageNumber) {
   return `${shortened}${marker}${suffix}`;
 }
 
+function sentence(value) {
+  const text = String(value || "").trim().replace(/\s+/g, " ");
+  return /[.!?]$/.test(text) ? text : `${text}.`;
+}
+
 function writeRoute(routePath, html) {
   const relative = routePath.replace(/^\/+|\/+$/g, "");
   const directory = path.join(outputDir, ...relative.split("/"));
@@ -171,7 +176,7 @@ function catalogPage({ routePath, titleParts = [], brand = null, model = null, c
   const seo = seoState.seoByPath.get(routePath) || seoState.seoByPath.get("/catalog/");
   const currentRoutePath = paginationPath(routePath, pageNumber);
   const pageTitle = paginatedTitle(seo.title, pageNumber);
-  const pageDescription = pageNumber > 1 ? `${seo.description.replace(/\.$/, "")} Страница ${pageNumber}.` : seo.description;
+  const pageDescription = pageNumber > 1 ? `${sentence(seo.description)} Страница ${pageNumber}.` : seo.description;
   const visibleCards = products.map(({ product, item }) => productCard(product, item)).join("");
   const summary = titleParts.join(" / ") || "Все марки и категории";
   const bodyAttributes = [
@@ -437,7 +442,7 @@ function productPage(product, item) {
   <title>${escapeHtml(seo?.title || `${title} | Китрейд`)}</title>
   <meta name="description" content="${escapeHtml(seo?.description || meta || title)}" />
   ${robots}
-  <link rel="canonical" href="${canonicalUrl(product.canonical_path)}" />
+  <link rel="canonical" href="${canonicalUrl(state?.canonicalPath || product.canonical_path)}" />
   <script type="application/ld+json">${safeJson(schemas)}</script>
   <link rel="stylesheet" href="/catalog-v2.css?v=10" />
   <link rel="stylesheet" href="/catalog-responsive.css?v=3" />

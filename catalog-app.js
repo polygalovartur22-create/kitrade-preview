@@ -53,7 +53,7 @@
     category: document.body.dataset.catalogCategory || "",
   };
   const routePage = Math.max(1, Number(document.body.dataset.catalogPage) || 1);
-  const staticPageSize = 24;
+  const PAGE_SIZE = 24;
   const items = rawItems
     .filter((item) => item && item.title)
     .map((item) => {
@@ -82,9 +82,9 @@
   const state = {
     tab: routeDefaults.category,
     query: "",
-    visible: 12,
+    visible: PAGE_SIZE,
     page: routePage,
-    offset: (routePage - 1) * staticPageSize,
+    offset: (routePage - 1) * PAGE_SIZE,
     selected: [],
   };
 
@@ -151,6 +151,7 @@
     if (window.location.pathname !== browserPath) history.replaceState(null, "", browserPath);
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.href = new URL(path, catalogData.site_url || window.location.origin).href;
+    return basePath;
   }
 
   function unique(values) {
@@ -361,7 +362,11 @@
       .filter(Boolean).join(" / ") || "Все марки и категории";
     emptyState.hidden = filtered.length > 0;
     loadMore.hidden = state.offset + visible.length >= filtered.length;
-    updateCatalogRoute();
+    const basePath = updateCatalogRoute();
+    if (!loadMore.hidden) {
+      const nextPage = state.page + Math.ceil(state.visible / PAGE_SIZE);
+      loadMore.href = sitePath(`${basePath}page/${nextPage}/`);
+    }
   }
 
   function plural(count) {
@@ -408,7 +413,7 @@
     }
     state.page = 1;
     state.offset = 0;
-    state.visible = 12;
+    state.visible = PAGE_SIZE;
     render();
   });
 
@@ -467,7 +472,7 @@
     state.query = document.querySelector("#catalogQuery").value.trim();
     state.page = 1;
     state.offset = 0;
-    state.visible = 12;
+    state.visible = PAGE_SIZE;
     render();
   });
 
@@ -476,7 +481,7 @@
     state.query = "";
     state.page = 1;
     state.offset = 0;
-    state.visible = 12;
+    state.visible = PAGE_SIZE;
     render();
   });
 
@@ -487,7 +492,7 @@
     state.tab = button.dataset.category;
     state.page = 1;
     state.offset = 0;
-    state.visible = 12;
+    state.visible = PAGE_SIZE;
     render();
   });
 
@@ -503,7 +508,7 @@
     state.tab = "";
     state.page = 1;
     state.offset = 0;
-    state.visible = 12;
+    state.visible = PAGE_SIZE;
     render();
   });
 
@@ -527,7 +532,7 @@
     render();
   });
 
-  loadMore.addEventListener("click", (event) => { event.preventDefault(); state.visible += 12; render(); });
+  loadMore.addEventListener("click", (event) => { event.preventDefault(); state.visible += PAGE_SIZE; render(); });
   document.querySelector("#requestSubmit").addEventListener("click", () => {
     if (!state.selected.length) {
       showToast("Сначала добавьте хотя бы одну позицию.");

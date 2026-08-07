@@ -18,7 +18,7 @@
     if (started) return;
     started = true;
     try {
-      await loadScript("/catalog-runtime-data.js?v=1");
+      await loadScript("/catalog-runtime-data.js?v=2");
       await loadScript("/product-quick-view.js?v=1");
       await loadScript("/home-catalog.js?v=6");
     } catch (error) {
@@ -28,14 +28,4 @@
 
   root.addEventListener("focusin", start, { once: true });
   root.addEventListener("pointerdown", start, { once: true });
-  if (!("IntersectionObserver" in window)) {
-    start();
-    return;
-  }
-  const observer = new IntersectionObserver(([entry]) => {
-    if (!entry.isIntersecting) return;
-    observer.disconnect();
-    start();
-  }, { rootMargin: "600px 0px" });
-  observer.observe(root);
 })();

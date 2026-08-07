@@ -21,6 +21,8 @@ validateRegistry(registry);
 const indexes = registryIndexes(registry);
 const directSemanticsPath = path.join(projectDir, "seo", "direct-semantics.json");
 const directSemantics = fs.existsSync(directSemanticsPath) ? JSON.parse(fs.readFileSync(directSemanticsPath, "utf8")) : {};
+const sourceLandingMapPath = path.join(projectDir, "seo", "source-landing-page-map.csv");
+const sourceLandingMapLabel = "yandex_direct_prelaunch_2026-07-21/landing_page_map.csv";
 const seoState = buildSeoState({ registry, items, indexes, config, rules, overrides, directSemantics });
 
 function canonicalUrl(canonicalPath) {
@@ -92,6 +94,7 @@ for (const product of registry.entities.products) {
     canonical_url: canonicalUrl(product.canonical_path), status: product.status,
     entity_id: String(product.product_id), indexable: Boolean(state?.indexable), robots: state?.robots || "noindex,follow",
     validation_errors: state?.validationErrors || [], duplicate_of: state?.duplicateOf || null,
+    canonical_target_path: state?.canonicalPath || product.canonical_path,
   });
 }
 
@@ -232,33 +235,83 @@ const priorityModelNames = new Set([
 const legacyUrlsFor = (canonicalPath) => Object.entries(overrides.redirects || {})
   .filter(([, destination]) => destination === canonicalPath)
   .map(([legacyPath]) => canonicalUrl(legacyPath));
-const searchTargetGroups = [
-  ...directCoverage.brands.filter((row) => row.direct_material_match).map((row) => ({
-    search_group: `brand:${String(row.name).toLocaleLowerCase("ru")}`,
-    page_type: "brand",
-    brand: row.name,
-    model: "",
-    priority: "standard",
-    queries: [...new Set([row.primary_query, ...row.secondary_queries].filter(Boolean))],
-    canonical_path: row.canonical_path,
-    canonical_url: canonicalUrl(row.canonical_path),
-    legacy_urls: legacyUrlsFor(row.canonical_path),
-  })),
-  ...directCoverage.models.filter((row) => row.direct_material_match).map((row) => ({
-    search_group: `model:${String(row.brand).toLocaleLowerCase("ru")}|${String(row.model).toLocaleLowerCase("ru")}`,
-    page_type: "model",
-    brand: row.brand,
-    model: row.model,
-    priority: priorityModelNames.has(`${String(row.brand).toLocaleLowerCase("ru")}|${String(row.model).toLocaleLowerCase("ru")}`) ? "high" : "standard",
-    queries: [...new Set([row.primary_query, ...row.secondary_queries].filter(Boolean))],
-    canonical_path: row.canonical_path,
-    canonical_url: canonicalUrl(row.canonical_path),
-    legacy_urls: legacyUrlsFor(row.canonical_path),
-  })),
-].sort((left, right) => left.search_group.localeCompare(right.search_group, "ru"));
+if (!fs.existsSync(sourceLandingMapPath)) throw new Error(`Missing source landing map: ${sourceLandingMapPath}`);
+const sourceLandingLines = fs.readFileSync(sourceLandingMapPath, "utf8").replace(/^\uFEFF/, "").trim().split(/\r?\n/);
+const sourceLandingHeaders = sourceLandingLines.shift().split(";");
+const sourceLandingRows = sourceLandingLines.map((line, sourceIndex) => {
+  const values = line.split(";");
+  return Object.fromEntries([...sourceLandingHeaders.map((header, index) => [header, values[index] || ""]), ["source_row", sourceIndex + 2]]);
+});
+const semanticKey = (value) => String(value || "").trim().toLocaleLowerCase("ru").replaceAll("ё", "е").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+const brandAliases = new Map();
+for (const brand of registry.entities.brands) {
+  for (const name of new Set([brand.name, ...(brand.source_names || [])])) brandAliases.set(semanticKey(name), brand);
+}
+brandAliases.set("fangchengbao", brandAliases.get("fang cheng bao"));
+brandAliases.set("polar stone jishi", brandAliases.get("polar stone jishi") || brandAliases.get("polar stone"));
+const modelAliases = new Map();
+for (const model of registry.entities.models) {
+  const brand = indexes.brands.get(model.parent_id);
+  if (!brand) continue;
+  for (const brandName of new Set([brand.name, ...(brand.source_names || [])])) {
+    for (const modelName of new Set([model.name, ...(model.source_names || [])])) {
+      modelAliases.set(`${semanticKey(brandName)}|${semanticKey(modelName)}`, { brand, model });
+    }
+  }
+}
+const resolveSourceTarget = (source) => {
+  if (source.group_type === "WIDE") return { canonicalPath: "/catalog/", seo: seoState.seoByPath.get("/catalog/") };
+  const suggested = source.suggested_path || "";
+  const redirected = overrides.redirects?.[suggested] || suggested;
+  if (seoState.seoByPath.has(redirected)) return { canonicalPath: redirected, seo: seoState.seoByPath.get(redirected) };
+  const brand = brandAliases.get(semanticKey(source.brand));
+  if (source.group_type === "BRAND" && brand) {
+    const canonicalPath = brandPath(brand);
+    return { canonicalPath, seo: seoState.seoByPath.get(canonicalPath) };
+  }
+  const manualModelAliases = {
+    "fangchengbao|bao 5": "fang cheng bao|bao 5 leopard 5",
+    "polar stone jishi|01": "polar stone jishi|01",
+    "changan|oshan z6": "changan|auchan z6",
+    "exlantix|es": "exeed|exlantix es",
+  };
+  const sourceKey = `${semanticKey(source.brand)}|${semanticKey(source.model)}`;
+  const resolved = modelAliases.get(sourceKey) || modelAliases.get(manualModelAliases[sourceKey]);
+  if (!resolved) return { canonicalPath: "", seo: null };
+  const canonicalPath = modelPath(resolved.brand, resolved.model);
+  return { canonicalPath, seo: seoState.seoByPath.get(canonicalPath) };
+};
+const searchTargetGroups = sourceLandingRows.map((source) => {
+  const target = resolveSourceTarget(source);
+  const matched = Boolean(target.canonicalPath && target.seo);
+  const legacyPaths = matched && source.suggested_path && source.suggested_path !== target.canonicalPath ? [source.suggested_path] : [];
+  return {
+    source_row: source.source_row,
+    source_group_type: source.group_type,
+    source_group_name: source.group_name,
+    search_group: `${String(source.group_type).toLocaleLowerCase("ru")}:${semanticKey(source.brand || source.group_name)}${source.model ? `|${semanticKey(source.model)}` : ""}`,
+    page_type: String(source.group_type).toLocaleLowerCase("ru") === "wide" ? "catalog" : String(source.group_type).toLocaleLowerCase("ru"),
+    brand: source.brand,
+    model: source.model,
+    priority: source.economic_priority || (priorityModelNames.has(`${semanticKey(source.brand)}|${semanticKey(source.model)}`) ? "high" : "standard"),
+    queries: matched ? [...new Set([target.seo.primary_query, ...(target.seo.secondary_queries || [])].filter(Boolean))] : [],
+    canonical_path: matched ? target.canonicalPath : "",
+    canonical_url: matched ? canonicalUrl(target.canonicalPath) : "",
+    legacy_urls: matched ? [...new Set([...legacyPaths.map(canonicalUrl), ...legacyUrlsFor(target.canonicalPath)])] : [source.suggested_path].filter(Boolean).map(canonicalUrl),
+    source_suggested_path: source.suggested_path,
+    source_final_url: source.final_url,
+    source_status: source.status,
+    match_status: matched ? "matched" : "missing_target",
+    missing_reason: matched ? "" : "No verified current canonical page matches the source group.",
+  };
+});
+if (searchTargetGroups.length !== 107) throw new Error(`Expected 107 source search groups, got ${searchTargetGroups.length}`);
 fs.writeFileSync(path.join(publicDir, "search-target-map.json"), `${JSON.stringify({
-  version: 1,
-  generated_from: directSemantics.generated_from || [],
+  version: 2,
+  generated_from: [sourceLandingMapLabel, ...(directSemantics.generated_from || [])],
+  source_groups: { total: 107, wide: 1, brands: 25, models: 81 },
+  matched_groups: searchTargetGroups.filter((group) => group.match_status === "matched").length,
+  missing_groups: searchTargetGroups.filter((group) => group.match_status !== "matched").length,
   groups: searchTargetGroups,
 }, null, 2)}\n`);
 const coveredPrimaryQueries = new Set(searchTargetGroups.flatMap((row) => row.queries));
@@ -306,8 +359,13 @@ fs.writeFileSync(path.join(reportsDir, "legacy-content-audit.json"), `${JSON.str
   retained_blocks: ["reference-hero", "reference-catalog-preview", "reference-process", "reference-company", "reference-workflow", "reference-suppliers", "reference-orders", "guarantee-section", "reference-faq", "reference-request", "reference-contacts"],
 }, null, 2)}\n`);
 fs.writeFileSync(path.join(reportsDir, "validation-summary.json"), `${JSON.stringify({
-  generated_at: new Date().toISOString(), source: rules.source, source_products: items.length,
+  source: rules.source, source_products: items.length,
   promoted_pages: promotedSeoRows.length, excluded_products: exportRows.filter((row) => row.entity_type === "product" && !row.indexable).length,
+  insufficient_data_products: seoState.needsReview.length,
+  duplicate_secondary_products: seoState.duplicateReport.reduce((total, group) => total + group.duplicate_product_ids.length, 0),
+  confirmed_full_duplicate_groups: seoState.duplicateReport.filter((group) => group.classification === "confirmed_full_duplicate").length,
+  confirmed_metadata_duplicate_groups: seoState.duplicateReport.filter((group) => group.classification === "confirmed_metadata_duplicate").length,
+  pending_manual_duplicate_groups: seoState.duplicateReport.filter((group) => group.classification === "pending_manual_identity_review").length,
   needs_review: seoState.needsReview.length, duplicate_groups: seoState.duplicateReport.length,
   image_manual_review: seoState.imageReport.length, probable_identity_matches: seoState.probableMatches.length,
   direct_semantics: directCoverage.summary,
