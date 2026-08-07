@@ -5,6 +5,7 @@ import { readCatalogData, normalizePhoto } from "./lib/data.mjs";
 import { getPublicCategory, isVisibleCatalogItem } from "./lib/domain.mjs";
 import { registryIndexes, validateRegistry } from "./lib/registry.mjs";
 import { breadcrumbStructuredData, buildSeoState, organizationStructuredData, productStructuredData } from "./lib/seo.mjs";
+import { formatPartPrice } from "./lib/product-content.mjs";
 
 const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const outputDir = path.join(projectDir, "dist");
@@ -37,6 +38,7 @@ const directSemanticsPath = path.join(projectDir, "seo", "direct-semantics.json"
 const directSemantics = fs.existsSync(directSemanticsPath) ? JSON.parse(fs.readFileSync(directSemanticsPath, "utf8")) : {};
 const seoState = buildSeoState({ registry, items, indexes, config, rules, overrides, directSemantics });
 const organizationSchema = organizationStructuredData(config);
+const CATALOG_PAGE_SIZE = 24;
 
 for (const item of items) {
   if (!indexes.productsBySourceId.has(String(item.id))) {
@@ -73,6 +75,22 @@ function categoryPath(brand, model, category) {
   return `${modelPath(brand, model)}${category.slug}/`;
 }
 
+function paginationPath(routePath, pageNumber) {
+  if (pageNumber <= 1) return routePath;
+  return `${routePath}page/${pageNumber}/`;
+}
+
+function paginatedTitle(title, pageNumber) {
+  if (pageNumber <= 1) return title;
+  const marker = ` — страница ${pageNumber}`;
+  const suffixMatch = title.match(/\s+\|\s+(?:KITRADE|Китрейд)$/i);
+  const suffix = suffixMatch?.[0] || "";
+  const body = suffix ? title.slice(0, -suffix.length) : title;
+  const available = Math.max(30, 75 - suffix.length - marker.length);
+  const shortened = body.length <= available ? body : body.slice(0, available).replace(/\s+\S*$/, "").replace(/[.,;:!?/\-–—]+$/, "");
+  return `${shortened}${marker}${suffix}`;
+}
+
 function writeRoute(routePath, html) {
   const relative = routePath.replace(/^\/+|\/+$/g, "");
   const directory = path.join(outputDir, ...relative.split("/"));
@@ -96,8 +114,7 @@ function copyTree(source, destination) {
 }
 
 function formatPrice(item) {
-  const price = Number(String(item?.price || "").replace(/\D/g, ""));
-  return price ? `${new Intl.NumberFormat("ru-RU").format(price)} ₽` : "Цена по запросу";
+  return formatPartPrice(item?.price);
 }
 
 function deliveryLabel() {
@@ -150,15 +167,18 @@ function replaceFilterOptions(html, filterId, links) {
   return html.replace(pattern, `$1${staticFilterOptions(links)}$2`);
 }
 
-function catalogPage({ routePath, titleParts = [], brand = null, model = null, category = null, products, brandLinks = [], modelLinks = [], categoryLinks = [] }) {
+function catalogPage({ routePath, titleParts = [], brand = null, model = null, category = null, products, totalProducts = products.length, pageNumber = 1, totalPages = 1, brandLinks = [], modelLinks = [], categoryLinks = [] }) {
   const seo = seoState.seoByPath.get(routePath) || seoState.seoByPath.get("/catalog/");
-  const pageTitle = seo.title;
+  const currentRoutePath = paginationPath(routePath, pageNumber);
+  const pageTitle = paginatedTitle(seo.title, pageNumber);
+  const pageDescription = pageNumber > 1 ? `${seo.description.replace(/\.$/, "")} Страница ${pageNumber}.` : seo.description;
   const visibleCards = products.map(({ product, item }) => productCard(product, item)).join("");
   const summary = titleParts.join(" / ") || "Все марки и категории";
   const bodyAttributes = [
     brand ? `data-catalog-brand="${escapeHtml(brand.name)}"` : "",
     model ? `data-catalog-model="${escapeHtml(model.name)}"` : "",
     category ? `data-catalog-category="${escapeHtml(category.name)}"` : "",
+    `data-catalog-page="${pageNumber}"`,
   ].filter(Boolean).join(" ");
 
   const breadcrumbItems = [
@@ -167,12 +187,13 @@ function catalogPage({ routePath, titleParts = [], brand = null, model = null, c
     brand ? { name: brand.name, path: brandPath(brand) } : null,
     brand && model ? { name: model.name, path: modelPath(brand, model) } : null,
     brand && model && category ? { name: category.name, path: categoryPath(brand, model, category) } : null,
+    pageNumber > 1 ? { name: `Страница ${pageNumber}`, path: currentRoutePath } : null,
   ].filter(Boolean).filter((entry, index, entries) => index === 0 || entry.path !== entries[index - 1].path);
   const schemas = [organizationSchema, breadcrumbStructuredData(breadcrumbItems, config)];
   let html = catalogTemplate
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(pageTitle)}</title>`)
-    .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${escapeHtml(seo.description)}" />`)
-    .replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${canonicalUrl(routePath)}" />`)
+    .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${escapeHtml(pageDescription)}" />`)
+    .replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${canonicalUrl(currentRoutePath)}" />`)
     .replace("</head>", `  <script type="application/ld+json">${safeJson(schemas)}</script>\n  </head>`)
     .replace("<body>", `<body ${bodyAttributes}>`)
     .replace(
@@ -182,9 +203,15 @@ function catalogPage({ routePath, titleParts = [], brand = null, model = null, c
         : `<h1 id="catalog-title">${escapeHtml(seo.h1)}</h1>`,
     )
     .replace(/<p class="hero-description">[\s\S]*?<\/p>/, `<p class="hero-description">${escapeHtml(seo.intro_text || seo.description)}</p>`)
-    .replace('<p id="resultCount">Найдено 0 позиций</p>', `<p id="resultCount">Найдено ${products.length} позиций</p>`)
+    .replace('<p id="resultCount">Найдено 0 позиций</p>', `<p id="resultCount">Найдено ${totalProducts} позиций</p>`)
     .replace('<h2 id="resultSummary">Chery / Geely / Haval</h2>', `<h2 id="resultSummary">${escapeHtml(summary)}</h2>`)
-    .replace('<div class="parts-grid" id="partsGrid"></div>', `<div class="parts-grid" id="partsGrid">${visibleCards}</div>`);
+    .replace('<div class="parts-grid" id="partsGrid"></div>', `<div class="parts-grid" id="partsGrid">${visibleCards}</div>`)
+    .replace(
+      /<a class="load-more" id="loadMore"[^>]*>Показать еще<\/a>/,
+      pageNumber < totalPages
+        ? `<a class="load-more" id="loadMore" href="${escapeHtml(paginationPath(routePath, pageNumber + 1))}">Показать еще</a>`
+        : '<a class="load-more" id="loadMore" href="/catalog/" hidden>Показать еще</a>',
+    );
   html = replaceFilterOptions(html, "brandFilters", brandLinks);
   html = replaceFilterOptions(html, "modelFilters", modelLinks);
   html = replaceFilterOptions(html, "typeFilters", categoryLinks);
@@ -224,6 +251,31 @@ for (const row of visibleRows) {
   }
 }
 
+function additionalPaginationPaths(routePath, productCount) {
+  const totalPages = Math.ceil(productCount / CATALOG_PAGE_SIZE);
+  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, index) => paginationPath(routePath, index + 2));
+}
+
+const paginationSitemapPaths = [
+  ...additionalPaginationPaths("/catalog/", visibleRows.length),
+  ...[...rowsByBrand].flatMap(([brandId, rows]) => {
+    const brand = indexes.brands.get(brandId);
+    return brand ? additionalPaginationPaths(brandPath(brand), rows.length) : [];
+  }),
+  ...[...rowsByModel].flatMap(([modelId, rows]) => {
+    const model = indexes.models.get(modelId);
+    const brand = model ? indexes.brands.get(model.parent_id) : null;
+    return brand && model ? additionalPaginationPaths(modelPath(brand, model), rows.length) : [];
+  }),
+  ...[...rowsByCategoryRoute].flatMap(([key, rows]) => {
+    const [brandId, modelId, categoryId] = key.split("|");
+    const brand = indexes.brands.get(brandId);
+    const model = indexes.models.get(modelId);
+    const category = indexes.categories.get(categoryId);
+    return brand && model && category ? additionalPaginationPaths(categoryPath(brand, model, category), rows.length) : [];
+  }),
+];
+
 if (path.resolve(outputDir) !== path.join(projectDir, "dist")) throw new Error("Unsafe output directory");
 fs.mkdirSync(outputDir, { recursive: true });
 const catalogOutputDir = path.join(outputDir, "catalog");
@@ -262,7 +314,7 @@ if (isNonProductionBuild) {
   fs.writeFileSync(headersPath, `${headers}\n\n/*\n  X-Robots-Tag: noindex, nofollow, noarchive\n`);
 }
 fs.copyFileSync(path.join(projectDir, "public", "catalog-urls.json"), path.join(outputDir, "catalog-urls.json"));
-for (const filename of ["seo-map.json", "seo-map.csv"]) {
+for (const filename of ["seo-map.json", "seo-map.csv", "search-target-map.json"]) {
   const source = path.join(projectDir, "public", filename);
   if (fs.existsSync(source)) fs.copyFileSync(source, path.join(outputDir, filename));
 }
@@ -272,7 +324,7 @@ fs.writeFileSync(path.join(outputDir, "site-runtime-config.js"), `window.KITRADE
   basePath: publicBasePath,
   analytics: runtimeAnalytics,
 })};\n`);
-const sitemapUrls = [canonicalUrl("/"), canonicalUrl("/catalog/"), ...publicUrlRows.filter((row) => row.indexable).map((row) => row.canonical_url)];
+const sitemapUrls = [canonicalUrl("/"), canonicalUrl("/catalog/"), ...publicUrlRows.filter((row) => row.indexable).map((row) => row.canonical_url), ...paginationSitemapPaths.map(canonicalUrl)];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...new Set(sitemapUrls)].map((url) => `  <url><loc>${escapeHtml(url)}</loc></url>`).join("\n")}\n</urlset>\n`;
 fs.writeFileSync(path.join(outputDir, "sitemap.xml"), sitemap);
 fs.writeFileSync(path.join(outputDir, "robots.txt"), isNonProductionBuild
@@ -288,7 +340,25 @@ fs.writeFileSync(path.join(outputDir, "robots.txt"), isNonProductionBuild
 const rootBrandLinks = [...rowsByBrand.keys()].map((brandId) => indexes.brands.get(brandId)).filter(Boolean)
   .sort((a, b) => a.name.localeCompare(b.name, "ru"))
   .map((brand) => ({ href: brandPath(brand), label: brand.name }));
-writeRoute("/catalog/", catalogPage({ routePath: "/catalog/", products: visibleRows, brandLinks: rootBrandLinks }));
+
+let generatedCatalogPages = 0;
+function writeCatalogSeries(options) {
+  const { routePath, products } = options;
+  const totalPages = Math.max(1, Math.ceil(products.length / CATALOG_PAGE_SIZE));
+  for (let pageNumber = 1; pageNumber <= totalPages; pageNumber += 1) {
+    const pageProducts = products.slice((pageNumber - 1) * CATALOG_PAGE_SIZE, pageNumber * CATALOG_PAGE_SIZE);
+    writeRoute(paginationPath(routePath, pageNumber), catalogPage({
+      ...options,
+      products: pageProducts,
+      totalProducts: products.length,
+      pageNumber,
+      totalPages,
+    }));
+    generatedCatalogPages += 1;
+  }
+}
+
+writeCatalogSeries({ routePath: "/catalog/", products: visibleRows, brandLinks: rootBrandLinks });
 
 for (const [brandId, brandRows] of rowsByBrand) {
   const brand = indexes.brands.get(brandId);
@@ -296,7 +366,7 @@ for (const [brandId, brandRows] of rowsByBrand) {
   const modelLinks = [...(modelsByBrand.get(brandId) || [])].map((id) => indexes.models.get(id)).filter(Boolean)
     .sort((a, b) => a.name.localeCompare(b.name, "ru"))
     .map((model) => ({ href: modelPath(brand, model), label: model.name }));
-  writeRoute(brandPath(brand), catalogPage({ routePath: brandPath(brand), titleParts: [brand.name], brand, products: brandRows, brandLinks: rootBrandLinks, modelLinks }));
+  writeCatalogSeries({ routePath: brandPath(brand), titleParts: [brand.name], brand, products: brandRows, brandLinks: rootBrandLinks, modelLinks });
 }
 
 for (const [modelId, modelRows] of rowsByModel) {
@@ -307,7 +377,7 @@ for (const [modelId, modelRows] of rowsByModel) {
   const categoryLinks = [...categoryIds].map((id) => indexes.categories.get(id)).filter(Boolean)
     .sort((a, b) => a.name.localeCompare(b.name, "ru"))
     .map((category) => ({ href: categoryPath(brand, model, category), label: category.name }));
-  writeRoute(modelPath(brand, model), catalogPage({ routePath: modelPath(brand, model), titleParts: [brand.name, model.name], brand, model, products: modelRows, brandLinks: rootBrandLinks, categoryLinks }));
+  writeCatalogSeries({ routePath: modelPath(brand, model), titleParts: [brand.name, model.name], brand, model, products: modelRows, brandLinks: rootBrandLinks, categoryLinks });
 }
 
 for (const [key, categoryRows] of rowsByCategoryRoute) {
@@ -321,7 +391,7 @@ for (const [key, categoryRows] of rowsByCategoryRoute) {
     .map((id) => indexes.categories.get(id)).filter(Boolean)
     .sort((a, b) => a.name.localeCompare(b.name, "ru"))
     .map((entry) => ({ href: categoryPath(brand, model, entry), label: entry.name }));
-  writeRoute(routePath, catalogPage({ routePath, titleParts: [brand.name, model.name, category.name], brand, model, category, products: categoryRows, brandLinks: rootBrandLinks, categoryLinks: siblingCategoryLinks }));
+  writeCatalogSeries({ routePath, titleParts: [brand.name, model.name, category.name], brand, model, category, products: categoryRows, brandLinks: rootBrandLinks, categoryLinks: siblingCategoryLinks });
 }
 
 function productPage(product, item) {
@@ -335,11 +405,12 @@ function productPage(product, item) {
   const photo = realPhoto || fallbackPhoto(item);
   const description = content.description || "";
   const meta = content.meta || [brand?.name, model?.name].filter(Boolean).join(" · ");
+  const hasIndexableRoute = (routePath) => Boolean(seoState.seoByPath.get(routePath)?.indexable);
   const crumbs = [
     ['/', 'Главная'], ['/catalog/', 'Каталог'],
-    brand ? [brandPath(brand), brand.name] : null,
-    brand && model ? [modelPath(brand, model), model.name] : null,
-    brand && model && category ? [categoryPath(brand, model, category), category.name] : null,
+    brand && hasIndexableRoute(brandPath(brand)) ? [brandPath(brand), brand.name] : null,
+    brand && model && hasIndexableRoute(modelPath(brand, model)) ? [modelPath(brand, model), model.name] : null,
+    brand && model && category && hasIndexableRoute(categoryPath(brand, model, category)) ? [categoryPath(brand, model, category), category.name] : null,
   ].filter(Boolean);
   const breadcrumbHtml = crumbs.map(([href, label]) => `<a href="${href}">${escapeHtml(label)}</a><span aria-hidden="true">/</span>`).join("")
     + `<span aria-current="page">${escapeHtml(title)}</span>`;
@@ -348,9 +419,9 @@ function productPage(product, item) {
   const productData = { id: String(item?.id || product.source_id), title, article: content.article || "" };
   const breadcrumbSchema = breadcrumbStructuredData([
     { name: "Главная", path: "/" }, { name: "Каталог", path: "/catalog/" },
-    brand ? { name: brand.name, path: brandPath(brand) } : null,
-    brand && model ? { name: model.name, path: modelPath(brand, model) } : null,
-    brand && model && category ? { name: category.name, path: categoryPath(brand, model, category) } : null,
+    brand && hasIndexableRoute(brandPath(brand)) ? { name: brand.name, path: brandPath(brand) } : null,
+    brand && model && hasIndexableRoute(modelPath(brand, model)) ? { name: model.name, path: modelPath(brand, model) } : null,
+    brand && model && category && hasIndexableRoute(categoryPath(brand, model, category)) ? { name: category.name, path: categoryPath(brand, model, category) } : null,
     { name: seo?.h1 || title, path: product.canonical_path },
   ].filter(Boolean), config);
   const schemas = state?.indexable ? [
@@ -436,6 +507,9 @@ for (const group of Object.values(registry.entities)) {
     }
   }
 }
+for (const [legacyPath, destination] of Object.entries(overrides.redirects || {})) {
+  if (legacyPath && destination && legacyPath !== destination) redirects.push(`${legacyPath} ${destination} 301!`);
+}
 redirects.push("/* /404.html 404");
 fs.writeFileSync(path.join(outputDir, "_redirects"), `${[...new Set(redirects)].join("\n")}\n`);
 
@@ -443,4 +517,4 @@ const generatedProductFiles = allProductRows.filter(({ product }) => fs.existsSy
 if (generatedProductFiles !== registry.entities.products.length) throw new Error("Not every product page was generated");
 
 console.log(`Static site built in ${outputDir}`);
-console.log(`${generatedProductFiles} product pages and ${1 + rowsByBrand.size + rowsByModel.size + rowsByCategoryRoute.size} catalog pages generated.`);
+console.log(`${generatedProductFiles} product pages and ${generatedCatalogPages} catalog pages generated.`);

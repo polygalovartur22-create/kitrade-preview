@@ -1,7 +1,29 @@
 {
-  "version": 1,
+  "version": 2,
   "brands": {},
   "models": {},
   "categories": {},
-  "products": {}
+  "normalization": {
+    "vehicle_aliases": {
+      "baic|x55": ["baik", "baik X55"],
+      "polar stone (jishi)|01": ["Polar Stone"],
+      "nissan|pathfinder (china)": ["Pathfinder", "Nissan Pathfinder"],
+      "byd|yangwang u8": ["Yangwang U8L", "BYD Yangwang U8L"],
+      "bmw|x5": ["X5Li", "BMW X5Li"],
+      "mercedes-benz|g-класс": ["G-Class", "Mercedes G-Class", "Mercedes-Benz G-Class"],
+      "mercedes-benz|g-класс amg": ["G-Class", "Mercedes G-Class", "Mercedes-Benz G-Class", "Merc G-Class"]
+    }
+  },
+  "products": {
+    "7948868532": {
+      "category": "Система охлаждения"
+    },
+    "8044698121": {
+      "category": "Система охлаждения"
+    }
+  },
+  "redirects": {
+    "/catalog/fangchengbao/bao-5/": "/catalog/fang-cheng-bao/bao-5-leopard-5/",
+    "/catalog/fang-cheng-bao/bao-5/": "/catalog/fang-cheng-bao/bao-5-leopard-5/"
+  }
 }

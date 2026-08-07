@@ -120,7 +120,7 @@ function ensureProduct(registry, item, relations) {
   return entry;
 }
 
-export function syncRegistry(currentRegistry, items) {
+export function syncRegistry(currentRegistry, items, overrides = {}) {
   const registry = structuredClone(currentRegistry || createEmptyRegistry());
   for (const group of Object.values(registry.entities)) {
     for (const entry of group) entry._seen = false;
@@ -128,9 +128,10 @@ export function syncRegistry(currentRegistry, items) {
 
   for (const item of items) {
     if (!item || !item.title) continue;
-    const brandName = String(item.brand || "").trim();
-    const modelName = String(item.model || "").trim();
-    const categoryName = getPublicCategory(item);
+    const itemOverride = overrides.products?.[String(item.id)] || {};
+    const brandName = String(itemOverride.brand || item.brand || "").trim();
+    const modelName = String(itemOverride.model || item.model || "").trim();
+    const categoryName = String(itemOverride.category || getPublicCategory(item)).trim();
     const brand = brandName ? ensureNamedEntity(registry, "brand", "brands", brandName) : null;
     const model = brand && modelName
       ? ensureNamedEntity(registry, "model", "models", modelName, brand.id)

@@ -1,11 +1,11 @@
 (() => {
   const settings = window.KITRADE_SITE_CONFIG?.analytics;
-  const previewHost = /(?:^|\.)onrender\.com$/i.test(window.location.hostname);
+  const previewHost = /(?:^|\.)(?:onrender\.com|github\.io)$/i.test(window.location.hostname);
   const counterId = Number(settings?.counterId);
   const allowedEvents = new Set(settings?.events || []);
 
   window.KITRADE_TRACK = (eventName, params = {}) => {
-    if (previewHost || !allowedEvents.has(eventName) || !counterId || typeof window.ym !== "function") return;
+    if (previewHost || !settings?.enabled || !allowedEvents.has(eventName) || !counterId || typeof window.ym !== "function") return;
     window.ym(counterId, "reachGoal", eventName, params);
   };
 

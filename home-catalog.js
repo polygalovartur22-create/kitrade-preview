@@ -4,8 +4,7 @@
     const base = String(window.KITRADE_SITE_CONFIG?.basePath || "").replace(/\/$/, "");
     return base && path.startsWith("/") && !path.startsWith(`${base}/`) ? `${base}${path}` : path;
   };
-  const source = Array.isArray(window.KITRADE_PARTS) ? window.KITRADE_PARTS : [];
-  const urlMap = window.KITRADE_CATALOG_URLS?.products || {};
+  const source = Array.isArray(window.KITRADE_CATALOG_DATA?.items) ? window.KITRADE_CATALOG_DATA.items : [];
   const root = document.querySelector(".vehicle-picker");
   if (!root || !source.length) return;
 
@@ -124,7 +123,7 @@
   };
 
   const formatPrice = (value) => {
-    const price = Number(String(value || "").replace(/\D/g, ""));
+    const price = Number(String(value || "").replace(/[^\d.,]/g, "").replace(",", "."));
     return price ? `${new Intl.NumberFormat("ru-RU").format(price)} ₽` : "Цена по запросу";
   };
 
@@ -137,20 +136,17 @@
   };
 
   const items = source
-    .filter((item) => item?.title
-      && String(item.brand || "").trim().toLocaleLowerCase("ru") !== "маз"
-      && (!urlMap[String(item.id)] || urlMap[String(item.id)].status === "active"))
+    .filter((item) => item?.title)
     .map((item) => {
-      const safe = urlMap[String(item.id)] || {};
-      const title = safe.title || item.title;
-      const article = safe.article || "";
+      const title = item.title;
+      const article = item.article || "";
       return ({
       ...item,
       title,
       article,
-      condition: safe.condition || "",
-      origin: safe.origin || "",
-      canonicalPath: sitePath(safe.canonical_path || "/catalog/"),
+      condition: item.condition || "",
+      origin: item.origin || "",
+      canonicalPath: sitePath(item.canonical_path || "/catalog/"),
       image: normalizePhoto(item.photos?.[0]) || fallbackPhoto(item),
       search: [title, item.brand, item.model, article, item.category, item.detail]
         .filter(Boolean)

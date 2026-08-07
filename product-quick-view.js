@@ -4,8 +4,7 @@
     const base = String(window.KITRADE_SITE_CONFIG?.basePath || "").replace(/\/$/, "");
     return base && path.startsWith("/") && !path.startsWith(`${base}/`) ? `${base}${path}` : path;
   };
-  const source = Array.isArray(window.KITRADE_PARTS) ? window.KITRADE_PARTS : [];
-  const urlMap = window.KITRADE_CATALOG_URLS?.products || {};
+  const source = Array.isArray(window.KITRADE_CATALOG_DATA?.items) ? window.KITRADE_CATALOG_DATA.items : [];
   const itemsById = new Map(source.map((item) => [String(item.id), item]));
   let dialog;
   let activeItem;
@@ -27,7 +26,7 @@
   };
 
   const formatPrice = (value) => {
-    const price = Number(String(value || "").replace(/\D/g, ""));
+    const price = Number(String(value || "").replace(/[^\d.,]/g, "").replace(",", "."));
     return price ? `${new Intl.NumberFormat("ru-RU").format(price)} ₽` : "Цена по запросу";
   };
 
@@ -65,8 +64,7 @@
   }
 
   function openQuickView(item) {
-    const route = urlMap[String(item.id)];
-    if (!route?.canonical_path) return false;
+    if (!item?.canonical_path) return false;
     activeItem = item;
     dialog ||= createDialog();
     const photo = normalizePhoto(item.photos?.[0]) || fallbackPhoto(item);
@@ -81,12 +79,12 @@
     } else {
       media.textContent = "Фото уточняется";
     }
-    dialog.querySelector("[data-quick-category]").textContent = route.public_category || item.category || "Запчасть";
-    dialog.querySelector("[data-quick-title]").textContent = route.title || item.title || "Автозапчасть";
-    dialog.querySelector("[data-quick-meta]").textContent = route.meta || [item.brand, item.model].filter(Boolean).join(" · ");
-    dialog.querySelector("[data-quick-description]").textContent = route.quick_description || "Цена — за деталь. Доставка отдельно. Проверка по VIN. Заказ — от 50 000 ₽; детали можно объединить.";
+    dialog.querySelector("[data-quick-category]").textContent = item.public_category || item.category || "Запчасть";
+    dialog.querySelector("[data-quick-title]").textContent = item.title || "Автозапчасть";
+    dialog.querySelector("[data-quick-meta]").textContent = item.meta || [item.brand, item.model].filter(Boolean).join(" · ");
+    dialog.querySelector("[data-quick-description]").textContent = item.quick_description || "Цена — за деталь. Доставка отдельно. Проверка по VIN. Заказ — от 50 000 ₽; детали можно объединить.";
     dialog.querySelector("[data-quick-price]").textContent = formatPrice(item.price);
-    dialog.querySelector("[data-quick-page]").href = sitePath(route.canonical_path);
+    dialog.querySelector("[data-quick-page]").href = sitePath(item.canonical_path);
     dialog.showModal();
     window.KITRADE_TRACK?.("product_view", { product_id: String(item.id), page_type: "quick_view" });
     return true;

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { createProductContent, validatedArticle } from "../scripts/catalog/lib/product-content.mjs";
+import { createProductContent, formatPartPrice, validatedArticle } from "../scripts/catalog/lib/product-content.mjs";
 
 const brand = { name: "Geely", source_names: ["geely"] };
 const model = { name: "Monjaro", source_names: ["Monjaro"] };
@@ -16,6 +16,26 @@ test("confirmed-looking OEM values are preserved without entering H1", () => {
   assert.equal(content.article, "6010179000");
   assert.equal(content.h1, "Фара Geely Monjaro");
   assert.equal(content.title, "Фара Geely Monjaro, 6010179000 | KITRADE");
+});
+
+test("only the primary OEM is published in titles and descriptions", () => {
+  const content = createProductContent({ item: { id: "source-1", title: "Фара Geely Monjaro", brand: "Geely", model: "Monjaro", article: "6010179000 / 6010179001; 6010179002" }, product, brand, model });
+  assert.equal(content.article, "6010179000");
+  assert.match(content.title, /6010179000/);
+  assert.doesNotMatch(content.title, /6010179001|6010179002/);
+  assert.ok(content.title.length <= 75);
+});
+
+test("confirmed compatibility is deduplicated and rendered without double punctuation", () => {
+  const compatibility = { brand: "Geely", model: "Monjaro", generation: "I", yearFrom: 2021, yearTo: 2025 };
+  const content = createProductContent({ item: { id: "source-1", title: "Фара", brand: "Geely", model: "Monjaro", compatibility: [compatibility, compatibility] }, product, brand, model });
+  assert.match(content.description, /Совместимость: Geely Monjaro, поколение I, 2021–2025 г\./);
+  assert.doesNotMatch(content.description, /г\.\./);
+  assert.equal((content.description.match(/2021–2025/g) || []).length, 1);
+});
+
+test("decimal catalog prices keep their decimal separator", () => {
+  assert.equal(formatPartPrice("4329.6"), "4 329,6 ₽");
 });
 
 test("truncated parentheses and known model spelling errors are repaired", () => {

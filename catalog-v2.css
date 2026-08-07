@@ -355,7 +355,7 @@ h1, h2, h3, p { margin: 0; }
 .request-submit { width: 100%; min-height: 58px; margin-top: 20px; font-size: 17px; }
 .request-panel > small { display: block; margin-top: 18px; color: var(--dim); }
 
-.load-more { display: block; min-width: 200px; margin: 28px auto 0; padding: 13px 18px; border: 1px solid var(--line); border-radius: 8px; background: transparent; }
+.load-more { display: block; min-width: 200px; margin: 28px auto 0; padding: 13px 18px; border: 1px solid var(--line); border-radius: 8px; background: transparent; text-align: center; }
 .empty-state { padding: 54px 20px; border: 1px solid var(--line); border-radius: 12px; text-align: center; }
 .empty-state p { margin-top: 12px; color: var(--muted); }
 

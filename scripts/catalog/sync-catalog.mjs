@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { readCatalogData } from "./lib/data.mjs";
+import { normalizePhoto, readCatalogData } from "./lib/data.mjs";
+import { isVisibleCatalogItem } from "./lib/domain.mjs";
 import { createEmptyRegistry, registryIndexes, syncRegistry, validateRegistry } from "./lib/registry.mjs";
 import { buildSeoState, toCsv } from "./lib/seo.mjs";
 
@@ -9,15 +10,15 @@ const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".
 const registryPath = path.join(projectDir, "catalog-url-map.json");
 const publicDir = path.join(projectDir, "public");
 const config = JSON.parse(fs.readFileSync(path.join(projectDir, "site.config.json"), "utf8"));
+const rules = JSON.parse(fs.readFileSync(path.join(projectDir, "seo", "seo-rules.json"), "utf8"));
+const overrides = JSON.parse(fs.readFileSync(path.join(projectDir, "seo", "seo-overrides.json"), "utf8"));
 const items = readCatalogData(path.join(projectDir, "kitrade-parts-data.js"));
 const previous = fs.existsSync(registryPath)
   ? JSON.parse(fs.readFileSync(registryPath, "utf8"))
   : createEmptyRegistry();
-const registry = syncRegistry(previous, items);
+const registry = syncRegistry(previous, items, overrides);
 validateRegistry(registry);
 const indexes = registryIndexes(registry);
-const rules = JSON.parse(fs.readFileSync(path.join(projectDir, "seo", "seo-rules.json"), "utf8"));
-const overrides = JSON.parse(fs.readFileSync(path.join(projectDir, "seo", "seo-overrides.json"), "utf8"));
 const directSemanticsPath = path.join(projectDir, "seo", "direct-semantics.json");
 const directSemantics = fs.existsSync(directSemanticsPath) ? JSON.parse(fs.readFileSync(directSemanticsPath, "utf8")) : {};
 const seoState = buildSeoState({ registry, items, indexes, config, rules, overrides, directSemantics });
@@ -223,6 +224,63 @@ directCoverage.summary = {
 };
 fs.writeFileSync(path.join(reportsDir, "direct-semantics-coverage.json"), `${JSON.stringify(directCoverage, null, 2)}\n`);
 
+const priorityModelNames = new Set([
+  "voyah|free", "geely|monjaro", "geely|coolray", "haval|f7", "haval|jolion",
+  "chery|tiggo 7 pro max", "changan|cs75 plus", "haval|h3", "tank|500",
+  "omoda|c5", "changan|uni-k", "zeekr|9x",
+]);
+const legacyUrlsFor = (canonicalPath) => Object.entries(overrides.redirects || {})
+  .filter(([, destination]) => destination === canonicalPath)
+  .map(([legacyPath]) => canonicalUrl(legacyPath));
+const searchTargetGroups = [
+  ...directCoverage.brands.filter((row) => row.direct_material_match).map((row) => ({
+    search_group: `brand:${String(row.name).toLocaleLowerCase("ru")}`,
+    page_type: "brand",
+    brand: row.name,
+    model: "",
+    priority: "standard",
+    queries: [...new Set([row.primary_query, ...row.secondary_queries].filter(Boolean))],
+    canonical_path: row.canonical_path,
+    canonical_url: canonicalUrl(row.canonical_path),
+    legacy_urls: legacyUrlsFor(row.canonical_path),
+  })),
+  ...directCoverage.models.filter((row) => row.direct_material_match).map((row) => ({
+    search_group: `model:${String(row.brand).toLocaleLowerCase("ru")}|${String(row.model).toLocaleLowerCase("ru")}`,
+    page_type: "model",
+    brand: row.brand,
+    model: row.model,
+    priority: priorityModelNames.has(`${String(row.brand).toLocaleLowerCase("ru")}|${String(row.model).toLocaleLowerCase("ru")}`) ? "high" : "standard",
+    queries: [...new Set([row.primary_query, ...row.secondary_queries].filter(Boolean))],
+    canonical_path: row.canonical_path,
+    canonical_url: canonicalUrl(row.canonical_path),
+    legacy_urls: legacyUrlsFor(row.canonical_path),
+  })),
+].sort((left, right) => left.search_group.localeCompare(right.search_group, "ru"));
+fs.writeFileSync(path.join(publicDir, "search-target-map.json"), `${JSON.stringify({
+  version: 1,
+  generated_from: directSemantics.generated_from || [],
+  groups: searchTargetGroups,
+}, null, 2)}\n`);
+const coveredPrimaryQueries = new Set(searchTargetGroups.flatMap((row) => row.queries));
+const unresolvedDirectGroups = [
+  ...Object.entries(directSemantics.brands || {}),
+  ...Object.entries(directSemantics.models || {}),
+].filter(([, entry]) => !coveredPrimaryQueries.has(entry.primary_query))
+  .map(([source_group, entry]) => ({ source_group, primary_query: entry.primary_query, status: "no_current_catalog_target" }));
+fs.writeFileSync(path.join(reportsDir, "direct-target-gaps.json"), `${JSON.stringify(unresolvedDirectGroups, null, 2)}\n`);
+
+fs.writeFileSync(path.join(reportsDir, "form-submission-audit.json"), `${JSON.stringify({
+  status: "server_confirmation_unavailable",
+  current_transport: "Google Apps Script with fetch mode no-cors",
+  analytics: {
+    attempt_event: "request_submit_attempt",
+    success_event: "request_submit_success",
+    personal_data_in_events: false,
+  },
+  client_behavior: "An opaque no-cors response is not counted or shown as confirmed success.",
+  server_change_required: "Return a CORS-enabled JSON response with a 2xx status only after the request has been saved successfully.",
+}, null, 2)}\n`);
+
 const categoryRecommendations = seoState.seoRows.filter((row) => row.page_type === "category")
   .map((row) => ({ canonical_path: row.canonical_path, brand: row.brand, model: row.model, category: row.category,
     primary_query: row.primary_query, recommendation: "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста." }))
@@ -258,6 +316,43 @@ fs.writeFileSync(path.join(reportsDir, "validation-summary.json"), `${JSON.strin
 fs.writeFileSync(
   path.join(projectDir, "catalog-url-data.js"),
   `window.KITRADE_CATALOG_URLS = ${JSON.stringify({ site_url: config.siteUrl, products: browserProducts, routes: browserRoutes })};\n`,
+);
+const runtimeItems = registry.entities.products.map((product) => {
+  const item = items.find((entry) => String(entry.id) === String(product.source_id)) || product.source_snapshot || null;
+  if (product.status !== "active" || !isVisibleCatalogItem(item)) return null;
+  const brand = indexes.brands.get(product.brand_id);
+  const model = indexes.models.get(product.model_id);
+  const category = indexes.categories.get(product.category_id);
+  const content = seoState.productState.get(product.product_id)?.content || {};
+  const photo = normalizePhoto(item?.photos?.[0]);
+  return {
+    id: String(item?.id || product.source_id),
+    product_id: product.product_id,
+    title: content.h1 || product.name,
+    detail: content.detail || item?.detail || "",
+    brand: brand?.name || item?.brand || "",
+    model: model?.name || item?.model || "",
+    generation: item?.generation || "",
+    yearFrom: item?.yearFrom || null,
+    yearTo: item?.yearTo || null,
+    years: Array.isArray(item?.years) ? item.years : [],
+    category: category?.name || product.public_category || item?.category || "Запчасти",
+    subcategory: item?.subcategory || "",
+    public_category: category?.name || product.public_category || item?.category || "Запчасти",
+    condition: content.condition || "",
+    origin: content.origin || "",
+    price: item?.price || "",
+    article: content.article || "",
+    photos: photo ? [photo] : [],
+    canonical_path: product.canonical_path,
+    card_description: content.cardDescription || "",
+    quick_description: content.quickDescription || "",
+    meta: content.meta || "",
+  };
+}).filter(Boolean);
+fs.writeFileSync(
+  path.join(projectDir, "catalog-runtime-data.js"),
+  `window.KITRADE_CATALOG_DATA = ${JSON.stringify({ site_url: config.siteUrl, items: runtimeItems, routes: browserRoutes })};\n`,
 );
 
 console.log(`Catalog registry synchronized: ${registry.entities.products.length} products, ${exportRows.length} public URL records, ${promotedSeoRows.length} indexable SEO pages.`);

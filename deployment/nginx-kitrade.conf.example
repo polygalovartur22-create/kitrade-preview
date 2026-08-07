@@ -1,0 +1,51 @@
+# Production example for китрейд.рф. Replace certificate and root paths before enabling.
+server {
+    listen 80;
+    listen [::]:80;
+    server_name xn--d1abifc1bn.xn--p1ai www.xn--d1abifc1bn.xn--p1ai;
+    return 301 https://xn--d1abifc1bn.xn--p1ai$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name www.xn--d1abifc1bn.xn--p1ai;
+    ssl_certificate /etc/letsencrypt/live/xn--d1abifc1bn.xn--p1ai/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/xn--d1abifc1bn.xn--p1ai/privkey.pem;
+    return 301 https://xn--d1abifc1bn.xn--p1ai$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name xn--d1abifc1bn.xn--p1ai;
+
+    root /var/www/kitrade/dist;
+    index index.html;
+    ssl_certificate /etc/letsencrypt/live/xn--d1abifc1bn.xn--p1ai/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/xn--d1abifc1bn.xn--p1ai/privkey.pem;
+
+    location = /index.html { return 301 /; }
+    location = /catalog { return 301 /catalog/; }
+    location = /catalog.html { return 301 /catalog/; }
+    location = /catalog/fangchengbao/bao-5/ { return 301 /catalog/fang-cheng-bao/bao-5-leopard-5/; }
+    location = /catalog/fang-cheng-bao/bao-5/ { return 301 /catalog/fang-cheng-bao/bao-5-leopard-5/; }
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    error_page 404 /404.html;
+    location = /404.html { internal; }
+
+    location ~* \.(?:css|js|json|xml|png|jpe?g|webp|gif|svg|ico|woff2?|mp4)$ {
+        try_files $uri =404;
+        expires 30d;
+        add_header Cache-Control "public, max-age=2592000, immutable";
+    }
+
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/plain text/css application/javascript application/json application/xml image/svg+xml;
+}

@@ -44,39 +44,38 @@
     headerObserver.observe(headerSentinel);
   }
 
-  const rawItems = Array.isArray(window.KITRADE_PARTS) ? window.KITRADE_PARTS : [];
-  const urlMap = window.KITRADE_CATALOG_URLS?.products || {};
-  const routeMap = window.KITRADE_CATALOG_URLS?.routes || { brands: {}, models: {}, categories: {} };
+  const catalogData = window.KITRADE_CATALOG_DATA || {};
+  const rawItems = Array.isArray(catalogData.items) ? catalogData.items : [];
+  const routeMap = catalogData.routes || { brands: {}, models: {}, categories: {} };
   const routeDefaults = {
     brand: document.body.dataset.catalogBrand || "",
     model: document.body.dataset.catalogModel || "",
     category: document.body.dataset.catalogCategory || "",
   };
+  const routePage = Math.max(1, Number(document.body.dataset.catalogPage) || 1);
+  const staticPageSize = 24;
   const items = rawItems
-    .filter((item) => item && item.title
-      && String(item.brand || "").trim().toLocaleLowerCase("ru") !== "маз"
-      && (!urlMap[String(item.id)] || urlMap[String(item.id)].status === "active"))
+    .filter((item) => item && item.title)
     .map((item) => {
-      const safe = urlMap[String(item.id)] || {};
-      const title = safe.title || item.title;
-      const article = safe.article || "";
+      const title = item.title;
+      const article = item.article || "";
       return ({
       ...item,
       title,
       article,
-      cardDescription: safe.card_description || "Цена — за деталь. Доставка отдельно. Проверка по VIN.",
-      condition: safe.condition || "",
-      origin: safe.origin || "",
+      cardDescription: item.card_description || "Цена — за деталь. Доставка отдельно. Проверка по VIN.",
+      condition: item.condition || "",
+      origin: item.origin || "",
       brand: item.brand || "Без марки",
       model: item.model || "Модель не указана",
       search: [title, item.brand, item.model, article, item.category, item.subcategory, item.detail]
         .filter(Boolean)
         .join(" ")
         .toLocaleLowerCase("ru"),
-      group: safe.public_category || getGroup(item),
-      canonicalPath: sitePath(safe.canonical_path || "/catalog/"),
+      group: item.public_category || getGroup(item),
+      canonicalPath: sitePath(item.canonical_path || "/catalog/"),
       image: normalizePhoto(item.photos?.[0]) || catalogFallbackPhoto(item),
-      priceNumber: Number(String(item.price || "").replace(/\D/g, "")) || 0,
+      priceNumber: Number(String(item.price || "").replace(/[^\d.,]/g, "").replace(",", ".")) || 0,
     });
     });
 
@@ -84,6 +83,8 @@
     tab: routeDefaults.category,
     query: "",
     visible: 12,
+    page: routePage,
+    offset: (routePage - 1) * staticPageSize,
     selected: [],
   };
 
@@ -144,11 +145,12 @@
     const brandRoute = brand ? routeMap.brands?.[routeKey(brand)] : "";
     const modelRoute = model ? routeMap.models?.[routeKey(brand, model)] : "";
     const categoryRoute = category ? routeMap.categories?.[routeKey(brand, model, category)] : "";
-    const path = categoryRoute || modelRoute || brandRoute || "/catalog/";
+    const basePath = categoryRoute || modelRoute || brandRoute || "/catalog/";
+    const path = state.page > 1 ? `${basePath}page/${state.page}/` : basePath;
     const browserPath = sitePath(path);
     if (window.location.pathname !== browserPath) history.replaceState(null, "", browserPath);
     const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.href = new URL(path, window.KITRADE_CATALOG_URLS?.site_url || window.location.origin).href;
+    if (canonical) canonical.href = new URL(path, catalogData.site_url || window.location.origin).href;
   }
 
   function unique(values) {
@@ -349,7 +351,7 @@
 
   function render() {
     const filtered = getFilteredItems();
-    const visible = filtered.slice(0, state.visible);
+    const visible = filtered.slice(state.offset, state.offset + state.visible);
     partsGrid.innerHTML = visible.map(cardMarkup).join("");
     resultCount.textContent = `Найдено ${filtered.length} ${plural(filtered.length)}`;
     const brands = checkedValues("#brandFilters");
@@ -358,7 +360,7 @@
     resultSummary.textContent = [brands.join(" / "), models.join(" / "), state.tab || types.join(" / ")]
       .filter(Boolean).join(" / ") || "Все марки и категории";
     emptyState.hidden = filtered.length > 0;
-    loadMore.hidden = visible.length >= filtered.length;
+    loadMore.hidden = state.offset + visible.length >= filtered.length;
     updateCatalogRoute();
   }
 
@@ -404,6 +406,8 @@
       filter.querySelector("[data-filter-popover]").hidden = true;
       filter.querySelector("[data-filter-toggle]").setAttribute("aria-expanded", "false");
     }
+    state.page = 1;
+    state.offset = 0;
     state.visible = 12;
     render();
   });
@@ -461,6 +465,8 @@
   document.querySelector("#catalogSearch").addEventListener("submit", (event) => {
     event.preventDefault();
     state.query = document.querySelector("#catalogQuery").value.trim();
+    state.page = 1;
+    state.offset = 0;
     state.visible = 12;
     render();
   });
@@ -468,6 +474,8 @@
   document.querySelector("#catalogQuery").addEventListener("search", (event) => {
     if (event.target.value) return;
     state.query = "";
+    state.page = 1;
+    state.offset = 0;
     state.visible = 12;
     render();
   });
@@ -477,6 +485,8 @@
     if (!button) return;
     document.querySelectorAll("#catalogTabs button").forEach((item) => item.classList.toggle("active", item === button));
     state.tab = button.dataset.category;
+    state.page = 1;
+    state.offset = 0;
     state.visible = 12;
     render();
   });
@@ -491,6 +501,8 @@
     updateFilterSummary(document.querySelector("#typeFilters"));
     document.querySelectorAll("#catalogTabs button").forEach((button) => button.classList.toggle("active", button.dataset.category === ""));
     state.tab = "";
+    state.page = 1;
+    state.offset = 0;
     state.visible = 12;
     render();
   });
@@ -515,7 +527,7 @@
     render();
   });
 
-  loadMore.addEventListener("click", () => { state.visible += 12; render(); });
+  loadMore.addEventListener("click", (event) => { event.preventDefault(); state.visible += 12; render(); });
   document.querySelector("#requestSubmit").addEventListener("click", () => {
     if (!state.selected.length) {
       showToast("Сначала добавьте хотя бы одну позицию.");

@@ -476,12 +476,19 @@ if (requestForm) {
 
     try {
       const photos = await Promise.all(selectedFiles.map(readFile));
-      await fetch(FORM_ENDPOINT, {
+      window.KITRADE_TRACK?.("request_submit_attempt");
+      const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "text/plain" },
         body: JSON.stringify({ text: message, photos }),
       });
+
+      if (response.type === "opaque") {
+        status.textContent = "Сервер не подтвердил получение заявки. Если менеджер не свяжется в ближайшее рабочее время, отправьте запрос повторно.";
+        return;
+      }
+      if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
 
       stepOne.hidden = true;
       stepTwo.hidden = true;

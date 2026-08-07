@@ -44,7 +44,27 @@ function truncate(value, max = 158) {
 function shorten(value, max) {
   const text = clean(value);
   if (text.length <= max) return text;
-  return text.slice(0, max).replace(/\s+\S*$/, "").replace(/[.,;:!?/-]+$/, "");
+  let shortened = text.slice(0, max).replace(/\s+\S*$/, "").replace(/[.,;:!?/-]+$/, "");
+  while ((shortened.match(/\(/g) || []).length > (shortened.match(/\)/g) || []).length) {
+    shortened = shortened.slice(0, shortened.lastIndexOf("(")).trim();
+  }
+  return shortened || text.slice(0, max).trim();
+}
+
+function fitTitle(value, max = 75) {
+  const text = clean(value);
+  if (text.length <= max) return text;
+  const suffixMatch = text.match(/\s+\|\s+(?:KITRADE|Китрейд)$/i);
+  const suffix = suffixMatch?.[0] || "";
+  const body = suffix ? text.slice(0, -suffix.length) : text;
+  return `${shorten(body, Math.max(24, max - suffix.length))}${suffix}`;
+}
+
+function contentOverrides(overrides, product) {
+  return {
+    ...(overrides.normalization || {}),
+    ...(overrides.products?.[String(product.source_id)] || overrides.products?.[String(product.product_id)] || {}),
+  };
 }
 
 function productSeo(product, item, brand, model, category, overrides) {
@@ -78,7 +98,7 @@ function directModelEntry(directSemantics, brand, model) {
 
 function dedupeText(rows, field) {
   const groups = new Map();
-  for (const row of rows.filter((entry) => entry.indexable && entry.page_type !== "product")) {
+  for (const row of rows.filter((entry) => entry.indexable && (field !== "h1" || entry.page_type !== "product"))) {
     const key = norm(row[field]);
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(row);
@@ -88,12 +108,16 @@ function dedupeText(rows, field) {
     group.forEach((row, index) => {
       if (index === 0) return;
       const primaryArticle = shorten(String(row.article_oem || "").split(/[\/,;]/)[0], 22);
-      const suffix = primaryArticle ? ` — арт. ${primaryArticle}` : ` — ${row.entity_id}`;
+      const suffix = row.page_type === "product"
+        ? ` — №${row.entity_id}`
+        : primaryArticle ? ` — арт. ${primaryArticle}` : ` — ${row.entity_id}`;
       if (field === "description") {
-        const marker = suffix.replace(/^ — /, "");
+        const marker = row.page_type === "product" ? `Каталожный номер ${row.entity_id}` : suffix.replace(/^ — /, "");
         row[field] = `${truncate(row[field], Math.max(80, 156 - marker.length)).replace(/\.$/, "")} ${marker}.`;
       } else if (field === "title") {
-        row[field] = `${shorten(row[field], Math.max(35, 74 - suffix.length))}${suffix}`;
+        const titleSuffix = row[field].match(/\s+\|\s+(?:KITRADE|Китрейд)$/i)?.[0] || "";
+        const titleBody = titleSuffix ? row[field].slice(0, -titleSuffix.length) : row[field];
+        row[field] = `${shorten(titleBody, Math.max(35, 75 - titleSuffix.length - suffix.length))}${suffix}${titleSuffix}`;
       } else {
         row[field] = `${row[field]}${suffix}`;
       }
@@ -144,7 +168,7 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     const brand = indexes.brands.get(product.brand_id);
     const model = indexes.models.get(product.model_id);
     const category = indexes.categories.get(product.category_id);
-    const productOverride = overrides.products?.[String(product.source_id)] || overrides.products?.[String(product.product_id)] || {};
+    const productOverride = contentOverrides(overrides, product);
     const content = createProductContent({ item, product, brand, model, category, overrides: productOverride });
     productState.set(product.product_id, {
       indexable,
@@ -199,7 +223,7 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
   add({
     page_type: "home", entity_id: "home", canonical_path: "/", indexable: true,
     title: "KITRADE — автозапчасти из Китая с доставкой по России",
-    description: "Найдём автозапчасть у поставщиков в Китае, проверим перед отправкой и доставим в ваш город по России.",
+    description: "Автозапчасти под заказ из Китая: новые и контрактные детали, проверка по VIN и доставка по России. Общий заказ — от 50 000 ₽.",
     h1: "Автозапчасти из Китая с доставкой по всей России",
     primary_query: "автозапчасти из Китая", secondary_queries: ["доставка автозапчастей из Китая"],
   });
@@ -223,7 +247,7 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
       primary_query: direct.primary_query || `запчасти ${brand.name}`,
       secondary_queries: [...new Set([...(direct.secondary_queries || []), ...fallbackSecondary])].slice(0, 6),
       intro_text: `Запчасти ${brand.name} под заказ из Китая. Цена указана за деталь; доставка рассчитывается отдельно. Проверим по VIN.`,
-      faq: [{ question: `Как подобрать запчасть для ${brand.name}?`, answer: "Перед заказом совместимость детали проверяется по VIN." }],
+      faq: [],
     });
   }
 
@@ -241,7 +265,7 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
       primary_query: direct.primary_query || `запчасти ${brand.name} ${model.name}`,
       secondary_queries: [...new Set([...(direct.secondary_queries || []), ...fallbackSecondary])].slice(0, 6),
       intro_text: `Запчасти для ${brand.name} ${model.name} под заказ из Китая. Цена указана за деталь; доставка рассчитывается отдельно. Проверим по VIN.`,
-      faq: [{ question: `Как проверить деталь для ${brand.name} ${model.name}?`, answer: "Совместимость подтверждается менеджером по VIN перед заказом." }],
+      faq: [],
     });
   }
 
@@ -264,7 +288,7 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
       primary_query: `${seoCategory} ${brand.name} ${model.name}`,
       secondary_queries: [`купить ${seoCategory.toLocaleLowerCase("ru")} ${brand.name} ${model.name}`, `${seoCategory} ${brand.name} ${model.name} из Китая`],
       intro_text: `${seoCategory} для ${brand.name} ${model.name} под заказ из Китая. Цена указана за деталь; доставка рассчитывается отдельно.`,
-      faq: [{ question: "Как проверить совместимость?", answer: "Совместимость конкретной детали проверяется по VIN перед заказом." }],
+      faq: [],
     });
   }
 
@@ -274,7 +298,7 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     const brand = indexes.brands.get(product.brand_id);
     const model = indexes.models.get(product.model_id);
     const category = indexes.categories.get(product.category_id);
-    const productOverride = overrides.products?.[String(product.source_id)] || overrides.products?.[String(product.product_id)] || {};
+    const productOverride = contentOverrides(overrides, product);
     const seo = productSeo(product, item, brand, model, category, productOverride);
     add({ page_type: "product", entity_id: product.product_id, canonical_path: product.canonical_path,
       brand: brand?.name, model: model?.name, category: category?.name, product_name: seo.h1,
@@ -286,7 +310,9 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     });
   }
 
+  for (const row of seoRows) row.title = fitTitle(row.title);
   for (const field of ["title", "description", "h1"]) dedupeText(seoRows, field);
+  for (const row of seoRows) row.title = fitTitle(row.title);
   const seoByPath = new Map(seoRows.map((row) => [row.canonical_path, row]));
 
   const needsReview = products.filter(({ product }) => product.status === "needs_review").map(({ product, item }) => ({
@@ -344,13 +370,13 @@ export function productStructuredData({ product, item, brand, model, category, s
   if (condition) offer.itemCondition = condition;
   const schema = {
     "@context": "https://schema.org", "@type": "Product", name: seo?.h1 || content.h1,
-    sku: String(product.product_id), url: offer.url, offers: offer,
+    description: content.description, sku: String(product.product_id), url: offer.url, offers: offer,
   };
   if (content.article) schema.mpn = content.article;
   if (brand?.name) schema.brand = { "@type": "Brand", name: brand.name };
   if (category?.name) schema.category = category.name;
   if (model?.name) schema.model = model.name;
-  if (image && !/01-catalog|02-catalog|03-catalog|placeholder|fallback/i.test(image)) schema.image = [image];
+  if (image && !/avito|01-catalog|02-catalog|03-catalog|placeholder|fallback/i.test(image)) schema.image = [image];
   if (!state.indexable) schema.potentialAction = undefined;
   return schema;
 }

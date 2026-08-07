@@ -1,0 +1,11 @@
+{
+  "status": "server_confirmation_unavailable",
+  "current_transport": "Google Apps Script with fetch mode no-cors",
+  "analytics": {
+    "attempt_event": "request_submit_attempt",
+    "success_event": "request_submit_success",
+    "personal_data_in_events": false
+  },
+  "client_behavior": "An opaque no-cors response is not counted or shown as confirmed success.",
+  "server_change_required": "Return a CORS-enabled JSON response with a 2xx status only after the request has been saved successfully."
+}

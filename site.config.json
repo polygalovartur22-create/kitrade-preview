@@ -25,6 +25,7 @@
       "product_view",
       "add_to_request",
       "request_open",
+      "request_submit_attempt",
       "request_submit_success"
     ],
     "primaryConversion": "request_submit_success"
