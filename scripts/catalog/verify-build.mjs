@@ -12,6 +12,14 @@ const exportRows = JSON.parse(fs.readFileSync(path.join(outputDir, "catalog-urls
 const seoMap = JSON.parse(fs.readFileSync(path.join(outputDir, "seo-map.json"), "utf8"));
 const duplicateReport = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "duplicates.json"), "utf8"));
 const needsReviewReport = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "needs-review.json"), "utf8"));
+const wordstatSummary = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "wordstat-audit-summary.json"), "utf8"));
+const wordstatAudit = JSON.parse(fs.readFileSync(path.join(projectDir, "seo", "wordstat-audit.json"), "utf8"));
+const categoryWordstatReport = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "category-wordstat-recommendations.json"), "utf8"));
+const categoryWordstatCandidates = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "category-wordstat-candidates.json"), "utf8"));
+const imageReport = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "images-review.json"), "utf8"));
+const ownerConfirmation = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "needs-owner-confirmation.json"), "utf8"));
+const validationSummary = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "validation-summary.json"), "utf8"));
+const imageReviewPaths = new Set(imageReport.map((row) => row.canonical_path));
 const sourceItems = readCatalogData(path.join(projectDir, "kitrade-parts-data.js"));
 const sourceById = new Map(sourceItems.map((item) => [String(item.id), item]));
 const deploymentMode = process.env.KITRADE_BUILD_MODE || "production";
@@ -50,7 +58,8 @@ for (const product of registry.entities.products) {
   assert.ok(exported, `Missing exported product ${product.product_id}`);
   assert.ok(html.includes(`rel="canonical" href="${config.siteUrl}${exported.canonical_target_path || product.canonical_path}"`), `Wrong canonical for ${product.canonical_path}`);
   assert.ok(html.includes("data-product-request"), `Missing request control for ${product.canonical_path}`);
-  assert.ok(html.includes("Минимальная общая сумма заказа — 50 000 ₽"), `Missing total order rule: ${product.canonical_path}`);
+  assert.ok(html.includes("Минимальная сумма заказа — 50 000 ₽"), `Missing total order rule: ${product.canonical_path}`);
+  if (imageReviewPaths.has(product.canonical_path)) assert.ok(!html.includes('"image":'), `Unreviewed Avito image leaked into Product schema: ${product.canonical_path}`);
   assert.ok(!/Минимальная сумма заказа\s*—\s*15\s*000|Мин\. сумма заказа\s*—\s*15\s*000|Заказ от 15\s*000/.test(html), `Old minimum order rule leaked: ${product.canonical_path}`);
   assert.ok(!/\b(?:предоплата|банковские реквизиты|оплата на карту)\b/i.test(html), `Unconfirmed payment wording leaked: ${product.canonical_path}`);
   const source = sourceById.get(String(product.source_id));
@@ -73,15 +82,28 @@ assert.ok(catalogHtml.includes("data-product-link"), "Catalog links are not wire
 assert.ok(!catalogHtml.includes("data-catalog-route-links"), "Technical route index leaked into the visible catalog markup");
 assert.ok(catalogHtml.includes("data-filter-option-link"), "Catalog hierarchy has no static href controls");
 assert.ok(catalogHtml.includes('id="catalog-results"'), "Direct catalog results anchor is missing");
-assert.ok(catalogHtml.includes("Общий заказ — от 50 000 ₽"), "Catalog request cart misses the total order rule");
+assert.ok(catalogHtml.includes("Минимальная сумма заказа — 50 000 ₽"), "Catalog request cart misses the total order rule");
 assert.ok(!/Минимальная сумма заказа\s*—\s*15\s*000|Заказ от 15\s*000/.test(catalogHtml), "Catalog contains the old minimum order rule");
 const homeHtml = fs.readFileSync(path.join(outputDir, "index.html"), "utf8");
+assert.deepEqual(config.organization, {
+  schemaType: "AutoPartsStore",
+  name: "Китрейд",
+  legalName: "ИП Заварзин Дмитрий Александрович",
+  email: "kitrade@bk.ru",
+  telephone: "+7-996-457-43-01",
+  additionalTelephones: [],
+  address: { addressLocality: "Барнаул", streetAddress: "пр-т Ленина, д. 3", addressCountry: "RU" },
+  businessDetailsStatus: "confirmed",
+}, "Confirmed organization data changed");
+for (const value of ['"@type":"AutoPartsStore"', '"name":"Китрейд"', '"legalName":"ИП Заварзин Дмитрий Александрович"', '"email":"kitrade@bk.ru"', '"telephone":"+7-996-457-43-01"', '"streetAddress":"пр-т Ленина, д. 3"']) {
+  assert.ok(homeHtml.includes(value), `Organization schema misses ${value}`);
+}
 assert.equal((homeHtml.match(/<footer\b/g) || []).length, 1, "Home must contain exactly one user-facing footer");
 assert.ok(homeHtml.includes('class="reference-footer"'), "Visible reference footer is missing");
 assert.ok(!homeHtml.includes('class="site-footer"'), "Hidden legacy footer remains in DOM");
-assert.ok(homeHtml.includes("Минимальная общая сумма заказа — 50 000 ₽"), "Home form/FAQ misses the total order rule");
-assert.ok(homeHtml.includes("Цена — за деталь · Доставка отдельно · Заказ от 50 000 ₽"), "Home request cart misses the price and order clarification");
-assert.ok(homeHtml.includes('content="Автозапчасти под заказ из Китая: новые и контрактные детали, проверка по VIN и доставка по России. Общий заказ — от 50 000 ₽."'), "Home SEO description differs from the approved wording");
+assert.ok(homeHtml.includes("Минимальная сумма заказа — 50 000 ₽"), "Home form/FAQ misses the total order rule");
+assert.ok(homeHtml.includes("Цена — за деталь · Доставка отдельно · Минимальная сумма заказа — 50 000 ₽"), "Home request cart misses the price and order clarification");
+assert.ok(homeHtml.includes('content="Автозапчасти под заказ из Китая: новые и контрактные детали, проверка по VIN и доставка по России. Минимальная сумма заказа — 50 000 ₽."'), "Home SEO description differs from the approved wording");
 assert.ok(homeHtml.includes("по отдельным позициям до 30% дешевле дилеров"), "The qualified 30% benefit is missing from the hero");
 assert.ok(homeHtml.includes('<link rel="preload" as="image" href="./assets/hero-parts-static.png"'), "The actual hero image is not preloaded");
 assert.ok(!homeHtml.includes('<link rel="preload" as="image" href="./source-dist2/images/car1.jpg"'), "A secondary image is still preloaded instead of the hero");
@@ -102,10 +124,20 @@ assert.ok(nginxExample.includes("[0-9a-f]{8,}") && nginxExample.includes("immuta
 const formScript = fs.readFileSync(path.join(outputDir, "script.js"), "utf8");
 assert.ok(formScript.indexOf('KITRADE_TRACK?.("request_submit_attempt")') < formScript.indexOf("await fetch("), "Submission attempt is not tracked before the request");
 assert.ok(formScript.includes('response.type === "opaque"'), "Opaque no-cors responses are not handled separately");
-assert.ok(formScript.indexOf('KITRADE_TRACK?.("request_submit_success")') > formScript.indexOf("if (!response.ok)"), "Success is tracked before a confirmed server response");
+assert.ok(formScript.indexOf('KITRADE_TRACK?.("request_submit_success",') > formScript.indexOf("if (!response.ok)"), "Success is tracked before a confirmed server response");
+for (const field of ["metrika_client_id", "yclid", "first_landing_url", "order_id", "selected_products", "preliminary_sum"]) {
+  assert.ok(formScript.includes(field), `Request payload architecture is missing ${field}`);
+}
 const analyticsScript = fs.readFileSync(path.join(outputDir, "analytics.js"), "utf8");
 assert.ok(analyticsScript.includes("github\\.io"), "GitHub Pages preview is not excluded from analytics");
 assert.ok(analyticsScript.includes("settings?.enabled"), "Runtime analytics switch is ignored");
+assert.ok(analyticsScript.includes("__KITRADE_METRIKA_INITIALIZED__"), "Metrika lacks a single-initialization guard");
+assert.ok(analyticsScript.includes("metrika/tag.js?id=${counterId}"), "Metrika tag URL does not include the configured counter ID");
+assert.ok(analyticsScript.includes('"getClientID"'), "Metrika ClientID is not captured");
+assert.ok(!analyticsScript.includes("108681044"), "Old Metrika counter remains in analytics.js");
+for (const eventName of ["qualified_50000", "quote_sent", "order_confirmed_50000", "order_paid_50000"]) {
+  assert.ok(!formScript.includes(`KITRADE_TRACK?.("${eventName}"`), `Offline event is called by the browser: ${eventName}`);
+}
 const catalogIndexFiles = [];
 const collectCatalogIndexes = (directory) => {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
@@ -140,11 +172,15 @@ if (isNonProductionBuild) {
   assert.ok(runtimeConfig.includes('"enabled":false'), "Analytics is enabled in preview runtime config");
   const previewHeaders = fs.readFileSync(path.join(outputDir, "_headers"), "utf8");
   assert.ok(previewHeaders.includes("X-Robots-Tag: noindex, nofollow, noarchive"), "Preview X-Robots-Tag header is missing");
+  assert.ok(!homeHtml.includes("data-yandex-metrika"), "Preview build contains the Metrika noscript request");
 } else {
   assert.ok(robots.includes(`Sitemap: ${config.siteUrl}/sitemap.xml`));
   assert.ok(robots.includes("Allow: /"), "Production robots.txt must allow crawling");
   assert.ok(runtimeConfig.includes('"deploymentMode":"production"'), "Production runtime marker is missing");
+  assert.ok(runtimeConfig.includes('"counterId":111376296'), "Production runtime has the wrong Metrika counter");
+  assert.equal((homeHtml.match(/data-yandex-metrika/g) || []).length, 1, "Production home must contain one Metrika noscript fallback");
 }
+assert.ok(!runtimeConfig.includes("108681044"), "Old Metrika counter remains in runtime config");
 assert.ok(seoMap.length > 0 && seoMap.every((row) => row.indexable), "Promoted SEO map contains excluded rows");
 for (const requiredField of ["page_type", "entity_id", "canonical_url", "title", "description", "h1", "robots", "validation_errors"]) {
   assert.ok(seoMap.every((row) => Object.hasOwn(row, requiredField)), `SEO map is missing ${requiredField}`);
@@ -163,6 +199,72 @@ for (const row of seoMap) {
 }
 for (const field of ["title", "description", "h1", "canonical_url"]) assert.ok(metadata.every((row) => row[field]), `SEO map contains empty ${field}`);
 assert.equal(new Set(metadata.map((row) => row.canonical_url)).size, metadata.length, "SEO map contains duplicate canonical_url");
+const vinSeo = seoMap.find((row) => row.canonical_path === "/podbor-zapchastey-po-vin/");
+assert.ok(vinSeo?.indexable && vinSeo.primary_query === "подбор запчастей по VIN", "Indexable VIN selection page is missing");
+const categoryResults = wordstatAudit.category_results || [];
+const categoryPriorities = wordstatAudit.priorities?.categories || {};
+const categoryQueries = categoryResults.flatMap((row) => row.checked_queries.map((query) => ({ canonical_path: row.canonical_path, ...query })));
+const categoryDemandPages = categoryResults.filter((row) => row.checked_queries.some((query) => query.phrase_frequency > 0));
+const phraseMatchSets = new Set(categoryQueries.map((query) => `${query.canonical_path}|${query.phrase_match_set}`));
+const demandPhraseMatchSets = new Set(categoryQueries.filter((query) => query.phrase_frequency > 0)
+  .map((query) => `${query.canonical_path}|${query.phrase_match_set}`));
+const strictOrderQueries = categoryQueries.filter((query) => query.strict_order_query);
+const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+assert.equal(categoryResults.length, 332, "Wordstat category audit must contain all 332 pages");
+assert.equal(categoryWordstatReport.count, 332, "Category Wordstat report count changed");
+assert.equal(categoryWordstatReport.pages.length, 332, "Category Wordstat report is incomplete");
+assert.equal(new Set(categoryResults.map((row) => row.canonical_path)).size, 332, "Wordstat category audit contains duplicate canonicals");
+assert.ok(categoryResults.every((row) => row.canonical_path && row.current_primary_query && row.recommended_primary_query && row.decision === "keep" && row.reason), "Wordstat category result is incomplete or changes SEO automatically");
+for (const row of categoryResults) {
+  assert.equal(new Set(row.checked_queries.map((query) => query.phrase_query)).size, row.checked_queries.length, `Repeated query string in ${row.canonical_path}`);
+  assert.equal(row.current_primary_query, row.recommended_primary_query, `Primary query changed without owner approval: ${row.canonical_path}`);
+}
+assert.ok(categoryQueries.every((query) => query.phrase_query && Number.isInteger(query.phrase_frequency) && query.phrase_frequency >= 0
+  && query.phrase_match_set && query.operator_mode === "phrase_match_quotes" && query.region === "Россия" && query.region_id === 225
+  && datePattern.test(query.checked_at) && query.observed_at && datePattern.test(query.period_from) && datePattern.test(query.period_to)
+  && !Object.hasOwn(query, "exact_query") && !Object.hasOwn(query, "exact_frequency")), "Wordstat phrase result contains missing, artificial or obsolete fields");
+assert.ok(strictOrderQueries.every((query) => Number.isInteger(query.strict_order_frequency) && query.strict_order_frequency >= 0
+  && query.strict_order_operator_mode === "phrase_and_strict_order" && query.strict_order_region === "Россия" && query.strict_order_region_id === 225
+  && datePattern.test(query.strict_order_checked_at) && query.strict_order_observed_at
+  && datePattern.test(query.strict_order_period_from) && datePattern.test(query.strict_order_period_to)), "Strict-order Wordstat result is incomplete");
+assert.ok(categoryResults.filter((row) => !row.checked_queries.some((query) => query.phrase_frequency > 0))
+  .every((row) => row.demand.status === "zero_demand" && row.decision === "keep"), "Zero-demand categories are not explicitly retained");
+const computedWordstat = {
+  query_strings_checked: categoryQueries.length,
+  unique_phrase_match_sets: phraseMatchSets.size,
+  phrase_query_strings_with_demand: categoryQueries.filter((query) => query.phrase_frequency > 0).length,
+  unique_phrase_match_sets_with_demand: demandPhraseMatchSets.size,
+  strict_order_queries_checked: strictOrderQueries.length,
+  strict_order_queries_with_demand: strictOrderQueries.filter((query) => query.strict_order_frequency > 0).length,
+  category_pages_checked: categoryResults.length,
+  category_pages_with_demand: categoryDemandPages.length,
+  zero_demand_categories: categoryResults.length - categoryDemandPages.length,
+};
+for (const [field, value] of Object.entries(computedWordstat)) {
+  assert.equal(wordstatSummary[field], value, `Wordstat summary is not calculated from source rows: ${field}`);
+  assert.equal(categoryWordstatReport.summary[field], value, `Category Wordstat report summary differs: ${field}`);
+  assert.equal(validationSummary.wordstat[field], value, `Validation Wordstat summary differs: ${field}`);
+}
+assert.equal(wordstatSummary.primary_queries_changed_in_this_run, 0, "A category primary query changed automatically");
+assert.equal(wordstatSummary.applied_category_primary_queries, Object.keys(categoryPriorities).length, "Applied category priority count differs from source priorities");
+assert.equal(categoryWordstatCandidates.count, categoryWordstatCandidates.candidates.length, "Wordstat candidate report count differs");
+assert.equal(categoryWordstatCandidates.count, 0, "Unexpected category candidate was generated");
+assert.ok(wordstatAudit.methodology?.phrase_frequency_definition?.includes("фиксируется количество слов, но не их порядок"), "Phrase-frequency methodology is missing");
+assert.ok(wordstatAudit.methodology?.snapshot_notice?.includes("скользящего расчётного периода"), "Wordstat snapshot notice is missing");
+const weyCategorySeo = seoMap.find((entry) => entry.canonical_path === "/catalog/wey/07/kuzov/");
+assert.equal(weyCategorySeo?.primary_query, "запчасти Wey 07 кузов", "Confirmed Wey 07 category primary query changed");
+assert.equal(weyCategorySeo?.h1, "Кузовные запчасти для Wey 07", "Confirmed Wey 07 category H1 changed");
+assert.equal(wordstatSummary.applied_catalog_changes, 1, "Catalog Wordstat priority was not applied");
+assert.equal(wordstatSummary.applied_brand_changes, 10, "Brand Wordstat priorities are incomplete");
+assert.equal(wordstatSummary.applied_model_changes, 42, "Model Wordstat priorities are incomplete");
+assert.equal(ownerConfirmation.length, 0, "Confirmed, neutralized or removed claims remain in the pending owner report");
+assert.deepEqual(validationSummary.pending_business_confirmation, [], "Confirmed business details remain pending");
+assert.equal(imageReport.length, 1892, "Image review report count changed");
+assert.ok(imageReport.every((row) => row.rights_status === "confirmed_by_owner" && row.rights_source === "company_avito_account"), "Image rights are not confirmed for every reviewed image");
+assert.ok(imageReport.every((row) => row.quality_review_pending === true && row.availability_check === "manual_review_required" && row.resolution_check === "manual_review_required" && row.product_match_check === "manual_review_required"), "Image quality/access/resolution/relevance review status is incomplete");
+assert.equal(validationSummary.image_rights_confirmed, 1892, "Confirmed image-rights total changed");
+assert.equal(validationSummary.image_rights_pending, 0, "Image rights remain pending");
+assert.equal(validationSummary.image_quality_review_pending, 1892, "Image quality review total changed");
 
 const sitemapUrlSet = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]));
 const allHtmlFiles = [];
@@ -230,6 +332,15 @@ assert.equal(duplicateGroups("canonical").length, 0, "Indexable pages contain du
 assert.equal(new Set(seoMap.map((row) => String(row.primary_query || "").trim().toLocaleLowerCase("ru"))).size, seoMap.length, "Indexable SEO map contains duplicate primary queries");
 assert.equal(needsReviewReport.length, 8, "Insufficient-data report must contain the known 8 products");
 assert.equal(duplicateReport.filter((group) => group.classification === "confirmed_full_duplicate").length, 4, "Exact duplicate report must preserve the 4 confirmed source pairs");
+const ownerDuplicate = duplicateReport.find((group) => group.primary_product_id === 2346 && group.duplicate_product_ids.includes(2085));
+assert.ok(ownerDuplicate?.classification === "confirmed_owner_duplicate", "Owner-confirmed duplicate 2085/2346 does not use product 2346 as primary");
+for (const pair of [[2217, 2593], [2263, 2659]]) {
+  const group = duplicateReport.find((entry) => entry.classification === "distinct_products_pending_metadata"
+    && [entry.primary_product_id, ...entry.duplicate_product_ids].sort((a, b) => a - b).join("|") === pair.join("|"));
+  assert.ok(group && group.action === "owner_kept_separate_index_self_canonical", `Distinct pair ${pair.join("/")} does not preserve the owner's keep-separate decision`);
+  assert.ok(group.secondary_pages.every((page) => page.robots === "index,follow" && page.canonical_path_target === page.canonical_path), `Distinct pair ${pair.join("/")} does not keep indexable self-canonical pages`);
+  assert.ok(pair.every((productId) => seoMap.some((row) => Number(row.product_id) === productId && row.indexable)), `Distinct pair ${pair.join("/")} is missing from the indexable SEO map`);
+}
 assert.ok(duplicateReport.every((group) => group.primary && group.secondary_pages?.length && group.matching_fields && group.differing_fields && group.action), "Duplicate report lacks transparent comparison data");
 assert.ok(indexableHtmlPages.every((page) => page.title && page.description && page.canonical), "Indexable page has incomplete metadata");
 assert.ok(indexableHtmlPages.every((page) => [...page.title].length <= 75), "Indexable page title exceeds 75 characters");

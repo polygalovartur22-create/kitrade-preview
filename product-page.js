@@ -16,6 +16,13 @@
     const article = product.article ? `, арт. ${product.article}` : "";
     sessionStorage.setItem("kitradeCatalogDraft", JSON.stringify({
       details: `Позиция из каталога:\n1. ${product.title}${article}`,
+      selected_products: [{
+        product_id: String(product.id || ""),
+        title: product.title || "",
+        article: product.article || "",
+        price: Number(product.price) || 0,
+      }],
+      preliminary_sum: Number(product.price) || 0,
       createdAt: Date.now(),
     }));
     window.location.href = sitePath("/#request");

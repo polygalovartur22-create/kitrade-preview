@@ -38,15 +38,17 @@ const catalogSearch = document.querySelector("[data-catalog-search]");
 const catalogQuery = document.querySelector("#catalog-query");
 const categoryButtons = [...document.querySelectorAll("[data-category]")];
 let selectedCategory = "";
+let catalogDraft = null;
 
 try {
-  const draft = JSON.parse(sessionStorage.getItem("kitradeCatalogDraft") || "null");
-  const isFresh = draft?.createdAt && Date.now() - draft.createdAt < 24 * 60 * 60 * 1000;
-  if (detailsField && isFresh && draft.details) {
-    detailsField.value = draft.details;
+  catalogDraft = JSON.parse(sessionStorage.getItem("kitradeCatalogDraft") || "null");
+  const isFresh = catalogDraft?.createdAt && Date.now() - catalogDraft.createdAt < 24 * 60 * 60 * 1000;
+  if (detailsField && isFresh && catalogDraft.details) {
+    detailsField.value = catalogDraft.details;
     sessionStorage.removeItem("kitradeCatalogDraft");
-  }
+  } else catalogDraft = null;
 } catch {
+  catalogDraft = null;
   sessionStorage.removeItem("kitradeCatalogDraft");
 }
 
@@ -261,6 +263,24 @@ if (requestForm) {
   const submitButton = requestForm.querySelector("[data-submit-button]");
   const successView = requestForm.querySelector("[data-form-success]");
   let selectedFiles = [];
+  let pendingOrderId = "";
+
+  const createOrderId = () => {
+    const randomPart = globalThis.crypto?.randomUUID?.().replaceAll("-", "").slice(0, 12)
+      || Math.random().toString(36).slice(2, 14);
+    return `KT-${Date.now().toString(36).toUpperCase()}-${randomPart.toUpperCase()}`;
+  };
+
+  const selectedProducts = () => (Array.isArray(catalogDraft?.selected_products)
+    ? catalogDraft.selected_products
+      .map((item) => ({
+        product_id: String(item.product_id || ""),
+        title: String(item.title || ""),
+        article: String(item.article || ""),
+        price: Number(item.price) || 0,
+      }))
+      .filter((item) => item.product_id || item.title)
+    : []);
 
   function setError(name, message = "") {
     const error = requestForm.querySelector(`[data-error="${name}"]`);
@@ -476,12 +496,31 @@ if (requestForm) {
 
     try {
       const photos = await Promise.all(selectedFiles.map(readFile));
-      window.KITRADE_TRACK?.("request_submit_attempt");
+      pendingOrderId ||= createOrderId();
+      const products = selectedProducts();
+      const preliminarySum = products.reduce((sum, item) => sum + item.price, 0);
+      const order = {
+        order_id: pendingOrderId,
+        attribution: window.KITRADE_GET_ATTRIBUTION?.() || {
+          metrika_client_id: "",
+          yclid: "",
+          utm: {},
+          first_landing_url: window.location.href,
+        },
+        selected_products: products,
+        preliminary_sum: preliminarySum,
+        currency: "RUB",
+      };
+      window.KITRADE_TRACK?.("request_submit_attempt", {
+        order_id: order.order_id,
+        product_count: products.length,
+        preliminary_sum: preliminarySum,
+      });
       const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify({ text: message, photos }),
+        body: JSON.stringify({ text: message, photos, order }),
       });
 
       if (response.type === "opaque") {
@@ -495,7 +534,14 @@ if (requestForm) {
       formHead.hidden = true;
       successView.hidden = false;
       successView.focus();
-      window.KITRADE_TRACK?.("request_submit_success");
+      window.KITRADE_TRACK?.("request_submit_success", {
+        order_id: order.order_id,
+        product_count: products.length,
+        preliminary_sum: preliminarySum,
+      });
+      pendingOrderId = "";
+      catalogDraft = null;
+      sessionStorage.removeItem("kitradeCatalogDraft");
     } catch (error) {
       status.textContent = "Не удалось отправить заявку. Проверьте интернет и попробуйте ещё раз.";
     } finally {
@@ -508,6 +554,8 @@ if (requestForm) {
   requestForm.querySelector("[data-reset-form]").addEventListener("click", () => {
     requestForm.reset();
     selectedFiles = [];
+    pendingOrderId = "";
+    catalogDraft = null;
     renderFiles();
     ["carModel", "carYear", "vin", "details", "photos", "name", "phone", "privacyConsent"].forEach((name) => setError(name));
     status.textContent = "";

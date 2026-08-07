@@ -21,9 +21,11 @@ validateRegistry(registry);
 const indexes = registryIndexes(registry);
 const directSemanticsPath = path.join(projectDir, "seo", "direct-semantics.json");
 const directSemantics = fs.existsSync(directSemanticsPath) ? JSON.parse(fs.readFileSync(directSemanticsPath, "utf8")) : {};
+const wordstatAuditPath = path.join(projectDir, "seo", "wordstat-audit.json");
+const wordstatAudit = fs.existsSync(wordstatAuditPath) ? JSON.parse(fs.readFileSync(wordstatAuditPath, "utf8")) : {};
 const sourceLandingMapPath = path.join(projectDir, "seo", "source-landing-page-map.csv");
 const sourceLandingMapLabel = "yandex_direct_prelaunch_2026-07-21/landing_page_map.csv";
-const seoState = buildSeoState({ registry, items, indexes, config, rules, overrides, directSemantics });
+const seoState = buildSeoState({ registry, items, indexes, config, rules, overrides, directSemantics, wordstatAudit });
 
 function canonicalUrl(canonicalPath) {
   return new URL(canonicalPath, `${config.siteUrl}/`).href;
@@ -42,6 +44,14 @@ function categoryPath(brand, model, category) {
 }
 
 const exportRows = [];
+for (const seo of seoState.seoRows.filter((row) => row.page_type === "service")) {
+  exportRows.push({
+    entity_type: "service", id: seo.entity_id, name: seo.h1, brand: null,
+    model: null, category: null, slug: seo.canonical_path.replace(/^\/+|\/+$/g, ""), canonical_path: seo.canonical_path,
+    canonical_url: seo.canonical_url, status: "active", entity_id: seo.entity_id,
+    indexable: Boolean(seo.indexable), robots: seo.robots,
+  });
+}
 for (const brand of registry.entities.brands) {
   const canonical_path = brandPath(brand);
   const seo = seoState.seoByPath.get(canonical_path);
@@ -329,19 +339,64 @@ fs.writeFileSync(path.join(reportsDir, "form-submission-audit.json"), `${JSON.st
     attempt_event: "request_submit_attempt",
     success_event: "request_submit_success",
     personal_data_in_events: false,
+    online_events: config.analytics?.events || [],
+    offline_events: config.analytics?.offlineEvents || [],
   },
+  saved_with_request: ["metrika_client_id", "yclid", "utm", "first_landing_url", "order_id", "selected_products", "preliminary_sum", "currency"],
   client_behavior: "An opaque no-cors response is not counted or shown as confirmed success.",
-  server_change_required: "Return a CORS-enabled JSON response with a 2xx status only after the request has been saved successfully.",
+  offline_event_policy: "qualified_50000, quote_sent, order_confirmed_50000 and order_paid_50000 are server/CRM-only and are not callable through the browser event allowlist.",
+  paid_revenue_policy: "order_paid_50000 must use the actually paid RUB amount and must not contain phone, name, email, VIN or other personal data.",
+  server_change_required: "Return a CORS-enabled JSON response with a 2xx status only after the request and attribution payload have been saved successfully; later send qualified, quote, confirmed and paid statuses from the server or CRM.",
 }, null, 2)}\n`);
 
-const categoryRecommendations = seoState.seoRows.filter((row) => row.page_type === "category")
-  .map((row) => ({ canonical_path: row.canonical_path, brand: row.brand, model: row.model, category: row.category,
-    primary_query: row.primary_query, recommendation: "Проверить точную частотность и коммерческий интент в Wordstat перед расширением текста." }))
-  .sort((left, right) => left.canonical_path.localeCompare(right.canonical_path, "ru"))
-  .slice(0, 40);
-fs.writeFileSync(path.join(reportsDir, "category-wordstat-recommendations.json"), `${JSON.stringify({ count: categoryRecommendations.length, pages: categoryRecommendations }, null, 2)}\n`);
+const categoryWordstatResults = wordstatAudit.category_results || [];
+const categoryWordstatQueries = categoryWordstatResults.flatMap((page) => page.checked_queries || []);
+const categoryPhraseMatchSets = new Set(categoryWordstatResults.flatMap((page) => (page.checked_queries || [])
+  .map((query) => `${page.canonical_path}|${query.phrase_match_set}`)));
+const categoryDemandMatchSets = new Set(categoryWordstatResults.flatMap((page) => (page.checked_queries || [])
+  .filter((query) => query.phrase_frequency > 0)
+  .map((query) => `${page.canonical_path}|${query.phrase_match_set}`)));
+const categoryPagesWithDemand = categoryWordstatResults.filter((page) => (page.checked_queries || [])
+  .some((query) => query.phrase_frequency > 0));
+const categoryWordstatComputed = {
+  query_strings_checked: categoryWordstatQueries.length,
+  unique_phrase_match_sets: categoryPhraseMatchSets.size,
+  phrase_query_strings_with_demand: categoryWordstatQueries.filter((query) => query.phrase_frequency > 0).length,
+  unique_phrase_match_sets_with_demand: categoryDemandMatchSets.size,
+  strict_order_queries_checked: categoryWordstatQueries.filter((query) => query.strict_order_query).length,
+  strict_order_queries_with_demand: categoryWordstatQueries.filter((query) => query.strict_order_frequency > 0).length,
+  category_pages_checked: categoryWordstatResults.length,
+  category_pages_with_demand: categoryPagesWithDemand.length,
+  zero_demand_categories: categoryWordstatResults.length - categoryPagesWithDemand.length,
+};
+const categoryRecommendations = categoryWordstatResults
+  .map((row) => ({
+    ...row,
+    applied_primary_query: seoState.seoRows.find((seoRow) => seoRow.canonical_path === row.canonical_path)?.primary_query || "",
+  }))
+  .sort((left, right) => left.canonical_path.localeCompare(right.canonical_path, "ru"));
+fs.writeFileSync(path.join(reportsDir, "category-wordstat-recommendations.json"), `${JSON.stringify({
+  methodology: wordstatAudit.methodology || {}, summary: categoryWordstatComputed,
+  count: categoryRecommendations.length, pages: categoryRecommendations,
+}, null, 2)}\n`);
+fs.writeFileSync(path.join(reportsDir, "category-wordstat-candidates.json"), `${JSON.stringify({
+  count: (wordstatAudit.category_candidates || []).length,
+  candidates: wordstatAudit.category_candidates || [],
+  policy: "Candidates require an explicit owner decision and are never applied automatically.",
+}, null, 2)}\n`);
+fs.writeFileSync(path.join(reportsDir, "wordstat-audit-summary.json"), `${JSON.stringify({
+  ...wordstatAudit.summary,
+  ...categoryWordstatComputed,
+  methodology: wordstatAudit.methodology || {},
+  applied_catalog_changes: wordstatAudit.priorities?.catalog ? 1 : 0,
+  applied_brand_changes: Object.keys(wordstatAudit.priorities?.brands || {}).length,
+  applied_model_changes: Object.keys(wordstatAudit.priorities?.models || {}).length,
+  applied_category_primary_queries: Object.keys(wordstatAudit.priorities?.categories || {}).length,
+  category_results_count: (wordstatAudit.category_results || []).length,
+  variants_retained: true,
+}, null, 2)}\n`);
 
-const ownerConfirmation = [
+const ownerConfirmationHistory = [
   { claim: "До 30% ниже рынка / 20–30% ниже предложений", location: "/#top, /#about", status: "confirmed-by-owner", action: "Подтверждено владельцем 2026-08-07; формулировка возвращена в первый экран и сохранена в карточке преимуществ." },
   { claim: "4 570 доставленных запчастей", location: "/#company", status: "confirmed-by-owner", action: "Подтверждено владельцем 2026-08-07; защищённый блок №3 оставлен без изменений." },
   { claim: "1 650 обработанных заказов", location: "/#company", status: "confirmed-by-owner", action: "Подтверждено владельцем 2026-08-07; защищённый блок №3 оставлен без изменений." },
@@ -350,6 +405,7 @@ const ownerConfirmation = [
   { claim: "Фиксированные сроки 15–45 дней и авиадоставка от 2 дней", location: "/#faq", status: "neutralized", action: "Заменено на расчёт срока после проверки заказа." },
   { claim: "Автомобили только от 2020 года", location: "/#request", status: "removed", action: "Неподтверждённое ограничение удалено из видимой формы." },
 ];
+const ownerConfirmation = ownerConfirmationHistory.filter((entry) => entry.status === "pending");
 fs.writeFileSync(path.join(reportsDir, "needs-owner-confirmation.json"), `${JSON.stringify(ownerConfirmation, null, 2)}\n`);
 fs.writeFileSync(path.join(reportsDir, "legacy-content-audit.json"), `${JSON.stringify({
   status: "removed_after_dependency_audit",
@@ -367,9 +423,17 @@ fs.writeFileSync(path.join(reportsDir, "validation-summary.json"), `${JSON.strin
   confirmed_metadata_duplicate_groups: seoState.duplicateReport.filter((group) => group.classification === "confirmed_metadata_duplicate").length,
   pending_manual_duplicate_groups: seoState.duplicateReport.filter((group) => group.classification === "pending_manual_identity_review").length,
   needs_review: seoState.needsReview.length, duplicate_groups: seoState.duplicateReport.length,
-  image_manual_review: seoState.imageReport.length, probable_identity_matches: seoState.probableMatches.length,
+  image_rights_confirmed: seoState.imageReport.filter((row) => row.rights_status === "confirmed_by_owner").length,
+  image_rights_pending: seoState.imageReport.filter((row) => row.rights_status !== "confirmed_by_owner").length,
+  image_quality_review_pending: seoState.imageReport.filter((row) => row.quality_review_pending).length,
+  probable_identity_matches: seoState.probableMatches.length,
+  wordstat: categoryWordstatComputed,
   direct_semantics: directCoverage.summary,
-  pending_business_confirmation: ["organization.address", "organization.email", "organization.telephone", "analytics.counterId", "reports/seo/needs-owner-confirmation.json"],
+  pending_business_confirmation: [
+    ...(config.organization?.businessDetailsStatus === "confirmed" ? [] : ["organization.address", "organization.email", "organization.telephone"]),
+    ...(config.analytics?.counterStatus === "confirmed" ? [] : ["analytics.counterId"]),
+    ...(ownerConfirmation.length ? ["reports/seo/needs-owner-confirmation.json"] : []),
+  ],
 }, null, 2)}\n`);
 fs.writeFileSync(
   path.join(projectDir, "catalog-url-data.js"),

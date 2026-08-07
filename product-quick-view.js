@@ -82,7 +82,7 @@
     dialog.querySelector("[data-quick-category]").textContent = item.public_category || item.category || "Запчасть";
     dialog.querySelector("[data-quick-title]").textContent = item.title || "Автозапчасть";
     dialog.querySelector("[data-quick-meta]").textContent = item.meta || [item.brand, item.model].filter(Boolean).join(" · ");
-    dialog.querySelector("[data-quick-description]").textContent = item.quick_description || "Цена — за деталь. Доставка отдельно. Проверка по VIN. Заказ — от 50 000 ₽; детали можно объединить.";
+    dialog.querySelector("[data-quick-description]").textContent = item.quick_description || "Цена — за деталь. Доставка отдельно. Проверка по VIN. Минимальная сумма заказа — 50 000 ₽; детали можно объединить.";
     dialog.querySelector("[data-quick-price]").textContent = formatPrice(item.price);
     dialog.querySelector("[data-quick-page]").href = sitePath(item.canonical_path);
     dialog.showModal();

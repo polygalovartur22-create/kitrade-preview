@@ -1,29 +1,36 @@
 {
   "source": "kitrade-parts-data.js",
   "source_products": 1941,
-  "promoted_pages": 2387,
-  "excluded_products": 23,
+  "promoted_pages": 2390,
+  "excluded_products": 21,
   "insufficient_data_products": 8,
   "duplicate_secondary_products": 15,
   "confirmed_full_duplicate_groups": 4,
   "confirmed_metadata_duplicate_groups": 8,
-  "pending_manual_duplicate_groups": 3,
+  "pending_manual_duplicate_groups": 0,
   "needs_review": 8,
   "duplicate_groups": 15,
-  "image_manual_review": 1892,
+  "image_rights_confirmed": 1892,
+  "image_rights_pending": 0,
+  "image_quality_review_pending": 1892,
   "probable_identity_matches": 0,
+  "wordstat": {
+    "query_strings_checked": 2282,
+    "unique_phrase_match_sets": 1950,
+    "phrase_query_strings_with_demand": 31,
+    "unique_phrase_match_sets_with_demand": 18,
+    "strict_order_queries_checked": 664,
+    "strict_order_queries_with_demand": 13,
+    "category_pages_checked": 332,
+    "category_pages_with_demand": 16,
+    "zero_demand_categories": 316
+  },
   "direct_semantics": {
     "brands_total": 40,
     "brands_from_direct": 11,
     "models_total": 97,
     "models_from_direct": 76,
-    "pages_with_2_to_6_secondary_queries": 137
+    "pages_with_2_to_6_secondary_queries": 58
   },
-  "pending_business_confirmation": [
-    "organization.address",
-    "organization.email",
-    "organization.telephone",
-    "analytics.counterId",
-    "reports/seo/needs-owner-confirmation.json"
-  ]
+  "pending_business_confirmation": []
 }

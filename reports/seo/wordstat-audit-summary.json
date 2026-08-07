@@ -1,0 +1,28 @@
+{
+  "non_category_query_strings_checked": 1728,
+  "query_strings_checked": 2282,
+  "unique_phrase_match_sets": 1950,
+  "phrase_query_strings_with_demand": 31,
+  "unique_phrase_match_sets_with_demand": 18,
+  "strict_order_queries_checked": 664,
+  "strict_order_queries_with_demand": 13,
+  "category_pages_checked": 332,
+  "category_pages_with_demand": 16,
+  "zero_demand_categories": 316,
+  "catalog_changes": 1,
+  "brand_changes": 10,
+  "model_changes": 42,
+  "applied_category_primary_queries": 1,
+  "primary_queries_changed_in_this_run": 0,
+  "methodology": {
+    "phrase_frequency_definition": "phrase_frequency — частотность запроса в кавычках: фиксируется количество слов, но не их порядок и не все словоформы.",
+    "strict_order_definition": "strict_order_frequency — частотность запроса с комбинированными кавычками и квадратными скобками: фиксируются количество и порядок слов, но не все словоформы.",
+    "snapshot_notice": "Показатели Wordstat являются снимком на указанную дату и могут изменяться из-за обновления скользящего расчётного периода.",
+    "audience_deduplication": "Строки, различающиеся только порядком слов, сохраняются как текстовые гипотезы, но одинаковый phrase-match набор не суммируется как независимая аудитория."
+  },
+  "applied_catalog_changes": 1,
+  "applied_brand_changes": 10,
+  "applied_model_changes": 42,
+  "category_results_count": 332,
+  "variants_retained": true
+}

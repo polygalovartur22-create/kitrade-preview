@@ -11,15 +11,21 @@
     "additionalTelephones": [],
     "address": {
       "addressLocality": "Барнаул",
-      "streetAddress": "пр-т. Ленина д. 3",
+      "streetAddress": "пр-т Ленина, д. 3",
       "addressCountry": "RU"
     },
-    "businessDetailsStatus": "pending_final_confirmation"
+    "businessDetailsStatus": "confirmed"
   },
   "analytics": {
     "provider": "yandex_metrika",
-    "counterId": 108681044,
-    "counterStatus": "pending_final_confirmation",
+    "counterId": 111376296,
+    "counterName": "KITRADE — сайт",
+    "counterStatus": "confirmed",
+    "domain": "китрейд.рф",
+    "timezone": "GMT+07:00 Krasnoyarsk",
+    "currency": "RUB",
+    "acceptOnlyConfiguredDomain": true,
+    "webvisor": true,
     "enabled": true,
     "events": [
       "product_view",
@@ -27,6 +33,12 @@
       "request_open",
       "request_submit_attempt",
       "request_submit_success"
+    ],
+    "offlineEvents": [
+      "qualified_50000",
+      "quote_sent",
+      "order_confirmed_50000",
+      "order_paid_50000"
     ],
     "primaryConversion": "request_submit_success"
   }

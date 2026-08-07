@@ -1,5 +1,20 @@
 [
   {
+    "entity_type": "service",
+    "id": "vin-selection",
+    "name": "Подбор запчастей по VIN",
+    "brand": null,
+    "model": null,
+    "category": null,
+    "slug": "podbor-zapchastey-po-vin",
+    "canonical_path": "/podbor-zapchastey-po-vin/",
+    "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/podbor-zapchastey-po-vin/",
+    "status": "active",
+    "entity_id": "vin-selection",
+    "indexable": true,
+    "robots": "index,follow"
+  },
+  {
     "entity_type": "brand",
     "id": "b1001",
     "name": "Маз",
@@ -26306,11 +26321,13 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2085/",
     "status": "active",
     "entity_id": "2085",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
-    "duplicate_of": null,
-    "canonical_target_path": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2085/"
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "confirmed_metadata_duplicate"
+    ],
+    "duplicate_of": 2346,
+    "canonical_target_path": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2346/"
   },
   {
     "entity_type": "product",
@@ -31128,11 +31145,9 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2346/",
     "status": "active",
     "entity_id": "2346",
-    "indexable": false,
-    "robots": "noindex,follow",
-    "validation_errors": [
-      "metadata_duplicate_needs_manual_review"
-    ],
+    "indexable": true,
+    "robots": "index,follow",
+    "validation_errors": [],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2346/"
   },
@@ -35638,11 +35653,9 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/krylo-perednee-pravoe-polar-stone-01-2593/",
     "status": "active",
     "entity_id": "2593",
-    "indexable": false,
-    "robots": "noindex,follow",
-    "validation_errors": [
-      "metadata_duplicate_needs_manual_review"
-    ],
+    "indexable": true,
+    "robots": "index,follow",
+    "validation_errors": [],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/krylo-perednee-pravoe-polar-stone-01-2593/"
   },
@@ -36828,11 +36841,9 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2659/",
     "status": "active",
     "entity_id": "2659",
-    "indexable": false,
-    "robots": "noindex,follow",
-    "validation_errors": [
-      "metadata_duplicate_needs_manual_review"
-    ],
+    "indexable": true,
+    "robots": "index,follow",
+    "validation_errors": [],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2659/"
   },

@@ -4,8 +4,33 @@
   "analytics": {
     "attempt_event": "request_submit_attempt",
     "success_event": "request_submit_success",
-    "personal_data_in_events": false
+    "personal_data_in_events": false,
+    "online_events": [
+      "product_view",
+      "add_to_request",
+      "request_open",
+      "request_submit_attempt",
+      "request_submit_success"
+    ],
+    "offline_events": [
+      "qualified_50000",
+      "quote_sent",
+      "order_confirmed_50000",
+      "order_paid_50000"
+    ]
   },
+  "saved_with_request": [
+    "metrika_client_id",
+    "yclid",
+    "utm",
+    "first_landing_url",
+    "order_id",
+    "selected_products",
+    "preliminary_sum",
+    "currency"
+  ],
   "client_behavior": "An opaque no-cors response is not counted or shown as confirmed success.",
-  "server_change_required": "Return a CORS-enabled JSON response with a 2xx status only after the request has been saved successfully."
+  "offline_event_policy": "qualified_50000, quote_sent, order_confirmed_50000 and order_paid_50000 are server/CRM-only and are not callable through the browser event allowlist.",
+  "paid_revenue_policy": "order_paid_50000 must use the actually paid RUB amount and must not contain phone, name, email, VIN or other personal data.",
+  "server_change_required": "Return a CORS-enabled JSON response with a 2xx status only after the request and attribution payload have been saved successfully; later send qualified, quote, confirmed and paid statuses from the server or CRM."
 }

@@ -551,6 +551,13 @@
 
     sessionStorage.setItem("kitradeCatalogDraft", JSON.stringify({
       details: `Позиции из каталога:\n${lines.join("\n")}`,
+      selected_products: selectedItems.map((item) => ({
+        product_id: item.id,
+        title: item.title,
+        article: item.article || "",
+        price: item.priceNumber || 0,
+      })),
+      preliminary_sum: selectedItems.reduce((sum, item) => sum + item.priceNumber, 0),
       createdAt: Date.now(),
     }));
     window.KITRADE_TRACK?.("request_open", { source: "catalog", product_count: selectedItems.length });

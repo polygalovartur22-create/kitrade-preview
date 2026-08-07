@@ -220,10 +220,10 @@ export function createProductContent({ item, product, brand, model, category, ov
     compatibilitySummary(item, publicBrand, publicModel),
     `${price ? `Цена детали — ${priceLabel}` : "Цена детали уточняется"}; доставка из Китая рассчитывается отдельно.`,
     "Совместимость проверим по VIN.",
-    "Минимальная общая сумма заказа — 50 000 ₽. В один заказ можно включить несколько деталей.",
+    "Минимальная сумма заказа — 50 000 ₽. В один заказ можно включить несколько деталей.",
   ].join(" ");
   const cardDescription = "Цена — за деталь. Доставка отдельно. Проверка по VIN.";
-  const quickDescription = `${cardDescription} Заказ — от 50 000 ₽; детали можно объединить.`;
+  const quickDescription = `${cardDescription} Минимальная сумма заказа — 50 000 ₽; детали можно объединить.`;
   const meta = [publicBrand, publicModel, article && `OEM ${article}`, condition].filter(Boolean).join(" · ");
   return {
     sourceId: String(item?.id || product?.source_id || ""), productId: String(product?.product_id || ""),
@@ -238,4 +238,4 @@ export function schemaCondition(value) {
   return "";
 }
 
-export const catalogOrderRule = "Минимальная общая сумма заказа — 50 000 ₽. В один заказ можно включить несколько деталей.";
+export const catalogOrderRule = "Минимальная сумма заказа — 50 000 ₽. В один заказ можно включить несколько деталей.";

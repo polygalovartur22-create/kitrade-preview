@@ -24,6 +24,21 @@
       "category": "Система охлаждения"
     }
   },
+  "duplicate_decisions": {
+    "2085|2346": {
+      "action": "canonical_duplicate",
+      "primary_product_id": 2346,
+      "reason": "Владелец подтвердил дубль 2085/2346 и выбрал основной товар 2346 как вариант с максимальной ценой."
+    },
+    "2217|2593": {
+      "action": "keep_separate",
+      "reason": "Владелец подтвердил, что позиции пока считаются разными: отличаются происхождение, фотографии, описания или цены. Canonical остаётся самостоятельным."
+    },
+    "2263|2659": {
+      "action": "keep_separate",
+      "reason": "Владелец подтвердил, что позиции пока считаются разными: отличаются происхождение, фотографии, описания или цены. Canonical остаётся самостоятельным."
+    }
+  },
   "redirects": {
     "/catalog/fangchengbao/bao-5/": "/catalog/fang-cheng-bao/bao-5-leopard-5/",
     "/catalog/fang-cheng-bao/bao-5/": "/catalog/fang-cheng-bao/bao-5-leopard-5/"

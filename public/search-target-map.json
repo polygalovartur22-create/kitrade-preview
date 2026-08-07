@@ -26,8 +26,8 @@
       "model": "",
       "priority": "standard",
       "queries": [
-        "каталог автозапчастей из Китая",
         "автозапчасти под заказ",
+        "каталог автозапчастей из Китая",
         "подбор запчастей по VIN"
       ],
       "canonical_path": "/catalog/",
@@ -49,13 +49,14 @@
       "model": "",
       "priority": "standard",
       "queries": [
+        "каталог запчастей Geely",
         "цены на запчасти Geely",
         "цены на запчасти Джили",
         "магазин запчастей Geely",
         "заказать запчасти Geely",
-        "каталог запчастей Geely",
         "магазин запчастей Джили",
-        "заказать запчасти Джили"
+        "заказать запчасти Джили",
+        "автозапчасти Geely"
       ],
       "canonical_path": "/catalog/geely/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/",
@@ -76,13 +77,15 @@
       "model": "",
       "priority": "standard",
       "queries": [
+        "каталог запчастей Voyah",
         "купить запчасти Воя",
         "цены на запчасти Воя",
         "купить запчасти Воях",
         "каталог запчастей Воя",
         "купить запчасти Voyah",
         "заказать запчасти Воя",
-        "цены на запчасти Voyah"
+        "цены на запчасти Voyah",
+        "автозапчасти Voyah"
       ],
       "canonical_path": "/catalog/voyah/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/voyah/",
@@ -103,13 +106,14 @@
       "model": "",
       "priority": "standard",
       "queries": [
+        "каталог запчастей BAIC",
         "купить запчасти BAIC",
         "купить запчасти БАИК",
-        "каталог запчастей BAIC",
         "каталог запчастей БАИК",
         "магазин запчастей BAIC",
         "магазин запчастей БАИК",
-        "заказать запчасти BAIC"
+        "заказать запчасти BAIC",
+        "автозапчасти BAIC"
       ],
       "canonical_path": "/catalog/baic/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baic/",
@@ -130,13 +134,15 @@
       "model": "",
       "priority": "standard",
       "queries": [
+        "каталог запчастей Changan",
         "купить запчасти Чанган",
         "купить запчасти Changan",
         "цены на запчасти Чанган",
         "каталог запчастей Чанган",
         "магазин запчастей Чанган",
         "заказать запчасти Чанган",
-        "цены на запчасти Changan"
+        "цены на запчасти Changan",
+        "автозапчасти Changan"
       ],
       "canonical_path": "/catalog/changan/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/",
@@ -157,13 +163,14 @@
       "model": "",
       "priority": "standard",
       "queries": [
+        "каталог запчастей Livan",
         "купить запчасти Ливан",
         "купить запчасти Livan",
-        "каталог запчастей Livan",
         "каталог запчастей Ливан",
         "заказать запчасти Livan",
         "заказать запчасти Ливан",
-        "магазин запчастей Livan"
+        "магазин запчастей Livan",
+        "автозапчасти Livan"
       ],
       "canonical_path": "/catalog/livan/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/livan/",
@@ -184,13 +191,14 @@
       "model": "",
       "priority": "standard",
       "queries": [
+        "каталог запчастей BYD",
         "купить запчасти BYD",
         "купить запчасти БИД",
         "цены на запчасти BYD",
-        "каталог запчастей BYD",
         "заказать запчасти BYD",
         "магазин запчастей БИД",
-        "магазин запчастей BYD"
+        "магазин запчастей BYD",
+        "автозапчасти BYD"
       ],
       "canonical_path": "/catalog/byd/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/byd/",
@@ -211,13 +219,14 @@
       "model": "",
       "priority": "standard",
       "queries": [
+        "каталог запчастей Haval",
         "купить запчасти Хавал",
         "купить запчасти Haval",
         "цены на запчасти Хавал",
         "цены на запчасти Haval",
         "купить запчасти Хавейл",
-        "каталог запчастей Haval",
-        "каталог запчастей Хавал"
+        "каталог запчастей Хавал",
+        "автозапчасти Haval"
       ],
       "canonical_path": "/catalog/haval/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/haval/",
@@ -238,13 +247,14 @@
       "model": "",
       "priority": "standard",
       "queries": [
+        "каталог запчастей Tank",
         "купить запчасти Танк",
         "купить запчасти Tank",
         "цены на запчасти Танк",
         "каталог запчастей Танк",
-        "каталог запчастей Tank",
         "магазин запчастей Танк",
-        "заказать запчасти Tank"
+        "заказать запчасти Tank",
+        "автозапчасти Tank"
       ],
       "canonical_path": "/catalog/tank/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/tank/",
@@ -265,13 +275,14 @@
       "model": "",
       "priority": "standard",
       "queries": [
+        "каталог запчастей Wey",
         "купить запчасти Вей",
         "купить запчасти Wey",
-        "каталог запчастей Wey",
         "каталог запчастей Вей",
         "магазин запчастей Вей",
         "заказать запчасти Wey",
-        "купить автозапчасти Wey"
+        "купить автозапчасти Wey",
+        "автозапчасти Wey"
       ],
       "canonical_path": "/catalog/wey/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/wey/",
@@ -296,7 +307,8 @@
         "купить запчасти Fang Cheng Bao",
         "каталог запчастей Фан Чен Бао",
         "каталог запчастей Fang Cheng Bao",
-        "заказать запчасти Fang Cheng Bao"
+        "заказать запчасти Fang Cheng Bao",
+        "автозапчасти Fang Cheng Bao"
       ],
       "canonical_path": "/catalog/fang-cheng-bao/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/fang-cheng-bao/",
@@ -317,13 +329,15 @@
       "model": "",
       "priority": "standard",
       "queries": [
+        "каталог запчастей Hongqi",
         "купить запчасти Хончи",
         "купить запчасти Хунци",
         "купить запчасти Hongqi",
         "каталог запчастей Хунчи",
         "каталог запчастей Хончи",
         "каталог запчастей Хунци",
-        "магазин запчастей Хончи"
+        "магазин запчастей Хончи",
+        "автозапчасти Hongqi"
       ],
       "canonical_path": "/catalog/hongqi/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/hongqi/",
@@ -672,7 +686,8 @@
         "каталог запчастей Aito M8",
         "цены на запчасти Aito M8",
         "цены на запчасти Аито M8",
-        "магазин запчастей Aito M8"
+        "магазин запчастей Aito M8",
+        "детали Aito M8"
       ],
       "canonical_path": "/catalog/aito/m8/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/aito/m8/",
@@ -745,7 +760,8 @@
         "каталог запчастей BAIC BJ40",
         "цены на запчасти BAIC BJ40",
         "цены на запчасти БАИК BJ40",
-        "цены на запчасти Байк BJ40"
+        "цены на запчасти Байк BJ40",
+        "детали BAIC BJ40"
       ],
       "canonical_path": "/catalog/baic/bj40/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baic/bj40/",
@@ -766,13 +782,14 @@
       "model": "U5 Plus",
       "priority": "P4_low_value_controlled",
       "queries": [
+        "каталог запчастей BAIC U5 Plus",
         "запчасти BAIC U5 Plus",
         "автозапчасти BAIC U5 Plus",
         "купить запчасти BAIC U5 Plus",
-        "каталог запчастей BAIC U5 Plus",
         "цены на запчасти BAIC U5 Plus",
         "цены на запчасти БАИК U5 Plus",
-        "цены на запчасти Байк U5 Plus"
+        "цены на запчасти Байк U5 Plus",
+        "детали BAIC U5 Plus"
       ],
       "canonical_path": "/catalog/baic/u5-plus/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baic/u5-plus/",
@@ -793,13 +810,14 @@
       "model": "X35",
       "priority": "P4_low_value_controlled",
       "queries": [
+        "каталог запчастей BAIC X35",
         "запчасти BAIC X35",
         "автозапчасти BAIC X35",
         "купить запчасти BAIC X35",
-        "каталог запчастей BAIC X35",
         "цены на запчасти BAIC X35",
         "цены на запчасти БАИК X35",
-        "цены на запчасти Байк X35"
+        "цены на запчасти Байк X35",
+        "детали BAIC X35"
       ],
       "canonical_path": "/catalog/baic/x35/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baic/x35/",
@@ -826,7 +844,8 @@
         "каталог запчастей BAIC X55",
         "цены на запчасти BAIC X55",
         "цены на запчасти БАИК X55",
-        "цены на запчасти Байк X55"
+        "цены на запчасти Байк X55",
+        "детали BAIC X55"
       ],
       "canonical_path": "/catalog/baic/x55/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baic/x55/",
@@ -847,13 +866,14 @@
       "model": "X7",
       "priority": "P4_low_value_controlled",
       "queries": [
+        "каталог запчастей BAIC X7",
         "запчасти BAIC X7",
         "автозапчасти BAIC X7",
         "купить запчасти BAIC X7",
-        "каталог запчастей BAIC X7",
         "цены на запчасти BAIC X7",
         "цены на запчасти БАИК X7",
-        "цены на запчасти Байк X7"
+        "цены на запчасти Байк X7",
+        "детали BAIC X7"
       ],
       "canonical_path": "/catalog/baic/x7/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baic/x7/",
@@ -880,7 +900,8 @@
         "каталог запчастей Baojun RC-5",
         "цены на запчасти Baojun RC-5",
         "магазин запчастей Baojun RC-5",
-        "заказать запчасти Baojun RC-5"
+        "заказать запчасти Baojun RC-5",
+        "детали Baojun RC-5"
       ],
       "canonical_path": "/catalog/baojun/rc-5/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baojun/rc-5/",
@@ -930,7 +951,8 @@
         "каталог запчастей BAW 212",
         "цены на запчасти BAW 212",
         "цены на запчасти БАВ 212",
-        "магазин запчастей BAW 212"
+        "магазин запчастей BAW 212",
+        "детали BAW 212"
       ],
       "canonical_path": "/catalog/baw/212/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baw/212/",
@@ -980,7 +1002,8 @@
         "каталог запчастей BYD Seal 06 GT",
         "цены на запчасти BYD Seal 06 GT",
         "цены на запчасти БИД Seal 06 GT",
-        "магазин запчастей BYD Seal 06 GT"
+        "магазин запчастей BYD Seal 06 GT",
+        "детали BYD Seal 06 GT"
       ],
       "canonical_path": "/catalog/byd/seal-06-gt/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/byd/seal-06-gt/",
@@ -1001,13 +1024,14 @@
       "model": "Tang L",
       "priority": "P3_long_tail_medium_value",
       "queries": [
+        "каталог запчастей BYD Tang L",
         "запчасти BYD Tang L",
         "автозапчасти BYD Tang L",
         "купить запчасти BYD Tang L",
-        "каталог запчастей BYD Tang L",
         "цены на запчасти BYD Tang L",
         "цены на запчасти БИД Tang L",
-        "магазин запчастей BYD Tang L"
+        "магазин запчастей BYD Tang L",
+        "детали BYD Tang L"
       ],
       "canonical_path": "/catalog/byd/tang-l/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/byd/tang-l/",
@@ -1028,13 +1052,14 @@
       "model": "Yangwang U8",
       "priority": "P2_long_tail_high_value",
       "queries": [
+        "каталог запчастей BYD Yangwang U8",
         "запчасти BYD Yangwang U8",
         "автозапчасти BYD Yangwang U8",
         "купить запчасти BYD Yangwang U8",
-        "каталог запчастей BYD Yangwang U8",
         "цены на запчасти BYD Yangwang U8",
         "цены на запчасти БИД Yangwang U8",
-        "магазин запчастей BYD Yangwang U8"
+        "магазин запчастей BYD Yangwang U8",
+        "детали BYD Yangwang U8"
       ],
       "canonical_path": "/catalog/byd/yangwang-u8/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/byd/yangwang-u8/",
@@ -1061,7 +1086,8 @@
         "каталог запчастей Changan Alsvin",
         "цены на запчасти Чанган Alsvin",
         "цены на запчасти Changan Alsvin",
-        "магазин запчастей Чанган Alsvin"
+        "магазин запчастей Чанган Alsvin",
+        "детали Changan Alsvin"
       ],
       "canonical_path": "/catalog/changan/alsvin/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/alsvin/",
@@ -1088,7 +1114,8 @@
         "каталог запчастей Changan Auchan Z6",
         "цены на запчасти Чанган Auchan Z6",
         "цены на запчасти Changan Oshan Z6",
-        "цены на запчасти Changan Auchan Z6"
+        "цены на запчасти Changan Auchan Z6",
+        "детали Changan Auchan Z6"
       ],
       "canonical_path": "/catalog/changan/auchan-z6/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/auchan-z6/",
@@ -1115,7 +1142,8 @@
         "купить запчасти Changan CS35 Plus",
         "каталог запчастей Чанган CS35 Plus",
         "каталог запчастей Changan CS35 Plus",
-        "цены на запчасти Чанган CS35 Plus"
+        "цены на запчасти Чанган CS35 Plus",
+        "детали Changan CS35 Plus"
       ],
       "canonical_path": "/catalog/changan/cs35-plus/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/cs35-plus/",
@@ -1136,13 +1164,14 @@
       "model": "CS75 Plus",
       "priority": "P2_high_demand_medium_value",
       "queries": [
+        "каталог запчастей Changan CS75 Plus",
         "запчасти Чанган CS75 Plus",
         "запчасти Changan CS75 Plus",
         "автозапчасти Changan CS75 Plus",
         "купить запчасти Changan CS75 Plus",
         "каталог запчастей Чанган CS75 Plus",
-        "каталог запчастей Changan CS75 Plus",
-        "цены на запчасти Чанган CS75 Plus"
+        "цены на запчасти Чанган CS75 Plus",
+        "детали Changan CS75 Plus"
       ],
       "canonical_path": "/catalog/changan/cs75-plus/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/cs75-plus/",
@@ -1163,13 +1192,14 @@
       "model": "CS95",
       "priority": "P3_long_tail_medium_value",
       "queries": [
-        "запчасти Чанган CS95",
         "запчасти Changan CS95",
+        "запчасти Чанган CS95",
         "автозапчасти Changan CS95",
         "купить запчасти Changan CS95",
         "каталог запчастей Чанган CS95",
         "каталог запчастей Changan CS95",
-        "цены на запчасти Чанган CS95"
+        "цены на запчасти Чанган CS95",
+        "детали Changan CS95"
       ],
       "canonical_path": "/catalog/changan/cs95/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/cs95/",
@@ -1196,7 +1226,8 @@
         "каталог запчастей Changan Hunter Plus",
         "цены на запчасти Чанган Hunter Plus",
         "цены на запчасти Changan Hunter Plus",
-        "магазин запчастей Чанган Hunter Plus"
+        "магазин запчастей Чанган Hunter Plus",
+        "детали Changan Hunter Plus"
       ],
       "canonical_path": "/catalog/changan/hunter-plus/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/hunter-plus/",
@@ -1217,13 +1248,14 @@
       "model": "Shenlan (Deepal) S07",
       "priority": "P2_long_tail_high_value",
       "queries": [
+        "каталог запчастей Deepal S07",
         "запчасти Deepal S07",
         "автозапчасти Deepal S07",
         "купить запчасти Deepal S07",
         "запчасти Changan Deepal S07",
-        "каталог запчастей Deepal S07",
         "каталог запчастей Changan Deepal S07",
-        "цены на запчасти Changan Deepal S07"
+        "цены на запчасти Changan Deepal S07",
+        "детали Changan Shenlan (Deepal) S07"
       ],
       "canonical_path": "/catalog/changan/shenlan-deepal-s07/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/shenlan-deepal-s07/",
@@ -1244,13 +1276,15 @@
       "model": "UNI-K",
       "priority": "P1_high_demand_high_value",
       "queries": [
+        "каталог запчастей Changan UNI-K",
         "запчасти Чанган ЮНИ-К",
         "запчасти Чанган UNI-K",
         "запчасти Changan UNI-K",
         "автозапчасти Changan UNI-K",
         "купить запчасти Changan UNI-K",
         "каталог запчастей Чанган ЮНИ-К",
-        "каталог запчастей Чанган UNI-K"
+        "каталог запчастей Чанган UNI-K",
+        "детали Changan Uni-K"
       ],
       "canonical_path": "/catalog/changan/uni-k/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/uni-k/",
@@ -1277,7 +1311,8 @@
         "купить запчасти Чери Тигго 4",
         "каталог запчастей Чери Тигго 4",
         "каталог запчастей Chery Tiggo 4",
-        "оригинальные запчасти Чери Тигго 4"
+        "оригинальные запчасти Чери Тигго 4",
+        "детали Chery Tiggo 4"
       ],
       "canonical_path": "/catalog/chery/tiggo-4/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/chery/tiggo-4/",
@@ -1298,13 +1333,14 @@
       "model": "Tiggo 4 Pro",
       "priority": "P2_high_demand_medium_value",
       "queries": [
+        "каталог запчастей Chery Tiggo 4 Pro",
         "запчасти Чери Тигго 4 Про",
         "запчасти Chery Tiggo 4 Pro",
         "автозапчасти Chery Tiggo 4 Pro",
         "купить запчасти Чери Тигго 4 Про",
         "купить запчасти Chery Tiggo 4 Pro",
         "каталог запчастей Чери Тигго 4 Про",
-        "каталог запчастей Chery Tiggo 4 Pro"
+        "детали Chery Tiggo 4 Pro"
       ],
       "canonical_path": "/catalog/chery/tiggo-4-pro/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/chery/tiggo-4-pro/",
@@ -1325,13 +1361,14 @@
       "model": "Tiggo 7 Pro Max",
       "priority": "P1_high_demand_high_value",
       "queries": [
+        "каталог запчастей Чери Тигго 7 Про Макс",
         "запчасти Чери Тигго 7 Про Макс",
         "запчасти Chery Tiggo 7 Pro Max",
         "автозапчасти Чери Тигго 7 Про Макс",
         "купить запчасти Чери Тигго 7 Про Макс",
-        "каталог запчастей Чери Тигго 7 Про Макс",
         "каталог запчастей Chery Tiggo 7 Pro Max",
-        "оригинальные запчасти Чери Тигго 7 Про Макс"
+        "оригинальные запчасти Чери Тигго 7 Про Макс",
+        "детали Chery Tiggo 7 Pro Max"
       ],
       "canonical_path": "/catalog/chery/tiggo-7-pro-max/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/chery/tiggo-7-pro-max/",
@@ -1399,13 +1436,14 @@
       "model": "DFSK iX5",
       "priority": "P3_long_tail_medium_value",
       "queries": [
+        "купить запчасти DFSK iX5",
         "запчасти DFSK iX5",
         "автозапчасти DFSK iX5",
-        "купить запчасти DFSK iX5",
         "запчасти Dongfeng DFSK iX5",
         "каталог запчастей Dongfeng DFSK iX5",
         "цены на запчасти Dongfeng DFSK iX5",
-        "цены на запчасти Донгфенг DFSK iX5"
+        "цены на запчасти Донгфенг DFSK iX5",
+        "детали Dongfeng DFSK iX5"
       ],
       "canonical_path": "/catalog/dongfeng/dfsk-ix5/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/dongfeng/dfsk-ix5/",
@@ -1432,7 +1470,8 @@
         "каталог запчастей Exeed Exlantix ES",
         "цены на запчасти Exlantix ES",
         "магазин запчастей Exlantix ES",
-        "заказать запчасти Exlantix ES"
+        "заказать запчасти Exlantix ES",
+        "детали Exeed Exlantix ES"
       ],
       "canonical_path": "/catalog/exeed/exlantix-es/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/exeed/exlantix-es/",
@@ -1459,7 +1498,8 @@
         "каталог запчастей Exeed TXL",
         "цены на запчасти Exeed TXL",
         "цены на запчасти Эксид TXL",
-        "магазин запчастей Exeed TXL"
+        "магазин запчастей Exeed TXL",
+        "детали Exeed TXL"
       ],
       "canonical_path": "/catalog/exeed/txl/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/exeed/txl/",
@@ -1480,13 +1520,14 @@
       "model": "VX",
       "priority": "P1_high_demand_high_value",
       "queries": [
+        "каталог запчастей Exeed VX",
         "запчасти Exeed VX",
         "запчасти Эксид VX",
         "автозапчасти Exeed VX",
         "купить запчасти Exeed VX",
-        "каталог запчастей Exeed VX",
         "цены на запчасти Exeed VX",
-        "цены на запчасти Эксид VX"
+        "цены на запчасти Эксид VX",
+        "детали Exeed VX"
       ],
       "canonical_path": "/catalog/exeed/vx/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/exeed/vx/",
@@ -1513,7 +1554,8 @@
         "каталог запчастей Fang Cheng Bao Bao 5 (Leopard 5)",
         "цены на запчасти Fang Cheng Bao Bao 5 (Leopard 5)",
         "магазин запчастей Фан Чен Бао Bao 5",
-        "заказать запчасти Фан Чен Бао Bao 5"
+        "заказать запчасти Фан Чен Бао Bao 5",
+        "детали Fang Cheng Bao Bao 5 (Leopard 5)"
       ],
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/fang-cheng-bao/bao-5-leopard-5/",
@@ -1543,7 +1585,8 @@
         "каталог запчастей Fang Cheng Bao Titanium 7",
         "цены на запчасти Fang Cheng Bao Titanium 7",
         "магазин запчастей Фан Чен Бао Titanium 7",
-        "заказать запчасти Фан Чен Бао Titanium 7"
+        "заказать запчасти Фан Чен Бао Titanium 7",
+        "детали Fang Cheng Bao Titanium 7"
       ],
       "canonical_path": "/catalog/fang-cheng-bao/titanium-7/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/fang-cheng-bao/titanium-7/",
@@ -1564,13 +1607,14 @@
       "model": "Tunland G7",
       "priority": "P2_high_demand_medium_value",
       "queries": [
+        "каталог запчастей Foton Tunland G7",
         "запчасти Foton Tunland G7",
         "автозапчасти Foton Tunland G7",
         "купить запчасти Foton Tunland G7",
-        "каталог запчастей Foton Tunland G7",
         "цены на запчасти Foton Tunland G7",
         "цены на запчасти Фотон Tunland G7",
-        "магазин запчастей Foton Tunland G7"
+        "магазин запчастей Foton Tunland G7",
+        "детали Foton Tunland G7"
       ],
       "canonical_path": "/catalog/foton/tunland-g7/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/foton/tunland-g7/",
@@ -1591,13 +1635,14 @@
       "model": "Atlas",
       "priority": "P2_high_demand_medium_value",
       "queries": [
+        "каталог запчастей Джили Атлас",
         "запчасти Джили Атлас",
         "запчасти Geely Atlas",
         "автозапчасти Джили Атлас",
         "купить запчасти Geely Atlas",
         "купить запчасти Джили Атлас",
-        "каталог запчастей Джили Атлас",
-        "каталог запчастей Geely Atlas"
+        "каталог запчастей Geely Atlas",
+        "детали Geely Atlas"
       ],
       "canonical_path": "/catalog/geely/atlas/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/atlas/",
@@ -1618,13 +1663,14 @@
       "model": "Atlas Pro",
       "priority": "P1_high_demand_high_value",
       "queries": [
+        "каталог запчастей Geely Atlas Pro",
         "запчасти Geely Atlas Pro",
         "запчасти Джили Атлас Про",
         "автозапчасти Geely Atlas Pro",
         "купить запчасти Джили Атлас Про",
         "купить запчасти Geely Atlas Pro",
-        "каталог запчастей Geely Atlas Pro",
-        "каталог запчастей Джили Атлас Про"
+        "каталог запчастей Джили Атлас Про",
+        "детали Geely Atlas Pro"
       ],
       "canonical_path": "/catalog/geely/atlas-pro/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/atlas-pro/",
@@ -1645,13 +1691,14 @@
       "model": "Coolray",
       "priority": "P1_high_demand_high_value",
       "queries": [
+        "каталог запчастей Geely Coolray",
         "запчасти Джили Кулрей",
         "запчасти Geely Coolray",
         "автозапчасти Geely Coolray",
         "купить запчасти Geely Coolray",
         "каталог запчастей Джили Кулрей",
-        "каталог запчастей Geely Coolray",
-        "оригинальные запчасти Geely Coolray"
+        "оригинальные запчасти Geely Coolray",
+        "детали Geely Coolray"
       ],
       "canonical_path": "/catalog/geely/coolray/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/coolray/",
@@ -1672,13 +1719,14 @@
       "model": "Galaxy L7",
       "priority": "P3_long_tail_medium_value",
       "queries": [
+        "каталог запчастей Geely Galaxy L7",
         "запчасти Geely Galaxy L7",
         "автозапчасти Geely Galaxy L7",
         "купить запчасти Geely Galaxy L7",
-        "каталог запчастей Geely Galaxy L7",
         "цены на запчасти Geely Galaxy L7",
         "цены на запчасти Джили Galaxy L7",
-        "магазин запчастей Geely Galaxy L7"
+        "магазин запчастей Geely Galaxy L7",
+        "детали Geely Galaxy L7"
       ],
       "canonical_path": "/catalog/geely/galaxy-l7/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/galaxy-l7/",
@@ -1699,13 +1747,14 @@
       "model": "Galaxy M9",
       "priority": "P2_long_tail_high_value",
       "queries": [
+        "каталог запчастей Geely Galaxy M9",
         "запчасти Geely Galaxy M9",
         "автозапчасти Geely Galaxy M9",
         "купить запчасти Geely Galaxy M9",
-        "каталог запчастей Geely Galaxy M9",
         "цены на запчасти Geely Galaxy M9",
         "цены на запчасти Джили Galaxy M9",
-        "магазин запчастей Geely Galaxy M9"
+        "магазин запчастей Geely Galaxy M9",
+        "детали Geely Galaxy M9"
       ],
       "canonical_path": "/catalog/geely/galaxy-m9/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/galaxy-m9/",
@@ -1726,13 +1775,14 @@
       "model": "Galaxy Starship 7",
       "priority": "P2_high_demand_medium_value",
       "queries": [
+        "каталог запчастей Geely Galaxy Starship 7",
         "запчасти Geely Galaxy Starship 7",
         "автозапчасти Geely Galaxy Starship 7",
         "купить запчасти Geely Galaxy Starship 7",
-        "каталог запчастей Geely Galaxy Starship 7",
         "цены на запчасти Geely Galaxy Starship 7",
         "цены на запчасти Джили Galaxy Starship 7",
-        "цены на запчасти Джили Гэлакси Старшип 7"
+        "цены на запчасти Джили Гэлакси Старшип 7",
+        "детали Geely Galaxy Starship 7"
       ],
       "canonical_path": "/catalog/geely/galaxy-starship-7/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/galaxy-starship-7/",
@@ -1753,13 +1803,14 @@
       "model": "Monjaro",
       "priority": "P2_high_demand_medium_value",
       "queries": [
+        "каталог запчастей Geely Monjaro",
         "запчасти Джили Монжаро",
         "запчасти Geely Monjaro",
         "автозапчасти Geely Monjaro",
         "купить запчасти Geely Monjaro",
-        "каталог запчастей Geely Monjaro",
         "каталог запчастей Джили Монжаро",
-        "оригинальные запчасти Geely Monjaro"
+        "оригинальные запчасти Geely Monjaro",
+        "детали Geely Monjaro"
       ],
       "canonical_path": "/catalog/geely/monjaro/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/monjaro/",
@@ -1786,7 +1837,8 @@
         "купить запчасти Geely Okavango",
         "каталог запчастей Geely Okavango",
         "каталог запчастей Джили Окаванго",
-        "цены на запчасти Geely Okavango"
+        "цены на запчасти Geely Okavango",
+        "детали Geely Okavango"
       ],
       "canonical_path": "/catalog/geely/okavango/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/okavango/",
@@ -1807,13 +1859,14 @@
       "model": "Preface",
       "priority": "P2_high_demand_medium_value",
       "queries": [
+        "каталог запчастей Geely Preface",
         "запчасти Джили Префейс",
         "запчасти Geely Preface",
         "автозапчасти Geely Preface",
         "купить запчасти Джили Префейс",
         "купить запчасти Geely Preface",
-        "каталог запчастей Geely Preface",
-        "каталог запчастей Джили Префейс"
+        "каталог запчастей Джили Префейс",
+        "детали Geely Preface"
       ],
       "canonical_path": "/catalog/geely/preface/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/preface/",
@@ -1840,7 +1893,8 @@
         "каталог запчастей Geely Vision X6 Pro",
         "цены на запчасти Джили Вижн X6 Про",
         "магазин запчастей Джили Вижн X6 Про",
-        "заказать запчасти Джили Вижн X6 Про"
+        "заказать запчасти Джили Вижн X6 Про",
+        "детали Geely Vision X6 Pro"
       ],
       "canonical_path": "/catalog/geely/vision-x6-pro/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/vision-x6-pro/",
@@ -1861,13 +1915,14 @@
       "model": "Poer",
       "priority": "P2_high_demand_medium_value",
       "queries": [
+        "каталог запчастей Great Wall Poer",
         "запчасти Great Wall Poer",
         "автозапчасти Great Wall Poer",
         "купить запчасти Great Wall Poer",
-        "каталог запчастей Great Wall Poer",
         "цены на запчасти Great Wall Poer",
         "цены на запчасти Грейт Волл Poer",
-        "магазин запчастей Great Wall Poer"
+        "магазин запчастей Great Wall Poer",
+        "детали Great Wall Poer"
       ],
       "canonical_path": "/catalog/great-wall/poer/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/great-wall/poer/",
@@ -1888,13 +1943,14 @@
       "model": "Poer King Kong",
       "priority": "P3_long_tail_medium_value",
       "queries": [
+        "каталог запчастей Great Wall Poer King Kong",
         "запчасти Great Wall Poer King Kong",
         "автозапчасти Great Wall Poer King Kong",
         "купить запчасти Great Wall Poer King Kong",
-        "каталог запчастей Great Wall Poer King Kong",
         "магазин запчастей Great Wall Poer King Kong",
         "заказать запчасти Great Wall Poer King Kong",
-        "магазин запчастей Грейт Волл Poer King Kong"
+        "магазин запчастей Грейт Волл Poer King Kong",
+        "детали Great Wall Poer King Kong"
       ],
       "canonical_path": "/catalog/great-wall/poer-king-kong/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/great-wall/poer-king-kong/",
@@ -1915,13 +1971,14 @@
       "model": "F7",
       "priority": "P1_high_demand_high_value",
       "queries": [
+        "каталог запчастей Haval F7",
         "запчасти Haval F7",
         "запчасти Хавал F7",
         "автозапчасти Haval F7",
         "купить запчасти Haval F7",
-        "каталог запчастей Haval F7",
         "каталог запчастей Хавал F7",
-        "цены на запчасти Haval F7"
+        "цены на запчасти Haval F7",
+        "детали Haval F7"
       ],
       "canonical_path": "/catalog/haval/f7/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/haval/f7/",
@@ -1942,13 +1999,14 @@
       "model": "F7x",
       "priority": "P2_high_demand_medium_value",
       "queries": [
+        "каталог запчастей Haval F7x",
         "запчасти Haval F7x",
         "запчасти Хавал F7x",
         "автозапчасти Haval F7x",
         "купить запчасти Haval F7x",
-        "каталог запчастей Haval F7x",
         "каталог запчастей Хавал F7x",
-        "оригинальные запчасти Haval F7x"
+        "оригинальные запчасти Haval F7x",
+        "детали Haval F7x"
       ],
       "canonical_path": "/catalog/haval/f7x/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/haval/f7x/",
@@ -1969,13 +2027,14 @@
       "model": "H3",
       "priority": "P1_high_demand_high_value",
       "queries": [
+        "каталог запчастей Haval H3",
         "запчасти Haval H3",
         "запчасти Хавал H3",
         "автозапчасти Haval H3",
         "купить запчасти Haval H3",
-        "каталог запчастей Haval H3",
         "каталог запчастей Хавал H3",
-        "оригинальные запчасти Haval H3"
+        "оригинальные запчасти Haval H3",
+        "детали Haval H3"
       ],
       "canonical_path": "/catalog/haval/h3/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/haval/h3/",
@@ -1996,13 +2055,14 @@
       "model": "Jolion",
       "priority": "P2_high_demand_medium_value",
       "queries": [
+        "каталог запчастей Хавал Джолион",
         "запчасти Haval Jolion",
         "запчасти Хавал Джолион",
         "запчасти Хавейл Джолион",
         "автозапчасти Хавал Джолион",
         "купить запчасти Хавал Джолион",
         "каталог запчастей Haval Jolion",
-        "каталог запчастей Хавал Джолион"
+        "детали Haval Jolion"
       ],
       "canonical_path": "/catalog/haval/jolion/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/haval/jolion/",
@@ -2023,13 +2083,14 @@
       "model": "Xiaolong Max",
       "priority": "P3_long_tail_medium_value",
       "queries": [
+        "купить запчасти Haval Xiaolong Max",
         "запчасти Haval Xiaolong Max",
         "автозапчасти Haval Xiaolong Max",
-        "купить запчасти Haval Xiaolong Max",
         "каталог запчастей Haval Xiaolong Max",
         "цены на запчасти Haval Xiaolong Max",
         "цены на запчасти Хавал Xiaolong Max",
-        "магазин запчастей Haval Xiaolong Max"
+        "магазин запчастей Haval Xiaolong Max",
+        "детали Haval Xiaolong Max"
       ],
       "canonical_path": "/catalog/haval/xiaolong-max/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/haval/xiaolong-max/",
@@ -2056,7 +2117,8 @@
         "каталог запчастей HiPhi Z",
         "цены на запчасти HiPhi Z",
         "цены на запчасти Хайфи Z",
-        "магазин запчастей HiPhi Z"
+        "магазин запчастей HiPhi Z",
+        "детали HiPhi Z"
       ],
       "canonical_path": "/catalog/hiphi/z/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/hiphi/z/",
@@ -2102,13 +2164,14 @@
       "model": "HS5",
       "priority": "P4_low_value_controlled",
       "queries": [
-        "запчасти Хончи HS5",
         "запчасти Hongqi HS5",
+        "запчасти Хончи HS5",
         "автозапчасти Hongqi HS5",
         "купить запчасти Hongqi HS5",
         "каталог запчастей Hongqi HS5",
         "цены на запчасти Хончи HS5",
-        "цены на запчасти Хунци HS5"
+        "цены на запчасти Хунци HS5",
+        "детали Hongqi HS5"
       ],
       "canonical_path": "/catalog/hongqi/hs5/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/hongqi/hs5/",
@@ -2153,13 +2216,14 @@
       "model": "T2",
       "priority": "P1_high_demand_high_value",
       "queries": [
+        "каталог запчастей Jetour T2",
         "запчасти Jetour T2",
         "автозапчасти Jetour T2",
         "купить запчасти Jetour T2",
-        "каталог запчастей Jetour T2",
         "цены на запчасти Jetour T2",
         "цены на запчасти Джетур T2",
-        "магазин запчастей Jetour T2"
+        "магазин запчастей Jetour T2",
+        "детали Jetour T2"
       ],
       "canonical_path": "/catalog/jetour/t2/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/jetour/t2/",
@@ -2209,7 +2273,8 @@
         "каталог запчастей Li Auto L6",
         "цены на запчасти Лисян L6",
         "магазин запчастей Лисян L6",
-        "заказать запчасти Лисян L6"
+        "заказать запчасти Лисян L6",
+        "детали Li Auto L6"
       ],
       "canonical_path": "/catalog/li-auto/l6/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/li-auto/l6/",
@@ -2230,13 +2295,14 @@
       "model": "L7",
       "priority": "P2_long_tail_high_value",
       "queries": [
+        "каталог запчастей Li Auto L7",
         "запчасти Li Auto L7",
         "автозапчасти Li Auto L7",
         "купить запчасти Li Auto L7",
-        "каталог запчастей Li Auto L7",
         "цены на запчасти Лисян L7",
         "магазин запчастей Лисян L7",
-        "заказать запчасти Лисян L7"
+        "заказать запчасти Лисян L7",
+        "детали Li Auto L7"
       ],
       "canonical_path": "/catalog/li-auto/l7/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/li-auto/l7/",
@@ -2263,7 +2329,8 @@
         "каталог запчастей Li Auto L9",
         "цены на запчасти Лисян L9",
         "магазин запчастей Лисян L9",
-        "заказать запчасти Лисян L9"
+        "заказать запчасти Лисян L9",
+        "детали Li Auto L9"
       ],
       "canonical_path": "/catalog/li-auto/l9/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/li-auto/l9/",
@@ -2284,13 +2351,14 @@
       "model": "X3 Pro",
       "priority": "P4_low_value_controlled",
       "queries": [
+        "каталог запчастей Livan X3 Pro",
         "запчасти Ливан X3 Pro",
         "запчасти Livan X3 Pro",
         "автозапчасти Livan X3 Pro",
         "купить запчасти Livan X3 Pro",
-        "каталог запчастей Livan X3 Pro",
         "цены на запчасти Livan X3 Pro",
-        "цены на запчасти Ливан X3 Pro"
+        "цены на запчасти Ливан X3 Pro",
+        "детали Livan X3 pro"
       ],
       "canonical_path": "/catalog/livan/x3-pro/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/livan/x3-pro/",
@@ -2317,7 +2385,8 @@
         "каталог запчастей Livan X6 Pro",
         "цены на запчасти Livan X6 Pro",
         "цены на запчасти Ливан X6 Pro",
-        "магазин запчастей Livan X6 Pro"
+        "магазин запчастей Livan X6 Pro",
+        "детали Livan X6 pro"
       ],
       "canonical_path": "/catalog/livan/x6-pro/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/livan/x6-pro/",
@@ -2384,13 +2453,14 @@
       "model": "C5",
       "priority": "P1_high_demand_high_value",
       "queries": [
+        "каталог запчастей Омода С5",
         "запчасти Омода С5",
         "запчасти Omoda C5",
         "автозапчасти Омода С5",
         "купить запчасти Омода С5",
-        "каталог запчастей Омода С5",
         "каталог запчастей Omoda C5",
-        "оригинальные запчасти Омода С5"
+        "оригинальные запчасти Омода С5",
+        "детали Omoda C5"
       ],
       "canonical_path": "/catalog/omoda/c5/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/omoda/c5/",
@@ -2417,7 +2487,8 @@
         "купить запчасти Rox 01",
         "каталог запчастей Rox 01",
         "каталог запчастей Polar Stone 01",
-        "цены на запчасти Jishi 01"
+        "цены на запчасти Jishi 01",
+        "детали Polar Stone (Jishi) 01"
       ],
       "canonical_path": "/catalog/polar-stone-jishi/01/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/polar-stone-jishi/01/",
@@ -2438,13 +2509,14 @@
       "model": "300",
       "priority": "P1_high_demand_high_value",
       "queries": [
+        "каталог запчастей Танк 300",
         "запчасти Танк 300",
         "запчасти Tank 300",
         "автозапчасти Танк 300",
         "купить запчасти Танк 300",
-        "каталог запчастей Танк 300",
         "каталог запчастей Tank 300",
-        "цены на запчасти Tank 300"
+        "цены на запчасти Tank 300",
+        "детали Tank 300"
       ],
       "canonical_path": "/catalog/tank/300/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/tank/300/",
@@ -2465,13 +2537,14 @@
       "model": "500",
       "priority": "P2_high_demand_medium_value",
       "queries": [
+        "каталог запчастей Tank 500",
         "запчасти Танк 500",
         "запчасти Tank 500",
         "автозапчасти Танк 500",
         "купить запчасти Танк 500",
         "купить запчасти Tank 500",
-        "каталог запчастей Tank 500",
-        "каталог запчастей Танк 500"
+        "каталог запчастей Танк 500",
+        "детали Tank 500"
       ],
       "canonical_path": "/catalog/tank/500/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/tank/500/",
@@ -2492,13 +2565,14 @@
       "model": "700",
       "priority": "P3_long_tail_medium_value",
       "queries": [
+        "каталог запчастей Tank 700",
         "запчасти Танк 700",
         "запчасти Tank 700",
         "автозапчасти Tank 700",
         "купить запчасти Tank 700",
-        "каталог запчастей Tank 700",
         "каталог запчастей Танк 700",
-        "цены на запчасти Tank 700"
+        "цены на запчасти Tank 700",
+        "детали Tank 700"
       ],
       "canonical_path": "/catalog/tank/700/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/tank/700/",
@@ -2542,13 +2616,14 @@
       "model": "Dream",
       "priority": "P2_high_demand_medium_value",
       "queries": [
+        "каталог запчастей Voyah Dream",
         "запчасти Воя Дрим",
         "запчасти Voyah Dream",
         "автозапчасти Voyah Dream",
         "каталог запчастей Воя Дрим",
         "купить запчасти Voyah Dream",
-        "каталог запчастей Voyah Dream",
-        "цены на запчасти Воя Dream"
+        "цены на запчасти Воя Dream",
+        "детали Voyah Dream"
       ],
       "canonical_path": "/catalog/voyah/dream/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/voyah/dream/",
@@ -2569,13 +2644,14 @@
       "model": "Free",
       "priority": "P1_high_demand_high_value",
       "queries": [
+        "каталог запчастей Voyah Free",
         "запчасти Воя Фри",
         "запчасти Voyah Free",
         "купить запчасти Воя Фри",
         "автозапчасти Voyah Free",
         "каталог запчастей Воя Фри",
         "купить запчасти Voyah Free",
-        "каталог запчастей Voyah Free"
+        "детали Voyah Free"
       ],
       "canonical_path": "/catalog/voyah/free/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/voyah/free/",
@@ -2596,13 +2672,14 @@
       "model": "Passion",
       "priority": "P2_high_demand_medium_value",
       "queries": [
-        "запчасти Воя Пассион",
         "запчасти Voyah Passion",
+        "запчасти Воя Пассион",
         "автозапчасти Voyah Passion",
         "купить запчасти Voyah Passion",
         "каталог запчастей Voyah Passion",
         "цены на запчасти Воя Passion",
-        "магазин запчастей Воя Passion"
+        "магазин запчастей Воя Passion",
+        "детали Voyah Passion"
       ],
       "canonical_path": "/catalog/voyah/passion/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/voyah/passion/",
@@ -2629,7 +2706,8 @@
         "каталог запчастей Voyah Taishan",
         "цены на запчасти Воя Taishan",
         "магазин запчастей Воя Taishan",
-        "заказать запчасти Воя Taishan"
+        "заказать запчасти Воя Taishan",
+        "детали Voyah Taishan"
       ],
       "canonical_path": "/catalog/voyah/taishan/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/voyah/taishan/",
@@ -2650,13 +2728,14 @@
       "model": "07",
       "priority": "P3_long_tail_medium_value",
       "queries": [
+        "каталог запчастей Wey 07",
         "запчасти Wey 07",
         "автозапчасти Wey 07",
         "купить запчасти Wey 07",
-        "каталог запчастей Wey 07",
         "цены на запчасти Wey 07",
         "цены на запчасти Вей 07",
-        "магазин запчастей Wey 07"
+        "магазин запчастей Wey 07",
+        "детали Wey 07"
       ],
       "canonical_path": "/catalog/wey/07/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/wey/07/",
@@ -2683,7 +2762,8 @@
         "каталог запчастей Wey 80",
         "цены на запчасти Wey 80",
         "цены на запчасти Вей 80",
-        "магазин запчастей Wey 80"
+        "магазин запчастей Wey 80",
+        "детали Wey 80"
       ],
       "canonical_path": "/catalog/wey/80/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/wey/80/",
@@ -2710,7 +2790,8 @@
         "каталог запчастей Xiaomi SU7",
         "цены на запчасти Сяоми SU7",
         "цены на запчасти Xiaomi SU7",
-        "магазин запчастей Сяоми SU7"
+        "магазин запчастей Сяоми SU7",
+        "детали Xiaomi SU7"
       ],
       "canonical_path": "/catalog/xiaomi/su7/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/xiaomi/su7/",
@@ -2731,13 +2812,14 @@
       "model": "001",
       "priority": "P1_high_demand_high_value",
       "queries": [
+        "каталог запчастей Zeekr 001",
         "запчасти Зикр 001",
         "запчасти Zeekr 001",
         "автозапчасти Zeekr 001",
         "купить запчасти Zeekr 001",
-        "каталог запчастей Zeekr 001",
         "цены на запчасти Зикр 001",
-        "цены на запчасти Zeekr 001"
+        "цены на запчасти Zeekr 001",
+        "детали Zeekr 001"
       ],
       "canonical_path": "/catalog/zeekr/001/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/zeekr/001/",
@@ -2764,7 +2846,8 @@
         "каталог запчастей Zeekr 007",
         "цены на запчасти Зикр 007",
         "цены на запчасти Zeekr 007",
-        "магазин запчастей Зикр 007"
+        "магазин запчастей Зикр 007",
+        "детали Zeekr 007"
       ],
       "canonical_path": "/catalog/zeekr/007/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/zeekr/007/",
@@ -2791,7 +2874,8 @@
         "каталог запчастей Zeekr 9X",
         "цены на запчасти Зикр 9X",
         "цены на запчасти Zeekr 9X",
-        "магазин запчастей Зикр 9X"
+        "магазин запчастей Зикр 9X",
+        "детали Zeekr 9X"
       ],
       "canonical_path": "/catalog/zeekr/9x/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/zeekr/9x/",

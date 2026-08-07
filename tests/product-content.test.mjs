@@ -48,7 +48,7 @@ test("truncated parentheses and known model spelling errors are repaired", () =>
 test("safe descriptions always explain part-only price and the total order threshold", () => {
   const content = createProductContent({ item: { id: "source-1", title: "Фара Geely Monjaro", brand: "Geely", model: "Monjaro", article: "", price: 12000, description: "Авито: предоплата, доставка 15 дней" }, product, brand, model });
   assert.match(content.description, /Цена детали — 12\s000 ₽; доставка из Китая рассчитывается отдельно/);
-  assert.match(content.description, /Минимальная общая сумма заказа — 50\s000 ₽/);
+  assert.match(content.description, /Минимальная сумма заказа — 50\s000 ₽/);
   assert.doesNotMatch(content.description, /Авито|предоплата|15 дней/);
 });
 

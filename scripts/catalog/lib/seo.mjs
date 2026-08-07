@@ -3,6 +3,10 @@ import { createProductContent, numericPrice, schemaCondition } from "./product-c
 
 const clean = (value) => String(value ?? "").trim().replace(/\s+/g, " ");
 const norm = (value) => clean(value).toLocaleLowerCase("ru").replaceAll("ё", "е");
+const sentenceCase = (value) => {
+  const text = clean(value);
+  return text ? `${text[0].toLocaleUpperCase("ru")}${text.slice(1)}` : "";
+};
 
 export function fillTemplate(template, values) {
   return String(template || "").replace(/\{([a-z_]+)\}/g, (_, key) => clean(values[key]));
@@ -50,6 +54,8 @@ function duplicateFacts(item, product) {
     oem: clean(item?.article),
     price: numericPrice(item?.price),
     condition: clean(item?.condition),
+    origin: clean(item?.origin),
+    photos: item?.photos || [],
     compatibility: item?.compatibility || [],
     side: clean(item?.side),
     generation: clean(item?.generation),
@@ -121,7 +127,7 @@ function titleFromContent(content) {
 }
 
 function comparisonFields(facts) {
-  const fields = ["title", "detail", "brand", "model", "category_id", "oem", "price", "condition", "compatibility", "side", "generation", "year_from", "year_to"];
+  const fields = ["title", "detail", "brand", "model", "category_id", "oem", "price", "condition", "origin", "photos", "compatibility", "side", "generation", "year_from", "year_to"];
   const matching = fields.filter((field) => new Set(facts.map((entry) => JSON.stringify(entry[field]))).size === 1);
   return { matching, differing: fields.filter((field) => !matching.includes(field)) };
 }
@@ -162,7 +168,7 @@ export function normalizePublicQuery(value) {
     .replace(/\(Leopard 5\)\s*\(Leopard 5\)/gi, "(Leopard 5)");
 }
 
-export function buildSeoState({ registry, items, indexes, config, rules, overrides = {}, directSemantics = {} }) {
+export function buildSeoState({ registry, items, indexes, config, rules, overrides = {}, directSemantics = {}, wordstatAudit = {} }) {
   const itemBySourceId = new Map(items.map((item) => [String(item.id), item]));
   const paths = routePaths(indexes);
   const products = registry.entities.products.map((product) => ({
@@ -184,7 +190,7 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     const primary = rows[0].product;
     for (const row of rows.slice(1)) duplicateSecondaryIds.add(row.product.product_id);
     const facts = rows.map(({ item, product }) => duplicateFacts(item, product));
-    const comparedFields = ["title", "detail", "brand", "model", "category_id", "oem", "price", "condition", "compatibility", "side", "generation", "year_from", "year_to"];
+    const comparedFields = ["title", "detail", "brand", "model", "category_id", "oem", "price", "condition", "origin", "photos", "compatibility", "side", "generation", "year_from", "year_to"];
     const matchingFields = comparedFields.filter((field) => new Set(facts.map((entry) => JSON.stringify(entry[field]))).size === 1);
     const differingFields = comparedFields.filter((field) => !matchingFields.includes(field));
     duplicateReport.push({
@@ -276,13 +282,23 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
   // Remaining metadata collisions are either confirmed duplicates (valid OEM present)
   // or conservative manual-review candidates (OEM absent). Both pages stay accessible.
   for (const rows of groupsBy((row, state) => state.content.title)) {
-    rows.sort((left, right) => Number(left.product.product_id) - Number(right.product.product_id));
+    const decisionKey = rows.map(({ product }) => Number(product.product_id)).sort((a, b) => a - b).join("|");
+    const ownerDecision = overrides.duplicate_decisions?.[decisionKey] || null;
+    rows.sort((left, right) => {
+      if (ownerDecision?.primary_product_id) {
+        if (Number(left.product.product_id) === Number(ownerDecision.primary_product_id)) return -1;
+        if (Number(right.product.product_id) === Number(ownerDecision.primary_product_id)) return 1;
+      }
+      return Number(left.product.product_id) - Number(right.product.product_id);
+    });
     const primaryRow = rows[0];
     const primaryState = productState.get(primaryRow.product.product_id);
     const facts = rows.map(({ item, product }) => duplicateFacts(item, product));
     const { matching, differing } = comparisonFields(facts);
     const articles = rows.map(({ product }) => clean(productState.get(product.product_id).content.article));
-    const confirmed = articles.every(Boolean) && new Set(articles.map(norm)).size === 1;
+    const confirmedByOwner = ownerDecision?.action === "canonical_duplicate";
+    const separateByOwner = ownerDecision?.action === "keep_separate";
+    const confirmed = confirmedByOwner || (!separateByOwner && articles.every(Boolean) && new Set(articles.map(norm)).size === 1);
     const fingerprint = crypto.createHash("sha256")
       .update(rows.map(({ product }) => product.product_id).join("|"))
       .digest("hex").slice(0, 24);
@@ -290,28 +306,35 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     for (let index = 1; index < rows.length; index += 1) {
       const { product } = rows[index];
       const state = productState.get(product.product_id);
-      state.indexable = false;
-      state.robots = "noindex,follow";
+      state.indexable = separateByOwner;
+      state.robots = separateByOwner ? "index,follow" : "noindex,follow";
       state.duplicateOf = confirmed ? primaryRow.product.product_id : null;
       state.canonicalPath = confirmed ? primaryRow.product.canonical_path : product.canonical_path;
-      state.validationErrors.push(confirmed ? "confirmed_metadata_duplicate" : "metadata_duplicate_needs_manual_review");
+      if (!separateByOwner) {
+        state.validationErrors.push(confirmed ? "confirmed_metadata_duplicate" : "metadata_duplicate_needs_manual_review");
+      }
       secondaries.push({
         ...facts[index],
-        robots: "noindex,follow",
+        robots: state.robots,
         canonical_path_target: state.canonicalPath,
         reason: confirmed
-          ? "Confirmed detail, vehicle, OEM, condition and compatibility match the primary page."
-          : "The public metadata collides, but no verified OEM is available; manual identity review is required.",
+          ? ownerDecision?.reason || "Confirmed detail, vehicle, OEM, condition and compatibility match the primary page."
+          : ownerDecision?.reason || "The public metadata collides, but no verified OEM is available; manual identity review is required.",
       });
     }
     duplicateReport.push({
       fingerprint,
-      classification: confirmed ? "confirmed_metadata_duplicate" : "pending_manual_identity_review",
+      classification: confirmed
+        ? (confirmedByOwner ? "confirmed_owner_duplicate" : "confirmed_metadata_duplicate")
+        : (separateByOwner ? "distinct_products_pending_metadata" : "pending_manual_identity_review"),
       primary: facts[0],
       secondary_pages: secondaries,
       matching_fields: matching,
       differing_fields: differing,
-      action: confirmed ? "secondary_noindex_canonical_to_primary" : "secondary_noindex_self_canonical_pending_review",
+      action: confirmed
+        ? "secondary_noindex_canonical_to_primary"
+        : (separateByOwner ? "owner_kept_separate_index_self_canonical" : "secondary_noindex_self_canonical_pending_review"),
+      owner_decision: ownerDecision || null,
       primary_product_id: primaryRow.product.product_id,
       primary_url: primaryRow.product.canonical_path,
       duplicate_product_ids: rows.slice(1).map(({ product }) => product.product_id),
@@ -320,6 +343,11 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     primaryState.content.title = titleFromContent(primaryState.content);
   }
 
+  const ownerSeparatedProductIds = new Set(
+    Object.entries(overrides.duplicate_decisions || {})
+      .filter(([, decision]) => decision?.action === "keep_separate")
+      .flatMap(([key]) => key.split("|").map(Number)),
+  );
   const activeProducts = products.filter(({ product }) => productState.get(product.product_id).indexable);
   const brandCounts = new Map();
   const modelCounts = new Map();
@@ -363,29 +391,45 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
   add({
     page_type: "home", entity_id: "home", canonical_path: "/", indexable: true,
     title: "KITRADE — автозапчасти из Китая с доставкой по России",
-    description: "Автозапчасти под заказ из Китая: новые и контрактные детали, проверка по VIN и доставка по России. Общий заказ — от 50 000 ₽.",
+    description: "Автозапчасти под заказ из Китая: новые и контрактные детали, проверка по VIN и доставка по России. Минимальная сумма заказа — 50 000 ₽.",
     h1: "Автозапчасти из Китая с доставкой по всей России",
     primary_query: "автозапчасти из Китая", secondary_queries: ["доставка автозапчастей из Китая"],
   });
   add({
     page_type: "catalog", entity_id: "catalog", canonical_path: "/catalog/", indexable: true,
     ...rules.templates.catalog,
-    primary_query: "каталог автозапчастей из Китая",
-    secondary_queries: ["автозапчасти под заказ", "подбор запчастей по VIN"],
+    primary_query: wordstatAudit.priorities?.catalog?.primary_query || "автозапчасти под заказ",
+    secondary_queries: [wordstatAudit.priorities?.catalog?.previous_primary_query, "каталог автозапчастей из Китая", "подбор запчастей по VIN"].filter(Boolean),
     intro_text: "Детали под заказ из Китая. Цена указана за деталь, доставка рассчитывается отдельно. Совместимость проверим по VIN.",
     faq: [{ question: "Как проверить совместимость детали?", answer: "Совместимость подтверждается менеджером по VIN перед заказом." }],
+  });
+  add({
+    page_type: "service", entity_id: "vin-selection", canonical_path: "/podbor-zapchastey-po-vin/", indexable: true,
+    title: "Подбор запчастей по VIN под заказ | KITRADE",
+    description: "Подбор запчастей по VIN для автомобилей. Найдём подходящую деталь у поставщиков в Китае, проверим совместимость и отдельно рассчитаем доставку.",
+    h1: "Подбор запчастей по VIN",
+    primary_query: "подбор запчастей по VIN",
+    secondary_queries: ["найти запчасть по VIN", "проверка запчасти по VIN"],
+    intro_text: "Укажите VIN, марку, модель и нужную деталь. Менеджер проведёт поиск у поставщиков, проверит совместимость и подготовит расчёт.",
+    faq: [],
   });
 
   for (const brand of registry.entities.brands) {
     const count = brandCounts.get(brand.id) || 0;
     const seo = routeSeo("brand", { brand: brand.name }, rules);
     const direct = directSemantics.brands?.[norm(brand.name)] || {};
+    const audit = wordstatAudit.priorities?.brands?.[norm(brand.name)] || null;
+    const displayName = audit?.display_name || brand.name;
+    const primaryQuery = audit?.primary_query || direct.primary_query || `запчасти ${brand.name}`;
     const fallbackSecondary = [`автозапчасти ${brand.name}`, `детали ${brand.name} из Китая`];
     add({ page_type: "brand", entity_id: brand.id, canonical_path: paths.brand(brand), brand: brand.name,
       brand_variants: [...new Set([...(brand.source_names || [brand.name]), ...(direct.brand_variants || [])])], indexable: count > 0, status: count ? "active" : "unlisted",
-      validation_errors: count ? [] : ["no_verified_active_products"], ...seo,
-      primary_query: direct.primary_query || `запчасти ${brand.name}`,
-      secondary_queries: [...new Set([...(direct.secondary_queries || []), ...fallbackSecondary])].slice(0, 6),
+      validation_errors: count ? [] : ["no_verified_active_products"],
+      title: audit ? `Каталог запчастей ${displayName} под заказ | KITRADE` : seo.title,
+      description: audit ? `Каталог запчастей ${displayName} под заказ из Китая. Проверка совместимости по VIN, доставка рассчитывается отдельно.` : seo.description,
+      h1: audit ? `Запчасти ${displayName}` : seo.h1,
+      primary_query: primaryQuery,
+      secondary_queries: [...new Set([direct.primary_query, ...(direct.secondary_queries || []), ...fallbackSecondary].filter(Boolean))].slice(0, 8),
       intro_text: `Запчасти ${brand.name} под заказ из Китая. Цена указана за деталь; доставка рассчитывается отдельно. Проверим по VIN.`,
       faq: [],
     });
@@ -397,13 +441,18 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     const count = modelCounts.get(model.id) || 0;
     const seo = routeSeo("model", { brand: brand.name, model: model.name }, rules);
     const direct = directModelEntry(directSemantics, brand, model) || {};
+    const audit = wordstatAudit.priorities?.models?.[`${norm(brand.name)}|${norm(model.name)}`] || null;
+    const primaryQuery = audit?.primary_query || direct.primary_query || `запчасти ${brand.name} ${model.name}`;
     const directVariants = direct.model_variants || [];
     const fallbackSecondary = [`детали ${brand.name} ${model.name}`, `${brand.name} ${model.name} запчасти из Китая`];
     add({ page_type: "model", entity_id: model.id, canonical_path: paths.model(brand, model), brand: brand.name, model: model.name,
       brand_variants: brand.source_names || [brand.name], model_variants: [...new Set([...(model.source_names || [model.name]), ...directVariants])],
-      indexable: count > 0, status: count ? "active" : "unlisted", validation_errors: count ? [] : ["no_verified_active_products"], ...seo,
-      primary_query: direct.primary_query || `запчасти ${brand.name} ${model.name}`,
-      secondary_queries: [...new Set([...(direct.secondary_queries || []), ...fallbackSecondary])].slice(0, 6),
+      indexable: count > 0, status: count ? "active" : "unlisted", validation_errors: count ? [] : ["no_verified_active_products"],
+      title: audit ? `${sentenceCase(primaryQuery)} под заказ | KITRADE` : seo.title,
+      description: audit ? `${sentenceCase(primaryQuery)} под заказ из Китая. Проверка совместимости по VIN, доставка рассчитывается отдельно.` : seo.description,
+      h1: audit ? `Запчасти ${brand.name} ${model.name}` : seo.h1,
+      primary_query: primaryQuery,
+      secondary_queries: [...new Set([direct.primary_query, ...(direct.secondary_queries || []), ...fallbackSecondary].filter(Boolean))].slice(0, 8),
       intro_text: `Запчасти для ${brand.name} ${model.name} под заказ из Китая. Цена указана за деталь; доставка рассчитывается отдельно. Проверим по VIN.`,
       faq: [],
     });
@@ -422,11 +471,18 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     };
     const seoCategory = categorySeoLabels[category.name] || category.name;
     const seo = routeSeo("category", { brand: brand.name, model: model.name, category: seoCategory }, rules);
-    add({ page_type: "category", entity_id: entityId, canonical_path: paths.category(brand, model, category), brand: brand.name,
+    const canonicalPath = paths.category(brand, model, category);
+    const categoryAudit = wordstatAudit.priorities?.categories?.[canonicalPath] || null;
+    const primaryQuery = categoryAudit?.primary_query || `${seoCategory} ${brand.name} ${model.name}`;
+    const displayQuery = categoryAudit ? `${seoCategory} для ${brand.name} ${model.name}` : "";
+    add({ page_type: "category", entity_id: entityId, canonical_path: canonicalPath, brand: brand.name,
       model: model.name, category: category.name, brand_variants: brand.source_names || [brand.name], model_variants: model.source_names || [model.name],
       indexable: count > 0, status: "active", ...seo,
-      primary_query: `${seoCategory} ${brand.name} ${model.name}`,
-      secondary_queries: [`купить ${seoCategory.toLocaleLowerCase("ru")} ${brand.name} ${model.name}`, `${seoCategory} ${brand.name} ${model.name} из Китая`],
+      title: categoryAudit ? `${sentenceCase(displayQuery)} под заказ | KITRADE` : seo.title,
+      description: categoryAudit ? `${sentenceCase(displayQuery)} под заказ из Китая. Проверка совместимости по VIN, доставка рассчитывается отдельно.` : seo.description,
+      h1: categoryAudit ? sentenceCase(displayQuery) : seo.h1,
+      primary_query: primaryQuery,
+      secondary_queries: [...new Set([categoryAudit?.previous_primary_query, `купить ${seoCategory.toLocaleLowerCase("ru")} ${brand.name} ${model.name}`, `${seoCategory} ${brand.name} ${model.name} из Китая`].filter(Boolean))],
       intro_text: `${seoCategory} для ${brand.name} ${model.name} под заказ из Китая. Цена указана за деталь; доставка рассчитывается отдельно.`,
       faq: [],
     });
@@ -440,11 +496,20 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     const category = indexes.categories.get(product.category_id);
     const productOverride = contentOverrides(overrides, product);
     const seo = productSeo(product, item, brand, model, category, productOverride, state.content);
+    const ownerSeparated = ownerSeparatedProductIds.has(Number(product.product_id));
+    const priceLabel = numericPrice(item?.price).toLocaleString("ru-RU");
+    const uniqueTitle = ownerSeparated ? `${seo.h1} — ${priceLabel} ₽ | KITRADE` : seo.title;
+    const uniqueDescription = ownerSeparated
+      ? truncate(`Ориентировочная цена детали — ${priceLabel} ₽; доставка рассчитывается отдельно. Проверка по VIN. ${seo.h1}.`, 158)
+      : seo.description;
+    const uniquePrimaryQuery = ownerSeparated
+      ? `${seo.h1} ${priceLabel} ₽`
+      : (seo.article ? `${seo.h1} ${seo.article}` : seo.h1);
     add({ page_type: "product", entity_id: product.product_id, canonical_path: product.canonical_path,
       brand: brand?.name, model: model?.name, category: category?.name, product_name: seo.h1,
       product_id: product.product_id, article_oem: seo.article, condition: seo.condition, indexable: true,
-      title: seo.title, description: seo.description, h1: seo.h1,
-      primary_query: seo.article ? `${seo.h1} ${seo.article}` : seo.h1,
+      title: uniqueTitle, description: uniqueDescription, h1: seo.h1,
+      primary_query: uniquePrimaryQuery,
       secondary_queries: [seo.article && `${seo.h1} OEM ${seo.article}`, `${seo.h1} цена`, `${seo.h1} под заказ`].filter(Boolean),
       intro_text: "", faq: [],
     });
@@ -463,8 +528,10 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     .map(({ product, item }) => ({
       product_id: product.product_id, source_id: product.source_id, canonical_path: product.canonical_path,
       has_image: Boolean(item?.photos?.length), image_source: (item?.photos || []).some((url) => /avito/i.test(String(url))) ? "avito_external" : "missing",
+      rights_status: "confirmed_by_owner", rights_source: "company_avito_account", quality_review_pending: true,
+      availability_check: "manual_review_required", resolution_check: "manual_review_required", product_match_check: "manual_review_required",
       watermark_check: "manual_review_required", cropping_check: "manual_review_required",
-      action: item?.photos?.length ? "confirm_rights_and_visual_quality" : "provide_real_product_photo",
+      action: "review_quality_availability_resolution_and_product_match",
     }));
 
   const currentSourceIds = new Set(items.map((item) => String(item.id)));

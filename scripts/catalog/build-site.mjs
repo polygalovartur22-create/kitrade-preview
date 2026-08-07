@@ -5,7 +5,7 @@ import { readCatalogData, normalizePhoto } from "./lib/data.mjs";
 import { getPublicCategory, isVisibleCatalogItem } from "./lib/domain.mjs";
 import { registryIndexes, validateRegistry } from "./lib/registry.mjs";
 import { breadcrumbStructuredData, buildSeoState, organizationStructuredData, productStructuredData } from "./lib/seo.mjs";
-import { formatPartPrice } from "./lib/product-content.mjs";
+import { formatPartPrice, numericPrice } from "./lib/product-content.mjs";
 
 const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const outputDir = path.join(projectDir, "dist");
@@ -36,7 +36,9 @@ const rules = JSON.parse(fs.readFileSync(path.join(projectDir, "seo", "seo-rules
 const overrides = JSON.parse(fs.readFileSync(path.join(projectDir, "seo", "seo-overrides.json"), "utf8"));
 const directSemanticsPath = path.join(projectDir, "seo", "direct-semantics.json");
 const directSemantics = fs.existsSync(directSemanticsPath) ? JSON.parse(fs.readFileSync(directSemanticsPath, "utf8")) : {};
-const seoState = buildSeoState({ registry, items, indexes, config, rules, overrides, directSemantics });
+const wordstatAuditPath = path.join(projectDir, "seo", "wordstat-audit.json");
+const wordstatAudit = fs.existsSync(wordstatAuditPath) ? JSON.parse(fs.readFileSync(wordstatAuditPath, "utf8")) : {};
+const seoState = buildSeoState({ registry, items, indexes, config, rules, overrides, directSemantics, wordstatAudit });
 const organizationSchema = organizationStructuredData(config);
 const CATALOG_PAGE_SIZE = 24;
 
@@ -204,7 +206,7 @@ function catalogPage({ routePath, titleParts = [], brand = null, model = null, c
     .replace(
       /<h1 id="catalog-title">[\s\S]*?<\/h1>/,
       routePath === "/catalog/"
-        ? '<h1 id="catalog-title">Найдите нужную деталь.<br />Совместимость<br />проверим по VIN.</h1>'
+        ? '<h1 id="catalog-title">Автозапчасти<br />под заказ.<br />Проверим по VIN.</h1>'
         : `<h1 id="catalog-title">${escapeHtml(seo.h1)}</h1>`,
     )
     .replace(/<p class="hero-description">[\s\S]*?<\/p>/, `<p class="hero-description">${escapeHtml(seo.intro_text || seo.description)}</p>`)
@@ -421,7 +423,7 @@ function productPage(product, item) {
     + `<span aria-current="page">${escapeHtml(title)}</span>`;
   const seo = seoState.seoByPath.get(product.canonical_path);
   const robots = state?.indexable ? "" : '<meta name="robots" content="noindex,follow" />';
-  const productData = { id: String(item?.id || product.source_id), title, article: content.article || "" };
+  const productData = { id: String(item?.id || product.source_id), title, article: content.article || "", price: numericPrice(item?.price) || 0 };
   const breadcrumbSchema = breadcrumbStructuredData([
     { name: "Главная", path: "/" }, { name: "Каталог", path: "/catalog/" },
     brand && hasIndexableRoute(brandPath(brand)) ? { name: brand.name, path: brandPath(brand) } : null,
@@ -474,13 +476,94 @@ function productPage(product, item) {
   </main>
   <script id="product-page-data" type="application/json">${safeJson(productData)}</script>
   <script src="/site-runtime-config.js?v=1"></script>
-  <script src="/analytics.js?v=1"></script>
+  <script src="/analytics.js?v=2"></script>
   <script src="/product-page.js?v=1"></script>
 </body>
 </html>`;
 }
 
 for (const { product, item } of allProductRows) writeRoute(product.canonical_path, productPage(product, item));
+
+function vinSelectionPage() {
+  const seo = seoState.seoByPath.get("/podbor-zapchastey-po-vin/");
+  if (!seo) throw new Error("VIN selection SEO entry is missing");
+  const breadcrumbs = [
+    { name: "Главная", path: "/" },
+    { name: "Подбор запчастей по VIN", path: seo.canonical_path },
+  ];
+  const schemas = [
+    organizationSchema,
+    breadcrumbStructuredData(breadcrumbs, config),
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: seo.h1,
+      description: seo.description,
+      url: seo.canonical_url,
+      provider: { "@type": "Organization", name: config.organization?.name || "KITRADE", url: config.siteUrl },
+      areaServed: { "@type": "Country", name: "Россия" },
+    },
+  ];
+  return `<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${escapeHtml(seo.title)}</title>
+  <meta name="description" content="${escapeHtml(seo.description)}" />
+  <link rel="canonical" href="${seo.canonical_url}" />
+  <script type="application/ld+json">${safeJson(schemas)}</script>
+  <link rel="stylesheet" href="/catalog-v2.css?v=10" />
+  <link rel="stylesheet" href="/catalog-responsive.css?v=3" />
+  <link rel="stylesheet" href="/product-page.css?v=1" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-shell">
+      <a class="brand" href="/" aria-label="Китрейд, на главную"><img src="/assets/external-media/cloudinary-6a8387a47ccd342e.webp" alt="Китрейд" /></a>
+      <nav class="top-nav" aria-label="Навигация"><a href="/#company">О компании</a><a href="/#about">Преимущества</a><a href="/#workflow">Доставка</a><a href="/#orders">Кейсы</a><a href="/catalog/">Каталог</a></nav>
+      <div class="site-header-actions"><a class="header-cta" href="tel:+79964574301">Связаться с нами</a></div>
+    </div>
+  </header>
+  <main class="product-page-main">
+    <div class="product-page-shell">
+      <nav class="catalog-breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Подбор запчастей по VIN</span></nav>
+      <article class="product-page-layout">
+        <div class="product-page-gallery"><img src="/assets/07-request-form-headlamp-vin.png" alt="Подбор автозапчастей по VIN" /></div>
+        <div class="product-page-content">
+          <p class="product-page-category">Услуга KITRADE</p>
+          <h1>${escapeHtml(seo.h1)}</h1>
+          <p class="product-page-meta">Марка · модель · год · VIN</p>
+          <p class="product-page-description">${escapeHtml(seo.intro_text)} Минимальная сумма заказа — 50 000 ₽.</p>
+          <button class="product-page-request" type="button" onclick="window.location.href='/#request'">Отправить запрос на подбор</button>
+        </div>
+      </article>
+    </div>
+  </main>
+  <script src="/site-runtime-config.js?v=1"></script>
+  <script src="/analytics.js?v=2"></script>
+</body>
+</html>`;
+}
+
+writeRoute("/podbor-zapchastey-po-vin/", vinSelectionPage());
+
+const metrikaCounterId = Number(runtimeAnalytics.counterId);
+if (!isNonProductionBuild && runtimeAnalytics.enabled && metrikaCounterId) {
+  const metrikaNoscript = `<noscript data-yandex-metrika><div><img src="https://mc.yandex.ru/watch/${metrikaCounterId}" style="position:absolute; left:-9999px;" alt=""></div></noscript>`;
+  const addMetrikaNoscript = (directory) => {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      const target = path.join(directory, entry.name);
+      if (entry.isDirectory()) addMetrikaNoscript(target);
+      else if (entry.isFile() && entry.name.toLocaleLowerCase("ru").endsWith(".html")) {
+        const html = fs.readFileSync(target, "utf8");
+        if (!html.includes("</body>") || html.includes("data-yandex-metrika")) continue;
+        fs.writeFileSync(target, html.replace("</body>", `  ${metrikaNoscript}\n</body>`));
+      }
+    }
+  };
+  addMetrikaNoscript(outputDir);
+}
 
 if (isNonProductionBuild) {
   const addPreviewRobotsMeta = (directory) => {

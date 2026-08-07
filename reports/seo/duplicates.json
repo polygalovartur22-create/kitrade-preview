@@ -14,6 +14,10 @@
       "oem": "94023Q7000FHV",
       "price": 39600,
       "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.NJQGCbawmH0wvhpwYm0smSmpmn22oJB3sA.PyhFUHu5FHDzvIvT_y0VbZyQCS8UXMuulzvfe7cK-YI"
+      ],
       "compatibility": [
         {
           "brand": "Kia",
@@ -49,6 +53,10 @@
         "oem": "94023Q7000FHV",
         "price": 39600,
         "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.TUwf17aw4aUpYGOoCdYNATB346WvfumvqQ.cm23Fybm7QZkRXEP_bJ4SLfQDfDed4zZ3M1txbCYQ5Q"
+        ],
         "compatibility": [
           {
             "brand": "Kia",
@@ -84,13 +92,16 @@
       "oem",
       "price",
       "condition",
+      "origin",
       "compatibility",
       "side",
       "generation",
       "year_from",
       "year_to"
     ],
-    "differing_fields": [],
+    "differing_fields": [
+      "photos"
+    ],
     "action": "secondary_noindex_canonical_to_primary",
     "primary_product_id": 1510,
     "primary_url": "/catalog/product/panel-priborov-kia-seltos-1510/",
@@ -116,6 +127,10 @@
       "oem": "5206010CR02AB CD569F2705010101AA",
       "price": 68250,
       "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.an0B1rawxpQ3YUSZWd9WTyB2xJSxf86etw.wB6Nmcbmw_Sewf3eNw4tgcDw4TkPD7tlOSabKgbu7Lk"
+      ],
       "compatibility": [
         {
           "brand": "Changan",
@@ -153,6 +168,10 @@
         "oem": "5206010CR02AB CD569F2705010101AA",
         "price": 68250,
         "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.GQWaG7awteysrDfhpD9wNru7t-wqsr3mLA.TnO0yrF_QdAjf0k5BWOswPcc8zIMW70sLKolLCHC7Sc"
+        ],
         "compatibility": [
           {
             "brand": "Changan",
@@ -190,13 +209,16 @@
       "oem",
       "price",
       "condition",
+      "origin",
       "compatibility",
       "side",
       "generation",
       "year_from",
       "year_to"
     ],
-    "differing_fields": [],
+    "differing_fields": [
+      "photos"
+    ],
     "action": "secondary_noindex_canonical_to_primary",
     "primary_product_id": 1648,
     "primary_url": "/catalog/product/steklo-lobovoe-changan-uni-k-original-1648/",
@@ -222,6 +244,10 @@
       "oem": "X0390000042",
       "price": 126357,
       "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.ASF3D7awrchBuC_FeVdKHFavr8jHpqXCwQ._pty2UoXR-bBtDTVDrLOblXef8mCGEgrMJgk1yTur-g"
+      ],
       "compatibility": [
         {
           "brand": "Li Auto",
@@ -254,6 +280,10 @@
         "oem": "X0390000042",
         "price": 126357,
         "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.AVT9D7awrb3LuC-w8wcSZ9yvr71NpqW3Sw.v3bbnnV8FAED9tmMmjDNDXzNyn3yzfpd0AEMxwwH0Xk"
+        ],
         "compatibility": [
           {
             "brand": "Li Auto",
@@ -286,13 +316,16 @@
       "oem",
       "price",
       "condition",
+      "origin",
       "compatibility",
       "side",
       "generation",
       "year_from",
       "year_to"
     ],
-    "differing_fields": [],
+    "differing_fields": [
+      "photos"
+    ],
     "action": "secondary_noindex_canonical_to_primary",
     "primary_product_id": 1990,
     "primary_url": "/catalog/product/kryshka-bagazhnika-lixiang-l7-original-1990/",
@@ -318,6 +351,10 @@
       "oem": "5035081900C15",
       "price": 31500,
       "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.U_5dk7aw_xdrJH0ad_oxwnwz_RftOvcd6w.QWGUlxoPuEN61C29hQ-8nyWv15Z1lCQ_8avMLNPQTuc"
+      ],
       "compatibility": [
         {
           "brand": "Geely",
@@ -354,6 +391,10 @@
         "oem": "5035081900C15",
         "price": 31500,
         "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.yTi1D7awZdGDuOfcq0SeBpSvZ9EFpm3bAw.CRo3dEf6gbH8Jnzuw-DslcbDFz15CzIAnJJG02qQ8Zo"
+        ],
         "compatibility": [
           {
             "brand": "Geely",
@@ -390,13 +431,16 @@
       "oem",
       "price",
       "condition",
+      "origin",
       "compatibility",
       "side",
       "generation",
       "year_from",
       "year_to"
     ],
-    "differing_fields": [],
+    "differing_fields": [
+      "photos"
+    ],
     "action": "secondary_noindex_canonical_to_primary",
     "primary_product_id": 2275,
     "primary_url": "/catalog/product/krylo-perednee-pravoe-geely-monjaro-original-2275/",
@@ -422,6 +466,10 @@
       "oem": "265656SX5B",
       "price": 3978,
       "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.qE4M6bawBKc6XoaqUJv4QyNJBqe8QAytug.K0DfCPbApijupye1YOvtjo2jGLm8Bq7RP9cMFUiag9I"
+      ],
       "compatibility": [
         {
           "brand": "Nissan",
@@ -456,6 +504,10 @@
         "oem": "265656SX5B",
         "price": 3978,
         "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.JnucJbawipKqkgif3DF1d7OFiJIsjIKYKg.HeNP6QojMsgX4NDS-7EaZznI_vSqyrpzbHI0qh0lfc0"
+        ],
         "compatibility": [
           {
             "brand": "Nissan",
@@ -489,6 +541,7 @@
       "oem",
       "price",
       "condition",
+      "origin",
       "compatibility",
       "side",
       "generation",
@@ -496,9 +549,11 @@
       "year_to"
     ],
     "differing_fields": [
-      "category_id"
+      "category_id",
+      "photos"
     ],
     "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": null,
     "primary_product_id": 1293,
     "primary_url": "/catalog/product/katafot-zadnego-bampera-levyi-nissan-pathfinder-1293/",
     "duplicate_product_ids": [
@@ -523,6 +578,10 @@
       "oem": "520001022",
       "price": 136500,
       "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.-vUDNLawVhw1g9QRe0-SxiKUVByznV4WtQ.FabMki7WgQdclhdtru_8kn7uCQDahW-JsqrXAs5OdCg"
+      ],
       "compatibility": [
         {
           "brand": "Voyah",
@@ -558,6 +617,10 @@
         "oem": "520001022",
         "price": 136500,
         "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.nSeyobawMc6EFrPDhPf-G5MBM84CCDnEBA.Kf4pa-wgAY3LoKQw3hfwBFNTI6VLMCpHmnhJaNKwHG0"
+        ],
         "compatibility": [
           {
             "brand": "Voyah",
@@ -592,6 +655,7 @@
       "oem",
       "price",
       "condition",
+      "origin",
       "compatibility",
       "side",
       "generation",
@@ -599,9 +663,11 @@
       "year_to"
     ],
     "differing_fields": [
-      "title"
+      "title",
+      "photos"
     ],
     "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": null,
     "primary_product_id": 1600,
     "primary_url": "/catalog/product/steklo-lobovoe-voyah-free-original-1600/",
     "duplicate_product_ids": [
@@ -626,6 +692,10 @@
       "oem": "6303010CR03АА",
       "price": 49140,
       "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.JhjvBLawivHZswj8rxx-Js6kiPFfrYL7WQ.luXbzSbdup8_IgljGY1xZ1vGEwp8wM5_SUZTbeImBrY"
+      ],
       "compatibility": [
         {
           "brand": "Changan",
@@ -663,6 +733,10 @@
         "oem": "6303010CR03АА",
         "price": 49440,
         "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.Ig4gH7awjucWqAzqaHMbPAG_jOeQtobtlg.XVCGdDMi2RK3uFaMzIQqC6GYDoVy6Vxj9BznJ4Ovxzk"
+        ],
         "compatibility": [
           {
             "brand": "Changan",
@@ -699,6 +773,7 @@
       "category_id",
       "oem",
       "condition",
+      "origin",
       "compatibility",
       "side",
       "generation",
@@ -706,9 +781,11 @@
       "year_to"
     ],
     "differing_fields": [
-      "price"
+      "price",
+      "photos"
     ],
     "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": null,
     "primary_product_id": 1665,
     "primary_url": "/catalog/product/steklo-zadnee-changan-uni-k-original-1665/",
     "duplicate_product_ids": [
@@ -733,6 +810,11 @@
       "oem": "JLH3G15TD",
       "price": 215000,
       "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.NOfvxbawmA7ZchoDi8lL285lmg5fbJAEWQ.sOx2TmHEJdtexKTjTC42kEJIKpTlZ7KP6UzWjedv2tA",
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.vVl6CbawEbBMvpO9DAfwZFupE7DKoBm6zA.qZauW_kyeaks1QBjyIuSmnaLOvP40AF9TPQg4aurzj0"
+      ],
       "compatibility": [
         {
           "brand": "Geely",
@@ -784,6 +866,10 @@
         "oem": "JLH3G15TD",
         "price": 140000,
         "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.N-rIELawmwP-pxkOqjhV1umwmQN4uZMJfg.UBIdL-KR5uXI16OooPW7T6KfU9e_dSfEEhJdXaPRhWI"
+        ],
         "compatibility": [
           {
             "brand": "Geely",
@@ -834,6 +920,7 @@
       "category_id",
       "oem",
       "condition",
+      "origin",
       "compatibility",
       "side",
       "generation",
@@ -841,9 +928,11 @@
       "year_to"
     ],
     "differing_fields": [
-      "price"
+      "price",
+      "photos"
     ],
     "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": null,
     "primary_product_id": 1708,
     "primary_url": "/catalog/product/dvigatel-v-sbore-geely-coolray-jlh3g15td-1708/",
     "duplicate_product_ids": [
@@ -868,6 +957,10 @@
       "oem": "6101200XKV3CA",
       "price": 69876,
       "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.rrI3ILawAlsBl4BWZ3rFjhaAAFuHiQpRgQ.x62DCu-GJRVJlNrKFZPT56N-d3f8Vq-XFYWwMNSxMCc"
+      ],
       "compatibility": [
         {
           "brand": "Tank",
@@ -903,6 +996,11 @@
         "oem": "6101200XKV3CA",
         "price": 67320,
         "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.R9kF77aw6zAzWGk9B94Q5yRP6TC1RuM6sw.7-pcNArpgFr4-JKWyuiQqJdWn3C-9u1TBMvB-RpvwPM",
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.i9k9jbawJzALOqU9J4vg6hwtJTCNJC86iw.wZQTLRUWvIeHVe0Xvh6-lbpqyAoZaJ5pqZGrTq-11xA"
+        ],
         "compatibility": [
           {
             "brand": "Tank",
@@ -936,6 +1034,7 @@
       "category_id",
       "oem",
       "condition",
+      "origin",
       "compatibility",
       "side",
       "generation",
@@ -944,9 +1043,11 @@
     ],
     "differing_fields": [
       "title",
-      "price"
+      "price",
+      "photos"
     ],
     "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": null,
     "primary_product_id": 1799,
     "primary_url": "/catalog/product/dver-perednyaya-pravaya-tank-500-1799/",
     "duplicate_product_ids": [
@@ -971,6 +1072,10 @@
       "oem": "78100M",
       "price": 78540,
       "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.e8Cb37aw1ymtaFUk4Y5D8rp_1Skrdt8jLQ.6mtvAvVrfbNDsPvXfrE5vdqgXldVWJCzoZhBcgJgH5w"
+      ],
       "compatibility": [
         {
           "brand": "Nissan",
@@ -1007,6 +1112,8 @@
         "oem": "78100M",
         "price": 75030,
         "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [],
         "compatibility": [
           {
             "brand": "Nissan",
@@ -1042,6 +1149,7 @@
       "category_id",
       "oem",
       "condition",
+      "origin",
       "compatibility",
       "side",
       "generation",
@@ -1049,9 +1157,11 @@
       "year_to"
     ],
     "differing_fields": [
-      "price"
+      "price",
+      "photos"
     ],
     "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": null,
     "primary_product_id": 2043,
     "primary_url": "/catalog/product/pravoe-zadnee-krylo-nissan-x-trail-t33-2043/",
     "duplicate_product_ids": [
@@ -1062,20 +1172,22 @@
     ]
   },
   {
-    "fingerprint": "4ef03b64957ea26eb3743c66",
-    "classification": "pending_manual_identity_review",
+    "fingerprint": "fdb3cfd070386c153809ebb0",
+    "classification": "confirmed_owner_duplicate",
     "primary": {
-      "product_id": 2085,
-      "source_id": "7564215304",
-      "canonical_path": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2085/",
+      "product_id": 2346,
+      "source_id": "7564578340",
+      "canonical_path": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2346/",
       "title": "Усилитель переднего бампера нижний Polar Stone 01",
       "detail": "Усилитель переднего бампера нижний Polar Stone",
       "brand": "Polar Stone (Jishi)",
       "model": "01",
       "category_id": "c1010",
       "oem": "Polar Stone",
-      "price": 24645,
+      "price": 30795,
       "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [],
       "compatibility": [
         {
           "brand": "Polar Stone (Jishi)",
@@ -1098,17 +1210,19 @@
     },
     "secondary_pages": [
       {
-        "product_id": 2346,
-        "source_id": "7564578340",
-        "canonical_path": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2346/",
+        "product_id": 2085,
+        "source_id": "7564215304",
+        "canonical_path": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2085/",
         "title": "Усилитель переднего бампера нижний Polar Stone 01",
         "detail": "Усилитель переднего бампера нижний Polar Stone",
         "brand": "Polar Stone (Jishi)",
         "model": "01",
         "category_id": "c1010",
         "oem": "Polar Stone",
-        "price": 30795,
+        "price": 24645,
         "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [],
         "compatibility": [
           {
             "brand": "Polar Stone (Jishi)",
@@ -1130,7 +1244,7 @@
         "year_to": 2025,
         "robots": "noindex,follow",
         "canonical_path_target": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2346/",
-        "reason": "The public metadata collides, but no verified OEM is available; manual identity review is required."
+        "reason": "Владелец подтвердил дубль 2085/2346 и выбрал основной товар 2346 как вариант с максимальной ценой."
       }
     ],
     "matching_fields": [
@@ -1141,6 +1255,8 @@
       "category_id",
       "oem",
       "condition",
+      "origin",
+      "photos",
       "compatibility",
       "side",
       "generation",
@@ -1150,19 +1266,24 @@
     "differing_fields": [
       "price"
     ],
-    "action": "secondary_noindex_self_canonical_pending_review",
-    "primary_product_id": 2085,
-    "primary_url": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2085/",
+    "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": {
+      "action": "canonical_duplicate",
+      "primary_product_id": 2346,
+      "reason": "Владелец подтвердил дубль 2085/2346 и выбрал основной товар 2346 как вариант с максимальной ценой."
+    },
+    "primary_product_id": 2346,
+    "primary_url": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2346/",
     "duplicate_product_ids": [
-      2346
+      2085
     ],
     "duplicate_urls": [
-      "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2346/"
+      "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2085/"
     ]
   },
   {
     "fingerprint": "dbdc78d3d07dba347e828f6a",
-    "classification": "pending_manual_identity_review",
+    "classification": "distinct_products_pending_metadata",
     "primary": {
       "product_id": 2217,
       "source_id": "7564815055",
@@ -1175,6 +1296,10 @@
       "oem": "Polar Stone",
       "price": 26745,
       "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.8Ud20rawXa5AZd-jGImRe1dyX67Ge1WkwA.5Y8ezVhrbjcdLEbEgA96fxfknB0shLqUTjKZZ3BVRvY"
+      ],
       "compatibility": [
         {
           "brand": "Polar Stone (Jishi)",
@@ -1208,6 +1333,8 @@
         "oem": "Polar Stone",
         "price": 30765,
         "condition": "Новое",
+        "origin": "Не знаю",
+        "photos": [],
         "compatibility": [
           {
             "brand": "Polar Stone (Jishi)",
@@ -1227,9 +1354,9 @@
         "generation": "I",
         "year_from": 2023,
         "year_to": 2025,
-        "robots": "noindex,follow",
+        "robots": "index,follow",
         "canonical_path_target": "/catalog/product/krylo-perednee-pravoe-polar-stone-01-2593/",
-        "reason": "The public metadata collides, but no verified OEM is available; manual identity review is required."
+        "reason": "Владелец подтвердил, что позиции пока считаются разными: отличаются происхождение, фотографии, описания или цены. Canonical остаётся самостоятельным."
       }
     ],
     "matching_fields": [
@@ -1247,9 +1374,15 @@
       "year_to"
     ],
     "differing_fields": [
-      "price"
+      "price",
+      "origin",
+      "photos"
     ],
-    "action": "secondary_noindex_self_canonical_pending_review",
+    "action": "owner_kept_separate_index_self_canonical",
+    "owner_decision": {
+      "action": "keep_separate",
+      "reason": "Владелец подтвердил, что позиции пока считаются разными: отличаются происхождение, фотографии, описания или цены. Canonical остаётся самостоятельным."
+    },
     "primary_product_id": 2217,
     "primary_url": "/catalog/product/krylo-perednee-pravoe-polar-stone-01-2217/",
     "duplicate_product_ids": [
@@ -1261,7 +1394,7 @@
   },
   {
     "fingerprint": "7e3147a7cd61c2c4d42ef52c",
-    "classification": "pending_manual_identity_review",
+    "classification": "distinct_products_pending_metadata",
     "primary": {
       "product_id": 2263,
       "source_id": "7980226089",
@@ -1274,6 +1407,10 @@
       "oem": "byd",
       "price": 101770,
       "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.aIKVdbawxGujwkZmyRwrvLTVxmsl3MxhIw.K-fDtQeyvtNQC4F9DexUxVZ3_ZaMZggALMG3xhHyEHo"
+      ],
       "compatibility": [
         {
           "brand": "BYD",
@@ -1306,6 +1443,10 @@
         "oem": "Byd",
         "price": 86000,
         "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.vJbQPrawEH_miZJypBThqPGeEn9glxh1Zg.I6A5Nk1UE0mTz36O19IYjtUpgyKOAnO6Y63qnL7ly4w"
+        ],
         "compatibility": [
           {
             "brand": "BYD",
@@ -1324,9 +1465,9 @@
         "generation": "I",
         "year_from": 2025,
         "year_to": 2026,
-        "robots": "noindex,follow",
+        "robots": "index,follow",
         "canonical_path_target": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2659/",
-        "reason": "The public metadata collides, but no verified OEM is available; manual identity review is required."
+        "reason": "Владелец подтвердил, что позиции пока считаются разными: отличаются происхождение, фотографии, описания или цены. Canonical остаётся самостоятельным."
       }
     ],
     "matching_fields": [
@@ -1336,6 +1477,7 @@
       "model",
       "category_id",
       "condition",
+      "origin",
       "compatibility",
       "side",
       "generation",
@@ -1344,9 +1486,14 @@
     ],
     "differing_fields": [
       "oem",
-      "price"
+      "price",
+      "photos"
     ],
-    "action": "secondary_noindex_self_canonical_pending_review",
+    "action": "owner_kept_separate_index_self_canonical",
+    "owner_decision": {
+      "action": "keep_separate",
+      "reason": "Владелец подтвердил, что позиции пока считаются разными: отличаются происхождение, фотографии, описания или цены. Canonical остаётся самостоятельным."
+    },
     "primary_product_id": 2263,
     "primary_url": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2263/",
     "duplicate_product_ids": [
@@ -1371,6 +1518,8 @@
       "oem": "76073ED",
       "price": 12299,
       "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [],
       "compatibility": [
         {
           "brand": "Nissan",
@@ -1407,6 +1556,10 @@
         "oem": "76073ED",
         "price": 9180,
         "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.tSaHwbawGc-xdpvC4afjGKZhG883aBHFMQ.NMlWbAX8skPCWct-mGTFvjI7Svc8T3jKmfM7PQ2vrXY"
+        ],
         "compatibility": [
           {
             "brand": "Nissan",
@@ -1441,6 +1594,7 @@
       "model",
       "oem",
       "condition",
+      "origin",
       "compatibility",
       "side",
       "generation",
@@ -1449,9 +1603,11 @@
     ],
     "differing_fields": [
       "category_id",
-      "price"
+      "price",
+      "photos"
     ],
     "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": null,
     "primary_product_id": 2428,
     "primary_url": "/catalog/product/nakladka-zadnego-pravogo-kryla-nissan-x-trail-t33-2428/",
     "duplicate_product_ids": [
@@ -1476,6 +1632,8 @@
       "oem": "620102004",
       "price": 94000,
       "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [],
       "compatibility": [
         {
           "brand": "Voyah",
@@ -1527,6 +1685,10 @@
         "oem": "620102004",
         "price": 94000,
         "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.5rLHt7awSlvxAMhWh7CJgeYXSFt3HkJRcQ.QCKpel7Dui6HmUgQCekRI3iuaXkx6GMGjmrHn-SJxOQ"
+        ],
         "compatibility": [
           {
             "brand": "Voyah",
@@ -1577,6 +1739,7 @@
       "oem",
       "price",
       "condition",
+      "origin",
       "compatibility",
       "side",
       "generation",
@@ -1584,9 +1747,11 @@
       "year_to"
     ],
     "differing_fields": [
-      "title"
+      "title",
+      "photos"
     ],
     "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": null,
     "primary_product_id": 2560,
     "primary_url": "/catalog/product/dver-zadnyaya-pravaya-voyah-free-2560/",
     "duplicate_product_ids": [
