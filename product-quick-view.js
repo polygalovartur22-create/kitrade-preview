@@ -84,7 +84,11 @@
     dialog.querySelector("[data-quick-meta]").textContent = item.meta || [item.brand, item.model].filter(Boolean).join(" · ");
     dialog.querySelector("[data-quick-description]").textContent = item.quick_description || "Цена — за деталь. Доставка отдельно. Проверка по VIN. Минимальная сумма заказа — 50 000 ₽; детали можно объединить.";
     dialog.querySelector("[data-quick-price]").textContent = formatPrice(item.price);
-    dialog.querySelector("[data-quick-page]").href = sitePath(item.canonical_path);
+    const pageLink = dialog.querySelector("[data-quick-page]");
+    pageLink.hidden = false;
+    pageLink.setAttribute("aria-disabled", String(!item.indexable));
+    if (item.indexable) pageLink.href = sitePath(item.canonical_path);
+    else pageLink.removeAttribute("href");
     dialog.showModal();
     window.KITRADE_TRACK?.("product_view", { product_id: String(item.id), page_type: "quick_view" });
     return true;

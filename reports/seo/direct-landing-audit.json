@@ -1,0 +1,2780 @@
+{
+  "audit_version": 1,
+  "scope": "All 107 source groups from search-target-map.json; this audit does not import or alter advertising semantics.",
+  "summary": {
+    "groups_checked": 107,
+    "ready_after_production_launch": 107,
+    "not_ready": 0,
+    "high_priority_groups": 11,
+    "additional_semantic_gaps_without_current_catalog_target": 1
+  },
+  "additional_semantic_gaps": [
+    {
+      "source_group": "fangchengbao|bao 5",
+      "primary_query": "запчасти Fang Cheng Bao Bao 5",
+      "status": "no_current_catalog_target"
+    }
+  ],
+  "groups": [
+    {
+      "source_row": 2,
+      "search_group": "wide:wide китайские авто",
+      "priority": "standard",
+      "landing_path": "/catalog/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/",
+      "page_type": "catalog",
+      "primary_query": "автозапчасти под заказ",
+      "queries": [
+        "автозапчасти под заказ",
+        "каталог автозапчастей из Китая",
+        "подбор запчастей по VIN"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 3,
+      "search_group": "brand:geely",
+      "priority": "standard",
+      "landing_path": "/catalog/geely/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/",
+      "page_type": "brand",
+      "primary_query": "каталог запчастей Geely",
+      "queries": [
+        "каталог запчастей Geely",
+        "цены на запчасти Geely",
+        "цены на запчасти Джили",
+        "магазин запчастей Geely",
+        "заказать запчасти Geely",
+        "магазин запчастей Джили",
+        "заказать запчасти Джили",
+        "автозапчасти Geely"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 4,
+      "search_group": "brand:voyah",
+      "priority": "standard",
+      "landing_path": "/catalog/voyah/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/voyah/",
+      "page_type": "brand",
+      "primary_query": "каталог запчастей Voyah",
+      "queries": [
+        "каталог запчастей Voyah",
+        "купить запчасти Воя",
+        "цены на запчасти Воя",
+        "купить запчасти Воях",
+        "каталог запчастей Воя",
+        "купить запчасти Voyah",
+        "заказать запчасти Воя",
+        "цены на запчасти Voyah",
+        "автозапчасти Voyah"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 5,
+      "search_group": "brand:baic",
+      "priority": "standard",
+      "landing_path": "/catalog/baic/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baic/",
+      "page_type": "brand",
+      "primary_query": "каталог запчастей BAIC",
+      "queries": [
+        "каталог запчастей BAIC",
+        "купить запчасти BAIC",
+        "купить запчасти БАИК",
+        "каталог запчастей БАИК",
+        "магазин запчастей BAIC",
+        "магазин запчастей БАИК",
+        "заказать запчасти BAIC",
+        "автозапчасти BAIC"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 6,
+      "search_group": "brand:changan",
+      "priority": "standard",
+      "landing_path": "/catalog/changan/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/",
+      "page_type": "brand",
+      "primary_query": "каталог запчастей Changan",
+      "queries": [
+        "каталог запчастей Changan",
+        "купить запчасти Чанган",
+        "купить запчасти Changan",
+        "цены на запчасти Чанган",
+        "каталог запчастей Чанган",
+        "магазин запчастей Чанган",
+        "заказать запчасти Чанган",
+        "цены на запчасти Changan",
+        "автозапчасти Changan"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 7,
+      "search_group": "brand:livan",
+      "priority": "standard",
+      "landing_path": "/catalog/livan/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/livan/",
+      "page_type": "brand",
+      "primary_query": "каталог запчастей Livan",
+      "queries": [
+        "каталог запчастей Livan",
+        "купить запчасти Ливан",
+        "купить запчасти Livan",
+        "каталог запчастей Ливан",
+        "заказать запчасти Livan",
+        "заказать запчасти Ливан",
+        "магазин запчастей Livan",
+        "автозапчасти Livan"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 8,
+      "search_group": "brand:byd",
+      "priority": "standard",
+      "landing_path": "/catalog/byd/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/byd/",
+      "page_type": "brand",
+      "primary_query": "каталог запчастей BYD",
+      "queries": [
+        "каталог запчастей BYD",
+        "купить запчасти BYD",
+        "купить запчасти БИД",
+        "цены на запчасти BYD",
+        "заказать запчасти BYD",
+        "магазин запчастей БИД",
+        "магазин запчастей BYD",
+        "автозапчасти BYD"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 9,
+      "search_group": "brand:haval",
+      "priority": "standard",
+      "landing_path": "/catalog/haval/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/haval/",
+      "page_type": "brand",
+      "primary_query": "каталог запчастей Haval",
+      "queries": [
+        "каталог запчастей Haval",
+        "купить запчасти Хавал",
+        "купить запчасти Haval",
+        "цены на запчасти Хавал",
+        "цены на запчасти Haval",
+        "купить запчасти Хавейл",
+        "каталог запчастей Хавал",
+        "автозапчасти Haval"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 10,
+      "search_group": "brand:tank",
+      "priority": "standard",
+      "landing_path": "/catalog/tank/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/tank/",
+      "page_type": "brand",
+      "primary_query": "каталог запчастей Tank",
+      "queries": [
+        "каталог запчастей Tank",
+        "купить запчасти Танк",
+        "купить запчасти Tank",
+        "цены на запчасти Танк",
+        "каталог запчастей Танк",
+        "магазин запчастей Танк",
+        "заказать запчасти Tank",
+        "автозапчасти Tank"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 11,
+      "search_group": "brand:wey",
+      "priority": "standard",
+      "landing_path": "/catalog/wey/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/wey/",
+      "page_type": "brand",
+      "primary_query": "каталог запчастей Wey",
+      "queries": [
+        "каталог запчастей Wey",
+        "купить запчасти Вей",
+        "купить запчасти Wey",
+        "каталог запчастей Вей",
+        "магазин запчастей Вей",
+        "заказать запчасти Wey",
+        "купить автозапчасти Wey",
+        "автозапчасти Wey"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 12,
+      "search_group": "brand:fang cheng bao",
+      "priority": "standard",
+      "landing_path": "/catalog/fang-cheng-bao/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/fang-cheng-bao/",
+      "page_type": "brand",
+      "primary_query": "купить запчасти Фан Чен Бао",
+      "queries": [
+        "купить запчасти Фан Чен Бао",
+        "купить запчасти Fang Cheng Bao",
+        "каталог запчастей Фан Чен Бао",
+        "каталог запчастей Fang Cheng Bao",
+        "заказать запчасти Fang Cheng Bao",
+        "автозапчасти Fang Cheng Bao"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 13,
+      "search_group": "brand:hongqi",
+      "priority": "standard",
+      "landing_path": "/catalog/hongqi/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/hongqi/",
+      "page_type": "brand",
+      "primary_query": "каталог запчастей Hongqi",
+      "queries": [
+        "каталог запчастей Hongqi",
+        "купить запчасти Хончи",
+        "купить запчасти Хунци",
+        "купить запчасти Hongqi",
+        "каталог запчастей Хунчи",
+        "каталог запчастей Хончи",
+        "каталог запчастей Хунци",
+        "магазин запчастей Хончи",
+        "автозапчасти Hongqi"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 14,
+      "search_group": "brand:li auto",
+      "priority": "standard",
+      "landing_path": "/catalog/li-auto/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/li-auto/",
+      "page_type": "brand",
+      "primary_query": "запчасти Li Auto",
+      "queries": [
+        "запчасти Li Auto",
+        "автозапчасти Li Auto",
+        "детали Li Auto из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 15,
+      "search_group": "brand:zeekr",
+      "priority": "standard",
+      "landing_path": "/catalog/zeekr/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/zeekr/",
+      "page_type": "brand",
+      "primary_query": "запчасти Zeekr",
+      "queries": [
+        "запчасти Zeekr",
+        "автозапчасти Zeekr",
+        "детали Zeekr из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 16,
+      "search_group": "brand:exeed",
+      "priority": "standard",
+      "landing_path": "/catalog/exeed/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/exeed/",
+      "page_type": "brand",
+      "primary_query": "запчасти Exeed",
+      "queries": [
+        "запчасти Exeed",
+        "автозапчасти Exeed",
+        "детали Exeed из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 17,
+      "search_group": "brand:aito",
+      "priority": "standard",
+      "landing_path": "/catalog/aito/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/aito/",
+      "page_type": "brand",
+      "primary_query": "запчасти Aito",
+      "queries": [
+        "запчасти Aito",
+        "автозапчасти Aito",
+        "детали Aito из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 18,
+      "search_group": "brand:xiaomi",
+      "priority": "standard",
+      "landing_path": "/catalog/xiaomi/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/xiaomi/",
+      "page_type": "brand",
+      "primary_query": "запчасти Xiaomi",
+      "queries": [
+        "запчасти Xiaomi",
+        "автозапчасти Xiaomi",
+        "детали Xiaomi из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 19,
+      "search_group": "brand:polar stone jishi",
+      "priority": "standard",
+      "landing_path": "/catalog/polar-stone-jishi/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/polar-stone-jishi/",
+      "page_type": "brand",
+      "primary_query": "запчасти Polar Stone (Jishi)",
+      "queries": [
+        "запчасти Polar Stone (Jishi)",
+        "автозапчасти Polar Stone (Jishi)",
+        "детали Polar Stone (Jishi) из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 20,
+      "search_group": "brand:baw",
+      "priority": "standard",
+      "landing_path": "/catalog/baw/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baw/",
+      "page_type": "brand",
+      "primary_query": "запчасти BAW",
+      "queries": [
+        "запчасти BAW",
+        "автозапчасти BAW",
+        "детали BAW из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 21,
+      "search_group": "brand:chery",
+      "priority": "standard",
+      "landing_path": "/catalog/chery/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/chery/",
+      "page_type": "brand",
+      "primary_query": "запчасти Chery",
+      "queries": [
+        "запчасти Chery",
+        "автозапчасти Chery",
+        "детали Chery из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 22,
+      "search_group": "brand:hiphi",
+      "priority": "standard",
+      "landing_path": "/catalog/hiphi/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/hiphi/",
+      "page_type": "brand",
+      "primary_query": "запчасти HiPhi",
+      "queries": [
+        "запчасти HiPhi",
+        "автозапчасти HiPhi",
+        "детали HiPhi из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 23,
+      "search_group": "brand:great wall",
+      "priority": "standard",
+      "landing_path": "/catalog/great-wall/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/great-wall/",
+      "page_type": "brand",
+      "primary_query": "запчасти Great Wall",
+      "queries": [
+        "запчасти Great Wall",
+        "автозапчасти Great Wall",
+        "детали Great Wall из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 24,
+      "search_group": "brand:dongfeng",
+      "priority": "standard",
+      "landing_path": "/catalog/dongfeng/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/dongfeng/",
+      "page_type": "brand",
+      "primary_query": "запчасти Dongfeng",
+      "queries": [
+        "запчасти Dongfeng",
+        "автозапчасти Dongfeng",
+        "детали Dongfeng из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 25,
+      "search_group": "brand:baojun",
+      "priority": "standard",
+      "landing_path": "/catalog/baojun/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baojun/",
+      "page_type": "brand",
+      "primary_query": "запчасти Baojun",
+      "queries": [
+        "запчасти Baojun",
+        "автозапчасти Baojun",
+        "детали Baojun из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 26,
+      "search_group": "brand:omoda",
+      "priority": "standard",
+      "landing_path": "/catalog/omoda/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/omoda/",
+      "page_type": "brand",
+      "primary_query": "запчасти Omoda",
+      "queries": [
+        "запчасти Omoda",
+        "автозапчасти Omoda",
+        "детали Omoda из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 27,
+      "search_group": "brand:jetour",
+      "priority": "standard",
+      "landing_path": "/catalog/jetour/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/jetour/",
+      "page_type": "brand",
+      "primary_query": "запчасти Jetour",
+      "queries": [
+        "запчасти Jetour",
+        "автозапчасти Jetour",
+        "детали Jetour из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 28,
+      "search_group": "model:aito|m8",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/aito/m8/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/aito/m8/",
+      "page_type": "model",
+      "primary_query": "запчасти Aito M8",
+      "queries": [
+        "запчасти Aito M8",
+        "автозапчасти Aito M8",
+        "купить запчасти Aito M8",
+        "каталог запчастей Aito M8",
+        "цены на запчасти Aito M8",
+        "цены на запчасти Аито M8",
+        "магазин запчастей Aito M8",
+        "детали Aito M8"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 29,
+      "search_group": "model:audi|a8",
+      "priority": "P2_long_tail_high_value",
+      "landing_path": "/catalog/audi/a8/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/audi/a8/",
+      "page_type": "model",
+      "primary_query": "запчасти Audi A8",
+      "queries": [
+        "запчасти Audi A8",
+        "детали Audi A8",
+        "Audi A8 запчасти из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 30,
+      "search_group": "model:audi|q5 sportback",
+      "priority": "P2_long_tail_high_value",
+      "landing_path": "/catalog/audi/q5-sportback/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/audi/q5-sportback/",
+      "page_type": "model",
+      "primary_query": "запчасти Audi Q5 Sportback",
+      "queries": [
+        "запчасти Audi Q5 Sportback",
+        "детали Audi Q5 Sportback",
+        "Audi Q5 Sportback запчасти из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 31,
+      "search_group": "model:baic|bj40",
+      "priority": "P2_high_demand_medium_value",
+      "landing_path": "/catalog/baic/bj40/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baic/bj40/",
+      "page_type": "model",
+      "primary_query": "запчасти BAIC BJ40",
+      "queries": [
+        "запчасти BAIC BJ40",
+        "автозапчасти BAIC BJ40",
+        "купить запчасти BAIC BJ40",
+        "каталог запчастей BAIC BJ40",
+        "цены на запчасти BAIC BJ40",
+        "цены на запчасти БАИК BJ40",
+        "цены на запчасти Байк BJ40",
+        "детали BAIC BJ40"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 32,
+      "search_group": "model:baic|u5 plus",
+      "priority": "P4_low_value_controlled",
+      "landing_path": "/catalog/baic/u5-plus/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baic/u5-plus/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей BAIC U5 Plus",
+      "queries": [
+        "каталог запчастей BAIC U5 Plus",
+        "запчасти BAIC U5 Plus",
+        "автозапчасти BAIC U5 Plus",
+        "купить запчасти BAIC U5 Plus",
+        "цены на запчасти BAIC U5 Plus",
+        "цены на запчасти БАИК U5 Plus",
+        "цены на запчасти Байк U5 Plus",
+        "детали BAIC U5 Plus"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 33,
+      "search_group": "model:baic|x35",
+      "priority": "P4_low_value_controlled",
+      "landing_path": "/catalog/baic/x35/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baic/x35/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей BAIC X35",
+      "queries": [
+        "каталог запчастей BAIC X35",
+        "запчасти BAIC X35",
+        "автозапчасти BAIC X35",
+        "купить запчасти BAIC X35",
+        "цены на запчасти BAIC X35",
+        "цены на запчасти БАИК X35",
+        "цены на запчасти Байк X35",
+        "детали BAIC X35"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 34,
+      "search_group": "model:baic|x55",
+      "priority": "P2_high_demand_medium_value",
+      "landing_path": "/catalog/baic/x55/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baic/x55/",
+      "page_type": "model",
+      "primary_query": "запчасти BAIC X55",
+      "queries": [
+        "запчасти BAIC X55",
+        "автозапчасти BAIC X55",
+        "купить запчасти BAIC X55",
+        "каталог запчастей BAIC X55",
+        "цены на запчасти BAIC X55",
+        "цены на запчасти БАИК X55",
+        "цены на запчасти Байк X55",
+        "детали BAIC X55"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 35,
+      "search_group": "model:baic|x7",
+      "priority": "P4_low_value_controlled",
+      "landing_path": "/catalog/baic/x7/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baic/x7/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей BAIC X7",
+      "queries": [
+        "каталог запчастей BAIC X7",
+        "запчасти BAIC X7",
+        "автозапчасти BAIC X7",
+        "купить запчасти BAIC X7",
+        "цены на запчасти BAIC X7",
+        "цены на запчасти БАИК X7",
+        "цены на запчасти Байк X7",
+        "детали BAIC X7"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 36,
+      "search_group": "model:baojun|rc 5",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/baojun/rc-5/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baojun/rc-5/",
+      "page_type": "model",
+      "primary_query": "запчасти Baojun RC-5",
+      "queries": [
+        "запчасти Baojun RC-5",
+        "автозапчасти Baojun RC-5",
+        "купить запчасти Baojun RC-5",
+        "каталог запчастей Baojun RC-5",
+        "цены на запчасти Baojun RC-5",
+        "магазин запчастей Baojun RC-5",
+        "заказать запчасти Baojun RC-5",
+        "детали Baojun RC-5"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 37,
+      "search_group": "model:baojun|rs 5",
+      "priority": "P4_low_value_controlled",
+      "landing_path": "/catalog/baojun/rs-5/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baojun/rs-5/",
+      "page_type": "model",
+      "primary_query": "запчасти Baojun RS-5",
+      "queries": [
+        "запчасти Baojun RS-5",
+        "детали Baojun RS-5",
+        "Baojun RS-5 запчасти из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 38,
+      "search_group": "model:baw|212",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/baw/212/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baw/212/",
+      "page_type": "model",
+      "primary_query": "запчасти BAW 212",
+      "queries": [
+        "запчасти BAW 212",
+        "автозапчасти BAW 212",
+        "купить запчасти BAW 212",
+        "каталог запчастей BAW 212",
+        "цены на запчасти BAW 212",
+        "цены на запчасти БАВ 212",
+        "магазин запчастей BAW 212",
+        "детали BAW 212"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 39,
+      "search_group": "model:bmw|x5",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/bmw/x5/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/bmw/x5/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей BMW X5",
+      "queries": [
+        "каталог запчастей BMW X5",
+        "детали Bmw X5",
+        "Bmw X5 запчасти из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 40,
+      "search_group": "model:byd|seal 06 gt",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/byd/seal-06-gt/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/byd/seal-06-gt/",
+      "page_type": "model",
+      "primary_query": "запчасти BYD Seal 06 GT",
+      "queries": [
+        "запчасти BYD Seal 06 GT",
+        "автозапчасти BYD Seal 06 GT",
+        "купить запчасти BYD Seal 06 GT",
+        "каталог запчастей BYD Seal 06 GT",
+        "цены на запчасти BYD Seal 06 GT",
+        "цены на запчасти БИД Seal 06 GT",
+        "магазин запчастей BYD Seal 06 GT",
+        "детали BYD Seal 06 GT"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 41,
+      "search_group": "model:byd|tang l",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/byd/tang-l/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/byd/tang-l/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей BYD Tang L",
+      "queries": [
+        "каталог запчастей BYD Tang L",
+        "запчасти BYD Tang L",
+        "автозапчасти BYD Tang L",
+        "купить запчасти BYD Tang L",
+        "цены на запчасти BYD Tang L",
+        "цены на запчасти БИД Tang L",
+        "магазин запчастей BYD Tang L",
+        "детали BYD Tang L"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 42,
+      "search_group": "model:byd|yangwang u8",
+      "priority": "P2_long_tail_high_value",
+      "landing_path": "/catalog/byd/yangwang-u8/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/byd/yangwang-u8/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей BYD Yangwang U8",
+      "queries": [
+        "каталог запчастей BYD Yangwang U8",
+        "запчасти BYD Yangwang U8",
+        "автозапчасти BYD Yangwang U8",
+        "купить запчасти BYD Yangwang U8",
+        "цены на запчасти BYD Yangwang U8",
+        "цены на запчасти БИД Yangwang U8",
+        "магазин запчастей BYD Yangwang U8",
+        "детали BYD Yangwang U8"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 43,
+      "search_group": "model:changan|alsvin",
+      "priority": "P1_high_demand_high_value",
+      "landing_path": "/catalog/changan/alsvin/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/alsvin/",
+      "page_type": "model",
+      "primary_query": "запчасти Changan Alsvin",
+      "queries": [
+        "запчасти Changan Alsvin",
+        "автозапчасти Changan Alsvin",
+        "купить запчасти Changan Alsvin",
+        "каталог запчастей Changan Alsvin",
+        "цены на запчасти Чанган Alsvin",
+        "цены на запчасти Changan Alsvin",
+        "магазин запчастей Чанган Alsvin",
+        "детали Changan Alsvin"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 44,
+      "search_group": "model:changan|auchan z6",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/changan/auchan-z6/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/auchan-z6/",
+      "page_type": "model",
+      "primary_query": "запчасти Changan Auchan Z6",
+      "queries": [
+        "запчасти Changan Auchan Z6",
+        "автозапчасти Changan Auchan Z6",
+        "купить запчасти Changan Auchan Z6",
+        "каталог запчастей Changan Auchan Z6",
+        "цены на запчасти Чанган Auchan Z6",
+        "цены на запчасти Changan Oshan Z6",
+        "цены на запчасти Changan Auchan Z6",
+        "детали Changan Auchan Z6"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 45,
+      "search_group": "model:changan|cs35 plus",
+      "priority": "P1_high_demand_high_value",
+      "landing_path": "/catalog/changan/cs35-plus/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/cs35-plus/",
+      "page_type": "model",
+      "primary_query": "запчасти Чанган CS35 Plus",
+      "queries": [
+        "запчасти Чанган CS35 Plus",
+        "запчасти Changan CS35 Plus",
+        "автозапчасти Changan CS35 Plus",
+        "купить запчасти Changan CS35 Plus",
+        "каталог запчастей Чанган CS35 Plus",
+        "каталог запчастей Changan CS35 Plus",
+        "цены на запчасти Чанган CS35 Plus",
+        "детали Changan CS35 Plus"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 46,
+      "search_group": "model:changan|cs75 plus",
+      "priority": "high",
+      "landing_path": "/catalog/changan/cs75-plus/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/cs75-plus/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Changan CS75 Plus",
+      "queries": [
+        "каталог запчастей Changan CS75 Plus",
+        "запчасти Чанган CS75 Plus",
+        "запчасти Changan CS75 Plus",
+        "автозапчасти Changan CS75 Plus",
+        "купить запчасти Changan CS75 Plus",
+        "каталог запчастей Чанган CS75 Plus",
+        "цены на запчасти Чанган CS75 Plus",
+        "детали Changan CS75 Plus"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 47,
+      "search_group": "model:changan|cs95",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/changan/cs95/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/cs95/",
+      "page_type": "model",
+      "primary_query": "запчасти Changan CS95",
+      "queries": [
+        "запчасти Changan CS95",
+        "запчасти Чанган CS95",
+        "автозапчасти Changan CS95",
+        "купить запчасти Changan CS95",
+        "каталог запчастей Чанган CS95",
+        "каталог запчастей Changan CS95",
+        "цены на запчасти Чанган CS95",
+        "детали Changan CS95"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 48,
+      "search_group": "model:changan|hunter plus",
+      "priority": "P4_low_value_controlled",
+      "landing_path": "/catalog/changan/hunter-plus/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/hunter-plus/",
+      "page_type": "model",
+      "primary_query": "запчасти Changan Hunter Plus",
+      "queries": [
+        "запчасти Changan Hunter Plus",
+        "автозапчасти Changan Hunter Plus",
+        "купить запчасти Changan Hunter Plus",
+        "каталог запчастей Changan Hunter Plus",
+        "цены на запчасти Чанган Hunter Plus",
+        "цены на запчасти Changan Hunter Plus",
+        "магазин запчастей Чанган Hunter Plus",
+        "детали Changan Hunter Plus"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 49,
+      "search_group": "model:changan|shenlan deepal s07",
+      "priority": "P2_long_tail_high_value",
+      "landing_path": "/catalog/changan/shenlan-deepal-s07/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/shenlan-deepal-s07/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Deepal S07",
+      "queries": [
+        "каталог запчастей Deepal S07",
+        "запчасти Deepal S07",
+        "автозапчасти Deepal S07",
+        "купить запчасти Deepal S07",
+        "запчасти Changan Deepal S07",
+        "каталог запчастей Changan Deepal S07",
+        "цены на запчасти Changan Deepal S07",
+        "детали Changan Shenlan (Deepal) S07"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 50,
+      "search_group": "model:changan|uni k",
+      "priority": "P1_high_demand_high_value",
+      "landing_path": "/catalog/changan/uni-k/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/changan/uni-k/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Changan UNI-K",
+      "queries": [
+        "каталог запчастей Changan UNI-K",
+        "запчасти Чанган ЮНИ-К",
+        "запчасти Чанган UNI-K",
+        "запчасти Changan UNI-K",
+        "автозапчасти Changan UNI-K",
+        "купить запчасти Changan UNI-K",
+        "каталог запчастей Чанган ЮНИ-К",
+        "каталог запчастей Чанган UNI-K",
+        "детали Changan Uni-K"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 51,
+      "search_group": "model:chery|tiggo 4",
+      "priority": "P1_high_demand_high_value",
+      "landing_path": "/catalog/chery/tiggo-4/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/chery/tiggo-4/",
+      "page_type": "model",
+      "primary_query": "запчасти Чери Тигго 4",
+      "queries": [
+        "запчасти Чери Тигго 4",
+        "запчасти Chery Tiggo 4",
+        "автозапчасти Чери Тигго 4",
+        "купить запчасти Чери Тигго 4",
+        "каталог запчастей Чери Тигго 4",
+        "каталог запчастей Chery Tiggo 4",
+        "оригинальные запчасти Чери Тигго 4",
+        "детали Chery Tiggo 4"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 52,
+      "search_group": "model:chery|tiggo 4 pro",
+      "priority": "P2_high_demand_medium_value",
+      "landing_path": "/catalog/chery/tiggo-4-pro/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/chery/tiggo-4-pro/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Chery Tiggo 4 Pro",
+      "queries": [
+        "каталог запчастей Chery Tiggo 4 Pro",
+        "запчасти Чери Тигго 4 Про",
+        "запчасти Chery Tiggo 4 Pro",
+        "автозапчасти Chery Tiggo 4 Pro",
+        "купить запчасти Чери Тигго 4 Про",
+        "купить запчасти Chery Tiggo 4 Pro",
+        "каталог запчастей Чери Тигго 4 Про",
+        "детали Chery Tiggo 4 Pro"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 53,
+      "search_group": "model:chery|tiggo 7 pro max",
+      "priority": "high",
+      "landing_path": "/catalog/chery/tiggo-7-pro-max/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/chery/tiggo-7-pro-max/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Чери Тигго 7 Про Макс",
+      "queries": [
+        "каталог запчастей Чери Тигго 7 Про Макс",
+        "запчасти Чери Тигго 7 Про Макс",
+        "запчасти Chery Tiggo 7 Pro Max",
+        "автозапчасти Чери Тигго 7 Про Макс",
+        "купить запчасти Чери Тигго 7 Про Макс",
+        "каталог запчастей Chery Tiggo 7 Pro Max",
+        "оригинальные запчасти Чери Тигго 7 Про Макс",
+        "детали Chery Tiggo 7 Pro Max"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 54,
+      "search_group": "model:chevrolet|camaro",
+      "priority": "P2_long_tail_high_value",
+      "landing_path": "/catalog/chevrolet/camaro/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/chevrolet/camaro/",
+      "page_type": "model",
+      "primary_query": "запчасти Chevrolet Camaro",
+      "queries": [
+        "запчасти Chevrolet Camaro",
+        "детали Chevrolet Camaro",
+        "Chevrolet Camaro запчасти из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 55,
+      "search_group": "model:chevrolet|monza",
+      "priority": "P2_high_demand_medium_value",
+      "landing_path": "/catalog/chevrolet/monza/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/chevrolet/monza/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Chevrolet Monza",
+      "queries": [
+        "каталог запчастей Chevrolet Monza",
+        "запчасти Chevrolet Monza",
+        "детали Chevrolet Monza",
+        "Chevrolet Monza запчасти из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 56,
+      "search_group": "model:dongfeng|dfsk ix5",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/dongfeng/dfsk-ix5/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/dongfeng/dfsk-ix5/",
+      "page_type": "model",
+      "primary_query": "купить запчасти DFSK iX5",
+      "queries": [
+        "купить запчасти DFSK iX5",
+        "запчасти DFSK iX5",
+        "автозапчасти DFSK iX5",
+        "запчасти Dongfeng DFSK iX5",
+        "каталог запчастей Dongfeng DFSK iX5",
+        "цены на запчасти Dongfeng DFSK iX5",
+        "цены на запчасти Донгфенг DFSK iX5",
+        "детали Dongfeng DFSK iX5"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 57,
+      "search_group": "model:exeed|exlantix es",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/exeed/exlantix-es/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/exeed/exlantix-es/",
+      "page_type": "model",
+      "primary_query": "запчасти Exeed Exlantix ES",
+      "queries": [
+        "запчасти Exeed Exlantix ES",
+        "автозапчасти Exeed Exlantix ES",
+        "купить запчасти Exeed Exlantix ES",
+        "каталог запчастей Exeed Exlantix ES",
+        "цены на запчасти Exlantix ES",
+        "магазин запчастей Exlantix ES",
+        "заказать запчасти Exlantix ES",
+        "детали Exeed Exlantix ES"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 58,
+      "search_group": "model:exeed|txl",
+      "priority": "P1_high_demand_high_value",
+      "landing_path": "/catalog/exeed/txl/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/exeed/txl/",
+      "page_type": "model",
+      "primary_query": "запчасти Exeed TXL",
+      "queries": [
+        "запчасти Exeed TXL",
+        "автозапчасти Exeed TXL",
+        "купить запчасти Exeed TXL",
+        "каталог запчастей Exeed TXL",
+        "цены на запчасти Exeed TXL",
+        "цены на запчасти Эксид TXL",
+        "магазин запчастей Exeed TXL",
+        "детали Exeed TXL"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 59,
+      "search_group": "model:exeed|vx",
+      "priority": "P1_high_demand_high_value",
+      "landing_path": "/catalog/exeed/vx/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/exeed/vx/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Exeed VX",
+      "queries": [
+        "каталог запчастей Exeed VX",
+        "запчасти Exeed VX",
+        "запчасти Эксид VX",
+        "автозапчасти Exeed VX",
+        "купить запчасти Exeed VX",
+        "цены на запчасти Exeed VX",
+        "цены на запчасти Эксид VX",
+        "детали Exeed VX"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 60,
+      "search_group": "model:fang cheng bao|bao 5",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/fang-cheng-bao/bao-5-leopard-5/",
+      "page_type": "model",
+      "primary_query": "запчасти Fang Cheng Bao Bao 5 (Leopard 5)",
+      "queries": [
+        "запчасти Fang Cheng Bao Bao 5 (Leopard 5)",
+        "автозапчасти Fang Cheng Bao Bao 5 (Leopard 5)",
+        "купить запчасти Fang Cheng Bao Bao 5 (Leopard 5)",
+        "каталог запчастей Fang Cheng Bao Bao 5 (Leopard 5)",
+        "цены на запчасти Fang Cheng Bao Bao 5 (Leopard 5)",
+        "магазин запчастей Фан Чен Бао Bao 5",
+        "заказать запчасти Фан Чен Бао Bao 5",
+        "детали Fang Cheng Bao Bao 5 (Leopard 5)"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 61,
+      "search_group": "model:fang cheng bao|titanium 7",
+      "priority": "P2_long_tail_high_value",
+      "landing_path": "/catalog/fang-cheng-bao/titanium-7/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/fang-cheng-bao/titanium-7/",
+      "page_type": "model",
+      "primary_query": "запчасти Fang Cheng Bao Titanium 7",
+      "queries": [
+        "запчасти Fang Cheng Bao Titanium 7",
+        "автозапчасти Fang Cheng Bao Titanium 7",
+        "купить запчасти Fang Cheng Bao Titanium 7",
+        "каталог запчастей Fang Cheng Bao Titanium 7",
+        "цены на запчасти Fang Cheng Bao Titanium 7",
+        "магазин запчастей Фан Чен Бао Titanium 7",
+        "заказать запчасти Фан Чен Бао Titanium 7",
+        "детали Fang Cheng Bao Titanium 7"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 62,
+      "search_group": "model:foton|tunland g7",
+      "priority": "P2_high_demand_medium_value",
+      "landing_path": "/catalog/foton/tunland-g7/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/foton/tunland-g7/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Foton Tunland G7",
+      "queries": [
+        "каталог запчастей Foton Tunland G7",
+        "запчасти Foton Tunland G7",
+        "автозапчасти Foton Tunland G7",
+        "купить запчасти Foton Tunland G7",
+        "цены на запчасти Foton Tunland G7",
+        "цены на запчасти Фотон Tunland G7",
+        "магазин запчастей Foton Tunland G7",
+        "детали Foton Tunland G7"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 63,
+      "search_group": "model:geely|atlas",
+      "priority": "P2_high_demand_medium_value",
+      "landing_path": "/catalog/geely/atlas/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/atlas/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Джили Атлас",
+      "queries": [
+        "каталог запчастей Джили Атлас",
+        "запчасти Джили Атлас",
+        "запчасти Geely Atlas",
+        "автозапчасти Джили Атлас",
+        "купить запчасти Geely Atlas",
+        "купить запчасти Джили Атлас",
+        "каталог запчастей Geely Atlas",
+        "детали Geely Atlas"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 64,
+      "search_group": "model:geely|atlas pro",
+      "priority": "P1_high_demand_high_value",
+      "landing_path": "/catalog/geely/atlas-pro/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/atlas-pro/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Geely Atlas Pro",
+      "queries": [
+        "каталог запчастей Geely Atlas Pro",
+        "запчасти Geely Atlas Pro",
+        "запчасти Джили Атлас Про",
+        "автозапчасти Geely Atlas Pro",
+        "купить запчасти Джили Атлас Про",
+        "купить запчасти Geely Atlas Pro",
+        "каталог запчастей Джили Атлас Про",
+        "детали Geely Atlas Pro"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 65,
+      "search_group": "model:geely|coolray",
+      "priority": "high",
+      "landing_path": "/catalog/geely/coolray/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/coolray/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Geely Coolray",
+      "queries": [
+        "каталог запчастей Geely Coolray",
+        "запчасти Джили Кулрей",
+        "запчасти Geely Coolray",
+        "автозапчасти Geely Coolray",
+        "купить запчасти Geely Coolray",
+        "каталог запчастей Джили Кулрей",
+        "оригинальные запчасти Geely Coolray",
+        "детали Geely Coolray"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 66,
+      "search_group": "model:geely|galaxy l7",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/geely/galaxy-l7/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/galaxy-l7/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Geely Galaxy L7",
+      "queries": [
+        "каталог запчастей Geely Galaxy L7",
+        "запчасти Geely Galaxy L7",
+        "автозапчасти Geely Galaxy L7",
+        "купить запчасти Geely Galaxy L7",
+        "цены на запчасти Geely Galaxy L7",
+        "цены на запчасти Джили Galaxy L7",
+        "магазин запчастей Geely Galaxy L7",
+        "детали Geely Galaxy L7"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 67,
+      "search_group": "model:geely|galaxy m9",
+      "priority": "P2_long_tail_high_value",
+      "landing_path": "/catalog/geely/galaxy-m9/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/galaxy-m9/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Geely Galaxy M9",
+      "queries": [
+        "каталог запчастей Geely Galaxy M9",
+        "запчасти Geely Galaxy M9",
+        "автозапчасти Geely Galaxy M9",
+        "купить запчасти Geely Galaxy M9",
+        "цены на запчасти Geely Galaxy M9",
+        "цены на запчасти Джили Galaxy M9",
+        "магазин запчастей Geely Galaxy M9",
+        "детали Geely Galaxy M9"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 68,
+      "search_group": "model:geely|galaxy starship 7",
+      "priority": "P2_high_demand_medium_value",
+      "landing_path": "/catalog/geely/galaxy-starship-7/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/galaxy-starship-7/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Geely Galaxy Starship 7",
+      "queries": [
+        "каталог запчастей Geely Galaxy Starship 7",
+        "запчасти Geely Galaxy Starship 7",
+        "автозапчасти Geely Galaxy Starship 7",
+        "купить запчасти Geely Galaxy Starship 7",
+        "цены на запчасти Geely Galaxy Starship 7",
+        "цены на запчасти Джили Galaxy Starship 7",
+        "цены на запчасти Джили Гэлакси Старшип 7",
+        "детали Geely Galaxy Starship 7"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 69,
+      "search_group": "model:geely|monjaro",
+      "priority": "high",
+      "landing_path": "/catalog/geely/monjaro/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/monjaro/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Geely Monjaro",
+      "queries": [
+        "каталог запчастей Geely Monjaro",
+        "запчасти Джили Монжаро",
+        "запчасти Geely Monjaro",
+        "автозапчасти Geely Monjaro",
+        "купить запчасти Geely Monjaro",
+        "каталог запчастей Джили Монжаро",
+        "оригинальные запчасти Geely Monjaro",
+        "детали Geely Monjaro"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 70,
+      "search_group": "model:geely|okavango",
+      "priority": "P2_high_demand_medium_value",
+      "landing_path": "/catalog/geely/okavango/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/okavango/",
+      "page_type": "model",
+      "primary_query": "запчасти Geely Okavango",
+      "queries": [
+        "запчасти Geely Okavango",
+        "запчасти Джили Окаванго",
+        "автозапчасти Geely Okavango",
+        "купить запчасти Geely Okavango",
+        "каталог запчастей Geely Okavango",
+        "каталог запчастей Джили Окаванго",
+        "цены на запчасти Geely Okavango",
+        "детали Geely Okavango"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 71,
+      "search_group": "model:geely|preface",
+      "priority": "P2_high_demand_medium_value",
+      "landing_path": "/catalog/geely/preface/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/preface/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Geely Preface",
+      "queries": [
+        "каталог запчастей Geely Preface",
+        "запчасти Джили Префейс",
+        "запчасти Geely Preface",
+        "автозапчасти Geely Preface",
+        "купить запчасти Джили Префейс",
+        "купить запчасти Geely Preface",
+        "каталог запчастей Джили Префейс",
+        "детали Geely Preface"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 72,
+      "search_group": "model:geely|vision x6 pro",
+      "priority": "P2_high_demand_medium_value",
+      "landing_path": "/catalog/geely/vision-x6-pro/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/geely/vision-x6-pro/",
+      "page_type": "model",
+      "primary_query": "запчасти Geely Vision X6 Pro",
+      "queries": [
+        "запчасти Geely Vision X6 Pro",
+        "автозапчасти Geely Vision X6 Pro",
+        "купить запчасти Geely Vision X6 Pro",
+        "каталог запчастей Geely Vision X6 Pro",
+        "цены на запчасти Джили Вижн X6 Про",
+        "магазин запчастей Джили Вижн X6 Про",
+        "заказать запчасти Джили Вижн X6 Про",
+        "детали Geely Vision X6 Pro"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 73,
+      "search_group": "model:great wall|poer",
+      "priority": "P2_high_demand_medium_value",
+      "landing_path": "/catalog/great-wall/poer/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/great-wall/poer/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Great Wall Poer",
+      "queries": [
+        "каталог запчастей Great Wall Poer",
+        "запчасти Great Wall Poer",
+        "автозапчасти Great Wall Poer",
+        "купить запчасти Great Wall Poer",
+        "цены на запчасти Great Wall Poer",
+        "цены на запчасти Грейт Волл Poer",
+        "магазин запчастей Great Wall Poer",
+        "детали Great Wall Poer"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 74,
+      "search_group": "model:great wall|poer king kong",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/great-wall/poer-king-kong/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/great-wall/poer-king-kong/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Great Wall Poer King Kong",
+      "queries": [
+        "каталог запчастей Great Wall Poer King Kong",
+        "запчасти Great Wall Poer King Kong",
+        "автозапчасти Great Wall Poer King Kong",
+        "купить запчасти Great Wall Poer King Kong",
+        "магазин запчастей Great Wall Poer King Kong",
+        "заказать запчасти Great Wall Poer King Kong",
+        "магазин запчастей Грейт Волл Poer King Kong",
+        "детали Great Wall Poer King Kong"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 75,
+      "search_group": "model:haval|f7",
+      "priority": "high",
+      "landing_path": "/catalog/haval/f7/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/haval/f7/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Haval F7",
+      "queries": [
+        "каталог запчастей Haval F7",
+        "запчасти Haval F7",
+        "запчасти Хавал F7",
+        "автозапчасти Haval F7",
+        "купить запчасти Haval F7",
+        "каталог запчастей Хавал F7",
+        "цены на запчасти Haval F7",
+        "детали Haval F7"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 76,
+      "search_group": "model:haval|f7x",
+      "priority": "P2_high_demand_medium_value",
+      "landing_path": "/catalog/haval/f7x/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/haval/f7x/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Haval F7x",
+      "queries": [
+        "каталог запчастей Haval F7x",
+        "запчасти Haval F7x",
+        "запчасти Хавал F7x",
+        "автозапчасти Haval F7x",
+        "купить запчасти Haval F7x",
+        "каталог запчастей Хавал F7x",
+        "оригинальные запчасти Haval F7x",
+        "детали Haval F7x"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 77,
+      "search_group": "model:haval|h3",
+      "priority": "high",
+      "landing_path": "/catalog/haval/h3/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/haval/h3/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Haval H3",
+      "queries": [
+        "каталог запчастей Haval H3",
+        "запчасти Haval H3",
+        "запчасти Хавал H3",
+        "автозапчасти Haval H3",
+        "купить запчасти Haval H3",
+        "каталог запчастей Хавал H3",
+        "оригинальные запчасти Haval H3",
+        "детали Haval H3"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 78,
+      "search_group": "model:haval|jolion",
+      "priority": "high",
+      "landing_path": "/catalog/haval/jolion/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/haval/jolion/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Хавал Джолион",
+      "queries": [
+        "каталог запчастей Хавал Джолион",
+        "запчасти Haval Jolion",
+        "запчасти Хавал Джолион",
+        "запчасти Хавейл Джолион",
+        "автозапчасти Хавал Джолион",
+        "купить запчасти Хавал Джолион",
+        "каталог запчастей Haval Jolion",
+        "детали Haval Jolion"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 79,
+      "search_group": "model:haval|xiaolong max",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/haval/xiaolong-max/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/haval/xiaolong-max/",
+      "page_type": "model",
+      "primary_query": "купить запчасти Haval Xiaolong Max",
+      "queries": [
+        "купить запчасти Haval Xiaolong Max",
+        "запчасти Haval Xiaolong Max",
+        "автозапчасти Haval Xiaolong Max",
+        "каталог запчастей Haval Xiaolong Max",
+        "цены на запчасти Haval Xiaolong Max",
+        "цены на запчасти Хавал Xiaolong Max",
+        "магазин запчастей Haval Xiaolong Max",
+        "детали Haval Xiaolong Max"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 80,
+      "search_group": "model:hiphi|z",
+      "priority": "P1_high_demand_high_value",
+      "landing_path": "/catalog/hiphi/z/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/hiphi/z/",
+      "page_type": "model",
+      "primary_query": "запчасти HiPhi Z",
+      "queries": [
+        "запчасти HiPhi Z",
+        "автозапчасти HiPhi Z",
+        "купить запчасти HiPhi Z",
+        "каталог запчастей HiPhi Z",
+        "цены на запчасти HiPhi Z",
+        "цены на запчасти Хайфи Z",
+        "магазин запчастей HiPhi Z",
+        "детали HiPhi Z"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 81,
+      "search_group": "model:honda|crider",
+      "priority": "P1_high_demand_high_value",
+      "landing_path": "/catalog/honda/crider/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/honda/crider/",
+      "page_type": "model",
+      "primary_query": "запчасти Honda Crider",
+      "queries": [
+        "запчасти Honda Crider",
+        "каталог запчастей Honda Crider",
+        "купить запчасти Honda Crider",
+        "детали Honda Crider",
+        "Honda Crider запчасти из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 82,
+      "search_group": "model:hongqi|hs5",
+      "priority": "P4_low_value_controlled",
+      "landing_path": "/catalog/hongqi/hs5/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/hongqi/hs5/",
+      "page_type": "model",
+      "primary_query": "запчасти Hongqi HS5",
+      "queries": [
+        "запчасти Hongqi HS5",
+        "запчасти Хончи HS5",
+        "автозапчасти Hongqi HS5",
+        "купить запчасти Hongqi HS5",
+        "каталог запчастей Hongqi HS5",
+        "цены на запчасти Хончи HS5",
+        "цены на запчасти Хунци HS5",
+        "детали Hongqi HS5"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 83,
+      "search_group": "model:hyundai|santa fe",
+      "priority": "P2_long_tail_high_value",
+      "landing_path": "/catalog/hyundai/santa-fe/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/hyundai/santa-fe/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Hyundai Santa Fe",
+      "queries": [
+        "каталог запчастей Hyundai Santa Fe",
+        "запчасти Hyundai Santa Fe",
+        "детали Hyundai Santa Fe",
+        "Hyundai Santa Fe запчасти из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 84,
+      "search_group": "model:jetour|t2",
+      "priority": "P1_high_demand_high_value",
+      "landing_path": "/catalog/jetour/t2/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/jetour/t2/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Jetour T2",
+      "queries": [
+        "каталог запчастей Jetour T2",
+        "запчасти Jetour T2",
+        "автозапчасти Jetour T2",
+        "купить запчасти Jetour T2",
+        "цены на запчасти Jetour T2",
+        "цены на запчасти Джетур T2",
+        "магазин запчастей Jetour T2",
+        "детали Jetour T2"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 85,
+      "search_group": "model:lexus|rx",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/lexus/rx/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/lexus/rx/",
+      "page_type": "model",
+      "primary_query": "запчасти Lexus RX",
+      "queries": [
+        "запчасти Lexus RX",
+        "детали Lexus RX",
+        "Lexus RX запчасти из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 86,
+      "search_group": "model:li auto|l6",
+      "priority": "P2_long_tail_high_value",
+      "landing_path": "/catalog/li-auto/l6/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/li-auto/l6/",
+      "page_type": "model",
+      "primary_query": "запчасти Li Auto L6",
+      "queries": [
+        "запчасти Li Auto L6",
+        "автозапчасти Li Auto L6",
+        "купить запчасти Li Auto L6",
+        "каталог запчастей Li Auto L6",
+        "цены на запчасти Лисян L6",
+        "магазин запчастей Лисян L6",
+        "заказать запчасти Лисян L6",
+        "детали Li Auto L6"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 87,
+      "search_group": "model:li auto|l7",
+      "priority": "P2_long_tail_high_value",
+      "landing_path": "/catalog/li-auto/l7/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/li-auto/l7/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Li Auto L7",
+      "queries": [
+        "каталог запчастей Li Auto L7",
+        "запчасти Li Auto L7",
+        "автозапчасти Li Auto L7",
+        "купить запчасти Li Auto L7",
+        "цены на запчасти Лисян L7",
+        "магазин запчастей Лисян L7",
+        "заказать запчасти Лисян L7",
+        "детали Li Auto L7"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 88,
+      "search_group": "model:li auto|l9",
+      "priority": "P2_long_tail_high_value",
+      "landing_path": "/catalog/li-auto/l9/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/li-auto/l9/",
+      "page_type": "model",
+      "primary_query": "запчасти Li Auto L9",
+      "queries": [
+        "запчасти Li Auto L9",
+        "автозапчасти Li Auto L9",
+        "купить запчасти Li Auto L9",
+        "каталог запчастей Li Auto L9",
+        "цены на запчасти Лисян L9",
+        "магазин запчастей Лисян L9",
+        "заказать запчасти Лисян L9",
+        "детали Li Auto L9"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 89,
+      "search_group": "model:livan|x3 pro",
+      "priority": "P4_low_value_controlled",
+      "landing_path": "/catalog/livan/x3-pro/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/livan/x3-pro/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Livan X3 Pro",
+      "queries": [
+        "каталог запчастей Livan X3 Pro",
+        "запчасти Ливан X3 Pro",
+        "запчасти Livan X3 Pro",
+        "автозапчасти Livan X3 Pro",
+        "купить запчасти Livan X3 Pro",
+        "цены на запчасти Livan X3 Pro",
+        "цены на запчасти Ливан X3 Pro",
+        "детали Livan X3 pro"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 90,
+      "search_group": "model:livan|x6 pro",
+      "priority": "P4_low_value_controlled",
+      "landing_path": "/catalog/livan/x6-pro/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/livan/x6-pro/",
+      "page_type": "model",
+      "primary_query": "запчасти Livan X6 Pro",
+      "queries": [
+        "запчасти Livan X6 Pro",
+        "автозапчасти Livan X6 Pro",
+        "купить запчасти Livan X6 Pro",
+        "каталог запчастей Livan X6 Pro",
+        "цены на запчасти Livan X6 Pro",
+        "цены на запчасти Ливан X6 Pro",
+        "магазин запчастей Livan X6 Pro",
+        "детали Livan X6 pro"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 91,
+      "search_group": "model:mercedes benz|g класс",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/mercedes-benz/g-klass/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/mercedes-benz/g-klass/",
+      "page_type": "model",
+      "primary_query": "запчасти Mercedes-Benz G-класс",
+      "queries": [
+        "запчасти Mercedes-Benz G-класс",
+        "детали Mercedes-Benz G-класс",
+        "Mercedes-Benz G-класс запчасти из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 92,
+      "search_group": "model:mercedes benz|g класс amg",
+      "priority": "P2_long_tail_high_value",
+      "landing_path": "/catalog/mercedes-benz/g-klass-amg/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/mercedes-benz/g-klass-amg/",
+      "page_type": "model",
+      "primary_query": "запчасти Mercedes-Benz G-класс AMG",
+      "queries": [
+        "запчасти Mercedes-Benz G-класс AMG",
+        "детали Mercedes-Benz G-класс AMG",
+        "Mercedes-Benz G-класс AMG запчасти из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 93,
+      "search_group": "model:omoda|c5",
+      "priority": "high",
+      "landing_path": "/catalog/omoda/c5/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/omoda/c5/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Омода С5",
+      "queries": [
+        "каталог запчастей Омода С5",
+        "запчасти Омода С5",
+        "запчасти Omoda C5",
+        "автозапчасти Омода С5",
+        "купить запчасти Омода С5",
+        "каталог запчастей Omoda C5",
+        "оригинальные запчасти Омода С5",
+        "детали Omoda C5"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 94,
+      "search_group": "model:polar stone jishi|01",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/polar-stone-jishi/01/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/polar-stone-jishi/01/",
+      "page_type": "model",
+      "primary_query": "запчасти Rox 01",
+      "queries": [
+        "запчасти Rox 01",
+        "запчасти Jishi 01",
+        "автозапчасти Rox 01",
+        "купить запчасти Rox 01",
+        "каталог запчастей Rox 01",
+        "каталог запчастей Polar Stone 01",
+        "цены на запчасти Jishi 01",
+        "детали Polar Stone (Jishi) 01"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 95,
+      "search_group": "model:tank|300",
+      "priority": "P1_high_demand_high_value",
+      "landing_path": "/catalog/tank/300/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/tank/300/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Танк 300",
+      "queries": [
+        "каталог запчастей Танк 300",
+        "запчасти Танк 300",
+        "запчасти Tank 300",
+        "автозапчасти Танк 300",
+        "купить запчасти Танк 300",
+        "каталог запчастей Tank 300",
+        "цены на запчасти Tank 300",
+        "детали Tank 300"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 96,
+      "search_group": "model:tank|500",
+      "priority": "high",
+      "landing_path": "/catalog/tank/500/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/tank/500/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Tank 500",
+      "queries": [
+        "каталог запчастей Tank 500",
+        "запчасти Танк 500",
+        "запчасти Tank 500",
+        "автозапчасти Танк 500",
+        "купить запчасти Танк 500",
+        "купить запчасти Tank 500",
+        "каталог запчастей Танк 500",
+        "детали Tank 500"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 97,
+      "search_group": "model:tank|700",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/tank/700/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/tank/700/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Tank 700",
+      "queries": [
+        "каталог запчастей Tank 700",
+        "запчасти Танк 700",
+        "запчасти Tank 700",
+        "автозапчасти Tank 700",
+        "купить запчасти Tank 700",
+        "каталог запчастей Танк 700",
+        "цены на запчасти Tank 700",
+        "детали Tank 700"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 98,
+      "search_group": "model:trumpchi|m8",
+      "priority": "P4_low_value_controlled",
+      "landing_path": "/catalog/trumpchi/m8/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/trumpchi/m8/",
+      "page_type": "model",
+      "primary_query": "запчасти Trumpchi M8",
+      "queries": [
+        "запчасти Trumpchi M8",
+        "детали Trumpchi M8",
+        "Trumpchi M8 запчасти из Китая"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 99,
+      "search_group": "model:voyah|dream",
+      "priority": "P2_high_demand_medium_value",
+      "landing_path": "/catalog/voyah/dream/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/voyah/dream/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Voyah Dream",
+      "queries": [
+        "каталог запчастей Voyah Dream",
+        "запчасти Воя Дрим",
+        "запчасти Voyah Dream",
+        "автозапчасти Voyah Dream",
+        "каталог запчастей Воя Дрим",
+        "купить запчасти Voyah Dream",
+        "цены на запчасти Воя Dream",
+        "детали Voyah Dream"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 100,
+      "search_group": "model:voyah|free",
+      "priority": "high",
+      "landing_path": "/catalog/voyah/free/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/voyah/free/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Voyah Free",
+      "queries": [
+        "каталог запчастей Voyah Free",
+        "запчасти Воя Фри",
+        "запчасти Voyah Free",
+        "купить запчасти Воя Фри",
+        "автозапчасти Voyah Free",
+        "каталог запчастей Воя Фри",
+        "купить запчасти Voyah Free",
+        "детали Voyah Free"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 101,
+      "search_group": "model:voyah|passion",
+      "priority": "P2_high_demand_medium_value",
+      "landing_path": "/catalog/voyah/passion/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/voyah/passion/",
+      "page_type": "model",
+      "primary_query": "запчасти Voyah Passion",
+      "queries": [
+        "запчасти Voyah Passion",
+        "запчасти Воя Пассион",
+        "автозапчасти Voyah Passion",
+        "купить запчасти Voyah Passion",
+        "каталог запчастей Voyah Passion",
+        "цены на запчасти Воя Passion",
+        "магазин запчастей Воя Passion",
+        "детали Voyah Passion"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 102,
+      "search_group": "model:voyah|taishan",
+      "priority": "P2_long_tail_high_value",
+      "landing_path": "/catalog/voyah/taishan/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/voyah/taishan/",
+      "page_type": "model",
+      "primary_query": "запчасти Voyah Taishan",
+      "queries": [
+        "запчасти Voyah Taishan",
+        "автозапчасти Voyah Taishan",
+        "купить запчасти Voyah Taishan",
+        "каталог запчастей Voyah Taishan",
+        "цены на запчасти Воя Taishan",
+        "магазин запчастей Воя Taishan",
+        "заказать запчасти Воя Taishan",
+        "детали Voyah Taishan"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 103,
+      "search_group": "model:wey|07",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/wey/07/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/wey/07/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Wey 07",
+      "queries": [
+        "каталог запчастей Wey 07",
+        "запчасти Wey 07",
+        "автозапчасти Wey 07",
+        "купить запчасти Wey 07",
+        "цены на запчасти Wey 07",
+        "цены на запчасти Вей 07",
+        "магазин запчастей Wey 07",
+        "детали Wey 07"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 104,
+      "search_group": "model:wey|80",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/wey/80/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/wey/80/",
+      "page_type": "model",
+      "primary_query": "запчасти Wey 80",
+      "queries": [
+        "запчасти Wey 80",
+        "автозапчасти Wey 80",
+        "купить запчасти Wey 80",
+        "каталог запчастей Wey 80",
+        "цены на запчасти Wey 80",
+        "цены на запчасти Вей 80",
+        "магазин запчастей Wey 80",
+        "детали Wey 80"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 105,
+      "search_group": "model:xiaomi|su7",
+      "priority": "P3_long_tail_medium_value",
+      "landing_path": "/catalog/xiaomi/su7/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/xiaomi/su7/",
+      "page_type": "model",
+      "primary_query": "запчасти Xiaomi SU7",
+      "queries": [
+        "запчасти Xiaomi SU7",
+        "автозапчасти Xiaomi SU7",
+        "купить запчасти Xiaomi SU7",
+        "каталог запчастей Xiaomi SU7",
+        "цены на запчасти Сяоми SU7",
+        "цены на запчасти Xiaomi SU7",
+        "магазин запчастей Сяоми SU7",
+        "детали Xiaomi SU7"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 106,
+      "search_group": "model:zeekr|001",
+      "priority": "P1_high_demand_high_value",
+      "landing_path": "/catalog/zeekr/001/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/zeekr/001/",
+      "page_type": "model",
+      "primary_query": "каталог запчастей Zeekr 001",
+      "queries": [
+        "каталог запчастей Zeekr 001",
+        "запчасти Зикр 001",
+        "запчасти Zeekr 001",
+        "автозапчасти Zeekr 001",
+        "купить запчасти Zeekr 001",
+        "цены на запчасти Зикр 001",
+        "цены на запчасти Zeekr 001",
+        "детали Zeekr 001"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 107,
+      "search_group": "model:zeekr|007",
+      "priority": "P2_long_tail_high_value",
+      "landing_path": "/catalog/zeekr/007/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/zeekr/007/",
+      "page_type": "model",
+      "primary_query": "запчасти Zeekr 007",
+      "queries": [
+        "запчасти Zeekr 007",
+        "автозапчасти Zeekr 007",
+        "купить запчасти Zeekr 007",
+        "каталог запчастей Zeekr 007",
+        "цены на запчасти Зикр 007",
+        "цены на запчасти Zeekr 007",
+        "магазин запчастей Зикр 007",
+        "детали Zeekr 007"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    },
+    {
+      "source_row": 108,
+      "search_group": "model:zeekr|9x",
+      "priority": "high",
+      "landing_path": "/catalog/zeekr/9x/",
+      "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/zeekr/9x/",
+      "page_type": "model",
+      "primary_query": "запчасти Zeekr 9X",
+      "queries": [
+        "запчасти Zeekr 9X",
+        "автозапчасти Zeekr 9X",
+        "купить запчасти Zeekr 9X",
+        "каталог запчастей Zeekr 9X",
+        "цены на запчасти Зикр 9X",
+        "цены на запчасти Zeekr 9X",
+        "магазин запчастей Зикр 9X",
+        "детали Zeekr 9X"
+      ],
+      "current_availability": {
+        "generated_html": true,
+        "indexable": true,
+        "in_sitemap": true
+      },
+      "intent_aligned": true,
+      "status": "ready_after_production_launch",
+      "issues": []
+    }
+  ]
+}

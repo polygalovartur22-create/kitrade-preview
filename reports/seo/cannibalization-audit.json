@@ -1,0 +1,2450 @@
+{
+  "audit_version": 1,
+  "methodology": "Exact normalized ownership across primary and secondary queries plus exact Title, Description and H1 checks on all indexable pages. Parent/child pages are not treated as conflicts unless more than one page owns the same normalized primary query.",
+  "summary": {
+    "indexable_pages_checked": 2390,
+    "primary_queries_checked": 2390,
+    "primary_query_conflicts": 4,
+    "contextual_secondary_overlaps": 72,
+    "duplicate_titles": 0,
+    "duplicate_descriptions": 0,
+    "duplicate_h1": 30,
+    "pages_removed_or_noindexed": 0
+  },
+  "decisions": {
+    "merge": [],
+    "redirect": [],
+    "canonical": [],
+    "noindex": [],
+    "keep_separate": [
+      {
+        "normalized_query": "vin|запчастей|по|подбор",
+        "owners": [
+          {
+            "canonical_path": "/catalog/",
+            "page_type": "catalog",
+            "query_type": "secondary",
+            "query": "подбор запчастей по VIN"
+          },
+          {
+            "canonical_path": "/podbor-zapchastey-po-vin/",
+            "page_type": "service",
+            "query_type": "primary",
+            "query": "подбор запчастей по VIN"
+          }
+        ],
+        "severity": "low",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/podbor-zapchastey-po-vin/"
+      },
+      {
+        "normalized_query": "371602004|free|oem|voyah|задний|правый|фонарь",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/zadnii-fonar-pravyi-voyah-free-original-1005/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Задний фонарь правый Voyah Free OEM 371602004"
+          },
+          {
+            "canonical_path": "/catalog/product/fonar-zadnii-pravyi-voyah-free-1165/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Фонарь задний правый Voyah Free OEM 371602004"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/zadnii-fonar-pravyi-voyah-free-original-1005/"
+      },
+      {
+        "normalized_query": "free|voyah|задний|правый|фонарь|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/zadnii-fonar-pravyi-voyah-free-original-1005/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Задний фонарь правый Voyah Free цена"
+          },
+          {
+            "canonical_path": "/catalog/product/fonar-zadnii-pravyi-voyah-free-1165/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Фонарь задний правый Voyah Free цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/zadnii-fonar-pravyi-voyah-free-original-1005/"
+      },
+      {
+        "normalized_query": "free|voyah|задний|заказ|под|правый|фонарь",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/zadnii-fonar-pravyi-voyah-free-original-1005/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Задний фонарь правый Voyah Free под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/fonar-zadnii-pravyi-voyah-free-1165/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Фонарь задний правый Voyah Free под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/zadnii-fonar-pravyi-voyah-free-original-1005/"
+      },
+      {
+        "normalized_query": "baic|plus|u5|передняя|правая|фара|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/perednyaya-fara-pravaya-baic-u5-plus-1012/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Передняя фара правая BAIC U5 Plus цена"
+          },
+          {
+            "canonical_path": "/catalog/product/perednyaya-fara-pravaya-baic-u5-plus-1155/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Передняя фара правая BAIC U5 Plus цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/perednyaya-fara-pravaya-baic-u5-plus-1012/"
+      },
+      {
+        "normalized_query": "baic|plus|u5|заказ|передняя|под|правая|фара",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/perednyaya-fara-pravaya-baic-u5-plus-1012/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Передняя фара правая BAIC U5 Plus под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/perednyaya-fara-pravaya-baic-u5-plus-1155/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Передняя фара правая BAIC U5 Plus под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/perednyaya-fara-pravaya-baic-u5-plus-1012/"
+      },
+      {
+        "normalized_query": "baic|x55|багажника|задний|крышка|левый|фонарь|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/levyi-zadnii-fonar-kryshka-bagazhnika-baik-x55-1033/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Левый задний фонарь крышка багажника BAIC X55 цена"
+          },
+          {
+            "canonical_path": "/catalog/product/levyi-zadnii-fonar-kryshka-bagazhnika-baik-x55-1071/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Левый задний фонарь крышка багажника BAIC X55 цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/levyi-zadnii-fonar-kryshka-bagazhnika-baik-x55-1033/"
+      },
+      {
+        "normalized_query": "baic|x55|багажника|задний|заказ|крышка|левый|под|фонарь",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/levyi-zadnii-fonar-kryshka-bagazhnika-baik-x55-1033/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Левый задний фонарь крышка багажника BAIC X55 под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/levyi-zadnii-fonar-kryshka-bagazhnika-baik-x55-1071/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Левый задний фонарь крышка багажника BAIC X55 под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/levyi-zadnii-fonar-kryshka-bagazhnika-baik-x55-1033/"
+      },
+      {
+        "normalized_query": "baic|x55|передняя|правая|фара|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/pravaya-perednyaya-fara-baic-x55-1035/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Правая передняя фара BAIC X55 цена"
+          },
+          {
+            "canonical_path": "/catalog/product/pravaya-perednyaya-fara-baic-x55-1152/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Правая передняя фара BAIC X55 цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/pravaya-perednyaya-fara-baic-x55-1035/"
+      },
+      {
+        "normalized_query": "baic|x55|заказ|передняя|под|правая|фара",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/pravaya-perednyaya-fara-baic-x55-1035/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Правая передняя фара BAIC X55 под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/pravaya-perednyaya-fara-baic-x55-1152/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Правая передняя фара BAIC X55 под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/pravaya-perednyaya-fara-baic-x55-1035/"
+      },
+      {
+        "normalized_query": "baic|x35|задний|крыло|левый|фонарь|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/fonar-zadnii-levyi-krylo-baic-x35-1063/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Фонарь задний левый (крыло) BAIC X35 цена"
+          },
+          {
+            "canonical_path": "/catalog/product/fonar-zadnii-levyi-krylo-baic-x35-1207/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Фонарь задний левый (крыло) BAIC X35 цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/fonar-zadnii-levyi-krylo-baic-x35-1063/"
+      },
+      {
+        "normalized_query": "baic|x35|задний|заказ|крыло|левый|под|фонарь",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/fonar-zadnii-levyi-krylo-baic-x35-1063/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Фонарь задний левый (крыло) BAIC X35 под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/fonar-zadnii-levyi-krylo-baic-x35-1207/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Фонарь задний левый (крыло) BAIC X35 под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/fonar-zadnii-levyi-krylo-baic-x35-1063/"
+      },
+      {
+        "normalized_query": "baic|x55|левая|передняя|фара|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/levaya-perednyaya-fara-baic-x55-1066/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Левая передняя фара BAIC X55 цена"
+          },
+          {
+            "canonical_path": "/catalog/product/levaya-perednyaya-fara-baic-x55-1328/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Левая передняя фара BAIC X55 цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/levaya-perednyaya-fara-baic-x55-1066/"
+      },
+      {
+        "normalized_query": "baic|x55|заказ|левая|передняя|под|фара",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/levaya-perednyaya-fara-baic-x55-1066/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Левая передняя фара BAIC X55 под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/levaya-perednyaya-fara-baic-x55-1328/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Левая передняя фара BAIC X55 под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/levaya-perednyaya-fara-baic-x55-1066/"
+      },
+      {
+        "normalized_query": "baic|plus|u5|левая|передняя|фара|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/perednyaya-fara-levaya-baic-u5-plus-1073/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Передняя фара левая BAIC U5 Plus цена"
+          },
+          {
+            "canonical_path": "/catalog/product/perednyaya-fara-levaya-baic-u5-plus-1309/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Передняя фара левая BAIC U5 Plus цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/perednyaya-fara-levaya-baic-u5-plus-1073/"
+      },
+      {
+        "normalized_query": "baic|plus|u5|заказ|левая|передняя|под|фара",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/perednyaya-fara-levaya-baic-u5-plus-1073/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Передняя фара левая BAIC U5 Plus под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/perednyaya-fara-levaya-baic-u5-plus-1309/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Передняя фара левая BAIC U5 Plus под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/perednyaya-fara-levaya-baic-u5-plus-1073/"
+      },
+      {
+        "normalized_query": "18|auto|l7|li|max|круглая|левая|пин|фара|фишка|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/fara-levaya-lixiang-l7-kruglaya-fishka-18-pin-max-1081/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Фара левая (круглая фишка, 18 пин, MAX) Li Auto L7 цена"
+          },
+          {
+            "canonical_path": "/catalog/product/fara-levaya-lixiang-l7-kruglaya-fishka-18-pin-max-1226/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Фара левая (круглая фишка, 18 пин, MAX) Li Auto L7 цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/fara-levaya-lixiang-l7-kruglaya-fishka-18-pin-max-1081/"
+      },
+      {
+        "normalized_query": "18|auto|l7|li|max|заказ|круглая|левая|пин|под|фара|фишка",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/fara-levaya-lixiang-l7-kruglaya-fishka-18-pin-max-1081/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Фара левая (круглая фишка, 18 пин, MAX) Li Auto L7 под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/fara-levaya-lixiang-l7-kruglaya-fishka-18-pin-max-1226/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Фара левая (круглая фишка, 18 пин, MAX) Li Auto L7 под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/fara-levaya-lixiang-l7-kruglaya-fishka-18-pin-max-1081/"
+      },
+      {
+        "normalized_query": "7057045900|geely|monjaro|oem|задний|фонарь|центральный",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/fonar-zadnii-tsentralnyi-geely-monjaro-original-1101/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Фонарь задний центральный Geely Monjaro OEM 7057045900"
+          },
+          {
+            "canonical_path": "/catalog/product/zadnii-tsentralnyi-fonar-geely-monjaro-1173/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Задний центральный фонарь Geely Monjaro OEM 7057045900"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/fonar-zadnii-tsentralnyi-geely-monjaro-original-1101/"
+      },
+      {
+        "normalized_query": "geely|monjaro|задний|фонарь|цена|центральный",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/fonar-zadnii-tsentralnyi-geely-monjaro-original-1101/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Фонарь задний центральный Geely Monjaro цена"
+          },
+          {
+            "canonical_path": "/catalog/product/zadnii-tsentralnyi-fonar-geely-monjaro-1173/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Задний центральный фонарь Geely Monjaro цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/fonar-zadnii-tsentralnyi-geely-monjaro-original-1101/"
+      },
+      {
+        "normalized_query": "geely|monjaro|задний|заказ|под|фонарь|центральный",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/fonar-zadnii-tsentralnyi-geely-monjaro-original-1101/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Фонарь задний центральный Geely Monjaro под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/zadnii-tsentralnyi-fonar-geely-monjaro-1173/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Задний центральный фонарь Geely Monjaro под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/fonar-zadnii-tsentralnyi-geely-monjaro-original-1101/"
+      },
+      {
+        "normalized_query": "changan|cs95|задний|противотуманный|фонарь|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/zadnii-protivotumannyi-fonar-changan-cs95-1136/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Задний противотуманный фонарь Changan CS95 цена"
+          },
+          {
+            "canonical_path": "/catalog/product/zadnii-protivotumannyi-fonar-changan-cs95-1272/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Задний противотуманный фонарь Changan CS95 цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/zadnii-protivotumannyi-fonar-changan-cs95-1136/"
+      },
+      {
+        "normalized_query": "changan|cs95|задний|заказ|под|противотуманный|фонарь",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/zadnii-protivotumannyi-fonar-changan-cs95-1136/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Задний противотуманный фонарь Changan CS95 под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/zadnii-protivotumannyi-fonar-changan-cs95-1272/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Задний противотуманный фонарь Changan CS95 под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/zadnii-protivotumannyi-fonar-changan-cs95-1136/"
+      },
+      {
+        "normalized_query": "benz|g|mercedes|класс|охлаждения|системы|цена|шланг",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/shlang-sistemy-ohlazhdeniya-mercedes-benz-g-class-1358/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Шланг системы охлаждения Mercedes-Benz G-класс цена"
+          },
+          {
+            "canonical_path": "/catalog/product/shlang-sistemy-ohlazhdeniya-mercedes-benz-g-class-1391/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Шланг системы охлаждения Mercedes-Benz G-класс цена"
+          },
+          {
+            "canonical_path": "/catalog/product/shlang-sistemy-ohlazhdeniya-mercedes-benz-g-class-1400/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Шланг системы охлаждения Mercedes-Benz G-класс цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/shlang-sistemy-ohlazhdeniya-mercedes-benz-g-class-1358/"
+      },
+      {
+        "normalized_query": "benz|g|mercedes|заказ|класс|охлаждения|под|системы|шланг",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/shlang-sistemy-ohlazhdeniya-mercedes-benz-g-class-1358/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Шланг системы охлаждения Mercedes-Benz G-класс под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/shlang-sistemy-ohlazhdeniya-mercedes-benz-g-class-1391/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Шланг системы охлаждения Mercedes-Benz G-класс под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/shlang-sistemy-ohlazhdeniya-mercedes-benz-g-class-1400/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Шланг системы охлаждения Mercedes-Benz G-класс под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/shlang-sistemy-ohlazhdeniya-mercedes-benz-g-class-1358/"
+      },
+      {
+        "normalized_query": "galaxy|geely|l7|вентилятор|радиатора|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/ventilyator-radiatora-geely-galaxy-l7-1377/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Вентилятор радиатора Geely Galaxy L7 цена"
+          },
+          {
+            "canonical_path": "/catalog/product/ventilyator-radiatora-geely-galaxy-l7-1477/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Вентилятор радиатора Geely Galaxy L7 цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/ventilyator-radiatora-geely-galaxy-l7-1377/"
+      },
+      {
+        "normalized_query": "galaxy|geely|l7|вентилятор|заказ|под|радиатора",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/ventilyator-radiatora-geely-galaxy-l7-1377/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Вентилятор радиатора Geely Galaxy L7 под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/ventilyator-radiatora-geely-galaxy-l7-1477/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Вентилятор радиатора Geely Galaxy L7 под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/ventilyator-radiatora-geely-galaxy-l7-1377/"
+      },
+      {
+        "normalized_query": "bmw|x5|стекло|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/steklo-bmw-x5li-art-51375a44964-1594/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Стекло Bmw X5 цена"
+          },
+          {
+            "canonical_path": "/catalog/product/steklo-bmw-x5li-art-51359854340-1612/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Стекло Bmw X5 цена"
+          },
+          {
+            "canonical_path": "/catalog/product/steklo-bmw-x5li-art-51359854428-1642/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Стекло Bmw X5 цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/steklo-bmw-x5li-art-51375a44964-1594/"
+      },
+      {
+        "normalized_query": "bmw|x5|заказ|под|стекло",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/steklo-bmw-x5li-art-51375a44964-1594/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Стекло Bmw X5 под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/steklo-bmw-x5li-art-51359854340-1612/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Стекло Bmw X5 под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/steklo-bmw-x5li-art-51359854428-1642/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Стекло Bmw X5 под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/steklo-bmw-x5li-art-51375a44964-1594/"
+      },
+      {
+        "normalized_query": "free|voyah|заднее|стекло|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/steklo-zadnee-voyah-free-original-1621/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Стекло заднее Voyah Free цена"
+          },
+          {
+            "canonical_path": "/catalog/product/steklo-zadnee-voyah-free-original-1637/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Стекло заднее Voyah Free цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/steklo-zadnee-voyah-free-original-1621/"
+      },
+      {
+        "normalized_query": "free|voyah|заднее|заказ|под|стекло",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/steklo-zadnee-voyah-free-original-1621/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Стекло заднее Voyah Free под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/steklo-zadnee-voyah-free-original-1637/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Стекло заднее Voyah Free под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/steklo-zadnee-voyah-free-original-1621/"
+      },
+      {
+        "normalized_query": "changan|k|uni|акпп|в|сборе|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/akpp-v-sbore-changan-uni-k-1683/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "АКПП в сборе Changan UNI-K цена"
+          },
+          {
+            "canonical_path": "/catalog/product/akpp-v-sbore-changan-uni-k-1694/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "АКПП в сборе Changan UNI-K цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/akpp-v-sbore-changan-uni-k-1683/"
+      },
+      {
+        "normalized_query": "changan|k|uni|акпп|в|заказ|под|сборе",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/akpp-v-sbore-changan-uni-k-1683/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "АКПП в сборе Changan UNI-K под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/akpp-v-sbore-changan-uni-k-1694/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "АКПП в сборе Changan UNI-K под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/akpp-v-sbore-changan-uni-k-1683/"
+      },
+      {
+        "normalized_query": "06|byd|gt|seal|зеркало|левое|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1790/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Зеркало левое BYD Seal 06 GT цена"
+          },
+          {
+            "canonical_path": "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1831/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Зеркало левое BYD Seal 06 GT цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1790/"
+      },
+      {
+        "normalized_query": "06|byd|gt|seal|заказ|зеркало|левое|под",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1790/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Зеркало левое BYD Seal 06 GT под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1831/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Зеркало левое BYD Seal 06 GT под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1790/"
+      },
+      {
+        "normalized_query": "livan|pro|x3|бампера|заднего|накладка|правая|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/nakladka-zadnego-bampera-pravaya-livan-x3-pro-1805/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Накладка заднего бампера правая Livan X3 Pro цена"
+          },
+          {
+            "canonical_path": "/catalog/product/nakladka-zadnego-bampera-pravaya-livan-x3-pro-2558/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Накладка заднего бампера правая Livan X3 Pro цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/nakladka-zadnego-bampera-pravaya-livan-x3-pro-1805/"
+      },
+      {
+        "normalized_query": "livan|pro|x3|бампера|заднего|заказ|накладка|под|правая",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/nakladka-zadnego-bampera-pravaya-livan-x3-pro-1805/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Накладка заднего бампера правая Livan X3 Pro под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/nakladka-zadnego-bampera-pravaya-livan-x3-pro-2558/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Накладка заднего бампера правая Livan X3 Pro под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/nakladka-zadnego-bampera-pravaya-livan-x3-pro-1805/"
+      },
+      {
+        "normalized_query": "06|byd|gt|seal|зеркало|правое|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-1870/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Зеркало правое BYD Seal 06 GT цена"
+          },
+          {
+            "canonical_path": "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-2165/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Зеркало правое BYD Seal 06 GT цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-1870/"
+      },
+      {
+        "normalized_query": "06|byd|gt|seal|заказ|зеркало|под|правое",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-1870/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Зеркало правое BYD Seal 06 GT под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-2165/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Зеркало правое BYD Seal 06 GT под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-1870/"
+      },
+      {
+        "normalized_query": "06|byd|gt|seal|крыло|переднее|правое|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-1883/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Крыло переднее правое BYD Seal 06 GT цена"
+          },
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-2829/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Крыло переднее правое BYD Seal 06 GT цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-1883/"
+      },
+      {
+        "normalized_query": "06|byd|gt|seal|заказ|крыло|переднее|под|правое",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-1883/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Крыло переднее правое BYD Seal 06 GT под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-2829/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Крыло переднее правое BYD Seal 06 GT под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-1883/"
+      },
+      {
+        "normalized_query": "geely|monjaro|бампера|левый|молдинг|переднего|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/molding-perednego-bampera-levyi-geely-monjaro-ori-1918/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Молдинг переднего бампера левый Geely Monjaro цена"
+          },
+          {
+            "canonical_path": "/catalog/product/molding-perednego-bampera-levyi-geely-monjaro-ori-2109/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Молдинг переднего бампера левый Geely Monjaro цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/molding-perednego-bampera-levyi-geely-monjaro-ori-1918/"
+      },
+      {
+        "normalized_query": "geely|monjaro|бампера|заказ|левый|молдинг|переднего|под",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/molding-perednego-bampera-levyi-geely-monjaro-ori-1918/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Молдинг переднего бампера левый Geely Monjaro под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/molding-perednego-bampera-levyi-geely-monjaro-ori-2109/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Молдинг переднего бампера левый Geely Monjaro под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/molding-perednego-bampera-levyi-geely-monjaro-ori-1918/"
+      },
+      {
+        "normalized_query": "livan|pro|x3|бампера|накладка|переднего|правая|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/nakladka-perednego-bampera-pravaya-livan-x3-pro-1921/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Накладка переднего бампера правая Livan X3 Pro цена"
+          },
+          {
+            "canonical_path": "/catalog/product/nakladka-perednego-bampera-pravaya-livan-x3-pro-2660/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Накладка переднего бампера правая Livan X3 Pro цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/nakladka-perednego-bampera-pravaya-livan-x3-pro-1921/"
+      },
+      {
+        "normalized_query": "livan|pro|x3|бампера|заказ|накладка|переднего|под|правая",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/nakladka-perednego-bampera-pravaya-livan-x3-pro-1921/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Накладка переднего бампера правая Livan X3 Pro под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/nakladka-perednego-bampera-pravaya-livan-x3-pro-2660/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Накладка переднего бампера правая Livan X3 Pro под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/nakladka-perednego-bampera-pravaya-livan-x3-pro-1921/"
+      },
+      {
+        "normalized_query": "livan|pro|x3|бампера|заднего|левая|накладка|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/nakladka-zadnego-bampera-levaya-livan-x3-pro-1946/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Накладка заднего бампера левая Livan X3 Pro цена"
+          },
+          {
+            "canonical_path": "/catalog/product/nakladka-zadnego-bampera-levaya-livan-x3-pro-2801/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Накладка заднего бампера левая Livan X3 Pro цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/nakladka-zadnego-bampera-levaya-livan-x3-pro-1946/"
+      },
+      {
+        "normalized_query": "livan|pro|x3|бампера|заднего|заказ|левая|накладка|под",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/nakladka-zadnego-bampera-levaya-livan-x3-pro-1946/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Накладка заднего бампера левая Livan X3 Pro под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/nakladka-zadnego-bampera-levaya-livan-x3-pro-2801/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Накладка заднего бампера левая Livan X3 Pro под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/nakladka-zadnego-bampera-levaya-livan-x3-pro-1946/"
+      },
+      {
+        "normalized_query": "free|voyah|бампер|в|ноускат|передний|сборе|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/nouskat-bamper-perednii-v-sbore-voyah-free-1951/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Ноускат (бампер передний в сборе) Voyah Free цена"
+          },
+          {
+            "canonical_path": "/catalog/product/bamper-perednii-v-sbore-nouskat-voyah-free-2219/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Бампер передний в сборе (ноускат) Voyah Free цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/nouskat-bamper-perednii-v-sbore-voyah-free-1951/"
+      },
+      {
+        "normalized_query": "free|voyah|бампер|в|заказ|ноускат|передний|под|сборе",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/nouskat-bamper-perednii-v-sbore-voyah-free-1951/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Ноускат (бампер передний в сборе) Voyah Free под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/bamper-perednii-v-sbore-nouskat-voyah-free-2219/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Бампер передний в сборе (ноускат) Voyah Free под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/nouskat-bamper-perednii-v-sbore-voyah-free-1951/"
+      },
+      {
+        "normalized_query": "auto|l7|li|багажника|крышка|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/kryshka-bagazhnika-lixiang-l7-original-1990/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Крышка багажника Li Auto L7 цена"
+          },
+          {
+            "canonical_path": "/catalog/product/kryshka-bagazhnika-lixiang-l7-rest-original-2211/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Крышка багажника Li Auto L7 цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/kryshka-bagazhnika-lixiang-l7-original-1990/"
+      },
+      {
+        "normalized_query": "auto|l7|li|багажника|заказ|крышка|под",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/kryshka-bagazhnika-lixiang-l7-original-1990/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Крышка багажника Li Auto L7 под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/kryshka-bagazhnika-lixiang-l7-rest-original-2211/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Крышка багажника Li Auto L7 под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/kryshka-bagazhnika-lixiang-l7-original-1990/"
+      },
+      {
+        "normalized_query": "benz|g|mercedes|бампера|класс|накладка|переднего|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/nakladka-perednego-bampera-mercedes-benz-g-class-2057/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Накладка переднего бампера Mercedes-Benz G-класс цена"
+          },
+          {
+            "canonical_path": "/catalog/product/nakladka-perednego-bampera-mercedes-benz-g-class-2305/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Накладка переднего бампера Mercedes-Benz G-класс цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/nakladka-perednego-bampera-mercedes-benz-g-class-2057/"
+      },
+      {
+        "normalized_query": "benz|g|mercedes|бампера|заказ|класс|накладка|переднего|под",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/nakladka-perednego-bampera-mercedes-benz-g-class-2057/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Накладка переднего бампера Mercedes-Benz G-класс под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/nakladka-perednego-bampera-mercedes-benz-g-class-2305/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Накладка переднего бампера Mercedes-Benz G-класс под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/nakladka-perednego-bampera-mercedes-benz-g-class-2057/"
+      },
+      {
+        "normalized_query": "geely|monjaro|дверь|передняя|правая|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/dver-perednyaya-pravaya-geely-monjaro-original-2096/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Дверь передняя правая Geely Monjaro цена"
+          },
+          {
+            "canonical_path": "/catalog/product/dver-perednyaya-pravaya-geely-monjaro-original-2257/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Дверь передняя правая Geely Monjaro цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/dver-perednyaya-pravaya-geely-monjaro-original-2096/"
+      },
+      {
+        "normalized_query": "geely|monjaro|дверь|заказ|передняя|под|правая",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/dver-perednyaya-pravaya-geely-monjaro-original-2096/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Дверь передняя правая Geely Monjaro под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/dver-perednyaya-pravaya-geely-monjaro-original-2257/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Дверь передняя правая Geely Monjaro под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/dver-perednyaya-pravaya-geely-monjaro-original-2096/"
+      },
+      {
+        "normalized_query": "hongqi|hs5|крыло|левое|переднее|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/levoe-perednee-krylo-hongqi-hs5-2102/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Левое переднее крыло Hongqi HS5 цена"
+          },
+          {
+            "canonical_path": "/catalog/product/levoe-perednee-krylo-hongqi-hs5-2894/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Левое переднее крыло Hongqi HS5 цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/levoe-perednee-krylo-hongqi-hs5-2102/"
+      },
+      {
+        "normalized_query": "hongqi|hs5|заказ|крыло|левое|переднее|под",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/levoe-perednee-krylo-hongqi-hs5-2102/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Левое переднее крыло Hongqi HS5 под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/levoe-perednee-krylo-hongqi-hs5-2894/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Левое переднее крыло Hongqi HS5 под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/levoe-perednee-krylo-hongqi-hs5-2102/"
+      },
+      {
+        "normalized_query": "620102002dybj|dream|oem|voyah|дверь|задняя|правая",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/dver-pravaya-zadnyaya-voyah-dream-2179/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Дверь правая задняя Voyah Dream OEM 620102002DYBJ"
+          },
+          {
+            "canonical_path": "/catalog/product/pravaya-zadnyaya-dver-voyah-dream-2708/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Правая задняя дверь Voyah Dream OEM 620102002DYBJ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/dver-pravaya-zadnyaya-voyah-dream-2179/"
+      },
+      {
+        "normalized_query": "dream|voyah|дверь|задняя|правая|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/dver-pravaya-zadnyaya-voyah-dream-2179/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Дверь правая задняя Voyah Dream цена"
+          },
+          {
+            "canonical_path": "/catalog/product/pravaya-zadnyaya-dver-voyah-dream-2708/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Правая задняя дверь Voyah Dream цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/dver-pravaya-zadnyaya-voyah-dream-2179/"
+      },
+      {
+        "normalized_query": "dream|voyah|дверь|задняя|заказ|под|правая",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/dver-pravaya-zadnyaya-voyah-dream-2179/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Дверь правая задняя Voyah Dream под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/pravaya-zadnyaya-dver-voyah-dream-2708/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Правая задняя дверь Voyah Dream под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/dver-pravaya-zadnyaya-voyah-dream-2179/"
+      },
+      {
+        "normalized_query": "k3|kia|дверь|передняя|правая|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/dver-perednyaya-pravaya-kia-k3-2216/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Дверь передняя правая Kia K3 цена"
+          },
+          {
+            "canonical_path": "/catalog/product/dver-perednyaya-pravaya-kia-k3-2506/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Дверь передняя правая Kia K3 цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/dver-perednyaya-pravaya-kia-k3-2216/"
+      },
+      {
+        "normalized_query": "k3|kia|дверь|заказ|передняя|под|правая",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/dver-perednyaya-pravaya-kia-k3-2216/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Дверь передняя правая Kia K3 под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/dver-perednyaya-pravaya-kia-k3-2506/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Дверь передняя правая Kia K3 под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/dver-perednyaya-pravaya-kia-k3-2216/"
+      },
+      {
+        "normalized_query": "01|jishi|polar|stone|крыло|переднее|правое|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-pravoe-polar-stone-01-2217/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Крыло переднее правое Polar Stone (Jishi) 01 цена"
+          },
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-pravoe-polar-stone-01-2593/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Крыло переднее правое Polar Stone (Jishi) 01 цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/krylo-perednee-pravoe-polar-stone-01-2217/"
+      },
+      {
+        "normalized_query": "01|jishi|polar|stone|заказ|крыло|переднее|под|правое",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-pravoe-polar-stone-01-2217/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Крыло переднее правое Polar Stone (Jishi) 01 под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-pravoe-polar-stone-01-2593/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Крыло переднее правое Polar Stone (Jishi) 01 под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/krylo-perednee-pravoe-polar-stone-01-2217/"
+      },
+      {
+        "normalized_query": "geely|monjaro|бампера|молдинг|переднего|правый|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/molding-perednego-bampera-pravyi-geely-monjaro-or-2227/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Молдинг переднего бампера правый Geely Monjaro цена"
+          },
+          {
+            "canonical_path": "/catalog/product/molding-perednego-bampera-pravyi-geely-monjaro-or-2538/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Молдинг переднего бампера правый Geely Monjaro цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/molding-perednego-bampera-pravyi-geely-monjaro-or-2227/"
+      },
+      {
+        "normalized_query": "geely|monjaro|бампера|заказ|молдинг|переднего|под|правый",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/molding-perednego-bampera-pravyi-geely-monjaro-or-2227/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Молдинг переднего бампера правый Geely Monjaro под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/molding-perednego-bampera-pravyi-geely-monjaro-or-2538/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Молдинг переднего бампера правый Geely Monjaro под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/molding-perednego-bampera-pravyi-geely-monjaro-or-2227/"
+      },
+      {
+        "normalized_query": "byd|l|tang|дверь|задняя|правая|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2263/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Дверь задняя правая BYD Tang L цена"
+          },
+          {
+            "canonical_path": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2659/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Дверь задняя правая BYD Tang L цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2263/"
+      },
+      {
+        "normalized_query": "byd|l|tang|дверь|задняя|заказ|под|правая",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2263/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Дверь задняя правая BYD Tang L под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2659/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Дверь задняя правая BYD Tang L под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2263/"
+      },
+      {
+        "normalized_query": "06|byd|gt|seal|бампера|переднего|усилитель|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2498/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Усилитель переднего бампера BYD Seal 06 GT цена"
+          },
+          {
+            "canonical_path": "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2591/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Усилитель переднего бампера BYD Seal 06 GT цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2498/"
+      },
+      {
+        "normalized_query": "06|byd|gt|seal|бампера|заказ|переднего|под|усилитель",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2498/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Усилитель переднего бампера BYD Seal 06 GT под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2591/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Усилитель переднего бампера BYD Seal 06 GT под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2498/"
+      },
+      {
+        "normalized_query": "06|byd|gt|seal|крыло|левое|переднее|цена",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2844/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Крыло переднее левое BYD Seal 06 GT цена"
+          },
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2888/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Крыло переднее левое BYD Seal 06 GT цена"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2844/"
+      },
+      {
+        "normalized_query": "06|byd|gt|seal|заказ|крыло|левое|переднее|под",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2844/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Крыло переднее левое BYD Seal 06 GT под заказ"
+          },
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2888/",
+            "page_type": "product",
+            "query_type": "secondary",
+            "query": "Крыло переднее левое BYD Seal 06 GT под заказ"
+          }
+        ],
+        "severity": "informational",
+        "decision": "keep_primary_owner_secondary_overlap_is_contextual",
+        "recommended_owner": "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2844/"
+      }
+    ],
+    "keep_separate_pending_owner_confirmation": [
+      {
+        "normalized_query": "371602004|free|voyah|задний|правый|фонарь",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/zadnii-fonar-pravyi-voyah-free-original-1005/",
+            "page_type": "product",
+            "query_type": "primary",
+            "query": "Задний фонарь правый Voyah Free 371602004"
+          },
+          {
+            "canonical_path": "/catalog/product/fonar-zadnii-pravyi-voyah-free-1165/",
+            "page_type": "product",
+            "query_type": "primary",
+            "query": "Фонарь задний правый Voyah Free 371602004"
+          }
+        ],
+        "severity": "high",
+        "decision": "keep_separate_pending_owner_confirmation",
+        "recommended_owner": "/catalog/product/zadnii-fonar-pravyi-voyah-free-original-1005/"
+      },
+      {
+        "normalized_query": "7057045900|geely|monjaro|задний|фонарь|центральный",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/fonar-zadnii-tsentralnyi-geely-monjaro-original-1101/",
+            "page_type": "product",
+            "query_type": "primary",
+            "query": "Фонарь задний центральный Geely Monjaro 7057045900"
+          },
+          {
+            "canonical_path": "/catalog/product/zadnii-tsentralnyi-fonar-geely-monjaro-1173/",
+            "page_type": "product",
+            "query_type": "primary",
+            "query": "Задний центральный фонарь Geely Monjaro 7057045900"
+          }
+        ],
+        "severity": "high",
+        "decision": "keep_separate_pending_owner_confirmation",
+        "recommended_owner": "/catalog/product/fonar-zadnii-tsentralnyi-geely-monjaro-original-1101/"
+      },
+      {
+        "normalized_query": "free|voyah|бампер|в|ноускат|передний|сборе",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/nouskat-bamper-perednii-v-sbore-voyah-free-1951/",
+            "page_type": "product",
+            "query_type": "primary",
+            "query": "Ноускат (бампер передний в сборе) Voyah Free"
+          },
+          {
+            "canonical_path": "/catalog/product/bamper-perednii-v-sbore-nouskat-voyah-free-2219/",
+            "page_type": "product",
+            "query_type": "primary",
+            "query": "Бампер передний в сборе (ноускат) Voyah Free"
+          }
+        ],
+        "severity": "high",
+        "decision": "keep_separate_pending_owner_confirmation",
+        "recommended_owner": "/catalog/product/nouskat-bamper-perednii-v-sbore-voyah-free-1951/"
+      },
+      {
+        "normalized_query": "620102002dybj|dream|voyah|дверь|задняя|правая",
+        "owners": [
+          {
+            "canonical_path": "/catalog/product/dver-pravaya-zadnyaya-voyah-dream-2179/",
+            "page_type": "product",
+            "query_type": "primary",
+            "query": "Дверь правая задняя Voyah Dream 620102002DYBJ"
+          },
+          {
+            "canonical_path": "/catalog/product/pravaya-zadnyaya-dver-voyah-dream-2708/",
+            "page_type": "product",
+            "query_type": "primary",
+            "query": "Правая задняя дверь Voyah Dream 620102002DYBJ"
+          }
+        ],
+        "severity": "high",
+        "decision": "keep_separate_pending_owner_confirmation",
+        "recommended_owner": "/catalog/product/dver-pravaya-zadnyaya-voyah-dream-2179/"
+      }
+    ]
+  },
+  "conflicts": [
+    {
+      "normalized_query": "371602004|free|voyah|задний|правый|фонарь",
+      "owners": [
+        {
+          "canonical_path": "/catalog/product/zadnii-fonar-pravyi-voyah-free-original-1005/",
+          "page_type": "product",
+          "query_type": "primary",
+          "query": "Задний фонарь правый Voyah Free 371602004"
+        },
+        {
+          "canonical_path": "/catalog/product/fonar-zadnii-pravyi-voyah-free-1165/",
+          "page_type": "product",
+          "query_type": "primary",
+          "query": "Фонарь задний правый Voyah Free 371602004"
+        }
+      ],
+      "severity": "high",
+      "decision": "keep_separate_pending_owner_confirmation",
+      "recommended_owner": "/catalog/product/zadnii-fonar-pravyi-voyah-free-original-1005/"
+    },
+    {
+      "normalized_query": "7057045900|geely|monjaro|задний|фонарь|центральный",
+      "owners": [
+        {
+          "canonical_path": "/catalog/product/fonar-zadnii-tsentralnyi-geely-monjaro-original-1101/",
+          "page_type": "product",
+          "query_type": "primary",
+          "query": "Фонарь задний центральный Geely Monjaro 7057045900"
+        },
+        {
+          "canonical_path": "/catalog/product/zadnii-tsentralnyi-fonar-geely-monjaro-1173/",
+          "page_type": "product",
+          "query_type": "primary",
+          "query": "Задний центральный фонарь Geely Monjaro 7057045900"
+        }
+      ],
+      "severity": "high",
+      "decision": "keep_separate_pending_owner_confirmation",
+      "recommended_owner": "/catalog/product/fonar-zadnii-tsentralnyi-geely-monjaro-original-1101/"
+    },
+    {
+      "normalized_query": "free|voyah|бампер|в|ноускат|передний|сборе",
+      "owners": [
+        {
+          "canonical_path": "/catalog/product/nouskat-bamper-perednii-v-sbore-voyah-free-1951/",
+          "page_type": "product",
+          "query_type": "primary",
+          "query": "Ноускат (бампер передний в сборе) Voyah Free"
+        },
+        {
+          "canonical_path": "/catalog/product/bamper-perednii-v-sbore-nouskat-voyah-free-2219/",
+          "page_type": "product",
+          "query_type": "primary",
+          "query": "Бампер передний в сборе (ноускат) Voyah Free"
+        }
+      ],
+      "severity": "high",
+      "decision": "keep_separate_pending_owner_confirmation",
+      "recommended_owner": "/catalog/product/nouskat-bamper-perednii-v-sbore-voyah-free-1951/"
+    },
+    {
+      "normalized_query": "620102002dybj|dream|voyah|дверь|задняя|правая",
+      "owners": [
+        {
+          "canonical_path": "/catalog/product/dver-pravaya-zadnyaya-voyah-dream-2179/",
+          "page_type": "product",
+          "query_type": "primary",
+          "query": "Дверь правая задняя Voyah Dream 620102002DYBJ"
+        },
+        {
+          "canonical_path": "/catalog/product/pravaya-zadnyaya-dver-voyah-dream-2708/",
+          "page_type": "product",
+          "query_type": "primary",
+          "query": "Правая задняя дверь Voyah Dream 620102002DYBJ"
+        }
+      ],
+      "severity": "high",
+      "decision": "keep_separate_pending_owner_confirmation",
+      "recommended_owner": "/catalog/product/dver-pravaya-zadnyaya-voyah-dream-2179/"
+    }
+  ],
+  "duplicate_metadata": {
+    "title": [],
+    "description": [],
+    "h1": [
+      {
+        "value": "передняя фара правая baic u5 plus",
+        "paths": [
+          "/catalog/product/perednyaya-fara-pravaya-baic-u5-plus-1012/",
+          "/catalog/product/perednyaya-fara-pravaya-baic-u5-plus-1155/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/perednyaya-fara-pravaya-baic-u5-plus-1012/",
+            "primary_query": "Передняя фара правая BAIC U5 Plus A00113436",
+            "article_oem": "A00113436",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/perednyaya-fara-pravaya-baic-u5-plus-1155/",
+            "primary_query": "Передняя фара правая BAIC U5 Plus A00052444",
+            "article_oem": "A00052444",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "левый задний фонарь крышка багажника baic x55",
+        "paths": [
+          "/catalog/product/levyi-zadnii-fonar-kryshka-bagazhnika-baik-x55-1033/",
+          "/catalog/product/levyi-zadnii-fonar-kryshka-bagazhnika-baik-x55-1071/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/levyi-zadnii-fonar-kryshka-bagazhnika-baik-x55-1033/",
+            "primary_query": "Левый задний фонарь крышка багажника BAIC X55 A00114419",
+            "article_oem": "A00114419",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/levyi-zadnii-fonar-kryshka-bagazhnika-baik-x55-1071/",
+            "primary_query": "Левый задний фонарь крышка багажника BAIC X55 A00114417",
+            "article_oem": "A00114417",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "правая передняя фара baic x55",
+        "paths": [
+          "/catalog/product/pravaya-perednyaya-fara-baic-x55-1035/",
+          "/catalog/product/pravaya-perednyaya-fara-baic-x55-1152/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/pravaya-perednyaya-fara-baic-x55-1035/",
+            "primary_query": "Правая передняя фара BAIC X55 A00114055",
+            "article_oem": "A00114055",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/pravaya-perednyaya-fara-baic-x55-1152/",
+            "primary_query": "Правая передняя фара BAIC X55 A00113911",
+            "article_oem": "A00113911",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "фонарь задний левый (крыло) baic x35",
+        "paths": [
+          "/catalog/product/fonar-zadnii-levyi-krylo-baic-x35-1063/",
+          "/catalog/product/fonar-zadnii-levyi-krylo-baic-x35-1207/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/fonar-zadnii-levyi-krylo-baic-x35-1063/",
+            "primary_query": "Фонарь задний левый (крыло) BAIC X35 A00112330",
+            "article_oem": "A00112330",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/fonar-zadnii-levyi-krylo-baic-x35-1207/",
+            "primary_query": "Фонарь задний левый (крыло) BAIC X35 A00112329",
+            "article_oem": "A00112329",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "левая передняя фара baic x55",
+        "paths": [
+          "/catalog/product/levaya-perednyaya-fara-baic-x55-1066/",
+          "/catalog/product/levaya-perednyaya-fara-baic-x55-1328/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/levaya-perednyaya-fara-baic-x55-1066/",
+            "primary_query": "Левая передняя фара BAIC X55 A00114054",
+            "article_oem": "A00114054",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/levaya-perednyaya-fara-baic-x55-1328/",
+            "primary_query": "Левая передняя фара BAIC X55 A00113910",
+            "article_oem": "A00113910",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "передняя фара левая baic u5 plus",
+        "paths": [
+          "/catalog/product/perednyaya-fara-levaya-baic-u5-plus-1073/",
+          "/catalog/product/perednyaya-fara-levaya-baic-u5-plus-1309/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/perednyaya-fara-levaya-baic-u5-plus-1073/",
+            "primary_query": "Передняя фара левая BAIC U5 Plus A00113435",
+            "article_oem": "A00113435",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/perednyaya-fara-levaya-baic-u5-plus-1309/",
+            "primary_query": "Передняя фара левая BAIC U5 Plus A00052443",
+            "article_oem": "A00052443",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "фара левая (круглая фишка, 18 пин, max) li auto l7",
+        "paths": [
+          "/catalog/product/fara-levaya-lixiang-l7-kruglaya-fishka-18-pin-max-1081/",
+          "/catalog/product/fara-levaya-lixiang-l7-kruglaya-fishka-18-pin-max-1226/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/fara-levaya-lixiang-l7-kruglaya-fishka-18-pin-max-1081/",
+            "primary_query": "Фара левая (круглая фишка, 18 пин, MAX) Li Auto L7 X0353011090 X0353011091",
+            "article_oem": "X0353011090 X0353011091",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/fara-levaya-lixiang-l7-kruglaya-fishka-18-pin-max-1226/",
+            "primary_query": "Фара левая (круглая фишка, 18 пин, MAX) Li Auto L7 X0353011090",
+            "article_oem": "X0353011090",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "задний противотуманный фонарь changan cs95",
+        "paths": [
+          "/catalog/product/zadnii-protivotumannyi-fonar-changan-cs95-1136/",
+          "/catalog/product/zadnii-protivotumannyi-fonar-changan-cs95-1272/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/zadnii-protivotumannyi-fonar-changan-cs95-1136/",
+            "primary_query": "Задний противотуманный фонарь Changan CS95 S4010411800AA",
+            "article_oem": "S4010411800AA",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/zadnii-protivotumannyi-fonar-changan-cs95-1272/",
+            "primary_query": "Задний противотуманный фонарь Changan CS95 4140591298",
+            "article_oem": "4140591298",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "шланг системы охлаждения mercedes-benz g-класс",
+        "paths": [
+          "/catalog/product/shlang-sistemy-ohlazhdeniya-mercedes-benz-g-class-1358/",
+          "/catalog/product/shlang-sistemy-ohlazhdeniya-mercedes-benz-g-class-1391/",
+          "/catalog/product/shlang-sistemy-ohlazhdeniya-mercedes-benz-g-class-1400/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/shlang-sistemy-ohlazhdeniya-mercedes-benz-g-class-1358/",
+            "primary_query": "Шланг системы охлаждения Mercedes-Benz G-класс A4635010700",
+            "article_oem": "A4635010700",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/shlang-sistemy-ohlazhdeniya-mercedes-benz-g-class-1391/",
+            "primary_query": "Шланг системы охлаждения Mercedes-Benz G-класс A4635013600",
+            "article_oem": "A4635013600",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/shlang-sistemy-ohlazhdeniya-mercedes-benz-g-class-1400/",
+            "primary_query": "Шланг системы охлаждения Mercedes-Benz G-класс A4635013500",
+            "article_oem": "A4635013500",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "вентилятор радиатора geely galaxy l7",
+        "paths": [
+          "/catalog/product/ventilyator-radiatora-geely-galaxy-l7-1377/",
+          "/catalog/product/ventilyator-radiatora-geely-galaxy-l7-1477/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/ventilyator-radiatora-geely-galaxy-l7-1377/",
+            "primary_query": "Вентилятор радиатора Geely Galaxy L7 6608073983",
+            "article_oem": "6608073983",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/ventilyator-radiatora-geely-galaxy-l7-1477/",
+            "primary_query": "Вентилятор радиатора Geely Galaxy L7 6608217358",
+            "article_oem": "6608217358",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "стекло bmw x5",
+        "paths": [
+          "/catalog/product/steklo-bmw-x5li-art-51375a44964-1594/",
+          "/catalog/product/steklo-bmw-x5li-art-51359854340-1612/",
+          "/catalog/product/steklo-bmw-x5li-art-51359854428-1642/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/steklo-bmw-x5li-art-51375a44964-1594/",
+            "primary_query": "Стекло Bmw X5 51375A44964",
+            "article_oem": "51375A44964",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/steklo-bmw-x5li-art-51359854340-1612/",
+            "primary_query": "Стекло Bmw X5 51359854340",
+            "article_oem": "51359854340",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/steklo-bmw-x5li-art-51359854428-1642/",
+            "primary_query": "Стекло Bmw X5 51359854428",
+            "article_oem": "51359854428",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "стекло заднее voyah free",
+        "paths": [
+          "/catalog/product/steklo-zadnee-voyah-free-original-1621/",
+          "/catalog/product/steklo-zadnee-voyah-free-original-1637/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/steklo-zadnee-voyah-free-original-1621/",
+            "primary_query": "Стекло заднее Voyah Free H97A3720013AB",
+            "article_oem": "H97A3720013AB",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/steklo-zadnee-voyah-free-original-1637/",
+            "primary_query": "Стекло заднее Voyah Free 520004001",
+            "article_oem": "520004001",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "акпп в сборе changan uni-k",
+        "paths": [
+          "/catalog/product/akpp-v-sbore-changan-uni-k-1683/",
+          "/catalog/product/akpp-v-sbore-changan-uni-k-1694/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/akpp-v-sbore-changan-uni-k-1683/",
+            "primary_query": "АКПП в сборе Changan UNI-K",
+            "article_oem": "",
+            "condition": "Б/у"
+          },
+          {
+            "canonical_path": "/catalog/product/akpp-v-sbore-changan-uni-k-1694/",
+            "primary_query": "АКПП в сборе Changan UNI-K 1500010-CR05",
+            "article_oem": "1500010-CR05",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "зеркало левое byd seal 06 gt",
+        "paths": [
+          "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1790/",
+          "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1831/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1790/",
+            "primary_query": "Зеркало левое BYD Seal 06 GT 14690053-00",
+            "article_oem": "14690053-00",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1831/",
+            "primary_query": "Зеркало левое BYD Seal 06 GT 1469005300",
+            "article_oem": "1469005300",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "накладка заднего бампера правая livan x3 pro",
+        "paths": [
+          "/catalog/product/nakladka-zadnego-bampera-pravaya-livan-x3-pro-1805/",
+          "/catalog/product/nakladka-zadnego-bampera-pravaya-livan-x3-pro-2558/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/nakladka-zadnego-bampera-pravaya-livan-x3-pro-1805/",
+            "primary_query": "Накладка заднего бампера правая Livan X3 Pro 1118047395",
+            "article_oem": "1118047395",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/nakladka-zadnego-bampera-pravaya-livan-x3-pro-2558/",
+            "primary_query": "Накладка заднего бампера правая Livan X3 Pro 111804758201742",
+            "article_oem": "111804758201742",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "зеркало правое byd seal 06 gt",
+        "paths": [
+          "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-1870/",
+          "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-2165/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-1870/",
+            "primary_query": "Зеркало правое BYD Seal 06 GT 1469005700",
+            "article_oem": "1469005700",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-2165/",
+            "primary_query": "Зеркало правое BYD Seal 06 GT 14690057-00",
+            "article_oem": "14690057-00",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "крыло переднее правое byd seal 06 gt",
+        "paths": [
+          "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-1883/",
+          "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-2829/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-1883/",
+            "primary_query": "Крыло переднее правое BYD Seal 06 GT EHEA840301970",
+            "article_oem": "EHEA840301970",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-2829/",
+            "primary_query": "Крыло переднее правое BYD Seal 06 GT 16990111-00",
+            "article_oem": "16990111-00",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "молдинг переднего бампера левый geely monjaro",
+        "paths": [
+          "/catalog/product/molding-perednego-bampera-levyi-geely-monjaro-ori-1918/",
+          "/catalog/product/molding-perednego-bampera-levyi-geely-monjaro-ori-2109/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/molding-perednego-bampera-levyi-geely-monjaro-ori-1918/",
+            "primary_query": "Молдинг переднего бампера левый Geely Monjaro 6010179300",
+            "article_oem": "6010179300",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/molding-perednego-bampera-levyi-geely-monjaro-ori-2109/",
+            "primary_query": "Молдинг переднего бампера левый Geely Monjaro 6010179100",
+            "article_oem": "6010179100",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "накладка переднего бампера правая livan x3 pro",
+        "paths": [
+          "/catalog/product/nakladka-perednego-bampera-pravaya-livan-x3-pro-1921/",
+          "/catalog/product/nakladka-perednego-bampera-pravaya-livan-x3-pro-2660/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/nakladka-perednego-bampera-pravaya-livan-x3-pro-1921/",
+            "primary_query": "Накладка переднего бампера правая Livan X3 Pro 111804748301742",
+            "article_oem": "111804748301742",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/nakladka-perednego-bampera-pravaya-livan-x3-pro-2660/",
+            "primary_query": "Накладка переднего бампера правая Livan X3 Pro 1118047393",
+            "article_oem": "1118047393",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "накладка заднего бампера левая livan x3 pro",
+        "paths": [
+          "/catalog/product/nakladka-zadnego-bampera-levaya-livan-x3-pro-1946/",
+          "/catalog/product/nakladka-zadnego-bampera-levaya-livan-x3-pro-2801/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/nakladka-zadnego-bampera-levaya-livan-x3-pro-1946/",
+            "primary_query": "Накладка заднего бампера левая Livan X3 Pro 111804758101742",
+            "article_oem": "111804758101742",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/nakladka-zadnego-bampera-levaya-livan-x3-pro-2801/",
+            "primary_query": "Накладка заднего бампера левая Livan X3 Pro 1118047394",
+            "article_oem": "1118047394",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "крышка багажника li auto l7",
+        "paths": [
+          "/catalog/product/kryshka-bagazhnika-lixiang-l7-original-1990/",
+          "/catalog/product/kryshka-bagazhnika-lixiang-l7-rest-original-2211/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/kryshka-bagazhnika-lixiang-l7-original-1990/",
+            "primary_query": "Крышка багажника Li Auto L7 X0390000042",
+            "article_oem": "X0390000042",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/kryshka-bagazhnika-lixiang-l7-rest-original-2211/",
+            "primary_query": "Крышка багажника Li Auto L7",
+            "article_oem": "",
+            "condition": "Б/у"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "накладка переднего бампера mercedes-benz g-класс",
+        "paths": [
+          "/catalog/product/nakladka-perednego-bampera-mercedes-benz-g-class-2057/",
+          "/catalog/product/nakladka-perednego-bampera-mercedes-benz-g-class-2305/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/nakladka-perednego-bampera-mercedes-benz-g-class-2057/",
+            "primary_query": "Накладка переднего бампера Mercedes-Benz G-класс A4638854402",
+            "article_oem": "A4638854402",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/nakladka-perednego-bampera-mercedes-benz-g-class-2305/",
+            "primary_query": "Накладка переднего бампера Mercedes-Benz G-класс A4638851102",
+            "article_oem": "A4638851102",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "дверь передняя правая geely monjaro",
+        "paths": [
+          "/catalog/product/dver-perednyaya-pravaya-geely-monjaro-original-2096/",
+          "/catalog/product/dver-perednyaya-pravaya-geely-monjaro-original-2257/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/dver-perednyaya-pravaya-geely-monjaro-original-2096/",
+            "primary_query": "Дверь передняя правая Geely Monjaro 5075068500C15",
+            "article_oem": "5075068500C15",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/dver-perednyaya-pravaya-geely-monjaro-original-2257/",
+            "primary_query": "Дверь передняя правая Geely Monjaro 5075068500C15v",
+            "article_oem": "5075068500C15v",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "левое переднее крыло hongqi hs5",
+        "paths": [
+          "/catalog/product/levoe-perednee-krylo-hongqi-hs5-2102/",
+          "/catalog/product/levoe-perednee-krylo-hongqi-hs5-2894/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/levoe-perednee-krylo-hongqi-hs5-2102/",
+            "primary_query": "Левое переднее крыло Hongqi HS5 8403351DD01",
+            "article_oem": "8403351DD01",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/levoe-perednee-krylo-hongqi-hs5-2894/",
+            "primary_query": "Левое переднее крыло Hongqi HS5 8403351HF01",
+            "article_oem": "8403351HF01",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "дверь передняя правая kia k3",
+        "paths": [
+          "/catalog/product/dver-perednyaya-pravaya-kia-k3-2216/",
+          "/catalog/product/dver-perednyaya-pravaya-kia-k3-2506/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/dver-perednyaya-pravaya-kia-k3-2216/",
+            "primary_query": "Дверь передняя правая Kia K3 76004Q8000",
+            "article_oem": "76004Q8000",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/dver-perednyaya-pravaya-kia-k3-2506/",
+            "primary_query": "Дверь передняя правая Kia K3 77004Q8000",
+            "article_oem": "77004Q8000",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "крыло переднее правое polar stone (jishi) 01",
+        "paths": [
+          "/catalog/product/krylo-perednee-pravoe-polar-stone-01-2217/",
+          "/catalog/product/krylo-perednee-pravoe-polar-stone-01-2593/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-pravoe-polar-stone-01-2217/",
+            "primary_query": "Крыло переднее правое Polar Stone (Jishi) 01 26 745 ₽",
+            "article_oem": "",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-pravoe-polar-stone-01-2593/",
+            "primary_query": "Крыло переднее правое Polar Stone (Jishi) 01 30 765 ₽",
+            "article_oem": "",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "молдинг переднего бампера правый geely monjaro",
+        "paths": [
+          "/catalog/product/molding-perednego-bampera-pravyi-geely-monjaro-or-2227/",
+          "/catalog/product/molding-perednego-bampera-pravyi-geely-monjaro-or-2538/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/molding-perednego-bampera-pravyi-geely-monjaro-or-2227/",
+            "primary_query": "Молдинг переднего бампера правый Geely Monjaro 6010179200",
+            "article_oem": "6010179200",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/molding-perednego-bampera-pravyi-geely-monjaro-or-2538/",
+            "primary_query": "Молдинг переднего бампера правый Geely Monjaro 6010179400",
+            "article_oem": "6010179400",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "дверь задняя правая byd tang l",
+        "paths": [
+          "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2263/",
+          "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2659/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2263/",
+            "primary_query": "Дверь задняя правая BYD Tang L 101 770 ₽",
+            "article_oem": "",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2659/",
+            "primary_query": "Дверь задняя правая BYD Tang L 86 000 ₽",
+            "article_oem": "",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "усилитель переднего бампера byd seal 06 gt",
+        "paths": [
+          "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2498/",
+          "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2591/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2498/",
+            "primary_query": "Усилитель переднего бампера BYD Seal 06 GT 1699020300",
+            "article_oem": "1699020300",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2591/",
+            "primary_query": "Усилитель переднего бампера BYD Seal 06 GT 16990203-00",
+            "article_oem": "16990203-00",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      },
+      {
+        "value": "крыло переднее левое byd seal 06 gt",
+        "paths": [
+          "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2844/",
+          "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2888/"
+        ],
+        "page_types": [
+          "product"
+        ],
+        "primary_queries": [
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2844/",
+            "primary_query": "Крыло переднее левое BYD Seal 06 GT EHEA840301070",
+            "article_oem": "EHEA840301070",
+            "condition": "Новое"
+          },
+          {
+            "canonical_path": "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2888/",
+            "primary_query": "Крыло переднее левое BYD Seal 06 GT EHEA-8403010",
+            "article_oem": "EHEA-8403010",
+            "condition": "Новое"
+          }
+        ],
+        "risk": "low",
+        "decision": "keep_separate_unique_primary_query_or_oem"
+      }
+    ]
+  }
+}

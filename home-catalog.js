@@ -330,12 +330,14 @@
     ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false" /><div class="vehicle-result-no-photo" hidden>Фото уточняется</div>`
     : `<div class="vehicle-result-no-photo">Фото уточняется</div>`;
 
-  const resultCard = (item) => `
+  const resultCard = (item) => {
+    const href = item.indexable ? ` href="${escapeHtml(item.canonicalPath)}"` : "";
+    return `
     <article class="vehicle-result-card">
-      <a class="vehicle-result-photo" href="${escapeHtml(item.canonicalPath)}" data-product-link data-product-id="${escapeHtml(item.id)}">${imageMarkup(item)}</a>
+      <a class="vehicle-result-photo"${href} data-product-link data-product-id="${escapeHtml(item.id)}">${imageMarkup(item)}</a>
       <div class="vehicle-result-copy">
         <p>${escapeHtml([item.brand, item.model].filter(Boolean).join(" · ") || item.category)}</p>
-        <h4><a class="vehicle-result-title-link" href="${escapeHtml(item.canonicalPath)}" data-product-link data-product-id="${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></h4>
+        <h4><a class="vehicle-result-title-link"${href} data-product-link data-product-id="${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></h4>
         <small>${escapeHtml([item.condition, item.origin].filter(Boolean).join(" · ") || "Проверим по VIN")}</small>
         <div>
           <strong>${formatPrice(item.price)}</strong>
@@ -343,6 +345,7 @@
         </div>
       </div>
     </article>`;
+  };
 
   const renderResults = (results, title) => {
     currentResults = results;

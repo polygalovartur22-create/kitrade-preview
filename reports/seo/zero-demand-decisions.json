@@ -1,0 +1,4757 @@
+{
+  "audit_version": 1,
+  "methodology": {
+    "phrase_frequency_definition": "phrase_frequency — частотность запроса в кавычках: фиксируется количество слов, но не их порядок и не все словоформы.",
+    "strict_order_definition": "strict_order_frequency — частотность запроса с комбинированными кавычками и квадратными скобками: фиксируются количество и порядок слов, но не все словоформы.",
+    "snapshot_notice": "Показатели Wordstat являются снимком на указанную дату и могут изменяться из-за обновления скользящего расчётного периода.",
+    "audience_deduplication": "Строки, различающиеся только порядком слов, сохраняются как текстовые гипотезы, но одинаковый phrase-match набор не суммируется как независимая аудитория."
+  },
+  "summary": {
+    "zero_demand_categories_reviewed": 316,
+    "kept_indexable": 316,
+    "manual_review": 0,
+    "noindexed_due_to_zero_frequency": 0
+  },
+  "pages": [
+    {
+      "canonical_path": "/catalog/aito/m8/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/aito/m8/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 25,
+      "unique_incoming_pages": 33,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/aito/m8/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 6,
+      "unique_incoming_pages": 14,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/aito/m8/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/aito/m8/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/audi/a8/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/audi/q5-sportback/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/bj40/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 8,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/bj40/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 7,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/bj40/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 7,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/u5-plus/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/u5-plus/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/u5-plus/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 11,
+      "unique_incoming_pages": 19,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/u5-plus/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/x35/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 15,
+      "unique_incoming_pages": 19,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/x35/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 8,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/x35/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 5,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/x55/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 5,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/x55/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 9,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/x55/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 14,
+      "unique_incoming_pages": 18,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/x7/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/x7/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/x7/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 28,
+      "unique_incoming_pages": 37,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/x7/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 7,
+      "unique_incoming_pages": 16,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/x7/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baic/x7/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baojun/rc-5/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baojun/rs-5/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 5,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baojun/rs-5/rulevoe-upravlenie/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 5,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baojun/rs-5/tormoznaya-sistema/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 6,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baw/212/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baw/212/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 23,
+      "unique_incoming_pages": 30,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baw/212/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 5,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baw/212/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/baw/212/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/bmw/x5/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 5,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/byd/seal-06-gt/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 7,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/byd/seal-06-gt/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 19,
+      "unique_incoming_pages": 25,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/byd/seal-06-gt/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 7,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/byd/seal-06-gt/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 7,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/byd/seal-06-gt/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/byd/tang-l/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 15,
+      "unique_incoming_pages": 20,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/byd/tang-l/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 8,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/byd/tang-l/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 7,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/byd/yangwang-u8/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 18,
+      "unique_incoming_pages": 23,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/byd/yangwang-u8/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/byd/yangwang-u8/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/alsvin/transmissiya-i-privod/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/auchan-z6/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 12,
+      "unique_incoming_pages": 17,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/auchan-z6/salon/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 6,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/auchan-z6/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 7,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/auchan-z6/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 6,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/cs35-plus/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/cs75-plus/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/cs75-plus/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 17,
+      "unique_incoming_pages": 25,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/cs75-plus/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 6,
+      "unique_incoming_pages": 14,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/cs75-plus/salon/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/cs75-plus/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/cs75-plus/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/cs95/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 9,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/cs95/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 10,
+      "unique_incoming_pages": 14,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/cs95/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 5,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/hunter-plus/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/hunter-plus/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 25,
+      "unique_incoming_pages": 34,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/hunter-plus/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 8,
+      "unique_incoming_pages": 17,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/hunter-plus/podveska/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/hunter-plus/salon/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/hunter-plus/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/shenlan-deepal-s07/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/shenlan-deepal-s07/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 9,
+      "unique_incoming_pages": 15,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/shenlan-deepal-s07/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 6,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/shenlan-deepal-s07/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/shenlan-deepal-s07/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/uni-k/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 6,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/uni-k/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/uni-k/tormoznaya-sistema/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 7,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/changan/uni-k/transmissiya-i-privod/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/chery/tiggo-4-pro/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/chery/tiggo-4/transmissiya-i-privod/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/chery/tiggo-7-pro-max/transmissiya-i-privod/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 4,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/chevrolet/camaro/transmissiya-i-privod/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/chevrolet/monza/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/chevrolet/monza/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 19,
+      "unique_incoming_pages": 26,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/chevrolet/monza/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 8,
+      "unique_incoming_pages": 15,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/chevrolet/monza/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/chevrolet/monza/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/dongfeng/dfsk-ix5/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 4,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/dongfeng/dfsk-ix5/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 5,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/exeed/exlantix-es/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/exeed/exlantix-es/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 20,
+      "unique_incoming_pages": 28,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/exeed/exlantix-es/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 9,
+      "unique_incoming_pages": 17,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/exeed/exlantix-es/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/exeed/exlantix-es/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/exeed/exlantix-es/toplivnaya-i-vyhlopnaya-sistemy/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/exeed/txl/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 4,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 14,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 16,
+      "unique_incoming_pages": 27,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 14,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/podveska/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 15,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/rulevoe-upravlenie/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/salon/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 14,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/tormoznaya-sistema/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/transmissiya-i-privod/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/fang-cheng-bao/titanium-7/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 15,
+      "unique_incoming_pages": 20,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/fang-cheng-bao/titanium-7/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/fang-cheng-bao/titanium-7/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 7,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/fang-cheng-bao/titanium-7/tormoznaya-sistema/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 7,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/foton/tunland-g7/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/atlas-pro/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 4,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/atlas/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 7,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/atlas/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 6,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/coolray/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 5,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/galaxy-l7/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/galaxy-l7/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/galaxy-l7/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 20,
+      "unique_incoming_pages": 28,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/galaxy-l7/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 7,
+      "unique_incoming_pages": 15,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/galaxy-l7/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 5,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/galaxy-l7/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/galaxy-m9/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 11,
+      "unique_incoming_pages": 15,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/galaxy-m9/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 6,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/galaxy-m9/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 5,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/galaxy-starship-7/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/galaxy-starship-7/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 9,
+      "unique_incoming_pages": 16,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/galaxy-starship-7/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/galaxy-starship-7/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/monjaro/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 15,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/monjaro/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 6,
+      "unique_incoming_pages": 21,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/monjaro/podveska/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 16,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/monjaro/salon/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 15,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/monjaro/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 17,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/monjaro/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 17,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/monjaro/toplivnaya-i-vyhlopnaya-sistemy/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 15,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/monjaro/tormoznaya-sistema/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 16,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/monjaro/transmissiya-i-privod/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 15,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/okavango/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 6,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/okavango/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 6,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/preface/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 11,
+      "unique_incoming_pages": 14,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/preface/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 6,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/vision-x6-pro/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/vision-x6-pro/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 6,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/vision-x6-pro/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 6,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/geely/vision-x6-pro/tormoznaya-sistema/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/great-wall/poer-king-kong/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 4,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/great-wall/poer/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 6,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/great-wall/poer/podveska/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 5,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/great-wall/poer/transmissiya-i-privod/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 5,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/haval/f7/transmissiya-i-privod/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/haval/jolion/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/haval/jolion/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/haval/jolion/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/haval/jolion/salon/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 14,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/haval/jolion/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/haval/jolion/toplivnaya-i-vyhlopnaya-sistemy/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/haval/xiaolong-max/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/haval/xiaolong-max/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 20,
+      "unique_incoming_pages": 27,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/haval/xiaolong-max/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 6,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/haval/xiaolong-max/podveska/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/haval/xiaolong-max/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/hiphi/z/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 6,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/honda/crider/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/hongqi/hs5/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 14,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/hongqi/hs5/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/hongqi/hs5/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 33,
+      "unique_incoming_pages": 43,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/hongqi/hs5/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 9,
+      "unique_incoming_pages": 19,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/hongqi/hs5/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 14,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/hongqi/hs5/toplivnaya-i-vyhlopnaya-sistemy/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/hyundai/santa-fe/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/jetour/t2/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/k3/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 23,
+      "unique_incoming_pages": 28,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/k3/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 5,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/k3/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 7,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/k5/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/k5/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 22,
+      "unique_incoming_pages": 29,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/k5/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 5,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/k5/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/k5/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/seltos/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/seltos/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 18,
+      "unique_incoming_pages": 27,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/seltos/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 5,
+      "unique_incoming_pages": 14,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/seltos/podveska/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/seltos/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/seltos/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/sportage-china/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/sportage-china/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 23,
+      "unique_incoming_pages": 30,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/sportage-china/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 6,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/sportage-china/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 5,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/kia/sportage-china/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/lexus/rx/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 5,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/lexus/rx/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 7,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/lexus/rx/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 5,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/li-auto/l6/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 4,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/li-auto/l7/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 18,
+      "unique_incoming_pages": 27,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/li-auto/l7/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 8,
+      "unique_incoming_pages": 16,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/li-auto/l7/podveska/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/li-auto/l7/salon/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/li-auto/l7/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/li-auto/l7/tormoznaya-sistema/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/li-auto/l9/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 4,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/livan/x3-pro/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/livan/x3-pro/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/livan/x3-pro/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 44,
+      "unique_incoming_pages": 54,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/livan/x3-pro/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 7,
+      "unique_incoming_pages": 17,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/livan/x3-pro/podveska/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/livan/x3-pro/salon/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/livan/x6-pro/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/livan/x6-pro/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 33,
+      "unique_incoming_pages": 41,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/livan/x6-pro/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/livan/x6-pro/podveska/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/livan/x6-pro/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/mercedes-benz/g-klass-amg/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 7,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/mercedes-benz/g-klass-amg/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 4,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/mercedes-benz/g-klass/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 6,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/mercedes-benz/g-klass/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 12,
+      "unique_incoming_pages": 17,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/mercedes-benz/g-klass/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 6,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/mercedes-benz/g-klass/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 8,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/nissan/pathfinder-china/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/nissan/pathfinder-china/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 5,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/nissan/pathfinder-china/podveska/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 6,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/nissan/x-trail/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/nissan/x-trail/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/nissan/x-trail/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 15,
+      "unique_incoming_pages": 25,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/nissan/x-trail/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/nissan/x-trail/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/nissan/x-trail/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/polar-stone-jishi/01/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/polar-stone-jishi/01/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 13,
+      "unique_incoming_pages": 21,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/polar-stone-jishi/01/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/polar-stone-jishi/01/podveska/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/polar-stone-jishi/01/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/polar-stone-jishi/01/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/tank/500/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 28,
+      "unique_incoming_pages": 36,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/tank/500/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 9,
+      "unique_incoming_pages": 16,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/tank/500/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/tank/500/tormoznaya-sistema/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/tank/700/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 19,
+      "unique_incoming_pages": 22,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/tank/700/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 5,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/camry/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/camry/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/camry/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 24,
+      "unique_incoming_pages": 33,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/camry/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 6,
+      "unique_incoming_pages": 15,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/camry/podveska/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/camry/salon/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 9,
+      "unique_incoming_pages": 18,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/camry/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/corolla/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 21,
+      "unique_incoming_pages": 26,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/corolla/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 8,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/corolla/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 7,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/highlander/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/highlander/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 22,
+      "unique_incoming_pages": 29,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/highlander/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 10,
+      "unique_incoming_pages": 17,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/highlander/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/highlander/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/land-cruiser-prado/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/rav4/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/rav4/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 23,
+      "unique_incoming_pages": 31,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/rav4/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 8,
+      "unique_incoming_pages": 16,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/rav4/salon/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/rav4/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/rav4/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/venza/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/toyota/wildlander/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/trumpchi/m8/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/talagon/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/talagon/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 19,
+      "unique_incoming_pages": 27,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/talagon/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 5,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/talagon/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/talagon/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/talagon/transmissiya-i-privod/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/tavendor/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/tavendor/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 22,
+      "unique_incoming_pages": 29,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/tavendor/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 8,
+      "unique_incoming_pages": 15,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/tavendor/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 5,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/tavendor/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/tayron/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/tayron/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/tayron/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 31,
+      "unique_incoming_pages": 40,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/tayron/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 5,
+      "unique_incoming_pages": 14,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/tayron/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/volkswagen/tayron/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/dream/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/dream/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/dream/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 31,
+      "unique_incoming_pages": 40,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/dream/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 12,
+      "unique_incoming_pages": 21,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/dream/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 6,
+      "unique_incoming_pages": 15,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/free/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 11,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/free/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 30,
+      "unique_incoming_pages": 42,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/free/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 9,
+      "unique_incoming_pages": 19,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/free/salon/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/free/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 14,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/free/tormoznaya-sistema/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/passion/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/passion/elektrika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/passion/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 30,
+      "unique_incoming_pages": 40,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/passion/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 10,
+      "unique_incoming_pages": 20,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/passion/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 13,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/passion/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/taishan/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 23,
+      "unique_incoming_pages": 28,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/taishan/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 12,
+      "unique_incoming_pages": 17,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/voyah/taishan/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 7,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/wey/07/dvigatel/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/wey/07/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 5,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/wey/07/sistema-ohlazhdeniya/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 10,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/wey/07/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 9,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/wey/80/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 26,
+      "unique_incoming_pages": 32,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/wey/80/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 6,
+      "unique_incoming_pages": 12,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/wey/80/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 2,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/xiaomi/su7/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 18,
+      "unique_incoming_pages": 22,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/xiaomi/su7/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 7,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/xiaomi/su7/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 5,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/zeekr/001/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 4,
+      "unique_incoming_pages": 7,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/zeekr/001/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 4,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/zeekr/007/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 3,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/zeekr/9x/kuzov/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 11,
+      "unique_incoming_pages": 16,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/zeekr/9x/optika/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 3,
+      "unique_incoming_pages": 8,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/zeekr/9x/stekla/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 6,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    },
+    {
+      "canonical_path": "/catalog/zeekr/9x/transmissiya-i-privod/",
+      "phrase_frequency": 0,
+      "strict_order_frequency": 0,
+      "product_count": 1,
+      "unique_incoming_pages": 6,
+      "metadata_complete": true,
+      "decision": "keep_indexable",
+      "reasons": [
+        "contains_current_products",
+        "unique_complete_metadata",
+        "has_internal_incoming_links",
+        "zero_frequency_is_not_a_standalone_noindex_signal"
+      ]
+    }
+  ]
+}

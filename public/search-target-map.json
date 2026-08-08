@@ -1162,7 +1162,7 @@
       "page_type": "model",
       "brand": "Changan",
       "model": "CS75 Plus",
-      "priority": "P2_high_demand_medium_value",
+      "priority": "high",
       "queries": [
         "каталог запчастей Changan CS75 Plus",
         "запчасти Чанган CS75 Plus",
@@ -1359,7 +1359,7 @@
       "page_type": "model",
       "brand": "Chery",
       "model": "Tiggo 7 Pro Max",
-      "priority": "P1_high_demand_high_value",
+      "priority": "high",
       "queries": [
         "каталог запчастей Чери Тигго 7 Про Макс",
         "запчасти Чери Тигго 7 Про Макс",
@@ -1689,7 +1689,7 @@
       "page_type": "model",
       "brand": "Geely",
       "model": "Coolray",
-      "priority": "P1_high_demand_high_value",
+      "priority": "high",
       "queries": [
         "каталог запчастей Geely Coolray",
         "запчасти Джили Кулрей",
@@ -1801,7 +1801,7 @@
       "page_type": "model",
       "brand": "Geely",
       "model": "Monjaro",
-      "priority": "P2_high_demand_medium_value",
+      "priority": "high",
       "queries": [
         "каталог запчастей Geely Monjaro",
         "запчасти Джили Монжаро",
@@ -1969,7 +1969,7 @@
       "page_type": "model",
       "brand": "Haval",
       "model": "F7",
-      "priority": "P1_high_demand_high_value",
+      "priority": "high",
       "queries": [
         "каталог запчастей Haval F7",
         "запчасти Haval F7",
@@ -2025,7 +2025,7 @@
       "page_type": "model",
       "brand": "Haval",
       "model": "H3",
-      "priority": "P1_high_demand_high_value",
+      "priority": "high",
       "queries": [
         "каталог запчастей Haval H3",
         "запчасти Haval H3",
@@ -2053,7 +2053,7 @@
       "page_type": "model",
       "brand": "Haval",
       "model": "Jolion",
-      "priority": "P2_high_demand_medium_value",
+      "priority": "high",
       "queries": [
         "каталог запчастей Хавал Джолион",
         "запчасти Haval Jolion",
@@ -2451,7 +2451,7 @@
       "page_type": "model",
       "brand": "Omoda",
       "model": "C5",
-      "priority": "P1_high_demand_high_value",
+      "priority": "high",
       "queries": [
         "каталог запчастей Омода С5",
         "запчасти Омода С5",
@@ -2535,7 +2535,7 @@
       "page_type": "model",
       "brand": "Tank",
       "model": "500",
-      "priority": "P2_high_demand_medium_value",
+      "priority": "high",
       "queries": [
         "каталог запчастей Tank 500",
         "запчасти Танк 500",
@@ -2642,7 +2642,7 @@
       "page_type": "model",
       "brand": "Voyah",
       "model": "Free",
-      "priority": "P1_high_demand_high_value",
+      "priority": "high",
       "queries": [
         "каталог запчастей Voyah Free",
         "запчасти Воя Фри",
@@ -2866,7 +2866,7 @@
       "page_type": "model",
       "brand": "Zeekr",
       "model": "9X",
-      "priority": "P1_high_demand_high_value",
+      "priority": "high",
       "queries": [
         "запчасти Zeekr 9X",
         "автозапчасти Zeekr 9X",

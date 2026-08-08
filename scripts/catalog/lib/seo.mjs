@@ -392,7 +392,7 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     page_type: "home", entity_id: "home", canonical_path: "/", indexable: true,
     title: "KITRADE — автозапчасти из Китая с доставкой по России",
     description: "Автозапчасти под заказ из Китая: новые и контрактные детали, проверка по VIN и доставка по России. Минимальная сумма заказа — 50 000 ₽.",
-    h1: "Автозапчасти из Китая с доставкой по всей России",
+    h1: "Автозапчасти из Китая с доставкой по России",
     primary_query: "автозапчасти из Китая", secondary_queries: ["доставка автозапчастей из Китая"],
   });
   add({

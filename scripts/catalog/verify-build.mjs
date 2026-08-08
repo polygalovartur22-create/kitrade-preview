@@ -19,6 +19,12 @@ const categoryWordstatCandidates = JSON.parse(fs.readFileSync(path.join(projectD
 const imageReport = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "images-review.json"), "utf8"));
 const ownerConfirmation = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "needs-owner-confirmation.json"), "utf8"));
 const validationSummary = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "validation-summary.json"), "utf8"));
+const internalLinkingAudit = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "internal-linking-audit.json"), "utf8"));
+const cannibalizationAudit = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "cannibalization-audit.json"), "utf8"));
+const commercialFactorsAudit = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "commercial-factors-audit.json"), "utf8"));
+const zeroDemandDecisions = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "zero-demand-decisions.json"), "utf8"));
+const directLandingAudit = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "direct-landing-audit.json"), "utf8"));
+const metadataContentAudit = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "seo", "metadata-content-audit.json"), "utf8"));
 const imageReviewPaths = new Set(imageReport.map((row) => row.canonical_path));
 const sourceItems = readCatalogData(path.join(projectDir, "kitrade-parts-data.js"));
 const sourceById = new Map(sourceItems.map((item) => [String(item.id), item]));
@@ -31,6 +37,25 @@ assert.ok(sourceItems.length > 0, "Source catalog is empty");
 assert.ok(registry.entities.products.length >= sourceItems.length, "Permanent registry lost current products");
 assert.ok(exportRows.length >= registry.entities.products.length, "Public URL export is incomplete");
 assert.ok(seoMap.length > 0, "SEO map is empty");
+assert.equal(internalLinkingAudit.summary.indexable_pages_checked, seoMap.length, "Internal-linking audit does not cover the full SEO map");
+assert.equal(internalLinkingAudit.summary.orphan_pages, 0, "Internal-linking audit contains orphan pages");
+assert.equal(internalLinkingAudit.summary.unreachable_pages, 0, "Internal-linking audit contains pages unreachable from home");
+assert.equal(internalLinkingAudit.summary.broken_internal_links, 0, "Internal-linking audit contains broken links");
+assert.equal(internalLinkingAudit.summary.links_to_noindex, 0, "Internal-linking audit contains crawlable links to noindex pages");
+assert.equal(internalLinkingAudit.summary.pages_missing_expected_hierarchy_links, 0, "Internal-linking audit contains incomplete hierarchy links");
+assert.equal(internalLinkingAudit.summary.pages_with_errors, 0, "Internal-linking audit contains unresolved page errors");
+assert.equal(cannibalizationAudit.summary.indexable_pages_checked, seoMap.length, "Cannibalization audit does not cover the full SEO map");
+assert.ok(cannibalizationAudit.conflicts.every((group) => group.decision === "keep_separate_pending_owner_confirmation"), "Product-query conflicts lack a safe explicit decision");
+assert.equal(cannibalizationAudit.summary.duplicate_titles, 0, "Cannibalization audit contains duplicate titles");
+assert.equal(cannibalizationAudit.summary.duplicate_descriptions, 0, "Cannibalization audit contains duplicate descriptions");
+assert.equal(commercialFactorsAudit.summary.pages_checked, seoMap.length, "Commercial-factor audit does not cover the full SEO map");
+assert.equal(commercialFactorsAudit.summary.pages_requiring_review, 0, "Confirmed commercial information is incomplete on some pages");
+assert.equal(zeroDemandDecisions.summary.zero_demand_categories_reviewed, 316, "Zero-demand decisions do not cover all 316 categories");
+assert.equal(zeroDemandDecisions.summary.noindexed_due_to_zero_frequency, 0, "A category was noindexed solely due to zero frequency");
+assert.equal(directLandingAudit.summary.groups_checked, 107, "Direct landing audit does not cover all source groups");
+assert.equal(directLandingAudit.summary.not_ready, 0, "A mapped Direct group is not ready after production launch");
+assert.equal(metadataContentAudit.summary.pages_checked, seoMap.length, "Metadata audit does not cover the full SEO map");
+assert.equal(metadataContentAudit.summary.pages_with_issues, 0, "Metadata audit contains unresolved issues");
 
 const balanced = (value) => (String(value).match(/\(/g) || []).length === (String(value).match(/\)/g) || []).length;
 const escapeHtml = (value) => String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
@@ -150,8 +175,10 @@ collectCatalogIndexes(path.join(outputDir, "catalog"));
 const crawlableProductPaths = new Set(catalogIndexFiles.flatMap((file) => (
   [...fs.readFileSync(file, "utf8").matchAll(/href="(\/catalog\/product\/[^"]+\/)"/g)].map((match) => match[1])
 )));
-const expectedVisiblePaths = new Set(exportRows.filter((row) => row.entity_type === "product" && row.status === "active").map((row) => row.canonical_path));
-assert.deepEqual(crawlableProductPaths, expectedVisiblePaths, "Catalog pagination does not contain a crawlable link to every visible product");
+const expectedVisiblePaths = new Set(exportRows.filter((row) => row.entity_type === "product" && row.status === "active" && row.indexable).map((row) => row.canonical_path));
+const noindexProductPaths = new Set(exportRows.filter((row) => row.entity_type === "product" && !row.indexable).map((row) => row.canonical_path));
+assert.deepEqual(crawlableProductPaths, expectedVisiblePaths, "Catalog pagination does not contain a crawlable link to every visible indexable product");
+assert.equal([...crawlableProductPaths].filter((route) => noindexProductPaths.has(route)).length, 0, "Catalog pagination links to a noindex product");
 assert.ok((catalogHtml.match(/<article class="part-card"/g) || []).length <= 24, "First catalog page contains more than 24 cards");
 if (expectedVisiblePaths.size > 24) {
   const nextMatch = catalogHtml.match(/<a class="load-more" id="loadMore" href="([^"]+)"/);
@@ -251,6 +278,16 @@ assert.equal(categoryWordstatCandidates.count, categoryWordstatCandidates.candid
 assert.equal(categoryWordstatCandidates.count, 0, "Unexpected category candidate was generated");
 assert.ok(wordstatAudit.methodology?.phrase_frequency_definition?.includes("фиксируется количество слов, но не их порядок"), "Phrase-frequency methodology is missing");
 assert.ok(wordstatAudit.methodology?.snapshot_notice?.includes("скользящего расчётного периода"), "Wordstat snapshot notice is missing");
+for (const [canonicalPath, phraseQuery, expectedFrequency] of [
+  ["/catalog/geely/coolray/kuzov/", '"Кузовные запчасти Geely Coolray"', 5],
+  ["/catalog/hiphi/z/kuzov/", '"Кузовные запчасти HiPhi Z"', 1],
+  ["/catalog/wey/07/kuzov/", '"запчасти Wey 07 кузов"', 13],
+]) {
+  const result = categoryResults.find((row) => row.canonical_path === canonicalPath)?.checked_queries.find((query) => query.phrase_query === phraseQuery);
+  assert.equal(result?.phrase_frequency, expectedFrequency, `Confirmed Russia Wordstat value changed: ${phraseQuery}`);
+  assert.equal(result?.region, "Россия", `Confirmed Wordstat region changed: ${phraseQuery}`);
+  assert.equal(result?.region_id, 225, `Confirmed Wordstat region ID changed: ${phraseQuery}`);
+}
 const weyCategorySeo = seoMap.find((entry) => entry.canonical_path === "/catalog/wey/07/kuzov/");
 assert.equal(weyCategorySeo?.primary_query, "запчасти Wey 07 кузов", "Confirmed Wey 07 category primary query changed");
 assert.equal(weyCategorySeo?.h1, "Кузовные запчасти для Wey 07", "Confirmed Wey 07 category H1 changed");

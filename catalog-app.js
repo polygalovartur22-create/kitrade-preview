@@ -331,15 +331,16 @@
 
   function cardMarkup(item) {
     const selected = state.selected.includes(item.id);
+    const href = item.indexable ? ` href="${escapeHtml(item.canonicalPath)}"` : "";
     const image = item.image
       ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false" /><div class="photo-fallback" hidden>Фото уточняется</div>`
       : `<div class="photo-fallback">Фото уточняется</div>`;
     return `
       <article class="part-card" data-id="${escapeHtml(item.id)}">
-        <a class="part-photo" href="${escapeHtml(item.canonicalPath)}" data-product-link data-product-id="${escapeHtml(item.id)}">${image}</a>
+        <a class="part-photo"${href} data-product-link data-product-id="${escapeHtml(item.id)}">${image}</a>
         <div class="part-content">
           <span class="part-category">${escapeHtml(item.group)}</span>
-          <h3><a class="part-title-link" href="${escapeHtml(item.canonicalPath)}" data-product-link data-product-id="${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></h3>
+          <h3><a class="part-title-link"${href} data-product-link data-product-id="${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></h3>
           <p class="part-description">${escapeHtml(item.cardDescription)}</p>
           <div class="part-meta">
             <strong class="part-price">${formatPrice(item)}</strong>

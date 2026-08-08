@@ -138,7 +138,8 @@ function fallbackPhoto(item) {
 }
 
 function productCard(product, item) {
-  const content = seoState.productState.get(product.product_id)?.content || {};
+  const productState = seoState.productState.get(product.product_id);
+  const content = productState?.content || {};
   const title = content.h1 || product.name;
   const publicCategory = indexes.categories.get(product.category_id)?.name || product.public_category || getPublicCategory(item || {});
   const photo = normalizePhoto(item?.photos?.[0]) || fallbackPhoto(item);
@@ -146,12 +147,13 @@ function productCard(product, item) {
     ? `<img src="${escapeHtml(photo)}" alt="${escapeHtml(title)}" loading="lazy" /><div class="photo-fallback" hidden>Фото уточняется</div>`
     : '<div class="photo-fallback">Фото уточняется</div>';
   const description = content.cardDescription || "Цена — за деталь. Доставка отдельно. Проверка по VIN.";
+  const href = productState?.indexable ? ` href="${escapeHtml(product.canonical_path)}"` : "";
   return `
       <article class="part-card" data-id="${escapeHtml(item?.id || product.source_id)}">
-        <a class="part-photo" href="${escapeHtml(product.canonical_path)}" data-product-link data-product-id="${escapeHtml(item?.id || product.source_id)}">${image}</a>
+        <a class="part-photo"${href} data-product-link data-product-id="${escapeHtml(item?.id || product.source_id)}">${image}</a>
         <div class="part-content">
           <span class="part-category">${escapeHtml(publicCategory)}</span>
-          <h3><a class="part-title-link" href="${escapeHtml(product.canonical_path)}" data-product-link data-product-id="${escapeHtml(item?.id || product.source_id)}">${escapeHtml(title)}</a></h3>
+          <h3><a class="part-title-link"${href} data-product-link data-product-id="${escapeHtml(item?.id || product.source_id)}">${escapeHtml(title)}</a></h3>
           <p class="part-description">${escapeHtml(description)}</p>
           <div class="part-meta">
             <strong class="part-price">${escapeHtml(formatPrice(item))}</strong>
@@ -222,6 +224,7 @@ function catalogPage({ routePath, titleParts = [], brand = null, model = null, c
   html = replaceFilterOptions(html, "brandFilters", brandLinks);
   html = replaceFilterOptions(html, "modelFilters", modelLinks);
   html = replaceFilterOptions(html, "typeFilters", categoryLinks);
+  if (currentRoutePath !== "/catalog/") html = html.replaceAll('href="#catalog"', 'href="/catalog/"');
   return html;
 }
 
@@ -345,6 +348,7 @@ fs.writeFileSync(path.join(outputDir, "robots.txt"), isNonProductionBuild
     ].join("\n"));
 
 const rootBrandLinks = [...rowsByBrand.keys()].map((brandId) => indexes.brands.get(brandId)).filter(Boolean)
+  .filter((brand) => seoState.seoByPath.get(brandPath(brand))?.indexable)
   .sort((a, b) => a.name.localeCompare(b.name, "ru"))
   .map((brand) => ({ href: brandPath(brand), label: brand.name }));
 
@@ -382,6 +386,7 @@ for (const [modelId, modelRows] of rowsByModel) {
   if (!brand || !model) continue;
   const categoryIds = new Set(modelRows.map(({ product }) => product.category_id).filter(Boolean));
   const categoryLinks = [...categoryIds].map((id) => indexes.categories.get(id)).filter(Boolean)
+    .filter((category) => seoState.seoByPath.get(categoryPath(brand, model, category))?.indexable)
     .sort((a, b) => a.name.localeCompare(b.name, "ru"))
     .map((category) => ({ href: categoryPath(brand, model, category), label: category.name }));
   writeCatalogSeries({ routePath: modelPath(brand, model), titleParts: [brand.name, model.name], brand, model, products: modelRows, brandLinks: rootBrandLinks, categoryLinks });
@@ -394,11 +399,15 @@ for (const [key, categoryRows] of rowsByCategoryRoute) {
   const category = indexes.categories.get(categoryId);
   if (!brand || !model || !category) continue;
   const routePath = categoryPath(brand, model, category);
+  const siblingModelLinks = [...(modelsByBrand.get(brandId) || [])].map((id) => indexes.models.get(id)).filter(Boolean)
+    .sort((a, b) => a.name.localeCompare(b.name, "ru"))
+    .map((entry) => ({ href: modelPath(brand, entry), label: entry.name }));
   const siblingCategoryLinks = [...new Set((rowsByModel.get(modelId) || []).map(({ product }) => product.category_id).filter(Boolean))]
     .map((id) => indexes.categories.get(id)).filter(Boolean)
+    .filter((entry) => seoState.seoByPath.get(categoryPath(brand, model, entry))?.indexable)
     .sort((a, b) => a.name.localeCompare(b.name, "ru"))
     .map((entry) => ({ href: categoryPath(brand, model, entry), label: entry.name }));
-  writeCatalogSeries({ routePath, titleParts: [brand.name, model.name, category.name], brand, model, category, products: categoryRows, brandLinks: rootBrandLinks, categoryLinks: siblingCategoryLinks });
+  writeCatalogSeries({ routePath, titleParts: [brand.name, model.name, category.name], brand, model, category, products: categoryRows, brandLinks: rootBrandLinks, modelLinks: siblingModelLinks, categoryLinks: siblingCategoryLinks });
 }
 
 function productPage(product, item) {

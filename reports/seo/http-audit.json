@@ -1,0 +1,18 @@
+{
+  "audit_version": 1,
+  "summary": {
+    "sitemap_urls_checked": 2594,
+    "sitemap_http_200": 2594,
+    "sitemap_http_errors": 0,
+    "missing_product_http_status": 404,
+    "utm_page_http_status": 200,
+    "utm_canonical": "https://xn--d1abifc1bn.xn--p1ai/catalog/aito/m8/",
+    "structured_data": {
+      "Product": true,
+      "Offer": true,
+      "BreadcrumbList": true,
+      "Organization_AutoPartsStore": true
+    }
+  },
+  "errors": []
+}
