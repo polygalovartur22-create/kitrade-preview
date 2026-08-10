@@ -1,0 +1,71 @@
+* text=auto eol=lf
+
+# Text sources and generated text artifacts
+*.js          text eol=lf
+*.mjs         text eol=lf
+*.cjs         text eol=lf
+*.json        text eol=lf
+*.csv         text eol=lf
+*.html        text eol=lf
+*.htm         text eol=lf
+*.css         text eol=lf
+*.xml         text eol=lf
+*.txt         text eol=lf
+*.md          text eol=lf
+*.markdown    text eol=lf
+*.yaml        text eol=lf
+*.yml         text eol=lf
+*.toml        text eol=lf
+*.ini         text eol=lf
+*.conf        text eol=lf
+*.config      text eol=lf
+*.properties  text eol=lf
+*.env         text eol=lf
+.env.*        text eol=lf
+.editorconfig text eol=lf
+.gitattributes text eol=lf
+.gitignore    text eol=lf
+.npmrc        text eol=lf
+.nvmrc        text eol=lf
+_headers      text eol=lf
+_redirects    text eol=lf
+
+# Images
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.avif binary
+*.ico  binary
+*.bmp  binary
+*.tif  binary
+*.tiff binary
+*.svg  binary
+
+# Video and audio
+*.mp4  binary
+*.webm binary
+*.mov  binary
+*.avi  binary
+*.mkv  binary
+*.m4v  binary
+*.mp3  binary
+*.wav  binary
+*.ogg  binary
+*.m4a  binary
+*.aac  binary
+*.flac binary
+
+# Fonts, documents and archives
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.eot   binary
+*.pdf   binary
+*.zip   binary
+*.gz    binary
+*.tgz   binary
+*.7z    binary
+*.rar   binary

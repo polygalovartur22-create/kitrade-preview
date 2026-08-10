@@ -79,12 +79,31 @@ for (const product of registry.entities.products) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   ${robotsMeta}
+  <link rel="icon" type="image/png" href="${basePath}/assets/kitrade-logo.png" />
   <meta http-equiv="refresh" content="0;url=${redirectUrl}" />
   <link rel="canonical" href="${new URL(product.canonical_path, "https://китрейд.рф/").href}" />
   <title>Переход к товару — KITRADE</title>
 </head>
 <body><p><a href="${redirectUrl}">Открыть страницу товара</a></p></body>
 </html>`);
+  }
+}
+
+const githubHtmlFiles = [];
+function collectHtmlFiles(directory) {
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    const target = path.join(directory, entry.name);
+    if (entry.isDirectory()) collectHtmlFiles(target);
+    else if (entry.isFile() && entry.name.toLowerCase().endsWith(".html")) githubHtmlFiles.push(target);
+  }
+}
+collectHtmlFiles(outputDir);
+for (const file of githubHtmlFiles) {
+  const html = fs.readFileSync(file, "utf8");
+  const faviconLinks = html.match(/<link\b(?=[^>]*\brel=["'][^"']*\bicon\b[^"']*["'])[^>]*>/gi) || [];
+  if (faviconLinks.length !== 1) throw new Error(`Expected one favicon link in ${file}, found ${faviconLinks.length}.`);
+  if (!faviconLinks[0].includes(`href="${basePath}/assets/kitrade-logo.png"`)) {
+    throw new Error(`GitHub Pages favicon path is invalid in ${file}.`);
   }
 }
 

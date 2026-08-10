@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { readCatalogData, normalizePhoto } from "./lib/data.mjs";
+import { isDirectPublicImage, readCatalogData, normalizePhoto } from "./lib/data.mjs";
 import { getPublicCategory, isVisibleCatalogItem } from "./lib/domain.mjs";
 import { registryIndexes, validateRegistry } from "./lib/registry.mjs";
 import { breadcrumbStructuredData, buildSeoState, organizationStructuredData, productStructuredData } from "./lib/seo.mjs";
@@ -38,9 +38,14 @@ const directSemanticsPath = path.join(projectDir, "seo", "direct-semantics.json"
 const directSemantics = fs.existsSync(directSemanticsPath) ? JSON.parse(fs.readFileSync(directSemanticsPath, "utf8")) : {};
 const wordstatAuditPath = path.join(projectDir, "seo", "wordstat-audit.json");
 const wordstatAudit = fs.existsSync(wordstatAuditPath) ? JSON.parse(fs.readFileSync(wordstatAuditPath, "utf8")) : {};
-const seoState = buildSeoState({ registry, items, indexes, config, rules, overrides, directSemantics, wordstatAudit });
+const imageObservationsPath = path.join(projectDir, "seo", "image-observations.json");
+const imageObservations = fs.existsSync(imageObservationsPath)
+  ? JSON.parse(fs.readFileSync(imageObservationsPath, "utf8")).observations || {}
+  : {};
+const seoState = buildSeoState({ registry, items, indexes, config, rules, overrides, directSemantics, wordstatAudit, imageObservations });
 const organizationSchema = organizationStructuredData(config);
 const CATALOG_PAGE_SIZE = 24;
+const FAVICON_TAG = '<link rel="icon" type="image/png" href="/assets/kitrade-logo.png" />';
 
 for (const item of items) {
   if (!indexes.productsBySourceId.has(String(item.id))) {
@@ -124,6 +129,27 @@ function formatPrice(item) {
   return formatPartPrice(item?.price);
 }
 
+function ensureSingleFavicon(html) {
+  const withoutExistingFavicon = html.replace(
+    /^[\t ]*<link\b(?=[^>]*\brel=["'][^"']*\bicon\b[^"']*["'])[^>]*>[\t ]*\r?\n?/gim,
+    "",
+  );
+  if (!/<\/head>/i.test(withoutExistingFavicon)) return withoutExistingFavicon;
+  return withoutExistingFavicon.replace(/^([\t ]*)<\/head>/im, `  ${FAVICON_TAG}\n$1</head>`);
+}
+
+function addFavicons(directory) {
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    const target = path.join(directory, entry.name);
+    if (entry.isDirectory()) addFavicons(target);
+    else if (entry.isFile() && entry.name.toLocaleLowerCase("ru").endsWith(".html")) {
+      const html = fs.readFileSync(target, "utf8");
+      const withFavicon = ensureSingleFavicon(html);
+      if (withFavicon !== html) fs.writeFileSync(target, withFavicon);
+    }
+  }
+}
+
 function deliveryLabel() {
   return "доставка отдельно";
 }
@@ -137,14 +163,28 @@ function fallbackPhoto(item) {
   return "";
 }
 
+function sourcePhoto(item) {
+  const rawUrl = item?.photos?.[0];
+  return isDirectPublicImage(rawUrl) ? normalizePhoto(rawUrl) : "";
+}
+
+function productImageAlt(content, item, brand, model) {
+  return [
+    content?.detail || item?.detail || item?.title || "Автозапчасть",
+    content?.vehicle || [brand?.name || item?.brand, model?.name || item?.model].filter(Boolean).join(" "),
+  ]
+    .filter(Boolean).join(" ").replace(/\s+/g, " ").trim();
+}
+
 function productCard(product, item) {
   const productState = seoState.productState.get(product.product_id);
   const content = productState?.content || {};
   const title = content.h1 || product.name;
   const publicCategory = indexes.categories.get(product.category_id)?.name || product.public_category || getPublicCategory(item || {});
-  const photo = normalizePhoto(item?.photos?.[0]) || fallbackPhoto(item);
+  const photo = sourcePhoto(item) || fallbackPhoto(item);
+  const imageAlt = productImageAlt(content, item, indexes.brands.get(product.brand_id), indexes.models.get(product.model_id));
   const image = photo
-    ? `<img src="${escapeHtml(photo)}" alt="${escapeHtml(title)}" loading="lazy" /><div class="photo-fallback" hidden>Фото уточняется</div>`
+    ? `<img src="${escapeHtml(photo)}" alt="${escapeHtml(imageAlt)}" loading="lazy" /><div class="photo-fallback" hidden>Фото уточняется</div>`
     : '<div class="photo-fallback">Фото уточняется</div>';
   const description = content.cardDescription || "Цена — за деталь. Доставка отдельно. Проверка по VIN.";
   const href = productState?.indexable ? ` href="${escapeHtml(product.canonical_path)}"` : "";
@@ -196,7 +236,6 @@ function catalogPage({ routePath, titleParts = [], brand = null, model = null, c
     brand ? { name: brand.name, path: brandPath(brand) } : null,
     brand && model ? { name: model.name, path: modelPath(brand, model) } : null,
     brand && model && category ? { name: category.name, path: categoryPath(brand, model, category) } : null,
-    pageNumber > 1 ? { name: `Страница ${pageNumber}`, path: currentRoutePath } : null,
   ].filter(Boolean).filter((entry, index, entries) => index === 0 || entry.path !== entries[index - 1].path);
   const schemas = [organizationSchema, breadcrumbStructuredData(breadcrumbItems, config)];
   let html = catalogTemplate
@@ -219,7 +258,7 @@ function catalogPage({ routePath, titleParts = [], brand = null, model = null, c
       /<a class="load-more" id="loadMore"[^>]*>Показать еще<\/a>/,
       pageNumber < totalPages
         ? `<a class="load-more" id="loadMore" href="${escapeHtml(paginationPath(routePath, pageNumber + 1))}">Показать еще</a>`
-        : '<a class="load-more" id="loadMore" href="/catalog/" hidden>Показать еще</a>',
+        : '<a class="load-more" id="loadMore" hidden style="display: none">Показать еще</a>',
     );
   html = replaceFilterOptions(html, "brandFilters", brandLinks);
   html = replaceFilterOptions(html, "modelFilters", modelLinks);
@@ -417,8 +456,9 @@ function productPage(product, item) {
   const state = seoState.productState.get(product.product_id);
   const content = state?.content || {};
   const title = content.h1 || product.name;
-  const realPhoto = normalizePhoto(item?.photos?.[0]);
+  const realPhoto = sourcePhoto(item);
   const photo = realPhoto || fallbackPhoto(item);
+  const imageAlt = productImageAlt(content, item, brand, model);
   const description = content.description || "";
   const meta = content.meta || [brand?.name, model?.name].filter(Boolean).join(" · ");
   const hasIndexableRoute = (routePath) => Boolean(seoState.seoByPath.get(routePath)?.indexable);
@@ -443,7 +483,10 @@ function productPage(product, item) {
   const schemas = state?.indexable ? [
     organizationSchema,
     breadcrumbSchema,
-    productStructuredData({ product, item, brand, model, category, seo, config, state, image: realPhoto }),
+    productStructuredData({
+      product, item, brand, model, category, seo, config, state,
+      imageApproval: seoState.imageReport.find((row) => row.product_id === product.product_id && row.image_index === 1) || null,
+    }),
   ] : [organizationSchema];
   return `<!doctype html>
 <html lang="ru">
@@ -471,7 +514,7 @@ function productPage(product, item) {
     <div class="product-page-shell">
       <nav class="catalog-breadcrumbs" aria-label="Хлебные крошки">${breadcrumbHtml}</nav>
       <article class="product-page-layout">
-        <div class="product-page-gallery">${photo ? `<img src="${escapeHtml(photo)}" alt="${escapeHtml(title)}" />` : "Фото уточняется"}</div>
+        <div class="product-page-gallery">${photo ? `<img src="${escapeHtml(photo)}" alt="${escapeHtml(imageAlt)}" />` : "Фото уточняется"}</div>
         <div class="product-page-content">
           <p class="product-page-category">${escapeHtml(category?.name || product.public_category || item?.category || "Запчасть")}</p>
           <h1>${escapeHtml(seo?.h1 || title)}</h1>
@@ -590,6 +633,8 @@ if (isNonProductionBuild) {
   };
   addPreviewRobotsMeta(outputDir);
 }
+
+addFavicons(outputDir);
 
 const redirects = [
   "/catalog.html /catalog/ 301!",

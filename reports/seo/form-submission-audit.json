@@ -1,6 +1,33 @@
 {
   "status": "server_confirmation_unavailable",
-  "current_transport": "Google Apps Script with fetch mode no-cors",
+  "current_state": {
+    "endpoint": "Google Apps Script",
+    "request_mode": "no-cors",
+    "response_visibility": "opaque",
+    "server_confirmation_available": false,
+    "success_ui_shown": false,
+    "request_submit_success_sent": false,
+    "explanation": "The opaque response cannot prove that the request was saved, so it is not treated as confirmed success."
+  },
+  "required_server_change": {
+    "cors_enabled": true,
+    "response_format": "JSON",
+    "success_status": "HTTP 2xx only after the request has actually been saved",
+    "confirmation_contract": "Return a verifiable JSON confirmation only after the request and attribution payload have been stored successfully."
+  },
+  "required_client_change": {
+    "request_mode": "cors",
+    "remove_no_cors": true,
+    "read_response_json": true,
+    "validate_server_confirmation": true,
+    "migration_note": "When the server supports CORS, remove no-cors (or explicitly use CORS), parse JSON and verify the save confirmation."
+  },
+  "confirmed_success_gate": {
+    "condition": "Only a valid server JSON confirmation after an HTTP 2xx response may show success and send request_submit_success.",
+    "show_success_after_confirmation": true,
+    "send_request_submit_success_after_confirmation": true,
+    "opaque_or_error_must_not_succeed": true
+  },
   "analytics": {
     "attempt_event": "request_submit_attempt",
     "success_event": "request_submit_success",
@@ -29,8 +56,6 @@
     "preliminary_sum",
     "currency"
   ],
-  "client_behavior": "An opaque no-cors response is not counted or shown as confirmed success.",
   "offline_event_policy": "qualified_50000, quote_sent, order_confirmed_50000 and order_paid_50000 are server/CRM-only and are not callable through the browser event allowlist.",
-  "paid_revenue_policy": "order_paid_50000 must use the actually paid RUB amount and must not contain phone, name, email, VIN or other personal data.",
-  "server_change_required": "Return a CORS-enabled JSON response with a 2xx status only after the request and attribution payload have been saved successfully; later send qualified, quote, confirmed and paid statuses from the server or CRM."
+  "paid_revenue_policy": "order_paid_50000 must use the actually paid RUB amount and must not contain phone, name, email, VIN or other personal data."
 }

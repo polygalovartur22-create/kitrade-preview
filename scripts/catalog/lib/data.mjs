@@ -17,3 +17,15 @@ export function normalizePhoto(url) {
   if (match) return `https://80.img.avito.st${decodeURIComponent(match[1])}`;
   return value.replace(/^http:\/\//i, "https://");
 }
+
+export function imageSource(url) {
+  const value = String(url || "").trim();
+  if (/disk\.yandex\.ru\/i\//i.test(value)) return "yandex_disk_auth_page";
+  if (/avito|img\.avito\.st/i.test(value)) return "avito";
+  return value ? "other" : "missing";
+}
+
+export function isDirectPublicImage(url) {
+  const value = String(url || "").trim();
+  return Boolean(value) && imageSource(value) !== "yandex_disk_auth_page";
+}

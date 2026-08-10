@@ -27,8 +27,7 @@
       "priority": "standard",
       "queries": [
         "автозапчасти под заказ",
-        "каталог автозапчастей из Китая",
-        "подбор запчастей по VIN"
+        "каталог автозапчастей из Китая"
       ],
       "canonical_path": "/catalog/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/",
@@ -304,10 +303,12 @@
       "priority": "standard",
       "queries": [
         "купить запчасти Фан Чен Бао",
-        "купить запчасти Fang Cheng Bao",
+        "купить запчасти Fangchengbao",
         "каталог запчастей Фан Чен Бао",
-        "каталог запчастей Fang Cheng Bao",
+        "каталог запчастей Fangchengbao",
+        "купить запчасти Fang Cheng Bao",
         "заказать запчасти Fang Cheng Bao",
+        "каталог запчастей Fang Cheng Bao",
         "автозапчасти Fang Cheng Bao"
       ],
       "canonical_path": "/catalog/fang-cheng-bao/",
@@ -1548,14 +1549,14 @@
       "model": "Bao 5",
       "priority": "P3_long_tail_medium_value",
       "queries": [
-        "запчасти Fang Cheng Bao Bao 5 (Leopard 5)",
-        "автозапчасти Fang Cheng Bao Bao 5 (Leopard 5)",
-        "купить запчасти Fang Cheng Bao Bao 5 (Leopard 5)",
-        "каталог запчастей Fang Cheng Bao Bao 5 (Leopard 5)",
-        "цены на запчасти Fang Cheng Bao Bao 5 (Leopard 5)",
+        "запчасти Fang Cheng Bao 5 (Leopard 5)",
+        "автозапчасти Fang Cheng Bao 5 (Leopard 5)",
+        "купить запчасти Fang Cheng Bao 5 (Leopard 5)",
+        "каталог запчастей Fang Cheng Bao 5 (Leopard 5)",
+        "цены на запчасти Fang Cheng Bao 5 (Leopard 5)",
         "магазин запчастей Фан Чен Бао Bao 5",
         "заказать запчасти Фан Чен Бао Bao 5",
-        "детали Fang Cheng Bao Bao 5 (Leopard 5)"
+        "детали Fang Cheng Bao 5 (Leopard 5)"
       ],
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/",
       "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/fang-cheng-bao/bao-5-leopard-5/",
@@ -1564,8 +1565,8 @@
         "https://xn--d1abifc1bn.xn--p1ai/catalog/fangchengbao/bao-5/"
       ],
       "source_suggested_path": "/catalog/fang-cheng-bao/bao-5/",
-      "source_final_url": "",
-      "source_status": "WAITING_FOR_SITE_ROUTES",
+      "source_final_url": "/catalog/fang-cheng-bao/bao-5-leopard-5/",
+      "source_status": "MATCHED_READY",
       "match_status": "matched",
       "missing_reason": ""
     },
@@ -1583,7 +1584,7 @@
         "автозапчасти Fang Cheng Bao Titanium 7",
         "купить запчасти Fang Cheng Bao Titanium 7",
         "каталог запчастей Fang Cheng Bao Titanium 7",
-        "цены на запчасти Fang Cheng Bao Titanium 7",
+        "цены на запчасти Fangchengbao Titanium 7",
         "магазин запчастей Фан Чен Бао Titanium 7",
         "заказать запчасти Фан Чен Бао Titanium 7",
         "детали Fang Cheng Bao Titanium 7"

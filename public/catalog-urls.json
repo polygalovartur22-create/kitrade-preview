@@ -5952,11 +5952,13 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/zadnii-tsentralnyi-fonar-geely-monjaro-1173/",
     "status": "active",
     "entity_id": "1173",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
-    "duplicate_of": null,
-    "canonical_target_path": "/catalog/product/zadnii-tsentralnyi-fonar-geely-monjaro-1173/"
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "confirmed_owner_duplicate"
+    ],
+    "duplicate_of": 1101,
+    "canonical_target_path": "/catalog/product/fonar-zadnii-tsentralnyi-geely-monjaro-original-1101/"
   },
   {
     "entity_type": "category",
@@ -7239,11 +7241,13 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/zadnii-levyi-fonar-geely-galaxy-starship-7-1242/",
     "status": "active",
     "entity_id": "1242",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
-    "duplicate_of": null,
-    "canonical_target_path": "/catalog/product/zadnii-levyi-fonar-geely-galaxy-starship-7-1242/"
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "confirmed_owner_duplicate"
+    ],
+    "duplicate_of": 1149,
+    "canonical_target_path": "/catalog/product/zadnyaya-levaya-fara-geely-galaxy-starship-7-1149/"
   },
   {
     "entity_type": "product",
@@ -8868,11 +8872,13 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/zadnii-pravyi-fonar-geely-galaxy-starship-7-1330/",
     "status": "active",
     "entity_id": "1330",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
-    "duplicate_of": null,
-    "canonical_target_path": "/catalog/product/zadnii-pravyi-fonar-geely-galaxy-starship-7-1330/"
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "confirmed_owner_duplicate"
+    ],
+    "duplicate_of": 1153,
+    "canonical_target_path": "/catalog/product/zadnyaya-pravaya-fara-geely-galaxy-starship-7-1153/"
   },
   {
     "entity_type": "product",
@@ -9708,10 +9714,10 @@
     "slug": "sistema-ohlazhdeniya",
     "canonical_path": "/catalog/byd/seal-06-gt/sistema-ohlazhdeniya/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/byd/seal-06-gt/sistema-ohlazhdeniya/",
-    "status": "active",
+    "status": "unlisted",
     "entity_id": "b1021:m1039:c1003",
-    "indexable": true,
-    "robots": "index,follow"
+    "indexable": false,
+    "robots": "noindex,follow"
   },
   {
     "entity_type": "product",
@@ -9723,11 +9729,13 @@
     "slug": "radiator-byd-seal-06-gt-1365",
     "canonical_path": "/catalog/product/radiator-byd-seal-06-gt-1365/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/radiator-byd-seal-06-gt-1365/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "1365",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/radiator-byd-seal-06-gt-1365/"
   },
@@ -10092,10 +10100,10 @@
     "slug": "sistema-ohlazhdeniya",
     "canonical_path": "/catalog/baw/212/sistema-ohlazhdeniya/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/baw/212/sistema-ohlazhdeniya/",
-    "status": "active",
+    "status": "unlisted",
     "entity_id": "b1023:m1037:c1003",
-    "indexable": true,
-    "robots": "index,follow"
+    "indexable": false,
+    "robots": "noindex,follow"
   },
   {
     "entity_type": "product",
@@ -10107,11 +10115,13 @@
     "slug": "bachok-stekloochistitelya-baw-bj-212-1378",
     "canonical_path": "/catalog/product/bachok-stekloochistitelya-baw-bj-212-1378/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/bachok-stekloochistitelya-baw-bj-212-1378/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "1378",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/bachok-stekloochistitelya-baw-bj-212-1378/"
   },
@@ -10467,10 +10477,10 @@
     "slug": "sistema-ohlazhdeniya",
     "canonical_path": "/catalog/volkswagen/tavendor/sistema-ohlazhdeniya/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/volkswagen/tavendor/sistema-ohlazhdeniya/",
-    "status": "active",
+    "status": "unlisted",
     "entity_id": "b1006:m1005:c1003",
-    "indexable": true,
-    "robots": "index,follow"
+    "indexable": false,
+    "robots": "noindex,follow"
   },
   {
     "entity_type": "product",
@@ -10482,11 +10492,13 @@
     "slug": "radiator-konditsionera-volkswagen-tavendor-1393",
     "canonical_path": "/catalog/product/radiator-konditsionera-volkswagen-tavendor-1393/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/radiator-konditsionera-volkswagen-tavendor-1393/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "1393",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/radiator-konditsionera-volkswagen-tavendor-1393/"
   },
@@ -10704,11 +10716,13 @@
     "slug": "radiator-konditsionera-baw-bj-212-1402",
     "canonical_path": "/catalog/product/radiator-konditsionera-baw-bj-212-1402/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/radiator-konditsionera-baw-bj-212-1402/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "1402",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/radiator-konditsionera-baw-bj-212-1402/"
   },
@@ -10878,11 +10892,13 @@
     "slug": "ventilyator-radiatora-volkswagen-tavendor-1410",
     "canonical_path": "/catalog/product/ventilyator-radiatora-volkswagen-tavendor-1410/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/ventilyator-radiatora-volkswagen-tavendor-1410/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "1410",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/ventilyator-radiatora-volkswagen-tavendor-1410/"
   },
@@ -11031,11 +11047,13 @@
     "slug": "interkuler-volkswagen-tavendor-1416",
     "canonical_path": "/catalog/product/interkuler-volkswagen-tavendor-1416/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/interkuler-volkswagen-tavendor-1416/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "1416",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/interkuler-volkswagen-tavendor-1416/"
   },
@@ -11238,10 +11256,10 @@
     "slug": "dvigatel",
     "canonical_path": "/catalog/volkswagen/tavendor/dvigatel/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/volkswagen/tavendor/dvigatel/",
-    "status": "active",
+    "status": "unlisted",
     "entity_id": "b1006:m1005:c1001",
-    "indexable": true,
-    "robots": "index,follow"
+    "indexable": false,
+    "robots": "noindex,follow"
   },
   {
     "entity_type": "product",
@@ -11253,11 +11271,13 @@
     "slug": "radiator-dvigatelya-volkswagen-tavendor-1425",
     "canonical_path": "/catalog/product/radiator-dvigatelya-volkswagen-tavendor-1425/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/radiator-dvigatelya-volkswagen-tavendor-1425/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "1425",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/radiator-dvigatelya-volkswagen-tavendor-1425/"
   },
@@ -11271,10 +11291,10 @@
     "slug": "sistema-ohlazhdeniya",
     "canonical_path": "/catalog/voyah/passion/sistema-ohlazhdeniya/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/voyah/passion/sistema-ohlazhdeniya/",
-    "status": "active",
+    "status": "unlisted",
     "entity_id": "b1004:m1003:c1003",
-    "indexable": true,
-    "robots": "index,follow"
+    "indexable": false,
+    "robots": "noindex,follow"
   },
   {
     "entity_type": "product",
@@ -11286,11 +11306,13 @@
     "slug": "ventilyator-radiatora-voyah-passion-1426",
     "canonical_path": "/catalog/product/ventilyator-radiatora-voyah-passion-1426/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/ventilyator-radiatora-voyah-passion-1426/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "1426",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/ventilyator-radiatora-voyah-passion-1426/"
   },
@@ -11340,11 +11362,13 @@
     "slug": "radiator-nizkih-temperatur-voyah-passion-1429",
     "canonical_path": "/catalog/product/radiator-nizkih-temperatur-voyah-passion-1429/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/radiator-nizkih-temperatur-voyah-passion-1429/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "1429",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/radiator-nizkih-temperatur-voyah-passion-1429/"
   },
@@ -11826,11 +11850,13 @@
     "slug": "ohladitel-batarei-voyah-passion-1451",
     "canonical_path": "/catalog/product/ohladitel-batarei-voyah-passion-1451/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/ohladitel-batarei-voyah-passion-1451/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "1451",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/ohladitel-batarei-voyah-passion-1451/"
   },
@@ -11949,10 +11975,10 @@
     "slug": "dvigatel",
     "canonical_path": "/catalog/byd/seal-06-gt/dvigatel/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/byd/seal-06-gt/dvigatel/",
-    "status": "active",
+    "status": "unlisted",
     "entity_id": "b1021:m1039:c1001",
-    "indexable": true,
-    "robots": "index,follow"
+    "indexable": false,
+    "robots": "noindex,follow"
   },
   {
     "entity_type": "product",
@@ -11964,11 +11990,13 @@
     "slug": "radiator-dvigatelya-byd-seal-06-gt-1457",
     "canonical_path": "/catalog/product/radiator-dvigatelya-byd-seal-06-gt-1457/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/radiator-dvigatelya-byd-seal-06-gt-1457/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "1457",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/radiator-dvigatelya-byd-seal-06-gt-1457/"
   },
@@ -11982,11 +12010,13 @@
     "slug": "kompressor-konditsionera-volkswagen-tavendor-1458",
     "canonical_path": "/catalog/product/kompressor-konditsionera-volkswagen-tavendor-1458/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/kompressor-konditsionera-volkswagen-tavendor-1458/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "1458",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/kompressor-konditsionera-volkswagen-tavendor-1458/"
   },
@@ -12279,11 +12309,13 @@
     "slug": "bachok-stekloomyvatelya-volkswagen-tavendor-1472",
     "canonical_path": "/catalog/product/bachok-stekloomyvatelya-volkswagen-tavendor-1472/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/bachok-stekloomyvatelya-volkswagen-tavendor-1472/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "1472",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/bachok-stekloomyvatelya-volkswagen-tavendor-1472/"
   },
@@ -17186,11 +17218,13 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/steklo-zadnee-changan-uni-k-original-1665/",
     "status": "active",
     "entity_id": "1665",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
-    "duplicate_of": null,
-    "canonical_target_path": "/catalog/product/steklo-zadnee-changan-uni-k-original-1665/"
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "confirmed_owner_duplicate"
+    ],
+    "duplicate_of": 1670,
+    "canonical_target_path": "/catalog/product/steklo-zadnee-changan-uni-k-original-1670/"
   },
   {
     "entity_type": "product",
@@ -17291,13 +17325,11 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/steklo-zadnee-changan-uni-k-original-1670/",
     "status": "active",
     "entity_id": "1670",
-    "indexable": false,
-    "robots": "noindex,follow",
-    "validation_errors": [
-      "confirmed_metadata_duplicate"
-    ],
-    "duplicate_of": 1665,
-    "canonical_target_path": "/catalog/product/steklo-zadnee-changan-uni-k-original-1665/"
+    "indexable": true,
+    "robots": "index,follow",
+    "validation_errors": [],
+    "duplicate_of": null,
+    "canonical_target_path": "/catalog/product/steklo-zadnee-changan-uni-k-original-1670/"
   },
   {
     "entity_type": "product",
@@ -17602,11 +17634,13 @@
     "slug": "akpp-v-sbore-changan-uni-k-1683",
     "canonical_path": "/catalog/product/akpp-v-sbore-changan-uni-k-1683/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/akpp-v-sbore-changan-uni-k-1683/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "1683",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/akpp-v-sbore-changan-uni-k-1683/"
   },
@@ -21267,11 +21301,13 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/zerkalo-levoe-byd-seal-06-gt-1831/",
     "status": "active",
     "entity_id": "1831",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
-    "duplicate_of": null,
-    "canonical_target_path": "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1831/"
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "confirmed_owner_duplicate"
+    ],
+    "duplicate_of": 1790,
+    "canonical_target_path": "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1790/"
   },
   {
     "entity_type": "product",
@@ -25065,11 +25101,13 @@
     "slug": "podkrylok-levyi-zadnii-aito-m8-2017",
     "canonical_path": "/catalog/product/podkrylok-levyi-zadnii-aito-m8-2017/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/podkrylok-levyi-zadnii-aito-m8-2017/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "2017",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/podkrylok-levyi-zadnii-aito-m8-2017/"
   },
@@ -26324,7 +26362,7 @@
     "indexable": false,
     "robots": "noindex,follow",
     "validation_errors": [
-      "confirmed_metadata_duplicate"
+      "confirmed_owner_duplicate"
     ],
     "duplicate_of": 2346,
     "canonical_target_path": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2346/"
@@ -27780,11 +27818,13 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/zerkalo-pravoe-byd-seal-06-gt-2165/",
     "status": "active",
     "entity_id": "2165",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
-    "duplicate_of": null,
-    "canonical_target_path": "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-2165/"
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "confirmed_owner_duplicate"
+    ],
+    "duplicate_of": 1870,
+    "canonical_target_path": "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-1870/"
   },
   {
     "entity_type": "product",
@@ -27994,11 +28034,13 @@
     "slug": "bamper-perednii-voyah-free-v-sbore-original-2177",
     "canonical_path": "/catalog/product/bamper-perednii-voyah-free-v-sbore-original-2177/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/bamper-perednii-voyah-free-v-sbore-original-2177/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "2177",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/bamper-perednii-voyah-free-v-sbore-original-2177/"
   },
@@ -28782,11 +28824,13 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/bamper-perednii-v-sbore-nouskat-voyah-free-2219/",
     "status": "active",
     "entity_id": "2219",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
-    "duplicate_of": null,
-    "canonical_target_path": "/catalog/product/bamper-perednii-v-sbore-nouskat-voyah-free-2219/"
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "confirmed_owner_duplicate"
+    ],
+    "duplicate_of": 1951,
+    "canonical_target_path": "/catalog/product/nouskat-bamper-perednii-v-sbore-voyah-free-1951/"
   },
   {
     "entity_type": "product",
@@ -34036,11 +34080,13 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/bamper-perednii-niz-changan-hanter-plus-2504/",
     "status": "active",
     "entity_id": "2504",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
-    "duplicate_of": null,
-    "canonical_target_path": "/catalog/product/bamper-perednii-niz-changan-hanter-plus-2504/"
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "confirmed_owner_duplicate"
+    ],
+    "duplicate_of": 2837,
+    "canonical_target_path": "/catalog/product/oblitsovka-bampera-perednego-nizhnyaya-changan-hanter-2837/"
   },
   {
     "entity_type": "product",
@@ -34915,11 +34961,13 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/bamper-zadnii-lixiang-l7-restailing-2024g-orig-2552/",
     "status": "active",
     "entity_id": "2552",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
-    "duplicate_of": null,
-    "canonical_target_path": "/catalog/product/bamper-zadnii-lixiang-l7-restailing-2024g-orig-2552/"
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "confirmed_owner_duplicate"
+    ],
+    "duplicate_of": 2503,
+    "canonical_target_path": "/catalog/product/bamper-zadnii-lixiang-l7-restailing-24g-original-2503/"
   },
   {
     "entity_type": "product",
@@ -35617,11 +35665,13 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2591/",
     "status": "active",
     "entity_id": "2591",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
-    "duplicate_of": null,
-    "canonical_target_path": "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2591/"
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "confirmed_owner_duplicate"
+    ],
+    "duplicate_of": 2498,
+    "canonical_target_path": "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2498/"
   },
   {
     "entity_type": "product",
@@ -36841,11 +36891,13 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2659/",
     "status": "active",
     "entity_id": "2659",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
-    "duplicate_of": null,
-    "canonical_target_path": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2659/"
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "confirmed_owner_duplicate"
+    ],
+    "duplicate_of": 2263,
+    "canonical_target_path": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2263/"
   },
   {
     "entity_type": "product",
@@ -39554,11 +39606,13 @@
     "slug": "nouskat-toyota-rav4-xa50-restailing-2807",
     "canonical_path": "/catalog/product/nouskat-toyota-rav4-xa50-restailing-2807/",
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/nouskat-toyota-rav4-xa50-restailing-2807/",
-    "status": "active",
+    "status": "needs_review",
     "entity_id": "2807",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "needs_review"
+    ],
     "duplicate_of": null,
     "canonical_target_path": "/catalog/product/nouskat-toyota-rav4-xa50-restailing-2807/"
   },
@@ -39982,11 +40036,13 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-2829/",
     "status": "active",
     "entity_id": "2829",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
-    "duplicate_of": null,
-    "canonical_target_path": "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-2829/"
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "confirmed_owner_duplicate"
+    ],
+    "duplicate_of": 1883,
+    "canonical_target_path": "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-1883/"
   },
   {
     "entity_type": "product",
@@ -41046,11 +41102,13 @@
     "canonical_url": "https://xn--d1abifc1bn.xn--p1ai/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2888/",
     "status": "active",
     "entity_id": "2888",
-    "indexable": true,
-    "robots": "index,follow",
-    "validation_errors": [],
-    "duplicate_of": null,
-    "canonical_target_path": "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2888/"
+    "indexable": false,
+    "robots": "noindex,follow",
+    "validation_errors": [
+      "confirmed_owner_duplicate"
+    ],
+    "duplicate_of": 2844,
+    "canonical_target_path": "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2844/"
   },
   {
     "entity_type": "category",

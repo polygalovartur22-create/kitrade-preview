@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { productTitleHasMainNoun, productTitleHasVehicle } from "./lib/product-content.mjs";
 
 const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const outputDir = path.join(projectDir, "dist");
@@ -11,6 +12,8 @@ const urlRows = JSON.parse(fs.readFileSync(path.join(outputDir, "catalog-urls.js
 const searchTargetMap = JSON.parse(fs.readFileSync(path.join(outputDir, "search-target-map.json"), "utf8"));
 const categoryWordstat = JSON.parse(fs.readFileSync(path.join(reportsDir, "category-wordstat-recommendations.json"), "utf8"));
 const directTargetGaps = JSON.parse(fs.readFileSync(path.join(reportsDir, "direct-target-gaps.json"), "utf8"));
+const duplicateReport = JSON.parse(fs.readFileSync(path.join(reportsDir, "duplicates.json"), "utf8"));
+const overrides = JSON.parse(fs.readFileSync(path.join(projectDir, "seo", "seo-overrides.json"), "utf8"));
 const sitemapUrls = new Set([...fs.readFileSync(path.join(outputDir, "sitemap.xml"), "utf8").matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]));
 
 const writeReport = (name, value) => fs.writeFileSync(path.join(reportsDir, name), `${JSON.stringify(value, null, 2)}\n`);
@@ -75,7 +78,17 @@ const linksToNoindex = [];
 const queryLinks = [];
 const selfLinks = [];
 const anchorIssues = [];
+const hiddenTerminalPaginationLinks = [];
 for (const page of htmlPages) {
+  for (const match of page.html.matchAll(/<a\b([^>]*)>/gi)) {
+    const attributes = match[1];
+    if (/\bid=["']loadMore["']/i.test(attributes)
+      && /\bclass=["'][^"']*\bload-more\b[^"']*["']/i.test(attributes)
+      && /\bhidden\b/i.test(attributes)
+      && /\bhref=["'][^"']+["']/i.test(attributes)) {
+      hiddenTerminalPaginationLinks.push({ source: page.route, reason: "hidden_terminal_pagination_link_has_href" });
+    }
+  }
   for (const match of page.html.matchAll(/<a\b([^>]*)\bhref=["']([^"']+)["']([^>]*)>([\s\S]*?)<\/a>/gi)) {
     const href = match[2];
     const anchor = decodeHtml(match[4]);
@@ -204,6 +217,7 @@ writeReport("internal-linking-audit.json", {
     links_to_noindex: linksToNoindex.length,
     canonical_targets_with_query_parameters: queryLinks.length,
     empty_anchor_issues: anchorIssues.length,
+    hidden_terminal_pagination_links: hiddenTerminalPaginationLinks.length,
     self_links_without_fragment: selfLinks.length,
     pages_missing_expected_hierarchy_links: internalPages.filter((page) => page.errors.includes("missing_expected_hierarchy_links")).length,
     max_depth_from_home: Math.max(...internalPages.map((page) => page.depth_from_home || 0)),
@@ -231,7 +245,7 @@ writeReport("internal-linking-audit.json", {
     next_pages: [...new Set(edges.get(page.route) || [])].filter((target) => /\/page\/\d+\/$/.test(target)),
     catalog_root_links: [...new Set(edges.get(page.route) || [])].filter((target) => target === "/catalog/"),
   })),
-  global_errors: { broken_links: brokenLinks, links_to_noindex: linksToNoindex, query_links: queryLinks, anchor_issues: anchorIssues, self_links: selfLinks },
+  global_errors: { broken_links: brokenLinks, links_to_noindex: linksToNoindex, query_links: queryLinks, anchor_issues: anchorIssues, self_links: selfLinks, hidden_terminal_pagination_links: hiddenTerminalPaginationLinks },
   priority_product_sample: priorityProductSample,
   pages: internalPages,
 });
@@ -247,17 +261,28 @@ for (const row of seoMap) {
     queryOwners.get(key).push({ canonical_path: row.canonical_path, page_type: row.page_type, query_type: kind, query });
   }
 }
+const productSeoByPath = new Map(seoMap.filter((row) => row.page_type === "product").map((row) => [row.canonical_path, row]));
 const overlapGroups = [...queryOwners.entries()].filter(([, owners]) => new Set(owners.map((owner) => owner.canonical_path)).size > 1)
   .map(([normalized_query, owners]) => {
     const paths = [...new Set(owners.map((owner) => owner.canonical_path))];
     const primaryOwners = owners.filter((owner) => owner.query_type === "primary");
     const severity = primaryOwners.length > 1 ? "high" : primaryOwners.length === 1 ? "low" : "informational";
+    const productIds = paths.map((canonicalPath) => Number(productSeoByPath.get(canonicalPath)?.product_id)).filter(Number.isInteger).sort((a, b) => a - b);
+    const decisionKey = productIds.join("|");
+    const ownerReview = overrides.duplicate_decisions?.[decisionKey];
+    const manualReview = severity === "high" && ownerReview?.action === "manual_review";
     return {
       normalized_query,
       owners,
       severity,
-      decision: primaryOwners.length > 1 ? "keep_separate_pending_owner_confirmation" : "keep_primary_owner_secondary_overlap_is_contextual",
+      decision: severity === "high"
+        ? (manualReview ? `manual_${ownerReview.review_type}_review_keep_separate` : "keep_separate_pending_owner_confirmation")
+        : "keep_primary_owner_secondary_overlap_is_contextual",
       recommended_owner: primaryOwners[0]?.canonical_path || paths[0],
+      product_ids: productIds,
+      review_category: manualReview ? ownerReview.review_type : "",
+      review_reason: manualReview ? ownerReview.reason : "",
+      recommended_primary_if_confirmed: manualReview ? (ownerReview.recommended_primary_if_confirmed || null) : null,
     };
   });
 const exactMetadataGroups = (field) => [...seoMap.reduce((groups, row) => {
@@ -274,15 +299,33 @@ const h1Duplicates = exactMetadataGroups("h1");
 const h1DuplicateDecisions = h1Duplicates.map((group) => {
   const rows = group.paths.map((canonicalPath) => seoMap.find((row) => row.canonical_path === canonicalPath)).filter(Boolean);
   const uniquePrimaryQueries = new Set(rows.map((row) => normalizeQuery(row.primary_query))).size === rows.length;
+  const articles = rows.map((row) => normalizeSpace(row.article_oem).toLocaleLowerCase("ru")).filter(Boolean);
+  const distinctOem = articles.length === rows.length && new Set(articles).size === rows.length;
   return {
     ...group,
     page_types: [...new Set(rows.map((row) => row.page_type))],
     primary_queries: rows.map((row) => ({ canonical_path: row.canonical_path, primary_query: row.primary_query, article_oem: row.article_oem || "", condition: row.condition || "" })),
     risk: uniquePrimaryQueries ? "low" : "high",
+    classification: distinctOem ? "low_risk_identical_h1_distinct_oem" : (uniquePrimaryQueries ? "low_risk_unique_primary_queries" : "manual_review"),
     decision: uniquePrimaryQueries ? "keep_separate_unique_primary_query_or_oem" : "keep_separate_pending_owner_confirmation",
   };
 });
 const primaryConflicts = overlapGroups.filter((group) => group.severity === "high");
+const manualApplicabilityConflicts = primaryConflicts.filter((group) => group.review_category === "applicability");
+const manualPhysicalUnitConflicts = primaryConflicts.filter((group) => group.review_category === "physical_unit_photos");
+const unclassifiedPrimaryConflicts = primaryConflicts.filter((group) => !group.review_category);
+const confirmedDuplicateGroups = duplicateReport.filter((group) => ["confirmed_full_duplicate", "confirmed_metadata_duplicate", "confirmed_owner_duplicate"].includes(group.classification));
+const probableDuplicateGroups = duplicateReport.filter((group) => group.classification === "pending_manual_identity_review");
+const summarizeDuplicateGroup = (group) => ({
+  classification: group.classification,
+  primary_product_id: group.primary_product_id,
+  primary_url: group.primary_url,
+  duplicate_product_ids: group.duplicate_product_ids,
+  duplicate_urls: group.duplicate_urls,
+  matching_fields: group.matching_fields,
+  differing_fields: group.differing_fields,
+  action: group.action,
+});
 writeReport("cannibalization-audit.json", {
   audit_version: 1,
   methodology: "Exact normalized ownership across primary and secondary queries plus exact Title, Description and H1 checks on all indexable pages. Parent/child pages are not treated as conflicts unless more than one page owns the same normalized primary query.",
@@ -294,12 +337,22 @@ writeReport("cannibalization-audit.json", {
     duplicate_titles: titleDuplicates.length,
     duplicate_descriptions: descriptionDuplicates.length,
     duplicate_h1: h1Duplicates.length,
-    pages_removed_or_noindexed: 0,
+    confirmed_duplicate_groups: confirmedDuplicateGroups.length,
+    probable_duplicate_groups: probableDuplicateGroups.length,
+    manual_applicability_review_groups: manualApplicabilityConflicts.length,
+    manual_physical_unit_review_groups: manualPhysicalUnitConflicts.length,
+    low_risk_identical_h1_distinct_oem_groups: h1DuplicateDecisions.filter((group) => group.classification === "low_risk_identical_h1_distinct_oem").length,
+    pages_removed_or_noindexed: urlRows.filter((row) => row.entity_type === "product" && !row.indexable).length,
   },
   decisions: {
-    merge: [], redirect: [], canonical: [], noindex: [],
+    merge: [], redirect: [],
+    confirmed_duplicates: confirmedDuplicateGroups.map(summarizeDuplicateGroup),
+    probable_duplicates: probableDuplicateGroups.map(summarizeDuplicateGroup),
+    manual_applicability_review: manualApplicabilityConflicts,
+    manual_physical_unit_review: manualPhysicalUnitConflicts,
+    low_risk_identical_h1_distinct_oem: h1DuplicateDecisions.filter((group) => group.classification === "low_risk_identical_h1_distinct_oem"),
     keep_separate: overlapGroups.filter((group) => group.severity !== "high"),
-    keep_separate_pending_owner_confirmation: primaryConflicts,
+    keep_separate_pending_owner_confirmation: unclassifiedPrimaryConflicts,
   },
   conflicts: primaryConflicts,
   duplicate_metadata: { title: titleDuplicates, description: descriptionDuplicates, h1: h1DuplicateDecisions },
@@ -408,26 +461,53 @@ writeReport("direct-landing-audit.json", {
   groups: directRows,
 });
 
+const duplicateTitlePaths = new Set(titleDuplicates.flatMap((group) => group.paths));
+const duplicateDescriptionPaths = new Set(descriptionDuplicates.flatMap((group) => group.paths));
+const forbiddenVisibleText = /Bao Bao|Polar Polar/iu;
+const forbiddenVisibleCase = /\bBmw\b|X3 pro|X6 pro|Uni-K/u;
+const joinedOpeningParenthesis = /[\p{L}\p{N}]\(/u;
+const oldOrUnconfirmedCommercialText = /(?:минимальная сумма заказа|заказ от|мин\. сумма заказа)\s*[—–:-]?\s*15\s*000|предоплата|оплата на карту/iu;
+const falseAvailabilityOrSuccessText = /\bв наличии\b|гарантируем наличие|(?:заказ|заявка) успешно (?:оформлен[а]?|отправлен[а]?)/iu;
 const metadataRows = seoMap.map((row) => {
   const html = htmlByRoute.get(row.canonical_path)?.html || "";
   const h1Count = (html.match(/<h1\b/gi) || []).length;
   const visibleH1 = decodeHtml(extract(html, /<h1\b[^>]*>([\s\S]*?)<\/h1>/i));
+  const publicText = [row.title, row.description, row.h1, row.intro_text, row.primary_query].filter(Boolean).join(" ");
   const issues = [];
   if (!row.title || !row.description || !row.h1) issues.push("incomplete_metadata");
   if (h1Count !== 1) issues.push("h1_count_not_one");
   if (visibleH1 !== row.h1) issues.push("visible_h1_differs_from_seo_map");
-  if (/(?:минимальная сумма заказа|заказ от|мин\. сумма заказа)\s*[—–:-]?\s*15\s*000|предоплата|оплата на карту/iu.test(`${row.title} ${row.description} ${row.h1} ${html}`)) issues.push("unconfirmed_or_old_commercial_claim");
+  if ([...row.title].length > 75) issues.push("title_exceeds_75");
+  if ([...row.description].length > 160) issues.push("description_exceeds_160");
+  if (duplicateTitlePaths.has(row.canonical_path)) issues.push("duplicate_title");
+  if (duplicateDescriptionPaths.has(row.canonical_path)) issues.push("duplicate_description");
+  if (forbiddenVisibleText.test(publicText) || forbiddenVisibleCase.test(publicText)) issues.push("forbidden_public_name_form");
+  if (joinedOpeningParenthesis.test(publicText)) issues.push("missing_space_before_explanatory_parenthesis");
+  if (row.page_type === "product" && !productTitleHasMainNoun(row.title, row.h1, row.brand, row.model)) issues.push("product_title_missing_main_part_noun");
+  if (row.page_type === "product" && !productTitleHasVehicle(row.title, row.brand, row.model)) issues.push("product_title_missing_brand_or_model");
+  if (row.page_type === "product" && row.article_oem && !row.title.includes(row.article_oem)) issues.push("product_title_missing_primary_oem");
+  if (oldOrUnconfirmedCommercialText.test(`${publicText} ${html}`)) issues.push("unconfirmed_or_old_commercial_claim");
+  if (falseAvailabilityOrSuccessText.test(publicText)) issues.push("false_availability_or_success_claim");
   if (/доставка включена|цена с доставкой/iu.test(`${row.description} ${html}`)) issues.push("delivery_included_claim");
   return { canonical_path: row.canonical_path, page_type: row.page_type, title_length: [...row.title].length, description_length: [...row.description].length, h1_count: h1Count, issues };
 });
+const titleLengths = metadataRows.map((row) => row.title_length);
+const descriptionLengths = metadataRows.map((row) => row.description_length);
 writeReport("metadata-content-audit.json", {
-  audit_version: 1,
+  audit_version: 2,
   summary: {
     pages_checked: metadataRows.length,
     pages_with_issues: metadataRows.filter((row) => row.issues.length).length,
     duplicate_titles: titleDuplicates.length,
     duplicate_descriptions: descriptionDuplicates.length,
     duplicate_h1: h1Duplicates.length,
+    title_length_range: { min: Math.min(...titleLengths), max: Math.max(...titleLengths) },
+    description_length_range: { min: Math.min(...descriptionLengths), max: Math.max(...descriptionLengths) },
+    product_titles_missing_main_part_noun: metadataRows.filter((row) => row.issues.includes("product_title_missing_main_part_noun")).length,
+    product_titles_missing_brand_or_model: metadataRows.filter((row) => row.issues.includes("product_title_missing_brand_or_model")).length,
+    product_titles_missing_primary_oem: metadataRows.filter((row) => row.issues.includes("product_title_missing_primary_oem")).length,
+    forbidden_public_name_forms: metadataRows.filter((row) => row.issues.includes("forbidden_public_name_form")).length,
+    joined_opening_parentheses: metadataRows.filter((row) => row.issues.includes("missing_space_before_explanatory_parenthesis")).length,
   },
   pages: metadataRows,
 });

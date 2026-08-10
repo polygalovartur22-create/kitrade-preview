@@ -3,7 +3,10 @@
     "phrase_frequency_definition": "phrase_frequency — частотность запроса в кавычках: фиксируется количество слов, но не их порядок и не все словоформы.",
     "strict_order_definition": "strict_order_frequency — частотность запроса с комбинированными кавычками и квадратными скобками: фиксируются количество и порядок слов, но не все словоформы.",
     "snapshot_notice": "Показатели Wordstat являются снимком на указанную дату и могут изменяться из-за обновления скользящего расчётного периода.",
-    "audience_deduplication": "Строки, различающиеся только порядком слов, сохраняются как текстовые гипотезы, но одинаковый phrase-match набор не суммируется как независимая аудитория."
+    "audience_deduplication": "Строки, различающиеся только порядком слов, сохраняются как текстовые гипотезы, но одинаковый phrase-match набор не суммируется как независимая аудитория.",
+    "non_category_hypothesis_matrix": "11 catalog queries + 12 queries for each of 38 brands + 13 queries for each of 97 models = 1,728 reproducible string observations.",
+    "priority_policy": "The current primary query is retained across small rolling-period changes; an applied priority is valid only when its selected source observation exists.",
+    "result_source_policy": "Every non-category frequency is copied from the live Yandex Wordstat UI for Russia (region_id 225); unavailable responses are never reconstructed or replaced with assumed zeroes."
   },
   "summary": {
     "query_strings_checked": 2282,
@@ -4828,7 +4831,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Автомобильные стёкла Bmw X5"
+      "applied_primary_query": "Автомобильные стёкла BMW X5"
     },
     {
       "canonical_path": "/catalog/byd/seal-06-gt/dvigatel/",
@@ -9861,7 +9864,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Запчасти двигателя Changan Uni-K"
+      "applied_primary_query": "Запчасти двигателя Changan UNI-K"
     },
     {
       "canonical_path": "/catalog/changan/uni-k/kuzov/",
@@ -9989,7 +9992,7 @@
       },
       "decision": "keep",
       "reason": "Текущая primary query и естественный H1 сохранены; колебания снимка Wordstat сами по себе не являются основанием для автоматической замены.",
-      "applied_primary_query": "Кузовные запчасти Changan Uni-K"
+      "applied_primary_query": "Кузовные запчасти Changan UNI-K"
     },
     {
       "canonical_path": "/catalog/changan/uni-k/stekla/",
@@ -10130,7 +10133,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Автомобильные стёкла Changan Uni-K"
+      "applied_primary_query": "Автомобильные стёкла Changan UNI-K"
     },
     {
       "canonical_path": "/catalog/changan/uni-k/tormoznaya-sistema/",
@@ -10271,7 +10274,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Запчасти тормозной системы Changan Uni-K"
+      "applied_primary_query": "Запчасти тормозной системы Changan UNI-K"
     },
     {
       "canonical_path": "/catalog/changan/uni-k/transmissiya-i-privod/",
@@ -10412,7 +10415,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Трансмиссия и привод Changan Uni-K"
+      "applied_primary_query": "Трансмиссия и привод Changan UNI-K"
     },
     {
       "canonical_path": "/catalog/chery/tiggo-4-pro/kuzov/",
@@ -12829,7 +12832,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Автоэлектрика Fang Cheng Bao Bao 5 (Leopard 5)"
+      "applied_primary_query": "Автоэлектрика Fang Cheng Bao 5 (Leopard 5)"
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/kuzov/",
@@ -12957,7 +12960,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Кузовные запчасти Fang Cheng Bao Bao 5 (Leopard 5)"
+      "applied_primary_query": "Кузовные запчасти Fang Cheng Bao 5 (Leopard 5)"
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/optika/",
@@ -13085,7 +13088,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Фары и оптика Fang Cheng Bao Bao 5 (Leopard 5)"
+      "applied_primary_query": "Фары и оптика Fang Cheng Bao 5 (Leopard 5)"
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/podveska/",
@@ -13213,7 +13216,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Запчасти подвески Fang Cheng Bao Bao 5 (Leopard 5)"
+      "applied_primary_query": "Запчасти подвески Fang Cheng Bao 5 (Leopard 5)"
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/rulevoe-upravlenie/",
@@ -13354,7 +13357,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Рулевое управление Fang Cheng Bao Bao 5 (Leopard 5)"
+      "applied_primary_query": "Рулевое управление Fang Cheng Bao 5 (Leopard 5)"
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/salon/",
@@ -13482,7 +13485,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Детали салона Fang Cheng Bao Bao 5 (Leopard 5)"
+      "applied_primary_query": "Детали салона Fang Cheng Bao 5 (Leopard 5)"
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/stekla/",
@@ -13623,7 +13626,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Автомобильные стёкла Fang Cheng Bao Bao 5 (Leopard 5)"
+      "applied_primary_query": "Автомобильные стёкла Fang Cheng Bao 5 (Leopard 5)"
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/tormoznaya-sistema/",
@@ -13764,7 +13767,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Запчасти тормозной системы Fang Cheng Bao Bao 5 (Leopard 5)"
+      "applied_primary_query": "Запчасти тормозной системы Fang Cheng Bao 5 (Leopard 5)"
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/transmissiya-i-privod/",
@@ -13905,7 +13908,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Трансмиссия и привод Fang Cheng Bao Bao 5 (Leopard 5)"
+      "applied_primary_query": "Трансмиссия и привод Fang Cheng Bao 5 (Leopard 5)"
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/titanium-7/kuzov/",
@@ -27228,7 +27231,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Запчасти двигателя Livan X3 pro"
+      "applied_primary_query": "Запчасти двигателя Livan X3 Pro"
     },
     {
       "canonical_path": "/catalog/livan/x3-pro/elektrika/",
@@ -27356,7 +27359,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Автоэлектрика Livan X3 pro"
+      "applied_primary_query": "Автоэлектрика Livan X3 Pro"
     },
     {
       "canonical_path": "/catalog/livan/x3-pro/kuzov/",
@@ -27484,7 +27487,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Кузовные запчасти Livan X3 pro"
+      "applied_primary_query": "Кузовные запчасти Livan X3 Pro"
     },
     {
       "canonical_path": "/catalog/livan/x3-pro/optika/",
@@ -27612,7 +27615,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Фары и оптика Livan X3 pro"
+      "applied_primary_query": "Фары и оптика Livan X3 Pro"
     },
     {
       "canonical_path": "/catalog/livan/x3-pro/podveska/",
@@ -27740,7 +27743,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Запчасти подвески Livan X3 pro"
+      "applied_primary_query": "Запчасти подвески Livan X3 Pro"
     },
     {
       "canonical_path": "/catalog/livan/x3-pro/salon/",
@@ -27868,7 +27871,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Детали салона Livan X3 pro"
+      "applied_primary_query": "Детали салона Livan X3 Pro"
     },
     {
       "canonical_path": "/catalog/livan/x6-pro/dvigatel/",
@@ -27996,7 +27999,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Запчасти двигателя Livan X6 pro"
+      "applied_primary_query": "Запчасти двигателя Livan X6 Pro"
     },
     {
       "canonical_path": "/catalog/livan/x6-pro/kuzov/",
@@ -28124,7 +28127,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Кузовные запчасти Livan X6 pro"
+      "applied_primary_query": "Кузовные запчасти Livan X6 Pro"
     },
     {
       "canonical_path": "/catalog/livan/x6-pro/optika/",
@@ -28252,7 +28255,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Фары и оптика Livan X6 pro"
+      "applied_primary_query": "Фары и оптика Livan X6 Pro"
     },
     {
       "canonical_path": "/catalog/livan/x6-pro/podveska/",
@@ -28380,7 +28383,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Запчасти подвески Livan X6 pro"
+      "applied_primary_query": "Запчасти подвески Livan X6 Pro"
     },
     {
       "canonical_path": "/catalog/livan/x6-pro/sistema-ohlazhdeniya/",
@@ -28521,7 +28524,7 @@
       },
       "decision": "keep",
       "reason": "Категория с товарами сохранена индексируемой без искусственного SEO-текста; проверенные phrase-match наборы имеют нулевой спрос.",
-      "applied_primary_query": "Система охлаждения Livan X6 pro"
+      "applied_primary_query": "Система охлаждения Livan X6 Pro"
     },
     {
       "canonical_path": "/catalog/mercedes-benz/g-klass-amg/kuzov/",

@@ -143,7 +143,10 @@ export function syncRegistry(currentRegistry, items, overrides = {}) {
     if (brand) brand._seen = true;
     if (model) model._seen = true;
     if (category) category._seen = true;
-    ensureProduct(registry, item, { brand, model, category });
+    const product = ensureProduct(registry, item, { brand, model, category });
+    if (overrides.needs_review_products?.[String(product.product_id)]) {
+      product.status = "needs_review";
+    }
   }
 
   for (const group of Object.values(registry.entities)) {

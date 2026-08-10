@@ -57,7 +57,7 @@ MODEL;MODEL | Dongfeng | DFSK iX5;Dongfeng;DFSK iX5;P3_long_tail_medium_value;mo
 MODEL;MODEL | Exeed | Exlantix ES;Exeed;Exlantix ES;P3_long_tail_medium_value;model_filter;/catalog/exeed/exlantix-es/;;WAITING_FOR_SITE_ROUTES
 MODEL;MODEL | Exeed | TXL;Exeed;TXL;P1_high_demand_high_value;model_filter;/catalog/exeed/txl/;;WAITING_FOR_SITE_ROUTES
 MODEL;MODEL | Exeed | VX;Exeed;VX;P1_high_demand_high_value;model_filter;/catalog/exeed/vx/;;WAITING_FOR_SITE_ROUTES
-MODEL;MODEL | Fang Cheng Bao | Bao 5;Fang Cheng Bao;Bao 5;P3_long_tail_medium_value;model_filter;/catalog/fang-cheng-bao/bao-5/;;WAITING_FOR_SITE_ROUTES
+MODEL;MODEL | Fang Cheng Bao | Bao 5;Fang Cheng Bao;Bao 5;P3_long_tail_medium_value;model_filter;/catalog/fang-cheng-bao/bao-5/;/catalog/fang-cheng-bao/bao-5-leopard-5/;MATCHED_READY
 MODEL;MODEL | Fang Cheng Bao | Titanium 7;Fang Cheng Bao;Titanium 7;P2_long_tail_high_value;model_filter;/catalog/fang-cheng-bao/titanium-7/;;WAITING_FOR_SITE_ROUTES
 MODEL;MODEL | Foton | Tunland G7;Foton;Tunland G7;P2_high_demand_medium_value;model_filter;/catalog/foton/tunland-g7/;;WAITING_FOR_SITE_ROUTES
 MODEL;MODEL | Geely | Atlas;Geely;Atlas;P2_high_demand_medium_value;model_filter;/catalog/geely/atlas/;;WAITING_FOR_SITE_ROUTES

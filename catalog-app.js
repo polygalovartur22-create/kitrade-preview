@@ -363,10 +363,13 @@
       .filter(Boolean).join(" / ") || "Все марки и категории";
     emptyState.hidden = filtered.length > 0;
     loadMore.hidden = state.offset + visible.length >= filtered.length;
+    loadMore.style.display = loadMore.hidden ? "none" : "";
     const basePath = updateCatalogRoute();
     if (!loadMore.hidden) {
       const nextPage = state.page + Math.ceil(state.visible / PAGE_SIZE);
       loadMore.href = sitePath(`${basePath}page/${nextPage}/`);
+    } else {
+      loadMore.removeAttribute("href");
     }
   }
 

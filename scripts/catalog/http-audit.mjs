@@ -15,6 +15,7 @@ const contentTypes = new Map([
   [".html", "text/html; charset=utf-8"], [".xml", "application/xml; charset=utf-8"],
   [".json", "application/json; charset=utf-8"], [".js", "text/javascript; charset=utf-8"],
   [".css", "text/css; charset=utf-8"], [".txt", "text/plain; charset=utf-8"],
+  [".png", "image/png"],
 ]);
 const server = http.createServer((request, response) => {
   const pathname = decodeURIComponent(new URL(request.url, "http://localhost").pathname);
@@ -49,6 +50,7 @@ const worker = async () => {
     try {
       const response = await fetch(`${localOrigin}${pathname}`);
       if (response.status !== 200) errors.push({ canonical_url: url, pathname, status: response.status });
+      await response.arrayBuffer();
     } catch (error) {
       errors.push({ canonical_url: url, pathname, error: error.message });
     }
@@ -67,6 +69,8 @@ const home = await fetchHtml("/");
 const catalog = await fetchHtml("/catalog/");
 const productPath = new URL(sitemapUrls.find((url) => /\/catalog\/product\//.test(url))).pathname;
 const product = await fetchHtml(productPath);
+const favicon = await fetch(`${localOrigin}/assets/kitrade-logo.png`);
+await favicon.arrayBuffer();
 const productSchemas = [...product.html.matchAll(/<script type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/gi)]
   .flatMap((match) => {
     const value = JSON.parse(match[1]);
@@ -84,6 +88,8 @@ assert.ok(productSchema, "Product page lacks Product structured data");
 assert.equal(productSchema.offers?.["@type"], "Offer", "Product page lacks Offer structured data");
 assert.ok(productSchemas.some((schema) => schema?.["@type"] === "BreadcrumbList"), "Product page lacks BreadcrumbList structured data");
 assert.ok(productSchemas.some((schema) => schema?.["@type"] === "AutoPartsStore"), "Product page lacks Organization/AutoPartsStore structured data");
+assert.equal(favicon.status, 200, "Favicon target does not return HTTP 200");
+assert.match(favicon.headers.get("content-type") || "", /^image\/png\b/i, "Favicon target is not served as PNG");
 
 const report = {
   audit_version: 1,
@@ -95,6 +101,7 @@ const report = {
     utm_page_http_status: utm.response.status,
     utm_canonical: utmCanonical,
     structured_data: { Product: true, Offer: true, BreadcrumbList: true, Organization_AutoPartsStore: true },
+    favicon_http_status: favicon.status,
   },
   errors,
 };

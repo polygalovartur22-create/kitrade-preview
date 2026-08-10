@@ -1,10 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { normalizePhoto, readCatalogData } from "./lib/data.mjs";
+import { isDirectPublicImage, normalizePhoto, readCatalogData } from "./lib/data.mjs";
 import { isVisibleCatalogItem } from "./lib/domain.mjs";
 import { createEmptyRegistry, registryIndexes, syncRegistry, validateRegistry } from "./lib/registry.mjs";
 import { buildSeoState, toCsv } from "./lib/seo.mjs";
+import { computeWordstatSummary, deriveWordstatPriorities } from "./lib/wordstat.mjs";
 
 const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const registryPath = path.join(projectDir, "catalog-url-map.json");
@@ -23,9 +24,16 @@ const directSemanticsPath = path.join(projectDir, "seo", "direct-semantics.json"
 const directSemantics = fs.existsSync(directSemanticsPath) ? JSON.parse(fs.readFileSync(directSemanticsPath, "utf8")) : {};
 const wordstatAuditPath = path.join(projectDir, "seo", "wordstat-audit.json");
 const wordstatAudit = fs.existsSync(wordstatAuditPath) ? JSON.parse(fs.readFileSync(wordstatAuditPath, "utf8")) : {};
+const imageObservationsPath = path.join(projectDir, "seo", "image-observations.json");
+const imageObservations = fs.existsSync(imageObservationsPath)
+  ? JSON.parse(fs.readFileSync(imageObservationsPath, "utf8")).observations || {}
+  : {};
+const derivedWordstatPriorities = deriveWordstatPriorities(wordstatAudit);
+const computedWordstatSummary = computeWordstatSummary(wordstatAudit);
+wordstatAudit.priorities = derivedWordstatPriorities;
 const sourceLandingMapPath = path.join(projectDir, "seo", "source-landing-page-map.csv");
 const sourceLandingMapLabel = "yandex_direct_prelaunch_2026-07-21/landing_page_map.csv";
-const seoState = buildSeoState({ registry, items, indexes, config, rules, overrides, directSemantics, wordstatAudit });
+const seoState = buildSeoState({ registry, items, indexes, config, rules, overrides, directSemantics, wordstatAudit, imageObservations });
 
 function canonicalUrl(canonicalPath) {
   return new URL(canonicalPath, `${config.siteUrl}/`).href;
@@ -174,10 +182,15 @@ fs.writeFileSync(path.join(publicDir, "seo-map.json"), `${JSON.stringify(promote
 fs.writeFileSync(path.join(publicDir, "seo-map.csv"), toCsv(promotedSeoRows));
 fs.writeFileSync(path.join(reportsDir, "needs-review.json"), `${JSON.stringify(seoState.needsReview, null, 2)}\n`);
 fs.writeFileSync(path.join(reportsDir, "needs-review.csv"), toCsv(seoState.needsReview));
+fs.writeFileSync(path.join(reportsDir, "product-data-conflicts.json"), `${JSON.stringify(seoState.productConflicts, null, 2)}\n`);
+fs.writeFileSync(path.join(reportsDir, "product-data-conflicts.csv"), toCsv(seoState.productConflicts));
+fs.writeFileSync(path.join(reportsDir, "oem-conflicts.json"), `${JSON.stringify(seoState.oemConflicts, null, 2)}\n`);
+fs.writeFileSync(path.join(reportsDir, "oem-conflicts.csv"), toCsv(seoState.oemConflicts));
 fs.writeFileSync(path.join(reportsDir, "duplicates.json"), `${JSON.stringify(seoState.duplicateReport, null, 2)}\n`);
 fs.writeFileSync(path.join(reportsDir, "duplicates.csv"), toCsv(seoState.duplicateReport));
 fs.writeFileSync(path.join(reportsDir, "images-review.json"), `${JSON.stringify(seoState.imageReport, null, 2)}\n`);
 fs.writeFileSync(path.join(reportsDir, "images-review.csv"), toCsv(seoState.imageReport));
+fs.writeFileSync(path.join(reportsDir, "images-summary.json"), `${JSON.stringify(seoState.imageReportSummary, null, 2)}\n`);
 fs.writeFileSync(path.join(reportsDir, "identity-probable-matches.json"), `${JSON.stringify(seoState.probableMatches, null, 2)}\n`);
 fs.writeFileSync(path.join(reportsDir, "search-variants-draft.json"), `${JSON.stringify(seoState.variants, null, 2)}\n`);
 const normalizationRows = registry.entities.products.map((product) => {
@@ -277,10 +290,12 @@ const resolveSourceTarget = (source) => {
   const brand = brandAliases.get(semanticKey(source.brand));
   if (source.group_type === "BRAND" && brand) {
     const canonicalPath = brandPath(brand);
-    return { canonicalPath, seo: seoState.seoByPath.get(canonicalPath) };
+    return { canonicalPath, seo: seoState.seoByPath.get(canonicalPath), brand };
   }
   const manualModelAliases = {
+    "fang cheng bao|bao 5": "fang cheng bao|bao 5 leopard 5",
     "fangchengbao|bao 5": "fang cheng bao|bao 5 leopard 5",
+    "fangchengbao|titanium 7": "fang cheng bao|titanium 7",
     "polar stone jishi|01": "polar stone jishi|01",
     "changan|oshan z6": "changan|auchan z6",
     "exlantix|es": "exeed|exlantix es",
@@ -289,7 +304,7 @@ const resolveSourceTarget = (source) => {
   const resolved = modelAliases.get(sourceKey) || modelAliases.get(manualModelAliases[sourceKey]);
   if (!resolved) return { canonicalPath: "", seo: null };
   const canonicalPath = modelPath(resolved.brand, resolved.model);
-  return { canonicalPath, seo: seoState.seoByPath.get(canonicalPath) };
+  return { canonicalPath, seo: seoState.seoByPath.get(canonicalPath), brand: resolved.brand, model: resolved.model };
 };
 const searchTargetGroups = sourceLandingRows.map((source) => {
   const target = resolveSourceTarget(source);
@@ -324,17 +339,86 @@ fs.writeFileSync(path.join(publicDir, "search-target-map.json"), `${JSON.stringi
   missing_groups: searchTargetGroups.filter((group) => group.match_status !== "matched").length,
   groups: searchTargetGroups,
 }, null, 2)}\n`);
-const coveredPrimaryQueries = new Set(searchTargetGroups.flatMap((row) => row.queries));
-const unresolvedDirectGroups = [
-  ...Object.entries(directSemantics.brands || {}),
-  ...Object.entries(directSemantics.models || {}),
-].filter(([, entry]) => !coveredPrimaryQueries.has(entry.primary_query))
-  .map(([source_group, entry]) => ({ source_group, primary_query: entry.primary_query, status: "no_current_catalog_target" }));
+const aliasesForEntity = (entity) => new Set([entity?.name, ...(entity?.source_names || [])].filter(Boolean).map(semanticKey));
+const directSourceGroups = [
+  ...Object.entries(directSemantics.brands || {}).map(([source_group, entry]) => ({
+    source_group, entry, group_type: "BRAND", brand: entry.canonical_brand || source_group, model: "",
+  })),
+  ...Object.entries(directSemantics.models || {}).map(([source_group, entry]) => {
+    const [sourceBrand = "", sourceModel = ""] = source_group.split("|");
+    return {
+      source_group, entry, group_type: "MODEL",
+      brand: entry.canonical_brand || sourceBrand,
+      model: entry.canonical_model || sourceModel,
+    };
+  }),
+];
+const directGroupCoverage = directSourceGroups.map((source) => {
+  const resolved = resolveSourceTarget(source);
+  const brandAliasSet = aliasesForEntity(resolved.brand);
+  const modelAliasSet = aliasesForEntity(resolved.model);
+  brandAliasSet.add(semanticKey(source.brand));
+  modelAliasSet.add(semanticKey(source.model));
+  const matchedGroup = searchTargetGroups.find((group) => (
+    group.source_group_type === source.group_type
+    && group.match_status === "matched"
+    && group.canonical_path === resolved.canonicalPath
+    && brandAliasSet.has(semanticKey(group.brand))
+    && (source.group_type !== "MODEL" || modelAliasSet.has(semanticKey(group.model)))
+  ));
+  return {
+    source_group: source.source_group,
+    group_type: source.group_type,
+    normalized_brand: semanticKey(source.brand),
+    normalized_model: semanticKey(source.model),
+    primary_query: source.entry.primary_query,
+    canonical_path: resolved.canonicalPath || "",
+    confirmed_target: Boolean(resolved.seo && matchedGroup),
+    matched_source_row: matchedGroup?.source_row || null,
+  };
+});
+const unresolvedDirectGroups = directGroupCoverage
+  .filter((group) => !group.confirmed_target)
+  .map((group) => ({ ...group, status: "no_current_catalog_target" }));
+const confirmedDirectCanonicalTargets = new Set(searchTargetGroups
+  .filter((group) => group.match_status === "matched" && group.canonical_path)
+  .map((group) => `${group.source_group_type}|${group.canonical_path}`));
+if (unresolvedDirectGroups.some((gap) => gap.canonical_path
+  && confirmedDirectCanonicalTargets.has(`${gap.group_type}|${gap.canonical_path}`))) {
+  throw new Error("A Direct group with a confirmed canonical target was added to direct-target-gaps.json");
+}
 fs.writeFileSync(path.join(reportsDir, "direct-target-gaps.json"), `${JSON.stringify(unresolvedDirectGroups, null, 2)}\n`);
 
 fs.writeFileSync(path.join(reportsDir, "form-submission-audit.json"), `${JSON.stringify({
   status: "server_confirmation_unavailable",
-  current_transport: "Google Apps Script with fetch mode no-cors",
+  current_state: {
+    endpoint: "Google Apps Script",
+    request_mode: "no-cors",
+    response_visibility: "opaque",
+    server_confirmation_available: false,
+    success_ui_shown: false,
+    request_submit_success_sent: false,
+    explanation: "The opaque response cannot prove that the request was saved, so it is not treated as confirmed success.",
+  },
+  required_server_change: {
+    cors_enabled: true,
+    response_format: "JSON",
+    success_status: "HTTP 2xx only after the request has actually been saved",
+    confirmation_contract: "Return a verifiable JSON confirmation only after the request and attribution payload have been stored successfully.",
+  },
+  required_client_change: {
+    request_mode: "cors",
+    remove_no_cors: true,
+    read_response_json: true,
+    validate_server_confirmation: true,
+    migration_note: "When the server supports CORS, remove no-cors (or explicitly use CORS), parse JSON and verify the save confirmation.",
+  },
+  confirmed_success_gate: {
+    condition: "Only a valid server JSON confirmation after an HTTP 2xx response may show success and send request_submit_success.",
+    show_success_after_confirmation: true,
+    send_request_submit_success_after_confirmation: true,
+    opaque_or_error_must_not_succeed: true,
+  },
   analytics: {
     attempt_event: "request_submit_attempt",
     success_event: "request_submit_success",
@@ -343,10 +427,8 @@ fs.writeFileSync(path.join(reportsDir, "form-submission-audit.json"), `${JSON.st
     offline_events: config.analytics?.offlineEvents || [],
   },
   saved_with_request: ["metrika_client_id", "yclid", "utm", "first_landing_url", "order_id", "selected_products", "preliminary_sum", "currency"],
-  client_behavior: "An opaque no-cors response is not counted or shown as confirmed success.",
   offline_event_policy: "qualified_50000, quote_sent, order_confirmed_50000 and order_paid_50000 are server/CRM-only and are not callable through the browser event allowlist.",
   paid_revenue_policy: "order_paid_50000 must use the actually paid RUB amount and must not contain phone, name, email, VIN or other personal data.",
-  server_change_required: "Return a CORS-enabled JSON response with a 2xx status only after the request and attribution payload have been saved successfully; later send qualified, quote, confirmed and paid statuses from the server or CRM.",
 }, null, 2)}\n`);
 
 const categoryWordstatResults = wordstatAudit.category_results || [];
@@ -385,15 +467,17 @@ fs.writeFileSync(path.join(reportsDir, "category-wordstat-candidates.json"), `${
   policy: "Candidates require an explicit owner decision and are never applied automatically.",
 }, null, 2)}\n`);
 fs.writeFileSync(path.join(reportsDir, "wordstat-audit-summary.json"), `${JSON.stringify({
-  ...wordstatAudit.summary,
-  ...categoryWordstatComputed,
+  ...computedWordstatSummary,
   methodology: wordstatAudit.methodology || {},
-  applied_catalog_changes: wordstatAudit.priorities?.catalog ? 1 : 0,
-  applied_brand_changes: Object.keys(wordstatAudit.priorities?.brands || {}).length,
-  applied_model_changes: Object.keys(wordstatAudit.priorities?.models || {}).length,
-  applied_category_primary_queries: Object.keys(wordstatAudit.priorities?.categories || {}).length,
   category_results_count: (wordstatAudit.category_results || []).length,
   variants_retained: true,
+}, null, 2)}\n`);
+fs.writeFileSync(path.join(reportsDir, "non-category-wordstat-observations.json"), `${JSON.stringify({
+  methodology: wordstatAudit.methodology || {},
+  summary: computedWordstatSummary,
+  priorities: derivedWordstatPriorities,
+  count: (wordstatAudit.non_category_results || []).length,
+  observations: wordstatAudit.non_category_results || [],
 }, null, 2)}\n`);
 
 const ownerConfirmationHistory = [
@@ -418,17 +502,27 @@ fs.writeFileSync(path.join(reportsDir, "validation-summary.json"), `${JSON.strin
   source: rules.source, source_products: items.length,
   promoted_pages: promotedSeoRows.length, excluded_products: exportRows.filter((row) => row.entity_type === "product" && !row.indexable).length,
   insufficient_data_products: seoState.needsReview.length,
-  duplicate_secondary_products: seoState.duplicateReport.reduce((total, group) => total + group.duplicate_product_ids.length, 0),
+  duplicate_secondary_products: new Set(seoState.duplicateReport
+    .filter((group) => group.action === "secondary_noindex_canonical_to_primary")
+    .flatMap((group) => group.duplicate_product_ids)).size,
   confirmed_full_duplicate_groups: seoState.duplicateReport.filter((group) => group.classification === "confirmed_full_duplicate").length,
   confirmed_metadata_duplicate_groups: seoState.duplicateReport.filter((group) => group.classification === "confirmed_metadata_duplicate").length,
+  confirmed_owner_duplicate_groups: seoState.duplicateReport.filter((group) => group.classification === "confirmed_owner_duplicate").length,
   pending_manual_duplicate_groups: seoState.duplicateReport.filter((group) => group.classification === "pending_manual_identity_review").length,
+  manual_identity_review_groups: Object.values(overrides.duplicate_decisions || {}).filter((decision) => decision?.action === "manual_review").length,
   needs_review: seoState.needsReview.length, duplicate_groups: seoState.duplicateReport.length,
   image_rights_confirmed: seoState.imageReport.filter((row) => row.rights_status === "confirmed_by_owner").length,
   image_rights_pending: seoState.imageReport.filter((row) => row.rights_status !== "confirmed_by_owner").length,
-  image_quality_review_pending: seoState.imageReport.filter((row) => row.quality_review_pending).length,
+  image_quality_review_pending: seoState.imageReport.filter((row) => [row.product_match_status, row.watermark_status, row.cropping_status].includes("pending_review")).length,
+  image_links: seoState.imageReportSummary,
   probable_identity_matches: seoState.probableMatches.length,
-  wordstat: categoryWordstatComputed,
+  wordstat: computedWordstatSummary,
   direct_semantics: directCoverage.summary,
+  direct_search_targets: {
+    groups_total: searchTargetGroups.length,
+    matched_groups: searchTargetGroups.filter((group) => group.match_status === "matched").length,
+    real_gaps: unresolvedDirectGroups.length,
+  },
   pending_business_confirmation: [
     ...(config.organization?.businessDetailsStatus === "confirmed" ? [] : ["organization.address", "organization.email", "organization.telephone"]),
     ...(config.analytics?.counterStatus === "confirmed" ? [] : ["analytics.counterId"]),
@@ -446,7 +540,8 @@ const runtimeItems = registry.entities.products.map((product) => {
   const model = indexes.models.get(product.model_id);
   const category = indexes.categories.get(product.category_id);
   const content = seoState.productState.get(product.product_id)?.content || {};
-  const photo = normalizePhoto(item?.photos?.[0]);
+  const rawPhoto = item?.photos?.[0];
+  const photo = isDirectPublicImage(rawPhoto) ? normalizePhoto(rawPhoto) : "";
   return {
     id: String(item?.id || product.source_id),
     product_id: product.product_id,

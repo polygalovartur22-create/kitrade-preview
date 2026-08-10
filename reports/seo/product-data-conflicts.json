@@ -1,0 +1,325 @@
+[
+  {
+    "product_id": 1365,
+    "source_id": "8108743157",
+    "canonical_path": "/catalog/product/radiator-byd-seal-06-gt-1365/",
+    "structured_fields": {
+      "title": "Радиатор BYD Seal 06 GT",
+      "brand": "BYD",
+      "model": "Seal 06 GT",
+      "condition": "Новое",
+      "article_oem": "1521085900"
+    },
+    "description_excerpt": "Радиатор BYD Seal 06 GT S202F2801041308AA/S202F2801041311AA. Б/у, оригинал. Под заказ из Китая 5-6 недель. Стоимость доставки уточняйте у менеджера. Также в наличии и под заказ большой ассортимент запчастей на автомобили китайского, корейского и немецкого прои",
+    "reason": "condition_conflict",
+    "owner_resolution_required": "Подтвердить состояние: структурированное поле — «Новое», исходное описание — «Б/у».",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/radiator-byd-seal-06-gt-1365/",
+    "structured_data": "excluded_product_and_offer"
+  },
+  {
+    "product_id": 1378,
+    "source_id": "8108280589",
+    "canonical_path": "/catalog/product/bachok-stekloochistitelya-baw-bj-212-1378/",
+    "structured_fields": {
+      "title": "Бачок стеклоочистителя BAW BJ 212",
+      "brand": "BAW",
+      "model": "212",
+      "condition": "Новое",
+      "article_oem": "byd"
+    },
+    "description_excerpt": "Бачок стеклоочистителя BAW BJ 212 S202F2801041308AA/S202F2801041311AA. Б/у, оригинал. Под заказ из Китая 5-6 недель. Стоимость доставки уточняйте у менеджера. Также в наличии и под заказ большой ассортимент запчастей на автомобили китайского, корейского и неме",
+    "reason": "condition_conflict",
+    "owner_resolution_required": "Подтвердить состояние: структурированное поле — «Новое», исходное описание — «Б/у».",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/bachok-stekloochistitelya-baw-bj-212-1378/",
+    "structured_data": "excluded_product_and_offer"
+  },
+  {
+    "product_id": 1393,
+    "source_id": "8107907720",
+    "canonical_path": "/catalog/product/radiator-konditsionera-volkswagen-tavendor-1393/",
+    "structured_fields": {
+      "title": "Радиатор кондиционера Volkswagen Tavendor",
+      "brand": "Volkswagen",
+      "model": "Tavendor",
+      "condition": "Новое",
+      "article_oem": "3QG820411B"
+    },
+    "description_excerpt": "Радиатор кондиционера Volkswagen Tavendor S202F2801041308AA/S202F2801041311AA. Б/у, оригинал. Под заказ из Китая 5-6 недель. Стоимость доставки уточняйте у менеджера. Также в наличии и под заказ большой ассортимент запчастей на автомобили китайского, корейског",
+    "reason": "condition_conflict",
+    "owner_resolution_required": "Подтвердить состояние: структурированное поле — «Новое», исходное описание — «Б/у».",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/radiator-konditsionera-volkswagen-tavendor-1393/",
+    "structured_data": "excluded_product_and_offer"
+  },
+  {
+    "product_id": 1402,
+    "source_id": "8108309778",
+    "canonical_path": "/catalog/product/radiator-konditsionera-baw-bj-212-1402/",
+    "structured_fields": {
+      "title": "Радиатор кондиционера BAW BJ 212",
+      "brand": "BAW",
+      "model": "212",
+      "condition": "Новое",
+      "article_oem": "byd"
+    },
+    "description_excerpt": "Радиатор кондиционера BAW BJ 212 S202F2801041308AA/S202F2801041311AA. Б/у, оригинал. Под заказ из Китая 5-6 недель. Стоимость доставки уточняйте у менеджера. Также в наличии и под заказ большой ассортимент запчастей на автомобили китайского, корейского и немец",
+    "reason": "condition_conflict",
+    "owner_resolution_required": "Подтвердить состояние: структурированное поле — «Новое», исходное описание — «Б/у».",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/radiator-konditsionera-baw-bj-212-1402/",
+    "structured_data": "excluded_product_and_offer"
+  },
+  {
+    "product_id": 1410,
+    "source_id": "8107944966",
+    "canonical_path": "/catalog/product/ventilyator-radiatora-volkswagen-tavendor-1410/",
+    "structured_fields": {
+      "title": "Вентилятор радиатора Volkswagen Tavendor",
+      "brand": "Volkswagen",
+      "model": "Tavendor",
+      "condition": "Новое",
+      "article_oem": "3QG959455F"
+    },
+    "description_excerpt": "Вентилятор радиатора Volkswagen Tavendor S202F2801041308AA/S202F2801041311AA. Б/у, оригинал. Под заказ из Китая 5-6 недель. Стоимость доставки уточняйте у менеджера. Также в наличии и под заказ большой ассортимент запчастей на автомобили китайского, корейского",
+    "reason": "condition_conflict",
+    "owner_resolution_required": "Подтвердить состояние: структурированное поле — «Новое», исходное описание — «Б/у».",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/ventilyator-radiatora-volkswagen-tavendor-1410/",
+    "structured_data": "excluded_product_and_offer"
+  },
+  {
+    "product_id": 1416,
+    "source_id": "8108455785",
+    "canonical_path": "/catalog/product/interkuler-volkswagen-tavendor-1416/",
+    "structured_fields": {
+      "title": "Интеркулер Volkswagen Tavendor",
+      "brand": "Volkswagen",
+      "model": "Tavendor",
+      "condition": "Новое",
+      "article_oem": "3QG145803"
+    },
+    "description_excerpt": "Интеркулер Volkswagen Tavendor S202F2801041308AA/S202F2801041311AA. Б/у, оригинал. Под заказ из Китая 5-6 недель. Стоимость доставки уточняйте у менеджера. Также в наличии и под заказ большой ассортимент запчастей на автомобили китайского, корейского и немецко",
+    "reason": "condition_conflict",
+    "owner_resolution_required": "Подтвердить состояние: структурированное поле — «Новое», исходное описание — «Б/у».",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/interkuler-volkswagen-tavendor-1416/",
+    "structured_data": "excluded_product_and_offer"
+  },
+  {
+    "product_id": 1425,
+    "source_id": "8108171589",
+    "canonical_path": "/catalog/product/radiator-dvigatelya-volkswagen-tavendor-1425/",
+    "structured_fields": {
+      "title": "Радиатор двигателя Volkswagen Tavendor",
+      "brand": "Volkswagen",
+      "model": "Tavendor",
+      "condition": "Новое",
+      "article_oem": "3QG121251"
+    },
+    "description_excerpt": "Радиатор двигателя Volkswagen Tavendor S202F2801041308AA/S202F2801041311AA. Б/у, оригинал. Под заказ из Китая 5-6 недель. Стоимость доставки уточняйте у менеджера. Также в наличии и под заказ большой ассортимент запчастей на автомобили китайского, корейского и",
+    "reason": "condition_conflict",
+    "owner_resolution_required": "Подтвердить состояние: структурированное поле — «Новое», исходное описание — «Б/у».",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/radiator-dvigatelya-volkswagen-tavendor-1425/",
+    "structured_data": "excluded_product_and_offer"
+  },
+  {
+    "product_id": 1426,
+    "source_id": "8108639207",
+    "canonical_path": "/catalog/product/ventilyator-radiatora-voyah-passion-1426/",
+    "structured_fields": {
+      "title": "Вентилятор радиатора Voyah Passion",
+      "brand": "Voyah",
+      "model": "Passion",
+      "condition": "Новое",
+      "article_oem": "130801003"
+    },
+    "description_excerpt": "Вентилятор радиатора Voyah Passion S202F2801041308AA/S202F2801041311AA. Б/у, оригинал. Под заказ из Китая 5-6 недель. Стоимость доставки уточняйте у менеджера. Также в наличии и под заказ большой ассортимент запчастей на автомобили китайского, корейского и нем",
+    "reason": "condition_conflict",
+    "owner_resolution_required": "Подтвердить состояние: структурированное поле — «Новое», исходное описание — «Б/у».",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/ventilyator-radiatora-voyah-passion-1426/",
+    "structured_data": "excluded_product_and_offer"
+  },
+  {
+    "product_id": 1429,
+    "source_id": "8108482199",
+    "canonical_path": "/catalog/product/radiator-nizkih-temperatur-voyah-passion-1429/",
+    "structured_fields": {
+      "title": "Радиатор низких температур Voyah Passion",
+      "brand": "Voyah",
+      "model": "Passion",
+      "condition": "Новое",
+      "article_oem": "130101002"
+    },
+    "description_excerpt": "Радиатор низких температур Voyah Passion S202F2801041308AA/S202F2801041311AA. Б/у, оригинал. Под заказ из Китая 5-6 недель. Стоимость доставки уточняйте у менеджера. Также в наличии и под заказ большой ассортимент запчастей на автомобили китайского, корейского",
+    "reason": "condition_conflict",
+    "owner_resolution_required": "Подтвердить состояние: структурированное поле — «Новое», исходное описание — «Б/у».",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/radiator-nizkih-temperatur-voyah-passion-1429/",
+    "structured_data": "excluded_product_and_offer"
+  },
+  {
+    "product_id": 1451,
+    "source_id": "8108331741",
+    "canonical_path": "/catalog/product/ohladitel-batarei-voyah-passion-1451/",
+    "structured_fields": {
+      "title": "Охладитель батареи Voyah Passion",
+      "brand": "Voyah",
+      "model": "Passion",
+      "condition": "Новое",
+      "article_oem": "810750003"
+    },
+    "description_excerpt": "Охладитель батареи Voyah Passion S202F2801041308AA/S202F2801041311AA. Б/у, оригинал. Под заказ из Китая 5-6 недель. Стоимость доставки уточняйте у менеджера. Также в наличии и под заказ большой ассортимент запчастей на автомобили китайского, корейского и немец",
+    "reason": "condition_conflict",
+    "owner_resolution_required": "Подтвердить состояние: структурированное поле — «Новое», исходное описание — «Б/у».",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/ohladitel-batarei-voyah-passion-1451/",
+    "structured_data": "excluded_product_and_offer"
+  },
+  {
+    "product_id": 1457,
+    "source_id": "8044246739",
+    "canonical_path": "/catalog/product/radiator-dvigatelya-byd-seal-06-gt-1457/",
+    "structured_fields": {
+      "title": "Радиатор двигателя BYD Seal 06 GT",
+      "brand": "BYD",
+      "model": "Seal 06 GT",
+      "condition": "Новое",
+      "article_oem": "15210859-00/TA72-1301030"
+    },
+    "description_excerpt": "Вентилятор радиатора Geely galaxy starship 7 Новое, оригинал. Под заказ из Китая 4-5 недель. Также в наличии и под заказ большой ассортимент запчастей на автомобили китайского, корейского и немецкого производства, как новых так и контрактных. Отправляем любой ",
+    "reason": "foreign_vehicle_in_description",
+    "owner_resolution_required": "Подтвердить, относится ли описание Geely Galaxy Starship 7 к карточке BYD Seal 06 GT.",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/radiator-dvigatelya-byd-seal-06-gt-1457/",
+    "structured_data": "excluded_product_and_offer"
+  },
+  {
+    "product_id": 1458,
+    "source_id": "8108794040",
+    "canonical_path": "/catalog/product/kompressor-konditsionera-volkswagen-tavendor-1458/",
+    "structured_fields": {
+      "title": "Компрессор кондиционера Volkswagen Tavendor",
+      "brand": "Volkswagen",
+      "model": "Tavendor",
+      "condition": "Новое",
+      "article_oem": "1KD820803P"
+    },
+    "description_excerpt": "Компрессор кондиционера Volkswagen Tavendor S202F2801041308AA/S202F2801041311AA. Б/у, оригинал. Под заказ из Китая 5-6 недель. Стоимость доставки уточняйте у менеджера. Также в наличии и под заказ большой ассортимент запчастей на автомобили китайского, корейск",
+    "reason": "condition_conflict",
+    "owner_resolution_required": "Подтвердить состояние: структурированное поле — «Новое», исходное описание — «Б/у».",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/kompressor-konditsionera-volkswagen-tavendor-1458/",
+    "structured_data": "excluded_product_and_offer"
+  },
+  {
+    "product_id": 1472,
+    "source_id": "8108195488",
+    "canonical_path": "/catalog/product/bachok-stekloomyvatelya-volkswagen-tavendor-1472/",
+    "structured_fields": {
+      "title": "Бачок стеклоомывателя Volkswagen Tavendor",
+      "brand": "Volkswagen",
+      "model": "Tavendor",
+      "condition": "Новое",
+      "article_oem": "30C955453A"
+    },
+    "description_excerpt": "Бачок стеклоомывателя Volkswagen Tavendor S202F2801041308AA/S202F2801041311AA. Б/у, оригинал. Под заказ из Китая 5-6 недель. Стоимость доставки уточняйте у менеджера. Также в наличии и под заказ большой ассортимент запчастей на автомобили китайского, корейског",
+    "reason": "condition_conflict",
+    "owner_resolution_required": "Подтвердить состояние: структурированное поле — «Новое», исходное описание — «Б/у».",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/bachok-stekloomyvatelya-volkswagen-tavendor-1472/",
+    "structured_data": "excluded_product_and_offer"
+  },
+  {
+    "product_id": 1683,
+    "source_id": "7692137660",
+    "canonical_path": "/catalog/product/akpp-v-sbore-changan-uni-k-1683/",
+    "structured_fields": {
+      "title": "АКПП в сборе Changan Uni-K",
+      "brand": "Changan",
+      "model": "UNI-K",
+      "condition": "Б/у",
+      "article_oem": ""
+    },
+    "description_excerpt": "Новая оригинальная коробка передач на Changan Uni-K. Под заказ из Китая 3-4 недели. Также в наличии и под заказ большой ассортимент запчастей на автомобили китайского, корейского и немецкого производства, как новых так и контрактных. Отправляем любой транспорт",
+    "reason": "condition_conflict",
+    "owner_resolution_required": "Подтвердить состояние: структурированное поле — «Б/у», исходное описание — «Новое».",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/akpp-v-sbore-changan-uni-k-1683/",
+    "structured_data": "excluded_product_and_offer"
+  },
+  {
+    "product_id": 2017,
+    "source_id": "8107940348",
+    "canonical_path": "/catalog/product/podkrylok-levyi-zadnii-aito-m8-2017/",
+    "structured_fields": {
+      "title": "Подкрылок левый задний aito M8",
+      "brand": "Aito",
+      "model": "M8",
+      "condition": "Б/у",
+      "article_oem": "5504030RR01"
+    },
+    "description_excerpt": "Подкрылок левый задний AITO M8. Новое, оригинал. Под заказ из Китая 4-5 недель. Также в наличии и под заказ большой ассортимент запчастей на автомобили китайского, корейского и немецкого производства, как новых так и контрактных. Отправляем любой транспортной ",
+    "reason": "condition_conflict",
+    "owner_resolution_required": "Подтвердить состояние: структурированное поле — «Б/у», исходное описание — «Новое».",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/podkrylok-levyi-zadnii-aito-m8-2017/",
+    "structured_data": "excluded_product_and_offer"
+  },
+  {
+    "product_id": 2177,
+    "source_id": "4045277680",
+    "canonical_path": "/catalog/product/bamper-perednii-voyah-free-v-sbore-original-2177/",
+    "structured_fields": {
+      "title": "Бампер передний Voyah Free в сборе (оригинал)",
+      "brand": "Voyah",
+      "model": "Free",
+      "condition": "Б/у",
+      "article_oem": ""
+    },
+    "description_excerpt": "Новый оригинальный бампер в сборе на Voyah Free - рестайлинг. Состав бампера на 2м фото. Под заказ 15-30 дней.",
+    "reason": "condition_conflict",
+    "owner_resolution_required": "Подтвердить состояние: структурированное поле — «Б/у», исходное описание — «Новое».",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/bamper-perednii-voyah-free-v-sbore-original-2177/",
+    "structured_data": "excluded_product_and_offer"
+  },
+  {
+    "product_id": 2807,
+    "source_id": "8076143658",
+    "canonical_path": "/catalog/product/nouskat-toyota-rav4-xa50-restailing-2807/",
+    "structured_fields": {
+      "title": "Ноускат Toyota Rav4 XA50 рестайлинг",
+      "brand": "Toyota",
+      "model": "RAV4",
+      "condition": "Б/у",
+      "article_oem": ""
+    },
+    "description_excerpt": "Ноускат Toyota Rav4 V рестайлинг. С фарами! Новое, оригинал. Под заказ из Китая 5-6 недель. Стоимость доставки уточняйте у менеджера. Также в наличии и под заказ большой ассортимент запчастей на автомобили китайского, корейского и немецкого производства, как н",
+    "reason": "condition_conflict",
+    "owner_resolution_required": "Подтвердить состояние: структурированное поле — «Б/у», исходное описание — «Новое».",
+    "status": "needs_review",
+    "robots": "noindex,follow",
+    "canonical_target_path": "/catalog/product/nouskat-toyota-rav4-xa50-restailing-2807/",
+    "structured_data": "excluded_product_and_offer"
+  }
+]

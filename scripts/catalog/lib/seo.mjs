@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
-import { createProductContent, numericPrice, schemaCondition } from "./product-content.mjs";
+import { buildProductTitle, createProductContent, normalizePublicName, numericPrice, schemaCondition } from "./product-content.mjs";
+import { deriveWordstatPriorities } from "./wordstat.mjs";
 
 const clean = (value) => String(value ?? "").trim().replace(/\s+/g, " ");
 const norm = (value) => clean(value).toLocaleLowerCase("ru").replaceAll("ё", "е");
@@ -113,17 +114,17 @@ function yearRange(item) {
 }
 
 function addContentQualifier(content, qualifier) {
-  const vehicle = clean(content.h1).slice(clean(content.detail).length).trim();
   const detail = clean(`${content.detail}, ${qualifier}`);
-  const h1 = clean(`${detail} ${vehicle}`);
-  const suffix = `${content.article ? `, ${content.article}` : ""} | KITRADE`;
-  const title = `${shorten(`${qualifier} — ${h1}`, Math.max(24, 75 - suffix.length))}${suffix}`;
+  const h1 = normalizePublicName(`${detail} ${content.vehicle}`);
+  const titleQualifier = /рестайлинг/iu.test(qualifier)
+    ? "рестайлинг"
+    : qualifier.match(/поколение\s+([IVX]+)/iu)?.[1] ? `${qualifier.match(/поколение\s+([IVX]+)/iu)[1]} поколения` : qualifier;
+  const title = buildProductTitle({ detail: content.detail, vehicleNames: content.vehicleNames, article: content.article, qualifier: titleQualifier });
   return { ...content, detail, h1, title };
 }
 
 function titleFromContent(content) {
-  const suffix = `${content.article ? `, ${content.article}` : ""} | KITRADE`;
-  return `${shorten(content.h1, Math.max(24, 75 - suffix.length))}${suffix}`;
+  return buildProductTitle({ detail: content.detail, vehicleNames: content.vehicleNames, article: content.article });
 }
 
 function comparisonFields(facts) {
@@ -156,25 +157,38 @@ function directModelEntry(directSemantics, brand, model) {
 }
 
 export function normalizePublicQuery(value) {
-  return clean(value)
-    .replace(/\b(?:BYD\s+)?Fang\s*Cheng\s*Bao\s+(?:Bao\s*5|Leopard\s*5)\b/gi, "Fang Cheng Bao Bao 5 (Leopard 5)")
+  return normalizePublicName(clean(value)
     .replace(/\b(?:BYD\s+)?Fang\s*Cheng\s*Bao\s+Titanium\s*7\b/gi, "Fang Cheng Bao Titanium 7")
-    .replace(/\bBYD\s+Leopard\s*5\b/gi, "Fang Cheng Bao Bao 5 (Leopard 5)")
     .replace(/\bBYD\s+Leopard\s*7\b/gi, "Fang Cheng Bao Titanium 7")
     .replace(/\bBYD\s+Fang\s*Cheng\s*Bao\b/gi, "Fang Cheng Bao")
     .replace(/\bFangChengBao\b/gi, "Fang Cheng Bao")
     .replace(/(?:Fang Cheng Bao\s+){2,}/gi, "Fang Cheng Bao ")
     .replace(/Fang Cheng Bao\s+Fang Cheng Bao/gi, "Fang Cheng Bao")
-    .replace(/\(Leopard 5\)\s*\(Leopard 5\)/gi, "(Leopard 5)");
+    .replace(/\(Leopard 5\)\s*\(Leopard 5\)/gi, "(Leopard 5)"));
 }
 
-export function buildSeoState({ registry, items, indexes, config, rules, overrides = {}, directSemantics = {}, wordstatAudit = {} }) {
+function normalizeSecondaryQuery(value) {
+  const text = clean(value);
+  return /Bao Bao|Polar Polar|\(Leopard 5\)\s*\(Leopard 5\)/iu.test(text) ? normalizePublicQuery(text) : text;
+}
+
+function restorePrimaryOem(value, article) {
+  const text = clean(value);
+  const sourceArticle = clean(article);
+  if (!sourceArticle || text.includes(sourceArticle)) return text;
+  const normalizedArticle = normalizePublicName(sourceArticle);
+  return normalizedArticle && text.includes(normalizedArticle) ? text.replace(normalizedArticle, sourceArticle) : text;
+}
+
+export function buildSeoState({ registry, items, indexes, config, rules, overrides = {}, directSemantics = {}, wordstatAudit = {}, imageObservations = {} }) {
+  const wordstatPriorities = deriveWordstatPriorities(wordstatAudit);
   const itemBySourceId = new Map(items.map((item) => [String(item.id), item]));
   const paths = routePaths(indexes);
   const products = registry.entities.products.map((product) => ({
     product,
     item: itemBySourceId.get(String(product.source_id)) || product.source_snapshot || null,
   }));
+  const oemManualProductIds = new Set((overrides.oem_manual_confirmation_groups || []).flat().map(Number));
 
   const duplicateGroups = new Map();
   for (const row of products.filter(({ product }) => product.status === "active")) {
@@ -186,7 +200,8 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
   const duplicateReport = [];
   for (const [fingerprint, rows] of duplicateGroups) {
     if (rows.length < 2) continue;
-    rows.sort((a, b) => Number(a.product.product_id) - Number(b.product.product_id));
+    rows.sort((a, b) => numericPrice(b.item?.price) - numericPrice(a.item?.price)
+      || Number(a.product.product_id) - Number(b.product.product_id));
     const primary = rows[0].product;
     for (const row of rows.slice(1)) duplicateSecondaryIds.add(row.product.product_id);
     const facts = rows.map(({ item, product }) => duplicateFacts(item, product));
@@ -226,6 +241,10 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     const model = indexes.models.get(product.model_id);
     const category = indexes.categories.get(product.category_id);
     const productOverride = contentOverrides(overrides, product);
+    if (oemManualProductIds.has(Number(product.product_id))) {
+      productOverride.article = "";
+      productOverride.article_status = "needs_manual_confirmation";
+    }
     const content = createProductContent({ item, product, brand, model, category, overrides: productOverride });
     productState.set(product.product_id, {
       indexable,
@@ -236,6 +255,56 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
       duplicateOf: duplicateReport.find((group) => group.duplicate_product_ids.includes(product.product_id))?.primary_product_id || null,
       canonicalPath: duplicateReport.find((group) => group.duplicate_product_ids.includes(product.product_id))?.primary_url || product.canonical_path,
     });
+  }
+
+  // Owner-confirmed duplicates are authoritative even when their public titles use
+  // different word order and therefore never enter the metadata-collision groups.
+  for (const [decisionKey, decision] of Object.entries(overrides.duplicate_decisions || {})) {
+    if (decision?.action !== "canonical_duplicate") continue;
+    const decisionIds = decisionKey.split("|").map(Number).filter(Number.isInteger);
+    const decisionRows = decisionIds
+      .map((productId) => products.find(({ product }) => Number(product.product_id) === productId))
+      .filter(Boolean);
+    if (decisionRows.length !== decisionIds.length || decisionRows.length < 2) {
+      throw new Error(`Owner duplicate decision ${decisionKey} does not resolve to at least two catalog products`);
+    }
+    const primaryProductId = Number(decision.primary_product_id);
+    const primaryIndex = decisionRows.findIndex(({ product }) => Number(product.product_id) === primaryProductId);
+    if (primaryIndex < 0) throw new Error(`Owner duplicate decision ${decisionKey} has an invalid primary product`);
+    const [primaryRow] = decisionRows.splice(primaryIndex, 1);
+    const orderedRows = [primaryRow, ...decisionRows];
+    const facts = orderedRows.map(({ item, product }) => duplicateFacts(item, product));
+    const { matching, differing } = comparisonFields(facts);
+    const primaryState = productState.get(primaryRow.product.product_id);
+    const secondaries = orderedRows.slice(1).map(({ product }, index) => {
+      const state = productState.get(product.product_id);
+      state.indexable = false;
+      state.robots = "noindex,follow";
+      state.duplicateOf = primaryRow.product.product_id;
+      state.canonicalPath = primaryRow.product.canonical_path;
+      if (!state.validationErrors.includes("confirmed_owner_duplicate")) state.validationErrors.push("confirmed_owner_duplicate");
+      return {
+        ...facts[index + 1],
+        robots: state.robots,
+        canonical_path_target: state.canonicalPath,
+        reason: decision.reason || "The owner confirmed that this is the same physical catalog position as the primary product.",
+      };
+    });
+    duplicateReport.push({
+      fingerprint: crypto.createHash("sha256").update(`owner|${decisionKey}`).digest("hex").slice(0, 24),
+      classification: "confirmed_owner_duplicate",
+      primary: facts[0],
+      secondary_pages: secondaries,
+      matching_fields: matching,
+      differing_fields: differing,
+      action: "secondary_noindex_canonical_to_primary",
+      owner_decision: decision,
+      primary_product_id: primaryRow.product.product_id,
+      primary_url: primaryRow.product.canonical_path,
+      duplicate_product_ids: orderedRows.slice(1).map(({ product }) => product.product_id),
+      duplicate_urls: orderedRows.slice(1).map(({ product }) => product.canonical_path),
+    });
+    primaryState.content.title = titleFromContent(primaryState.content);
   }
 
   const currentlyIndexable = () => products.filter(({ product }) => productState.get(product.product_id)?.indexable);
@@ -298,7 +367,11 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     const articles = rows.map(({ product }) => clean(productState.get(product.product_id).content.article));
     const confirmedByOwner = ownerDecision?.action === "canonical_duplicate";
     const separateByOwner = ownerDecision?.action === "keep_separate";
-    const confirmed = confirmedByOwner || (!separateByOwner && articles.every(Boolean) && new Set(articles.map(norm)).size === 1);
+    const manualReview = ownerDecision?.action === "manual_review";
+    const materialFields = ["detail", "condition", "origin", "compatibility", "side", "generation", "year_from", "year_to"];
+    const hasMaterialDifference = materialFields.some((field) => differing.includes(field));
+    const confirmed = confirmedByOwner || (!separateByOwner && !manualReview && !hasMaterialDifference
+      && articles.every(Boolean) && new Set(articles.map(norm)).size === 1);
     const fingerprint = crypto.createHash("sha256")
       .update(rows.map(({ product }) => product.product_id).join("|"))
       .digest("hex").slice(0, 24);
@@ -306,11 +379,11 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     for (let index = 1; index < rows.length; index += 1) {
       const { product } = rows[index];
       const state = productState.get(product.product_id);
-      state.indexable = separateByOwner;
-      state.robots = separateByOwner ? "index,follow" : "noindex,follow";
+      state.indexable = separateByOwner || manualReview;
+      state.robots = (separateByOwner || manualReview) ? "index,follow" : "noindex,follow";
       state.duplicateOf = confirmed ? primaryRow.product.product_id : null;
       state.canonicalPath = confirmed ? primaryRow.product.canonical_path : product.canonical_path;
-      if (!separateByOwner) {
+      if (!separateByOwner && !manualReview) {
         state.validationErrors.push(confirmed ? "confirmed_metadata_duplicate" : "metadata_duplicate_needs_manual_review");
       }
       secondaries.push({
@@ -326,14 +399,14 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
       fingerprint,
       classification: confirmed
         ? (confirmedByOwner ? "confirmed_owner_duplicate" : "confirmed_metadata_duplicate")
-        : (separateByOwner ? "distinct_products_pending_metadata" : "pending_manual_identity_review"),
+        : ((separateByOwner || manualReview) ? "distinct_products_pending_metadata" : "pending_manual_identity_review"),
       primary: facts[0],
       secondary_pages: secondaries,
       matching_fields: matching,
       differing_fields: differing,
       action: confirmed
         ? "secondary_noindex_canonical_to_primary"
-        : (separateByOwner ? "owner_kept_separate_index_self_canonical" : "secondary_noindex_self_canonical_pending_review"),
+        : ((separateByOwner || manualReview) ? "owner_kept_separate_index_self_canonical" : "secondary_noindex_self_canonical_pending_review"),
       owner_decision: ownerDecision || null,
       primary_product_id: primaryRow.product.product_id,
       primary_url: primaryRow.product.canonical_path,
@@ -345,7 +418,7 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
 
   const ownerSeparatedProductIds = new Set(
     Object.entries(overrides.duplicate_decisions || {})
-      .filter(([, decision]) => decision?.action === "keep_separate")
+      .filter(([, decision]) => decision?.action === "keep_separate" && decision?.use_price_qualifier !== false)
       .flatMap(([key]) => key.split("|").map(Number)),
   );
   const activeProducts = products.filter(({ product }) => productState.get(product.product_id).indexable);
@@ -357,6 +430,13 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     modelCounts.set(product.model_id, (modelCounts.get(product.model_id) || 0) + 1);
     const key = `${product.brand_id}:${product.model_id}:${product.category_id}`;
     categoryRouteCounts.set(key, (categoryRouteCounts.get(key) || 0) + 1);
+  }
+  for (const { product } of products) {
+    if (!overrides.needs_review_products?.[String(product.product_id)]) continue;
+    const key = `${product.brand_id}:${product.model_id}:${product.category_id}`;
+    if (product.brand_id && product.model_id && product.category_id && !categoryRouteCounts.has(key)) {
+      categoryRouteCounts.set(key, 0);
+    }
   }
 
   const seoRows = [];
@@ -374,13 +454,13 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     product_id: row.product_id || "",
     article_oem: row.article_oem || "",
     condition: row.condition || "",
-    primary_query: normalizePublicQuery(row.primary_query || row.h1),
-    secondary_queries: [...new Set((row.secondary_queries || []).map(normalizePublicQuery).filter(Boolean))],
+    primary_query: restorePrimaryOem(normalizePublicQuery(row.primary_query || row.h1), row.article_oem),
+    secondary_queries: [...new Set((row.secondary_queries || []).map(normalizeSecondaryQuery).map((query) => restorePrimaryOem(query, row.article_oem)).filter(Boolean))],
     search_intent: row.search_intent || "commercial",
-    title: row.title,
-    description: row.description,
-    h1: row.h1,
-    intro_text: row.intro_text || "",
+    title: row.page_type === "product" ? row.title : normalizePublicName(row.title),
+    description: row.page_type === "product" ? row.description : normalizePublicName(row.description),
+    h1: normalizePublicName(row.h1),
+    intro_text: normalizePublicName(row.intro_text || ""),
     faq: row.faq || [],
     indexable: Boolean(row.indexable),
     robots: row.robots || (row.indexable ? "index,follow" : "noindex,follow"),
@@ -398,8 +478,8 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
   add({
     page_type: "catalog", entity_id: "catalog", canonical_path: "/catalog/", indexable: true,
     ...rules.templates.catalog,
-    primary_query: wordstatAudit.priorities?.catalog?.primary_query || "автозапчасти под заказ",
-    secondary_queries: [wordstatAudit.priorities?.catalog?.previous_primary_query, "каталог автозапчастей из Китая", "подбор запчастей по VIN"].filter(Boolean),
+    primary_query: wordstatPriorities.catalog?.primary_query || "автозапчасти под заказ",
+    secondary_queries: [wordstatPriorities.catalog?.previous_primary_query, "каталог автозапчастей из Китая"].filter(Boolean),
     intro_text: "Детали под заказ из Китая. Цена указана за деталь, доставка рассчитывается отдельно. Совместимость проверим по VIN.",
     faq: [{ question: "Как проверить совместимость детали?", answer: "Совместимость подтверждается менеджером по VIN перед заказом." }],
   });
@@ -416,10 +496,11 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
 
   for (const brand of registry.entities.brands) {
     const count = brandCounts.get(brand.id) || 0;
-    const seo = routeSeo("brand", { brand: brand.name }, rules);
+    const publicBrand = normalizePublicName(brand.name);
+    const seo = routeSeo("brand", { brand: publicBrand }, rules);
     const direct = directSemantics.brands?.[norm(brand.name)] || {};
-    const audit = wordstatAudit.priorities?.brands?.[norm(brand.name)] || null;
-    const displayName = audit?.display_name || brand.name;
+    const audit = wordstatPriorities.brands?.[norm(brand.name)] || null;
+    const displayName = normalizePublicName(audit?.display_name || publicBrand);
     const primaryQuery = audit?.primary_query || direct.primary_query || `запчасти ${brand.name}`;
     const fallbackSecondary = [`автозапчасти ${brand.name}`, `детали ${brand.name} из Китая`];
     add({ page_type: "brand", entity_id: brand.id, canonical_path: paths.brand(brand), brand: brand.name,
@@ -430,7 +511,7 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
       h1: audit ? `Запчасти ${displayName}` : seo.h1,
       primary_query: primaryQuery,
       secondary_queries: [...new Set([direct.primary_query, ...(direct.secondary_queries || []), ...fallbackSecondary].filter(Boolean))].slice(0, 8),
-      intro_text: `Запчасти ${brand.name} под заказ из Китая. Цена указана за деталь; доставка рассчитывается отдельно. Проверим по VIN.`,
+      intro_text: `Запчасти ${publicBrand} под заказ из Китая. Цена указана за деталь; доставка рассчитывается отдельно. Проверим по VIN.`,
       faq: [],
     });
   }
@@ -439,9 +520,10 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     const brand = indexes.brands.get(model.parent_id);
     if (!brand) continue;
     const count = modelCounts.get(model.id) || 0;
-    const seo = routeSeo("model", { brand: brand.name, model: model.name }, rules);
+    const publicVehicle = normalizePublicName(`${brand.name} ${model.name}`);
+    const seo = routeSeo("model", { brand: "", model: publicVehicle }, rules);
     const direct = directModelEntry(directSemantics, brand, model) || {};
-    const audit = wordstatAudit.priorities?.models?.[`${norm(brand.name)}|${norm(model.name)}`] || null;
+    const audit = wordstatPriorities.models?.[`${norm(brand.name)}|${norm(model.name)}`] || null;
     const primaryQuery = audit?.primary_query || direct.primary_query || `запчасти ${brand.name} ${model.name}`;
     const directVariants = direct.model_variants || [];
     const fallbackSecondary = [`детали ${brand.name} ${model.name}`, `${brand.name} ${model.name} запчасти из Китая`];
@@ -450,10 +532,10 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
       indexable: count > 0, status: count ? "active" : "unlisted", validation_errors: count ? [] : ["no_verified_active_products"],
       title: audit ? `${sentenceCase(primaryQuery)} под заказ | KITRADE` : seo.title,
       description: audit ? `${sentenceCase(primaryQuery)} под заказ из Китая. Проверка совместимости по VIN, доставка рассчитывается отдельно.` : seo.description,
-      h1: audit ? `Запчасти ${brand.name} ${model.name}` : seo.h1,
+      h1: audit ? `Запчасти ${publicVehicle}` : seo.h1,
       primary_query: primaryQuery,
       secondary_queries: [...new Set([direct.primary_query, ...(direct.secondary_queries || []), ...fallbackSecondary].filter(Boolean))].slice(0, 8),
-      intro_text: `Запчасти для ${brand.name} ${model.name} под заказ из Китая. Цена указана за деталь; доставка рассчитывается отдельно. Проверим по VIN.`,
+      intro_text: `Запчасти для ${publicVehicle} под заказ из Китая. Цена указана за деталь; доставка рассчитывается отдельно. Проверим по VIN.`,
       faq: [],
     });
   }
@@ -470,11 +552,12 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
       "Двигатель": "Запчасти двигателя", "Салон": "Детали салона", "Тормозная система": "Запчасти тормозной системы",
     };
     const seoCategory = categorySeoLabels[category.name] || category.name;
-    const seo = routeSeo("category", { brand: brand.name, model: model.name, category: seoCategory }, rules);
+    const publicVehicle = normalizePublicName(`${brand.name} ${model.name}`);
+    const seo = routeSeo("category", { brand: "", model: publicVehicle, category: seoCategory }, rules);
     const canonicalPath = paths.category(brand, model, category);
-    const categoryAudit = wordstatAudit.priorities?.categories?.[canonicalPath] || null;
+    const categoryAudit = wordstatPriorities.categories?.[canonicalPath] || null;
     const primaryQuery = categoryAudit?.primary_query || `${seoCategory} ${brand.name} ${model.name}`;
-    const displayQuery = categoryAudit ? `${seoCategory} для ${brand.name} ${model.name}` : "";
+    const displayQuery = categoryAudit ? `${seoCategory} для ${publicVehicle}` : "";
     add({ page_type: "category", entity_id: entityId, canonical_path: canonicalPath, brand: brand.name,
       model: model.name, category: category.name, brand_variants: brand.source_names || [brand.name], model_variants: model.source_names || [model.name],
       indexable: count > 0, status: "active", ...seo,
@@ -483,7 +566,7 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
       h1: categoryAudit ? sentenceCase(displayQuery) : seo.h1,
       primary_query: primaryQuery,
       secondary_queries: [...new Set([categoryAudit?.previous_primary_query, `купить ${seoCategory.toLocaleLowerCase("ru")} ${brand.name} ${model.name}`, `${seoCategory} ${brand.name} ${model.name} из Китая`].filter(Boolean))],
-      intro_text: `${seoCategory} для ${brand.name} ${model.name} под заказ из Китая. Цена указана за деталь; доставка рассчитывается отдельно.`,
+      intro_text: `${seoCategory} для ${publicVehicle} под заказ из Китая. Цена указана за деталь; доставка рассчитывается отдельно.`,
       faq: [],
     });
   }
@@ -498,7 +581,7 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     const seo = productSeo(product, item, brand, model, category, productOverride, state.content);
     const ownerSeparated = ownerSeparatedProductIds.has(Number(product.product_id));
     const priceLabel = numericPrice(item?.price).toLocaleString("ru-RU");
-    const uniqueTitle = ownerSeparated ? `${seo.h1} — ${priceLabel} ₽ | KITRADE` : seo.title;
+    const uniqueTitle = ownerSeparated ? buildProductTitle({ detail: seo.detail, vehicleNames: seo.vehicleNames, article: seo.article, qualifier: `${priceLabel} ₽` }) : seo.title;
     const uniqueDescription = ownerSeparated
       ? truncate(`Ориентировочная цена детали — ${priceLabel} ₽; доставка рассчитывается отдельно. Проверка по VIN. ${seo.h1}.`, 158)
       : seo.description;
@@ -515,7 +598,9 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     });
   }
 
-  for (const row of seoRows) row.title = fitTitle(row.title);
+  for (const row of seoRows) {
+    if (row.page_type !== "product") row.title = fitTitle(row.title);
+  }
   const seoByPath = new Map(seoRows.map((row) => [row.canonical_path, row]));
 
   const needsReview = products.filter(({ product }) => product.status === "needs_review").map(({ product, item }) => ({
@@ -524,15 +609,96 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     status: "unlisted", robots: "noindex,follow", action: "manual_review_required",
     reasons: productState.get(product.product_id).validationErrors,
   }));
-  const imageReport = products.filter(({ item }) => !item?.photos?.length || (item.photos || []).some((url) => /avito/i.test(String(url))))
-    .map(({ product, item }) => ({
-      product_id: product.product_id, source_id: product.source_id, canonical_path: product.canonical_path,
-      has_image: Boolean(item?.photos?.length), image_source: (item?.photos || []).some((url) => /avito/i.test(String(url))) ? "avito_external" : "missing",
-      rights_status: "confirmed_by_owner", rights_source: "company_avito_account", quality_review_pending: true,
-      availability_check: "manual_review_required", resolution_check: "manual_review_required", product_match_check: "manual_review_required",
-      watermark_check: "manual_review_required", cropping_check: "manual_review_required",
-      action: "review_quality_availability_resolution_and_product_match",
-    }));
+  const productConflicts = Object.entries(overrides.needs_review_products || {}).map(([productId, decision]) => {
+    const row = products.find(({ product }) => Number(product.product_id) === Number(productId));
+    if (!row) throw new Error(`Review rule refers to missing product ${productId}`);
+    const { product, item } = row;
+    return {
+      product_id: product.product_id,
+      source_id: product.source_id,
+      canonical_path: product.canonical_path,
+      structured_fields: {
+        title: clean(item?.title), brand: clean(item?.brand), model: clean(item?.model),
+        condition: clean(item?.condition), article_oem: clean(item?.article),
+      },
+      description_excerpt: clean(item?.description).slice(0, 260),
+      reason: decision.reason,
+      owner_resolution_required: decision.owner_resolution,
+      status: "needs_review",
+      robots: "noindex,follow",
+      canonical_target_path: product.canonical_path,
+      structured_data: "excluded_product_and_offer",
+    };
+  });
+
+  const oemConflicts = (overrides.oem_manual_confirmation_groups || []).map((productIds) => {
+    const rows = productIds.map((productId) => {
+      const row = products.find(({ product }) => Number(product.product_id) === Number(productId));
+      if (!row) throw new Error(`OEM review rule refers to missing product ${productId}`);
+      return duplicateFacts(row.item, row.product);
+    });
+    const normalizedOem = [...new Set(rows.flatMap((row) => String(row.oem || "").split(/[\s,;/]+/))
+      .map((value) => norm(value).replace(/[^\p{L}\p{N}]+/gu, "")).filter(Boolean))];
+    return {
+      product_ids: productIds.map(Number),
+      status: "needs_manual_confirmation",
+      conflicting_oem_values: [...new Set(rows.map((row) => row.oem).filter(Boolean))],
+      normalized_oem_set: normalizedOem,
+      cards: rows,
+      conflicting_details: [...new Set(rows.map((row) => `${row.detail} | ${row.side || "side_not_set"}`))],
+      action: "suppress_oem_from_public_metadata_mpn_and_product_until_owner_confirmation",
+    };
+  });
+
+  const imageRowsByUrl = new Map();
+  let productsWithoutImages = 0;
+  for (const { product, item } of products) {
+    const photos = (item?.photos || []).map((url) => String(url || "").trim()).filter(Boolean);
+    if (!photos.length) {
+      productsWithoutImages += 1;
+      continue;
+    }
+    photos.forEach((rawUrl, imageIndex) => {
+      if (imageRowsByUrl.has(rawUrl)) return;
+      const normalizedUrl = rawUrl.match(/[?&]imageSlug=([^&]+)/)
+        ? `https://80.img.avito.st${decodeURIComponent(rawUrl.match(/[?&]imageSlug=([^&]+)/)[1])}`
+        : rawUrl.replace(/^http:\/\//i, "https://");
+      const source = /disk\.yandex\.ru\/i\//i.test(rawUrl) ? "yandex_disk_auth_page" : (/avito|img\.avito\.st/i.test(rawUrl) ? "avito" : "other");
+      const observation = imageObservations[rawUrl] || imageObservations[normalizedUrl] || {};
+      const contentType = clean(observation.content_type);
+      const isImageResponse = /^image\//i.test(contentType);
+      imageRowsByUrl.set(rawUrl, {
+        product_id: product.product_id,
+        source_id: product.source_id,
+        canonical_path: product.canonical_path,
+        image_index: imageIndex + 1,
+        raw_url: rawUrl,
+        normalized_url: normalizedUrl,
+        source,
+        http_status: observation.http_status ?? null,
+        content_type: contentType || null,
+        observed_at: observation.observed_at || null,
+        width: observation.width ?? null,
+        height: observation.height ?? null,
+        rights_status: source === "avito" ? "confirmed_by_owner" : "pending_owner_confirmation",
+        rights_source: source === "avito" ? "company_avito_account" : null,
+        availability_status: observation.http_status >= 200 && observation.http_status < 400 && isImageResponse ? "approved" : (observation.observed_at ? "rejected" : "not_observed"),
+        resolution_status: observation.width && observation.height ? "pending_review" : "not_observed",
+        product_match_status: "pending_review",
+        watermark_status: "pending_review",
+        cropping_status: "pending_review",
+        schema_approved: false,
+      });
+    });
+  }
+  const imageReport = [...imageRowsByUrl.values()];
+  const imageReportSummary = {
+    unique_source_links: imageReport.length,
+    avito_links: imageReport.filter((row) => row.source === "avito").length,
+    yandex_disk_auth_pages: imageReport.filter((row) => row.source === "yandex_disk_auth_page").length,
+    products_without_images: productsWithoutImages,
+    schema_approved_images: imageReport.filter((row) => row.schema_approved).length,
+  };
 
   const currentSourceIds = new Set(items.map((item) => String(item.id)));
   const unlisted = registry.entities.products.filter((product) => product.status === "unlisted" && !currentSourceIds.has(String(product.source_id)));
@@ -551,6 +717,44 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
     }
   }
 
+  const candidateKeys = new Map();
+  const oemSet = (item) => new Set(String(item?.article || "").split(/[\s,;/]+/)
+    .map((value) => norm(value).replace(/[^\p{L}\p{N}]+/gu, "")).filter((value) => value.length >= 4));
+  const titleWordSet = (item) => [...new Set(norm(item?.title).match(/[\p{L}\p{N}]+/gu) || [])].sort().join(" ");
+  for (const row of products.filter(({ product }) => product.status !== "unlisted")) {
+    const keys = [`title_words:${titleWordSet(row.item)}`, ...[...oemSet(row.item)].map((oem) => `oem:${oem}`)];
+    for (const key of keys.filter((value) => !value.endsWith(":"))) {
+      if (!candidateKeys.has(key)) candidateKeys.set(key, []);
+      candidateKeys.get(key).push(row);
+    }
+  }
+  const seenCandidates = new Set();
+  for (const [matchKey, rows] of candidateKeys) {
+    if (rows.length < 2) continue;
+    for (let leftIndex = 0; leftIndex < rows.length - 1; leftIndex += 1) {
+      for (let rightIndex = leftIndex + 1; rightIndex < rows.length; rightIndex += 1) {
+        const pair = [rows[leftIndex], rows[rightIndex]].sort((a, b) => a.product.product_id - b.product.product_id);
+        const pairKey = pair.map(({ product }) => product.product_id).join("|");
+        if (seenCandidates.has(pairKey)) continue;
+        seenCandidates.add(pairKey);
+        const facts = pair.map(({ item, product }) => duplicateFacts(item, product));
+        const { matching, differing } = comparisonFields(facts);
+        const blockedBy = ["detail", "condition", "origin", "compatibility", "side", "generation", "year_from", "year_to"]
+          .filter((field) => differing.includes(field));
+        probableMatches.push({
+          product_ids: pair.map(({ product }) => product.product_id),
+          source_ids: pair.map(({ product }) => product.source_id),
+          match_reason: matchKey.startsWith("oem:") ? "normalized_oem_set_intersection" : "same_title_words_different_order",
+          match_key: matchKey.split(":").slice(1).join(":"),
+          matching_fields: matching,
+          differing_fields: differing,
+          automatic_merge_blocked_by: blockedBy,
+          action: "manual_decision_required_no_automatic_merge",
+        });
+      }
+    }
+  }
+
   const variants = {
     approval_status: "pending_owner_approval",
     note: "Variants never change public display names. Empty Russian spellings require manual approval and are not guessed.",
@@ -562,10 +766,10 @@ export function buildSeoState({ registry, items, indexes, config, rules, overrid
       alternatives: [...new Set((entry.source_names || []).filter((name) => norm(name) !== norm(entry.name)))], approval_status: "pending" })),
   };
 
-  return { seoRows, seoByPath, productState, duplicateReport, needsReview, imageReport, probableMatches, variants, activeProducts };
+  return { seoRows, seoByPath, productState, duplicateReport, needsReview, productConflicts, oemConflicts, imageReport, imageReportSummary, probableMatches, variants, activeProducts };
 }
 
-export function productStructuredData({ product, item, brand, model, category, seo, config, state, image }) {
+export function productStructuredData({ product, item, brand, model, category, seo, config, state, imageApproval = null }) {
   const content = state?.content || createProductContent({ item, product, brand, model, category });
   const offer = {
     "@type": "Offer", url: new URL(product.canonical_path, `${config.siteUrl}/`).href,
@@ -581,7 +785,11 @@ export function productStructuredData({ product, item, brand, model, category, s
   if (brand?.name) schema.brand = { "@type": "Brand", name: brand.name };
   if (category?.name) schema.category = category.name;
   if (model?.name) schema.model = model.name;
-  if (image && !/avito|01-catalog|02-catalog|03-catalog|placeholder|fallback/i.test(image)) schema.image = [image];
+  if (imageApproval?.schema_approved
+    && ["rights_status", "availability_status", "resolution_status", "product_match_status"]
+      .every((field) => ["confirmed_by_owner", "approved"].includes(imageApproval[field]))) {
+    schema.image = [imageApproval.normalized_url];
+  }
   if (!state.indexable) schema.potentialAction = undefined;
   return schema;
 }

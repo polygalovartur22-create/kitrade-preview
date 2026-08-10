@@ -452,6 +452,1615 @@
     ]
   },
   {
+    "fingerprint": "6f1ea418d835f7ac558d3439",
+    "classification": "confirmed_owner_duplicate",
+    "primary": {
+      "product_id": 1101,
+      "source_id": "4493216174",
+      "canonical_path": "/catalog/product/fonar-zadnii-tsentralnyi-geely-monjaro-original-1101/",
+      "title": "Фонарь задний центральный Geely Monjaro (оригинал)",
+      "detail": "Фонарь задний центральный",
+      "brand": "Geely",
+      "model": "Monjaro",
+      "category_id": "c1002",
+      "oem": "7057045900",
+      "price": 70560,
+      "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.gH3T0rawLJTlZa6Z35zJQPJyLpRjeySeZQ.NK78Z9h9USx4hF7TbCSPfSLb2wRXISq1lvhF2bGe8Js"
+      ],
+      "compatibility": [
+        {
+          "brand": "Geely",
+          "model": "Monjaro",
+          "generation": "I",
+          "years": [
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "yearFrom": 2021,
+          "yearTo": 2026,
+          "raw": "Geely|Monjaro|I (2021—2026)|||"
+        }
+      ],
+      "side": "",
+      "generation": "I",
+      "year_from": 2021,
+      "year_to": 2026
+    },
+    "secondary_pages": [
+      {
+        "product_id": 1173,
+        "source_id": "4460983734",
+        "canonical_path": "/catalog/product/zadnii-tsentralnyi-fonar-geely-monjaro-1173/",
+        "title": "Задний центральный фонарь Geely Monjaro",
+        "detail": "Задний центральный фонарь",
+        "brand": "Geely",
+        "model": "Monjaro",
+        "category_id": "c1002",
+        "oem": "7057045900",
+        "price": 70560,
+        "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.7CbTZ7awQM_l0MLCh3yCFfLHQs9jzkjFZQ.SK7oz4ujW2IJA2824wFRLOEfZWYnoZbyvIE24O_uCPs"
+        ],
+        "compatibility": [
+          {
+            "brand": "Geely",
+            "model": "Monjaro",
+            "generation": "I",
+            "years": [
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "yearFrom": 2021,
+            "yearTo": 2026,
+            "raw": "Geely|Monjaro|I (2021—2026)|||"
+          }
+        ],
+        "side": "",
+        "generation": "I",
+        "year_from": 2021,
+        "year_to": 2026,
+        "robots": "noindex,follow",
+        "canonical_path_target": "/catalog/product/fonar-zadnii-tsentralnyi-geely-monjaro-original-1101/",
+        "reason": "Владелец подтвердил, что 1101 и 1173 — один товар; основной товар 1101 выбран из-за наличия фотографии и явного указания на оригинал."
+      }
+    ],
+    "matching_fields": [
+      "brand",
+      "model",
+      "category_id",
+      "oem",
+      "price",
+      "condition",
+      "origin",
+      "compatibility",
+      "side",
+      "generation",
+      "year_from",
+      "year_to"
+    ],
+    "differing_fields": [
+      "title",
+      "detail",
+      "photos"
+    ],
+    "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": {
+      "action": "canonical_duplicate",
+      "primary_product_id": 1101,
+      "reason": "Владелец подтвердил, что 1101 и 1173 — один товар; основной товар 1101 выбран из-за наличия фотографии и явного указания на оригинал."
+    },
+    "primary_product_id": 1101,
+    "primary_url": "/catalog/product/fonar-zadnii-tsentralnyi-geely-monjaro-original-1101/",
+    "duplicate_product_ids": [
+      1173
+    ],
+    "duplicate_urls": [
+      "/catalog/product/zadnii-tsentralnyi-fonar-geely-monjaro-1173/"
+    ]
+  },
+  {
+    "fingerprint": "63cec59a40757ea9671c9016",
+    "classification": "confirmed_owner_duplicate",
+    "primary": {
+      "product_id": 1149,
+      "source_id": "8108672023",
+      "canonical_path": "/catalog/product/zadnyaya-levaya-fara-geely-galaxy-starship-7-1149/",
+      "title": "Задняя левая фара Geely galaxy starship 7",
+      "detail": "Задняя левая фара",
+      "brand": "Geely",
+      "model": "Galaxy Starship 7",
+      "category_id": "c1002",
+      "oem": "6608137632",
+      "price": 18792,
+      "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.BEHds7awqKjrBCql2fc1TPITqqhtGqCiaw.Opaa9elXZYIkNdOwBUk6cqVZEbZIxfrdPVGej9_Ezq8"
+      ],
+      "compatibility": [
+        {
+          "brand": "Geely",
+          "model": "Galaxy Starship 7",
+          "generation": "I",
+          "years": [
+            2024,
+            2025,
+            2026
+          ],
+          "yearFrom": 2024,
+          "yearTo": 2026,
+          "raw": "Geely|Galaxy Starship 7|I (2024—2026)|||"
+        }
+      ],
+      "side": "",
+      "generation": "I",
+      "year_from": 2024,
+      "year_to": 2026
+    },
+    "secondary_pages": [
+      {
+        "product_id": 1242,
+        "source_id": "8108724475",
+        "canonical_path": "/catalog/product/zadnii-levyi-fonar-geely-galaxy-starship-7-1242/",
+        "title": "Задний левый фонарь Geely galaxy starship 7",
+        "detail": "Задний левый фонарь",
+        "brand": "Geely",
+        "model": "Galaxy Starship 7",
+        "category_id": "c1002",
+        "oem": "6608137632",
+        "price": 18792,
+        "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.rsJDaLawAit134AmExLn-WzIACvzwQoh9Q.f81I93B20bpHm4VtUqcXQ4OhKZy-TueFZYUqSTzpSaE"
+        ],
+        "compatibility": [
+          {
+            "brand": "Geely",
+            "model": "Galaxy Starship 7",
+            "generation": "I",
+            "years": [
+              2024,
+              2025,
+              2026
+            ],
+            "yearFrom": 2024,
+            "yearTo": 2026,
+            "raw": "Geely|Galaxy Starship 7|I (2024—2026)|||"
+          }
+        ],
+        "side": "",
+        "generation": "I",
+        "year_from": 2024,
+        "year_to": 2026,
+        "robots": "noindex,follow",
+        "canonical_path_target": "/catalog/product/zadnyaya-levaya-fara-geely-galaxy-starship-7-1149/",
+        "reason": "Владелец подтвердил дубль; основной товар 1149."
+      }
+    ],
+    "matching_fields": [
+      "brand",
+      "model",
+      "category_id",
+      "oem",
+      "price",
+      "condition",
+      "origin",
+      "compatibility",
+      "side",
+      "generation",
+      "year_from",
+      "year_to"
+    ],
+    "differing_fields": [
+      "title",
+      "detail",
+      "photos"
+    ],
+    "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": {
+      "action": "canonical_duplicate",
+      "primary_product_id": 1149,
+      "reason": "Владелец подтвердил дубль; основной товар 1149."
+    },
+    "primary_product_id": 1149,
+    "primary_url": "/catalog/product/zadnyaya-levaya-fara-geely-galaxy-starship-7-1149/",
+    "duplicate_product_ids": [
+      1242
+    ],
+    "duplicate_urls": [
+      "/catalog/product/zadnii-levyi-fonar-geely-galaxy-starship-7-1242/"
+    ]
+  },
+  {
+    "fingerprint": "16b499100fd90a8fb6bab4b7",
+    "classification": "confirmed_owner_duplicate",
+    "primary": {
+      "product_id": 1153,
+      "source_id": "8107914201",
+      "canonical_path": "/catalog/product/zadnyaya-pravaya-fara-geely-galaxy-starship-7-1153/",
+      "title": "Задняя правая фара Geely galaxy starship 7",
+      "detail": "Задняя правая фара",
+      "brand": "Geely",
+      "model": "Galaxy Starship 7",
+      "category_id": "c1002",
+      "oem": "6608137631",
+      "price": 18792,
+      "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.w6Sz7rawb02FWe1Audn3ppxObU0DR2dHBQ.quwOUess7fye_Glenea-LWGLsoFGTrogypX3cgdAihc"
+      ],
+      "compatibility": [
+        {
+          "brand": "Geely",
+          "model": "Galaxy Starship 7",
+          "generation": "I",
+          "years": [
+            2024,
+            2025,
+            2026
+          ],
+          "yearFrom": 2024,
+          "yearTo": 2026,
+          "raw": "Geely|Galaxy Starship 7|I (2024—2026)|||"
+        }
+      ],
+      "side": "",
+      "generation": "I",
+      "year_from": 2024,
+      "year_to": 2026
+    },
+    "secondary_pages": [
+      {
+        "product_id": 1330,
+        "source_id": "8108643761",
+        "canonical_path": "/catalog/product/zadnii-pravyi-fonar-geely-galaxy-starship-7-1330/",
+        "title": "Задний правый фонарь Geely galaxy starship 7",
+        "detail": "Задний правый фонарь",
+        "brand": "Geely",
+        "model": "Galaxy Starship 7",
+        "category_id": "c1002",
+        "oem": "6608137631",
+        "price": 18792,
+        "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.Qf9M8Law7RZ6R28bQr0DxGNQ7xb8WeUc-g.jyF3V5-qp87nNFcgb8veQdnBre6B-YbzkmxmW0Ctzao"
+        ],
+        "compatibility": [
+          {
+            "brand": "Geely",
+            "model": "Galaxy Starship 7",
+            "generation": "I",
+            "years": [
+              2024,
+              2025,
+              2026
+            ],
+            "yearFrom": 2024,
+            "yearTo": 2026,
+            "raw": "Geely|Galaxy Starship 7|I (2024—2026)|||"
+          }
+        ],
+        "side": "",
+        "generation": "I",
+        "year_from": 2024,
+        "year_to": 2026,
+        "robots": "noindex,follow",
+        "canonical_path_target": "/catalog/product/zadnyaya-pravaya-fara-geely-galaxy-starship-7-1153/",
+        "reason": "Владелец подтвердил дубль; основной товар 1153."
+      }
+    ],
+    "matching_fields": [
+      "brand",
+      "model",
+      "category_id",
+      "oem",
+      "price",
+      "condition",
+      "origin",
+      "compatibility",
+      "side",
+      "generation",
+      "year_from",
+      "year_to"
+    ],
+    "differing_fields": [
+      "title",
+      "detail",
+      "photos"
+    ],
+    "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": {
+      "action": "canonical_duplicate",
+      "primary_product_id": 1153,
+      "reason": "Владелец подтвердил дубль; основной товар 1153."
+    },
+    "primary_product_id": 1153,
+    "primary_url": "/catalog/product/zadnyaya-pravaya-fara-geely-galaxy-starship-7-1153/",
+    "duplicate_product_ids": [
+      1330
+    ],
+    "duplicate_urls": [
+      "/catalog/product/zadnii-pravyi-fonar-geely-galaxy-starship-7-1330/"
+    ]
+  },
+  {
+    "fingerprint": "8f6aef4a3998b76087521627",
+    "classification": "confirmed_owner_duplicate",
+    "primary": {
+      "product_id": 1670,
+      "source_id": "4204578114",
+      "canonical_path": "/catalog/product/steklo-zadnee-changan-uni-k-original-1670/",
+      "title": "Стекло заднее Changan Uni-K (оригинал)",
+      "detail": "Стекло заднее",
+      "brand": "Changan",
+      "model": "UNI-K",
+      "category_id": "c1009",
+      "oem": "6303010CR03АА",
+      "price": 49440,
+      "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.Ig4gH7awjucWqAzqaHMbPAG_jOeQtobtlg.XVCGdDMi2RK3uFaMzIQqC6GYDoVy6Vxj9BznJ4Ovxzk"
+      ],
+      "compatibility": [
+        {
+          "brand": "Changan",
+          "model": "UNI-K",
+          "generation": "I",
+          "years": [
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "yearFrom": 2020,
+          "yearTo": 2026,
+          "raw": "Changan|UNI-K|I (2020—2026)|||"
+        }
+      ],
+      "side": "",
+      "generation": "I",
+      "year_from": 2020,
+      "year_to": 2026
+    },
+    "secondary_pages": [
+      {
+        "product_id": 1665,
+        "source_id": "4045232099",
+        "canonical_path": "/catalog/product/steklo-zadnee-changan-uni-k-original-1665/",
+        "title": "Стекло заднее Changan Uni-K (оригинал)",
+        "detail": "Стекло заднее",
+        "brand": "Changan",
+        "model": "UNI-K",
+        "category_id": "c1009",
+        "oem": "6303010CR03АА",
+        "price": 49140,
+        "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.JhjvBLawivHZswj8rxx-Js6kiPFfrYL7WQ.luXbzSbdup8_IgljGY1xZ1vGEwp8wM5_SUZTbeImBrY"
+        ],
+        "compatibility": [
+          {
+            "brand": "Changan",
+            "model": "UNI-K",
+            "generation": "I",
+            "years": [
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "yearFrom": 2020,
+            "yearTo": 2026,
+            "raw": "Changan|UNI-K|I (2020—2026)|||"
+          }
+        ],
+        "side": "",
+        "generation": "I",
+        "year_from": 2020,
+        "year_to": 2026,
+        "robots": "noindex,follow",
+        "canonical_path_target": "/catalog/product/steklo-zadnee-changan-uni-k-original-1670/",
+        "reason": "Владелец подтвердил дубль; основной товар 1670 выбран по максимальной цене 49 440 ₽."
+      }
+    ],
+    "matching_fields": [
+      "title",
+      "detail",
+      "brand",
+      "model",
+      "category_id",
+      "oem",
+      "condition",
+      "origin",
+      "compatibility",
+      "side",
+      "generation",
+      "year_from",
+      "year_to"
+    ],
+    "differing_fields": [
+      "price",
+      "photos"
+    ],
+    "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": {
+      "action": "canonical_duplicate",
+      "primary_product_id": 1670,
+      "reason": "Владелец подтвердил дубль; основной товар 1670 выбран по максимальной цене 49 440 ₽."
+    },
+    "primary_product_id": 1670,
+    "primary_url": "/catalog/product/steklo-zadnee-changan-uni-k-original-1670/",
+    "duplicate_product_ids": [
+      1665
+    ],
+    "duplicate_urls": [
+      "/catalog/product/steklo-zadnee-changan-uni-k-original-1665/"
+    ]
+  },
+  {
+    "fingerprint": "bb7f2488206f11b6a598aa42",
+    "classification": "confirmed_owner_duplicate",
+    "primary": {
+      "product_id": 1790,
+      "source_id": "8076480141",
+      "canonical_path": "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1790/",
+      "title": "Зеркало левое BYD Seal 06 GT",
+      "detail": "Зеркало левое",
+      "brand": "BYD",
+      "model": "Seal 06 GT",
+      "category_id": "c1010",
+      "oem": "14690053-00/EHEA-8202001C",
+      "price": 41184,
+      "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.yIIeNbawZGsoguZmAmqavD-VZmuunGxhqA.hzZWIBVxIoGeLBTsNA6UJNXahoQqY_S71olJHeedddE"
+      ],
+      "compatibility": [
+        {
+          "brand": "BYD",
+          "model": "Seal 06 GT",
+          "generation": "I",
+          "years": [
+            2024,
+            2025,
+            2026
+          ],
+          "yearFrom": 2024,
+          "yearTo": 2026,
+          "raw": "BYD|Seal 06 GT|I (2024—2026)|||"
+        }
+      ],
+      "side": "",
+      "generation": "I",
+      "year_from": 2024,
+      "year_to": 2026
+    },
+    "secondary_pages": [
+      {
+        "product_id": 1831,
+        "source_id": "8108858033",
+        "canonical_path": "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1831/",
+        "title": "Зеркало левое BYD Seal 06 GT",
+        "detail": "Зеркало левое",
+        "brand": "BYD",
+        "model": "Seal 06 GT",
+        "category_id": "c1010",
+        "oem": "1469005300",
+        "price": 41184,
+        "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.pSpv7bawCcNZWovOKdeDE0BNC8PfRAHJ2Q.WO_2oCrsnSSCEX8DivvvwFf_2m9jKKUi0lElqBqppA0"
+        ],
+        "compatibility": [
+          {
+            "brand": "BYD",
+            "model": "Seal 06 GT",
+            "generation": "I",
+            "years": [
+              2024,
+              2025,
+              2026
+            ],
+            "yearFrom": 2024,
+            "yearTo": 2026,
+            "raw": "BYD|Seal 06 GT|I (2024—2026)|||"
+          }
+        ],
+        "side": "",
+        "generation": "I",
+        "year_from": 2024,
+        "year_to": 2026,
+        "robots": "noindex,follow",
+        "canonical_path_target": "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1790/",
+        "reason": "Владелец подтвердил дубль; основной товар 1790."
+      }
+    ],
+    "matching_fields": [
+      "title",
+      "detail",
+      "brand",
+      "model",
+      "category_id",
+      "price",
+      "condition",
+      "origin",
+      "compatibility",
+      "side",
+      "generation",
+      "year_from",
+      "year_to"
+    ],
+    "differing_fields": [
+      "oem",
+      "photos"
+    ],
+    "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": {
+      "action": "canonical_duplicate",
+      "primary_product_id": 1790,
+      "reason": "Владелец подтвердил дубль; основной товар 1790."
+    },
+    "primary_product_id": 1790,
+    "primary_url": "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1790/",
+    "duplicate_product_ids": [
+      1831
+    ],
+    "duplicate_urls": [
+      "/catalog/product/zerkalo-levoe-byd-seal-06-gt-1831/"
+    ]
+  },
+  {
+    "fingerprint": "2ba7c4a6207f23ed1c597a85",
+    "classification": "confirmed_owner_duplicate",
+    "primary": {
+      "product_id": 1870,
+      "source_id": "8108761610",
+      "canonical_path": "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-1870/",
+      "title": "Зеркало правое BYD Seal 06 GT",
+      "detail": "Зеркало правое",
+      "brand": "BYD",
+      "model": "Seal 06 GT",
+      "category_id": "c1010",
+      "oem": "1469005700",
+      "price": 41184,
+      "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.xzRU8Lawa91iR-nQVuPfDntQad3kWWPX4g.pI02zDxOWXEIwCf9tvfjXqmz0p1q7czqn8K_fr18Nz8"
+      ],
+      "compatibility": [
+        {
+          "brand": "BYD",
+          "model": "Seal 06 GT",
+          "generation": "I",
+          "years": [
+            2024,
+            2025,
+            2026
+          ],
+          "yearFrom": 2024,
+          "yearTo": 2026,
+          "raw": "BYD|Seal 06 GT|I (2024—2026)|||"
+        }
+      ],
+      "side": "",
+      "generation": "I",
+      "year_from": 2024,
+      "year_to": 2026
+    },
+    "secondary_pages": [
+      {
+        "product_id": 2165,
+        "source_id": "8076347767",
+        "canonical_path": "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-2165/",
+        "title": "Зеркало правое BYD Seal 06 GT",
+        "detail": "Зеркало правое",
+        "brand": "BYD",
+        "model": "Seal 06 GT",
+        "category_id": "c1010",
+        "oem": "14690057-00/EHEA-8202002C",
+        "price": 41184,
+        "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.XSe7Mbaw8c6NhnPDjSw3G5qR884LmPnEDQ.eqAb5TQNvK_Aq_u0CaQEctO0Y-9zZ0e72dPmqUeU0cc"
+        ],
+        "compatibility": [
+          {
+            "brand": "BYD",
+            "model": "Seal 06 GT",
+            "generation": "I",
+            "years": [
+              2024,
+              2025,
+              2026
+            ],
+            "yearFrom": 2024,
+            "yearTo": 2026,
+            "raw": "BYD|Seal 06 GT|I (2024—2026)|||"
+          }
+        ],
+        "side": "",
+        "generation": "I",
+        "year_from": 2024,
+        "year_to": 2026,
+        "robots": "noindex,follow",
+        "canonical_path_target": "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-1870/",
+        "reason": "Владелец подтвердил дубль; основной товар 1870."
+      }
+    ],
+    "matching_fields": [
+      "title",
+      "detail",
+      "brand",
+      "model",
+      "category_id",
+      "price",
+      "condition",
+      "origin",
+      "compatibility",
+      "side",
+      "generation",
+      "year_from",
+      "year_to"
+    ],
+    "differing_fields": [
+      "oem",
+      "photos"
+    ],
+    "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": {
+      "action": "canonical_duplicate",
+      "primary_product_id": 1870,
+      "reason": "Владелец подтвердил дубль; основной товар 1870."
+    },
+    "primary_product_id": 1870,
+    "primary_url": "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-1870/",
+    "duplicate_product_ids": [
+      2165
+    ],
+    "duplicate_urls": [
+      "/catalog/product/zerkalo-pravoe-byd-seal-06-gt-2165/"
+    ]
+  },
+  {
+    "fingerprint": "14550e21b1f6da2485e8014f",
+    "classification": "confirmed_owner_duplicate",
+    "primary": {
+      "product_id": 1883,
+      "source_id": "8108189281",
+      "canonical_path": "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-1883/",
+      "title": "Крыло переднее правое BYD Seal 06 GT",
+      "detail": "Крыло переднее правое",
+      "brand": "BYD",
+      "model": "Seal 06 GT",
+      "category_id": "c1010",
+      "oem": "EHEA840301970",
+      "price": 22032,
+      "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [],
+      "compatibility": [
+        {
+          "brand": "BYD",
+          "model": "Seal 06 GT",
+          "generation": "I",
+          "years": [
+            2024,
+            2025,
+            2026
+          ],
+          "yearFrom": 2024,
+          "yearTo": 2026,
+          "raw": "BYD|Seal 06 GT|I (2024—2026)|||"
+        }
+      ],
+      "side": "",
+      "generation": "I",
+      "year_from": 2024,
+      "year_to": 2026
+    },
+    "secondary_pages": [
+      {
+        "product_id": 2829,
+        "source_id": "8076724466",
+        "canonical_path": "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-2829/",
+        "title": "Крыло переднее правое BYD Seal 06 GT",
+        "detail": "Крыло переднее правое",
+        "brand": "BYD",
+        "model": "Seal 06 GT",
+        "category_id": "c1010",
+        "oem": "16990111-00/EHEA-8403019/70",
+        "price": 22032,
+        "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.OI8H9bawlGYxQhZre7VJsiZVlma3XJxssQ.f_uPjIFSAAf9_uDfonKU92Ru7y0k7Bf-EwvDaS4Otcc"
+        ],
+        "compatibility": [
+          {
+            "brand": "BYD",
+            "model": "Seal 06 GT",
+            "generation": "I",
+            "years": [
+              2024,
+              2025,
+              2026
+            ],
+            "yearFrom": 2024,
+            "yearTo": 2026,
+            "raw": "BYD|Seal 06 GT|I (2024—2026)|||"
+          }
+        ],
+        "side": "",
+        "generation": "I",
+        "year_from": 2024,
+        "year_to": 2026,
+        "robots": "noindex,follow",
+        "canonical_path_target": "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-1883/",
+        "reason": "Владелец подтвердил дубль; основной товар 1883."
+      }
+    ],
+    "matching_fields": [
+      "title",
+      "detail",
+      "brand",
+      "model",
+      "category_id",
+      "price",
+      "condition",
+      "origin",
+      "compatibility",
+      "side",
+      "generation",
+      "year_from",
+      "year_to"
+    ],
+    "differing_fields": [
+      "oem",
+      "photos"
+    ],
+    "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": {
+      "action": "canonical_duplicate",
+      "primary_product_id": 1883,
+      "reason": "Владелец подтвердил дубль; основной товар 1883."
+    },
+    "primary_product_id": 1883,
+    "primary_url": "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-1883/",
+    "duplicate_product_ids": [
+      2829
+    ],
+    "duplicate_urls": [
+      "/catalog/product/krylo-perednee-pravoe-byd-seal-06-gt-2829/"
+    ]
+  },
+  {
+    "fingerprint": "a9ca431cca00cca8fe1720f6",
+    "classification": "confirmed_owner_duplicate",
+    "primary": {
+      "product_id": 1951,
+      "source_id": "4077338155",
+      "canonical_path": "/catalog/product/nouskat-bamper-perednii-v-sbore-voyah-free-1951/",
+      "title": "Ноускат (бампер передний в сборе) Voyah Free",
+      "detail": "Ноускат",
+      "brand": "Voyah",
+      "model": "Free",
+      "category_id": "c1010",
+      "oem": "",
+      "price": 330000,
+      "condition": "Б/у",
+      "origin": "Не знаю",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.q98sKLawBzYan4U7di7q4Q2IBTacgQ88mg.y4X2MaiCtGrU443BocV8W8X71s1fdjZ4hxhcNXxEXpU",
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.rrLdfLawAlvry4BWjVaXgPzcAFtt1QpRaw.dasVlsX1rADbjIE6or1QqvrV7euXkufvXv2qW3g7Q1o"
+      ],
+      "compatibility": [
+        {
+          "brand": "Voyah",
+          "model": "Free",
+          "generation": "I рестайлинг",
+          "years": [
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "yearFrom": 2022,
+          "yearTo": 2026,
+          "raw": "Voyah|Free|I рестайлинг (2022—2026)|||"
+        }
+      ],
+      "side": "",
+      "generation": "I рестайлинг",
+      "year_from": 2022,
+      "year_to": 2026
+    },
+    "secondary_pages": [
+      {
+        "product_id": 2219,
+        "source_id": "4045258697",
+        "canonical_path": "/catalog/product/bamper-perednii-v-sbore-nouskat-voyah-free-2219/",
+        "title": "Бампер передний в сборе (ноускат) Voyah Free",
+        "detail": "Бампер передний в сборе",
+        "brand": "Voyah",
+        "model": "Free",
+        "category_id": "c1010",
+        "oem": "",
+        "price": 330000,
+        "condition": "Б/у",
+        "origin": "Не знаю",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.oXUaabawDZws3o-RVEvvSDvJD5yqwAWWrA.lhlW2cv3gLOaVHe4ezgnF1kGS1WdMJr1U2w0v6nDMqk",
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.Qcdlv7aw7S5TCG8ja4oX-UQf7y7VFuUk0w.6-3u6ji5DXaFBmwXtxuWpktvrVS7Erxtc24zu5EDSSs",
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.YJEgw7awzHgWdE51bL4IrQFjzniQasRylg.zyZoot3YBRXBO3rurXimmeeu8o27877eDKjMKTWuIcA",
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.E0CCcbawv6m0xj2kqHFAfqPRvaky2LejNA.L8pK_kcT-fEo0eNd5Wr3hRE5JJtbNTceWrwFuY8kNmo"
+        ],
+        "compatibility": [
+          {
+            "brand": "Voyah",
+            "model": "Free",
+            "generation": "I рестайлинг",
+            "years": [
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "yearFrom": 2022,
+            "yearTo": 2026,
+            "raw": "Voyah|Free|I рестайлинг (2022—2026)|||"
+          }
+        ],
+        "side": "",
+        "generation": "I рестайлинг",
+        "year_from": 2022,
+        "year_to": 2026,
+        "robots": "noindex,follow",
+        "canonical_path_target": "/catalog/product/nouskat-bamper-perednii-v-sbore-voyah-free-1951/",
+        "reason": "Владелец подтвердил дубль и явно выбрал основной товар 1951."
+      }
+    ],
+    "matching_fields": [
+      "brand",
+      "model",
+      "category_id",
+      "oem",
+      "price",
+      "condition",
+      "origin",
+      "compatibility",
+      "side",
+      "generation",
+      "year_from",
+      "year_to"
+    ],
+    "differing_fields": [
+      "title",
+      "detail",
+      "photos"
+    ],
+    "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": {
+      "action": "canonical_duplicate",
+      "primary_product_id": 1951,
+      "reason": "Владелец подтвердил дубль и явно выбрал основной товар 1951."
+    },
+    "primary_product_id": 1951,
+    "primary_url": "/catalog/product/nouskat-bamper-perednii-v-sbore-voyah-free-1951/",
+    "duplicate_product_ids": [
+      2219
+    ],
+    "duplicate_urls": [
+      "/catalog/product/bamper-perednii-v-sbore-nouskat-voyah-free-2219/"
+    ]
+  },
+  {
+    "fingerprint": "74e44ac473cc64583295e2b3",
+    "classification": "confirmed_owner_duplicate",
+    "primary": {
+      "product_id": 2346,
+      "source_id": "7564578340",
+      "canonical_path": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2346/",
+      "title": "Усилитель переднего бампера нижний Polar Stone 01",
+      "detail": "Усилитель переднего бампера нижний Polar Stone",
+      "brand": "Polar Stone (Jishi)",
+      "model": "01",
+      "category_id": "c1010",
+      "oem": "Polar Stone",
+      "price": 30795,
+      "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [],
+      "compatibility": [
+        {
+          "brand": "Polar Stone (Jishi)",
+          "model": "01",
+          "generation": "I",
+          "years": [
+            2023,
+            2024,
+            2025
+          ],
+          "yearFrom": 2023,
+          "yearTo": 2025,
+          "raw": "Polar Stone (Jishi)|01|I (2023—2025)|1.5hyb 4WD AT (476 л.с.)|Внедорожник|5"
+        }
+      ],
+      "side": "",
+      "generation": "I",
+      "year_from": 2023,
+      "year_to": 2025
+    },
+    "secondary_pages": [
+      {
+        "product_id": 2085,
+        "source_id": "7564215304",
+        "canonical_path": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2085/",
+        "title": "Усилитель переднего бампера нижний Polar Stone 01",
+        "detail": "Усилитель переднего бампера нижний Polar Stone",
+        "brand": "Polar Stone (Jishi)",
+        "model": "01",
+        "category_id": "c1010",
+        "oem": "Polar Stone",
+        "price": 24645,
+        "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [],
+        "compatibility": [
+          {
+            "brand": "Polar Stone (Jishi)",
+            "model": "01",
+            "generation": "I",
+            "years": [
+              2023,
+              2024,
+              2025
+            ],
+            "yearFrom": 2023,
+            "yearTo": 2025,
+            "raw": "Polar Stone (Jishi)|01|I (2023—2025)|1.5hyb 4WD AT (476 л.с.)|Внедорожник|5"
+          }
+        ],
+        "side": "",
+        "generation": "I",
+        "year_from": 2023,
+        "year_to": 2025,
+        "robots": "noindex,follow",
+        "canonical_path_target": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2346/",
+        "reason": "Владелец подтвердил дубль 2085/2346 и выбрал основной товар 2346 как вариант с максимальной ценой."
+      }
+    ],
+    "matching_fields": [
+      "title",
+      "detail",
+      "brand",
+      "model",
+      "category_id",
+      "oem",
+      "condition",
+      "origin",
+      "photos",
+      "compatibility",
+      "side",
+      "generation",
+      "year_from",
+      "year_to"
+    ],
+    "differing_fields": [
+      "price"
+    ],
+    "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": {
+      "action": "canonical_duplicate",
+      "primary_product_id": 2346,
+      "reason": "Владелец подтвердил дубль 2085/2346 и выбрал основной товар 2346 как вариант с максимальной ценой."
+    },
+    "primary_product_id": 2346,
+    "primary_url": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2346/",
+    "duplicate_product_ids": [
+      2085
+    ],
+    "duplicate_urls": [
+      "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2085/"
+    ]
+  },
+  {
+    "fingerprint": "c7c76218dbe269c4c7311ff3",
+    "classification": "confirmed_owner_duplicate",
+    "primary": {
+      "product_id": 2263,
+      "source_id": "7980226089",
+      "canonical_path": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2263/",
+      "title": "Дверь задняя правая BYD Tang L",
+      "detail": "Дверь задняя правая",
+      "brand": "BYD",
+      "model": "Tang L",
+      "category_id": "c1010",
+      "oem": "byd",
+      "price": 101770,
+      "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.aIKVdbawxGujwkZmyRwrvLTVxmsl3MxhIw.K-fDtQeyvtNQC4F9DexUxVZ3_ZaMZggALMG3xhHyEHo"
+      ],
+      "compatibility": [
+        {
+          "brand": "BYD",
+          "model": "Tang L",
+          "generation": "I",
+          "years": [
+            2025,
+            2026
+          ],
+          "yearFrom": 2025,
+          "yearTo": 2026,
+          "raw": "BYD|Tang L|I (2025—2026)|1.5 PHEV 4WD AT (700 л.с.)|Внедорожник|5"
+        }
+      ],
+      "side": "",
+      "generation": "I",
+      "year_from": 2025,
+      "year_to": 2026
+    },
+    "secondary_pages": [
+      {
+        "product_id": 2659,
+        "source_id": "7980188335",
+        "canonical_path": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2659/",
+        "title": "Дверь задняя правая BYD Tang L",
+        "detail": "Дверь задняя правая",
+        "brand": "BYD",
+        "model": "Tang L",
+        "category_id": "c1010",
+        "oem": "Byd",
+        "price": 86000,
+        "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.vJbQPrawEH_miZJypBThqPGeEn9glxh1Zg.I6A5Nk1UE0mTz36O19IYjtUpgyKOAnO6Y63qnL7ly4w"
+        ],
+        "compatibility": [
+          {
+            "brand": "BYD",
+            "model": "Tang L",
+            "generation": "I",
+            "years": [
+              2025,
+              2026
+            ],
+            "yearFrom": 2025,
+            "yearTo": 2026,
+            "raw": "BYD|Tang L|I (2025—2026)|1.5 PHEV 4WD AT (700 л.с.)|Внедорожник|5"
+          }
+        ],
+        "side": "",
+        "generation": "I",
+        "year_from": 2025,
+        "year_to": 2026,
+        "robots": "noindex,follow",
+        "canonical_path_target": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2263/",
+        "reason": "Владелец подтвердил дубль; основной товар 2263."
+      }
+    ],
+    "matching_fields": [
+      "title",
+      "detail",
+      "brand",
+      "model",
+      "category_id",
+      "condition",
+      "origin",
+      "compatibility",
+      "side",
+      "generation",
+      "year_from",
+      "year_to"
+    ],
+    "differing_fields": [
+      "oem",
+      "price",
+      "photos"
+    ],
+    "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": {
+      "action": "canonical_duplicate",
+      "primary_product_id": 2263,
+      "reason": "Владелец подтвердил дубль; основной товар 2263."
+    },
+    "primary_product_id": 2263,
+    "primary_url": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2263/",
+    "duplicate_product_ids": [
+      2659
+    ],
+    "duplicate_urls": [
+      "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2659/"
+    ]
+  },
+  {
+    "fingerprint": "f04dfd2537caf261e3f309e7",
+    "classification": "confirmed_owner_duplicate",
+    "primary": {
+      "product_id": 2498,
+      "source_id": "8108799805",
+      "canonical_path": "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2498/",
+      "title": "Усилитель переднего бампера BYD Seal 06 GT",
+      "detail": "Усилитель переднего бампера",
+      "brand": "BYD",
+      "model": "Seal 06 GT",
+      "category_id": "c1010",
+      "oem": "1699020300",
+      "price": 25704,
+      "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [],
+      "compatibility": [
+        {
+          "brand": "BYD",
+          "model": "Seal 06 GT",
+          "generation": "I",
+          "years": [
+            2024,
+            2025,
+            2026
+          ],
+          "yearFrom": 2024,
+          "yearTo": 2026,
+          "raw": "BYD|Seal 06 GT|I (2024—2026)|||"
+        }
+      ],
+      "side": "",
+      "generation": "I",
+      "year_from": 2024,
+      "year_to": 2026
+    },
+    "secondary_pages": [
+      {
+        "product_id": 2591,
+        "source_id": "8076839321",
+        "canonical_path": "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2591/",
+        "title": "Усилитель переднего бампера BYD Seal 06 GT",
+        "detail": "Усилитель переднего бампера",
+        "brand": "BYD",
+        "model": "Seal 06 GT",
+        "category_id": "c1010",
+        "oem": "16990203-00/EHEA-8400010/70",
+        "price": 25704,
+        "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.0LGGNbawfFiwgv5Vqmrxg6eVflg2nHRSMA.9BkoyN8DMWslXESqPY37Qmna6DQ83g-mdSwaS7KNN1U"
+        ],
+        "compatibility": [
+          {
+            "brand": "BYD",
+            "model": "Seal 06 GT",
+            "generation": "I",
+            "years": [
+              2024,
+              2025,
+              2026
+            ],
+            "yearFrom": 2024,
+            "yearTo": 2026,
+            "raw": "BYD|Seal 06 GT|I (2024—2026)|||"
+          }
+        ],
+        "side": "",
+        "generation": "I",
+        "year_from": 2024,
+        "year_to": 2026,
+        "robots": "noindex,follow",
+        "canonical_path_target": "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2498/",
+        "reason": "Владелец подтвердил дубль; основной товар 2498."
+      }
+    ],
+    "matching_fields": [
+      "title",
+      "detail",
+      "brand",
+      "model",
+      "category_id",
+      "price",
+      "condition",
+      "origin",
+      "compatibility",
+      "side",
+      "generation",
+      "year_from",
+      "year_to"
+    ],
+    "differing_fields": [
+      "oem",
+      "photos"
+    ],
+    "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": {
+      "action": "canonical_duplicate",
+      "primary_product_id": 2498,
+      "reason": "Владелец подтвердил дубль; основной товар 2498."
+    },
+    "primary_product_id": 2498,
+    "primary_url": "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2498/",
+    "duplicate_product_ids": [
+      2591
+    ],
+    "duplicate_urls": [
+      "/catalog/product/usilitel-perednego-bampera-byd-seal-06-gt-2591/"
+    ]
+  },
+  {
+    "fingerprint": "5d0f52a3c4d0d6aded274f84",
+    "classification": "confirmed_owner_duplicate",
+    "primary": {
+      "product_id": 2503,
+      "source_id": "4300601017",
+      "canonical_path": "/catalog/product/bamper-zadnii-lixiang-l7-restailing-24g-original-2503/",
+      "title": "Бампер задний Lixiang L7 рестайлинг 24г.(оригинал)",
+      "detail": "Бампер задний Lixiang рестайлинг 24г",
+      "brand": "Li Auto",
+      "model": "L7",
+      "category_id": "c1010",
+      "oem": "X03-82180013",
+      "price": 136220,
+      "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.XrI2a7aw8lsA3HBWBh4_jhfL8FuGwvpRgA.Z_FJ-IFnpmA68f44c9w97lacRYL65C5OP3dYgBYxUJ8",
+        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.X1foV7aw877e4HGz2mpDEcn38b5Y_vu0Xg.icesJ9TC2qIr10ufTgVTS4VrYMOqYOA-vfh5v6UQ0ys"
+      ],
+      "compatibility": [
+        {
+          "brand": "Li Auto",
+          "model": "L7",
+          "generation": "I рестайлинг",
+          "years": [
+            2024,
+            2025,
+            2026
+          ],
+          "yearFrom": 2024,
+          "yearTo": 2026,
+          "raw": "Li Auto|L7|I рестайлинг (2024—2026)|1.5hyb 4WD AT (449 л.с.)|Внедорожник|5"
+        }
+      ],
+      "side": "",
+      "generation": "I рестайлинг",
+      "year_from": 2024,
+      "year_to": 2026
+    },
+    "secondary_pages": [
+      {
+        "product_id": 2552,
+        "source_id": "4301353398",
+        "canonical_path": "/catalog/product/bamper-zadnii-lixiang-l7-restailing-2024g-orig-2552/",
+        "title": "Бампер задний Lixiang L7 рестайлинг 2024г. (ориг.)",
+        "detail": "Бампер задний Lixiang рестайлинг 2024г",
+        "brand": "Li Auto",
+        "model": "L7",
+        "category_id": "c1010",
+        "oem": "X0382180013",
+        "price": 136220,
+        "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.I0CZf7awj6mvyA2k0z8zc7jfjakp1oejLw.pCIoNZx_hGENmgwMRDsRUeP5AtX-u8e8NeIgQ4AeQbY"
+        ],
+        "compatibility": [
+          {
+            "brand": "Li Auto",
+            "model": "L7",
+            "generation": "I рестайлинг",
+            "years": [
+              2024,
+              2025,
+              2026
+            ],
+            "yearFrom": 2024,
+            "yearTo": 2026,
+            "raw": "Li Auto|L7|I рестайлинг (2024—2026)|1.5hyb 4WD AT (449 л.с.)|Внедорожник|5"
+          }
+        ],
+        "side": "",
+        "generation": "I рестайлинг",
+        "year_from": 2024,
+        "year_to": 2026,
+        "robots": "noindex,follow",
+        "canonical_path_target": "/catalog/product/bamper-zadnii-lixiang-l7-restailing-24g-original-2503/",
+        "reason": "Владелец подтвердил дубль; основной товар 2503."
+      }
+    ],
+    "matching_fields": [
+      "brand",
+      "model",
+      "category_id",
+      "price",
+      "condition",
+      "origin",
+      "compatibility",
+      "side",
+      "generation",
+      "year_from",
+      "year_to"
+    ],
+    "differing_fields": [
+      "title",
+      "detail",
+      "oem",
+      "photos"
+    ],
+    "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": {
+      "action": "canonical_duplicate",
+      "primary_product_id": 2503,
+      "reason": "Владелец подтвердил дубль; основной товар 2503."
+    },
+    "primary_product_id": 2503,
+    "primary_url": "/catalog/product/bamper-zadnii-lixiang-l7-restailing-24g-original-2503/",
+    "duplicate_product_ids": [
+      2552
+    ],
+    "duplicate_urls": [
+      "/catalog/product/bamper-zadnii-lixiang-l7-restailing-2024g-orig-2552/"
+    ]
+  },
+  {
+    "fingerprint": "01bdb9ba6f17185c7076f2b6",
+    "classification": "confirmed_owner_duplicate",
+    "primary": {
+      "product_id": 2837,
+      "source_id": "7244760703",
+      "canonical_path": "/catalog/product/oblitsovka-bampera-perednego-nizhnyaya-changan-hanter-2837/",
+      "title": "Облицовка бампера переднего нижняя Changan Hanter",
+      "detail": "Облицовка бампера переднего нижняя Hanter",
+      "brand": "Changan",
+      "model": "Hunter Plus",
+      "category_id": "c1010",
+      "oem": "P201F271301-0501",
+      "price": 10500,
+      "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [],
+      "compatibility": [
+        {
+          "brand": "Changan",
+          "model": "Hunter Plus",
+          "generation": "I",
+          "years": [
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "yearFrom": 2022,
+          "yearTo": 2026,
+          "raw": "Changan|Hunter Plus|I (2022—2026)|||"
+        }
+      ],
+      "side": "",
+      "generation": "I",
+      "year_from": 2022,
+      "year_to": 2026
+    },
+    "secondary_pages": [
+      {
+        "product_id": 2504,
+        "source_id": "8076003799",
+        "canonical_path": "/catalog/product/bamper-perednii-niz-changan-hanter-plus-2504/",
+        "title": "Бампер передний низ Changan Hanter Plus",
+        "detail": "Бампер передний низ Hanter Plus",
+        "brand": "Changan",
+        "model": "Hunter Plus",
+        "category_id": "c1010",
+        "oem": "P201F271301-0501",
+        "price": 10152,
+        "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.6yCbu7awR8mtDMXEwfTKErobRckrEk_DLQ.JVfNatmBIR5scwU2i0A_0UCOkiV2ziNASnzx863ehpY"
+        ],
+        "compatibility": [
+          {
+            "brand": "Changan",
+            "model": "Hunter Plus",
+            "generation": "I",
+            "years": [
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "yearFrom": 2022,
+            "yearTo": 2026,
+            "raw": "Changan|Hunter Plus|I (2022—2026)|||"
+          }
+        ],
+        "side": "",
+        "generation": "I",
+        "year_from": 2022,
+        "year_to": 2026,
+        "robots": "noindex,follow",
+        "canonical_path_target": "/catalog/product/oblitsovka-bampera-perednego-nizhnyaya-changan-hanter-2837/",
+        "reason": "Владелец подтвердил дубль; основной товар 2837."
+      }
+    ],
+    "matching_fields": [
+      "brand",
+      "model",
+      "category_id",
+      "oem",
+      "condition",
+      "origin",
+      "compatibility",
+      "side",
+      "generation",
+      "year_from",
+      "year_to"
+    ],
+    "differing_fields": [
+      "title",
+      "detail",
+      "price",
+      "photos"
+    ],
+    "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": {
+      "action": "canonical_duplicate",
+      "primary_product_id": 2837,
+      "reason": "Владелец подтвердил дубль; основной товар 2837."
+    },
+    "primary_product_id": 2837,
+    "primary_url": "/catalog/product/oblitsovka-bampera-perednego-nizhnyaya-changan-hanter-2837/",
+    "duplicate_product_ids": [
+      2504
+    ],
+    "duplicate_urls": [
+      "/catalog/product/bamper-perednii-niz-changan-hanter-plus-2504/"
+    ]
+  },
+  {
+    "fingerprint": "49457b32816414274e33add3",
+    "classification": "confirmed_owner_duplicate",
+    "primary": {
+      "product_id": 2844,
+      "source_id": "8108508559",
+      "canonical_path": "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2844/",
+      "title": "Крыло переднее левое BYD Seal 06 GT",
+      "detail": "Крыло переднее левое",
+      "brand": "BYD",
+      "model": "Seal 06 GT",
+      "category_id": "c1010",
+      "oem": "EHEA840301070",
+      "price": 22032,
+      "condition": "Новое",
+      "origin": "Оригинал",
+      "photos": [],
+      "compatibility": [
+        {
+          "brand": "BYD",
+          "model": "Seal 06 GT",
+          "generation": "I",
+          "years": [
+            2024,
+            2025,
+            2026
+          ],
+          "yearFrom": 2024,
+          "yearTo": 2026,
+          "raw": "BYD|Seal 06 GT|I (2024—2026)|||"
+        }
+      ],
+      "side": "",
+      "generation": "I",
+      "year_from": 2024,
+      "year_to": 2026
+    },
+    "secondary_pages": [
+      {
+        "product_id": 2888,
+        "source_id": "8076505811",
+        "canonical_path": "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2888/",
+        "title": "Крыло переднее левое BYD Seal 06 GT",
+        "detail": "Крыло переднее левое",
+        "brand": "BYD",
+        "model": "Seal 06 GT",
+        "category_id": "c1010",
+        "oem": "EHEA-8403010/70",
+        "price": 22032,
+        "condition": "Новое",
+        "origin": "Оригинал",
+        "photos": [
+          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.3bl7nLawcVBNK_NdTeOFh1o8c1DLNXlazQ.Cti2-yamz4tVYUVOSGreKSCFASdpWbAbFBqh8cFzrdI"
+        ],
+        "compatibility": [
+          {
+            "brand": "BYD",
+            "model": "Seal 06 GT",
+            "generation": "I",
+            "years": [
+              2024,
+              2025,
+              2026
+            ],
+            "yearFrom": 2024,
+            "yearTo": 2026,
+            "raw": "BYD|Seal 06 GT|I (2024—2026)|||"
+          }
+        ],
+        "side": "",
+        "generation": "I",
+        "year_from": 2024,
+        "year_to": 2026,
+        "robots": "noindex,follow",
+        "canonical_path_target": "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2844/",
+        "reason": "Владелец подтвердил дубль; основной товар 2844."
+      }
+    ],
+    "matching_fields": [
+      "title",
+      "detail",
+      "brand",
+      "model",
+      "category_id",
+      "price",
+      "condition",
+      "origin",
+      "compatibility",
+      "side",
+      "generation",
+      "year_from",
+      "year_to"
+    ],
+    "differing_fields": [
+      "oem",
+      "photos"
+    ],
+    "action": "secondary_noindex_canonical_to_primary",
+    "owner_decision": {
+      "action": "canonical_duplicate",
+      "primary_product_id": 2844,
+      "reason": "Владелец подтвердил дубль; основной товар 2844."
+    },
+    "primary_product_id": 2844,
+    "primary_url": "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2844/",
+    "duplicate_product_ids": [
+      2888
+    ],
+    "duplicate_urls": [
+      "/catalog/product/krylo-perednee-levoe-byd-seal-06-gt-2888/"
+    ]
+  },
+  {
     "fingerprint": "e0b41b213e9d08ea09f56990",
     "classification": "confirmed_metadata_duplicate",
     "primary": {
@@ -675,124 +2284,6 @@
     ],
     "duplicate_urls": [
       "/catalog/product/steklo-lobovoe-voyah-free-rest-original-1613/"
-    ]
-  },
-  {
-    "fingerprint": "4d775f86e8f273776ae883bc",
-    "classification": "confirmed_metadata_duplicate",
-    "primary": {
-      "product_id": 1665,
-      "source_id": "4045232099",
-      "canonical_path": "/catalog/product/steklo-zadnee-changan-uni-k-original-1665/",
-      "title": "Стекло заднее Changan Uni-K (оригинал)",
-      "detail": "Стекло заднее",
-      "brand": "Changan",
-      "model": "UNI-K",
-      "category_id": "c1009",
-      "oem": "6303010CR03АА",
-      "price": 49140,
-      "condition": "Новое",
-      "origin": "Оригинал",
-      "photos": [
-        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.JhjvBLawivHZswj8rxx-Js6kiPFfrYL7WQ.luXbzSbdup8_IgljGY1xZ1vGEwp8wM5_SUZTbeImBrY"
-      ],
-      "compatibility": [
-        {
-          "brand": "Changan",
-          "model": "UNI-K",
-          "generation": "I",
-          "years": [
-            2020,
-            2021,
-            2022,
-            2023,
-            2024,
-            2025,
-            2026
-          ],
-          "yearFrom": 2020,
-          "yearTo": 2026,
-          "raw": "Changan|UNI-K|I (2020—2026)|||"
-        }
-      ],
-      "side": "",
-      "generation": "I",
-      "year_from": 2020,
-      "year_to": 2026
-    },
-    "secondary_pages": [
-      {
-        "product_id": 1670,
-        "source_id": "4204578114",
-        "canonical_path": "/catalog/product/steklo-zadnee-changan-uni-k-original-1670/",
-        "title": "Стекло заднее Changan Uni-K (оригинал)",
-        "detail": "Стекло заднее",
-        "brand": "Changan",
-        "model": "UNI-K",
-        "category_id": "c1009",
-        "oem": "6303010CR03АА",
-        "price": 49440,
-        "condition": "Новое",
-        "origin": "Оригинал",
-        "photos": [
-          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.Ig4gH7awjucWqAzqaHMbPAG_jOeQtobtlg.XVCGdDMi2RK3uFaMzIQqC6GYDoVy6Vxj9BznJ4Ovxzk"
-        ],
-        "compatibility": [
-          {
-            "brand": "Changan",
-            "model": "UNI-K",
-            "generation": "I",
-            "years": [
-              2020,
-              2021,
-              2022,
-              2023,
-              2024,
-              2025,
-              2026
-            ],
-            "yearFrom": 2020,
-            "yearTo": 2026,
-            "raw": "Changan|UNI-K|I (2020—2026)|||"
-          }
-        ],
-        "side": "",
-        "generation": "I",
-        "year_from": 2020,
-        "year_to": 2026,
-        "robots": "noindex,follow",
-        "canonical_path_target": "/catalog/product/steklo-zadnee-changan-uni-k-original-1665/",
-        "reason": "Confirmed detail, vehicle, OEM, condition and compatibility match the primary page."
-      }
-    ],
-    "matching_fields": [
-      "title",
-      "detail",
-      "brand",
-      "model",
-      "category_id",
-      "oem",
-      "condition",
-      "origin",
-      "compatibility",
-      "side",
-      "generation",
-      "year_from",
-      "year_to"
-    ],
-    "differing_fields": [
-      "price",
-      "photos"
-    ],
-    "action": "secondary_noindex_canonical_to_primary",
-    "owner_decision": null,
-    "primary_product_id": 1665,
-    "primary_url": "/catalog/product/steklo-zadnee-changan-uni-k-original-1665/",
-    "duplicate_product_ids": [
-      1670
-    ],
-    "duplicate_urls": [
-      "/catalog/product/steklo-zadnee-changan-uni-k-original-1670/"
     ]
   },
   {
@@ -1172,116 +2663,6 @@
     ]
   },
   {
-    "fingerprint": "fdb3cfd070386c153809ebb0",
-    "classification": "confirmed_owner_duplicate",
-    "primary": {
-      "product_id": 2346,
-      "source_id": "7564578340",
-      "canonical_path": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2346/",
-      "title": "Усилитель переднего бампера нижний Polar Stone 01",
-      "detail": "Усилитель переднего бампера нижний Polar Stone",
-      "brand": "Polar Stone (Jishi)",
-      "model": "01",
-      "category_id": "c1010",
-      "oem": "Polar Stone",
-      "price": 30795,
-      "condition": "Новое",
-      "origin": "Оригинал",
-      "photos": [],
-      "compatibility": [
-        {
-          "brand": "Polar Stone (Jishi)",
-          "model": "01",
-          "generation": "I",
-          "years": [
-            2023,
-            2024,
-            2025
-          ],
-          "yearFrom": 2023,
-          "yearTo": 2025,
-          "raw": "Polar Stone (Jishi)|01|I (2023—2025)|1.5hyb 4WD AT (476 л.с.)|Внедорожник|5"
-        }
-      ],
-      "side": "",
-      "generation": "I",
-      "year_from": 2023,
-      "year_to": 2025
-    },
-    "secondary_pages": [
-      {
-        "product_id": 2085,
-        "source_id": "7564215304",
-        "canonical_path": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2085/",
-        "title": "Усилитель переднего бампера нижний Polar Stone 01",
-        "detail": "Усилитель переднего бампера нижний Polar Stone",
-        "brand": "Polar Stone (Jishi)",
-        "model": "01",
-        "category_id": "c1010",
-        "oem": "Polar Stone",
-        "price": 24645,
-        "condition": "Новое",
-        "origin": "Оригинал",
-        "photos": [],
-        "compatibility": [
-          {
-            "brand": "Polar Stone (Jishi)",
-            "model": "01",
-            "generation": "I",
-            "years": [
-              2023,
-              2024,
-              2025
-            ],
-            "yearFrom": 2023,
-            "yearTo": 2025,
-            "raw": "Polar Stone (Jishi)|01|I (2023—2025)|1.5hyb 4WD AT (476 л.с.)|Внедорожник|5"
-          }
-        ],
-        "side": "",
-        "generation": "I",
-        "year_from": 2023,
-        "year_to": 2025,
-        "robots": "noindex,follow",
-        "canonical_path_target": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2346/",
-        "reason": "Владелец подтвердил дубль 2085/2346 и выбрал основной товар 2346 как вариант с максимальной ценой."
-      }
-    ],
-    "matching_fields": [
-      "title",
-      "detail",
-      "brand",
-      "model",
-      "category_id",
-      "oem",
-      "condition",
-      "origin",
-      "photos",
-      "compatibility",
-      "side",
-      "generation",
-      "year_from",
-      "year_to"
-    ],
-    "differing_fields": [
-      "price"
-    ],
-    "action": "secondary_noindex_canonical_to_primary",
-    "owner_decision": {
-      "action": "canonical_duplicate",
-      "primary_product_id": 2346,
-      "reason": "Владелец подтвердил дубль 2085/2346 и выбрал основной товар 2346 как вариант с максимальной ценой."
-    },
-    "primary_product_id": 2346,
-    "primary_url": "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2346/",
-    "duplicate_product_ids": [
-      2085
-    ],
-    "duplicate_urls": [
-      "/catalog/product/usilitel-perednego-bampera-nizhnii-polar-stone-01-2085/"
-    ]
-  },
-  {
     "fingerprint": "dbdc78d3d07dba347e828f6a",
     "classification": "distinct_products_pending_metadata",
     "primary": {
@@ -1390,117 +2771,6 @@
     ],
     "duplicate_urls": [
       "/catalog/product/krylo-perednee-pravoe-polar-stone-01-2593/"
-    ]
-  },
-  {
-    "fingerprint": "7e3147a7cd61c2c4d42ef52c",
-    "classification": "distinct_products_pending_metadata",
-    "primary": {
-      "product_id": 2263,
-      "source_id": "7980226089",
-      "canonical_path": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2263/",
-      "title": "Дверь задняя правая BYD Tang L",
-      "detail": "Дверь задняя правая",
-      "brand": "BYD",
-      "model": "Tang L",
-      "category_id": "c1010",
-      "oem": "byd",
-      "price": 101770,
-      "condition": "Новое",
-      "origin": "Оригинал",
-      "photos": [
-        "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.aIKVdbawxGujwkZmyRwrvLTVxmsl3MxhIw.K-fDtQeyvtNQC4F9DexUxVZ3_ZaMZggALMG3xhHyEHo"
-      ],
-      "compatibility": [
-        {
-          "brand": "BYD",
-          "model": "Tang L",
-          "generation": "I",
-          "years": [
-            2025,
-            2026
-          ],
-          "yearFrom": 2025,
-          "yearTo": 2026,
-          "raw": "BYD|Tang L|I (2025—2026)|1.5 PHEV 4WD AT (700 л.с.)|Внедорожник|5"
-        }
-      ],
-      "side": "",
-      "generation": "I",
-      "year_from": 2025,
-      "year_to": 2026
-    },
-    "secondary_pages": [
-      {
-        "product_id": 2659,
-        "source_id": "7980188335",
-        "canonical_path": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2659/",
-        "title": "Дверь задняя правая BYD Tang L",
-        "detail": "Дверь задняя правая",
-        "brand": "BYD",
-        "model": "Tang L",
-        "category_id": "c1010",
-        "oem": "Byd",
-        "price": 86000,
-        "condition": "Новое",
-        "origin": "Оригинал",
-        "photos": [
-          "http://avito.ru/autoload/1/items-to-feed/images?imageSlug=/image/1/1.vJbQPrawEH_miZJypBThqPGeEn9glxh1Zg.I6A5Nk1UE0mTz36O19IYjtUpgyKOAnO6Y63qnL7ly4w"
-        ],
-        "compatibility": [
-          {
-            "brand": "BYD",
-            "model": "Tang L",
-            "generation": "I",
-            "years": [
-              2025,
-              2026
-            ],
-            "yearFrom": 2025,
-            "yearTo": 2026,
-            "raw": "BYD|Tang L|I (2025—2026)|1.5 PHEV 4WD AT (700 л.с.)|Внедорожник|5"
-          }
-        ],
-        "side": "",
-        "generation": "I",
-        "year_from": 2025,
-        "year_to": 2026,
-        "robots": "index,follow",
-        "canonical_path_target": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2659/",
-        "reason": "Владелец подтвердил, что позиции пока считаются разными: отличаются происхождение, фотографии, описания или цены. Canonical остаётся самостоятельным."
-      }
-    ],
-    "matching_fields": [
-      "title",
-      "detail",
-      "brand",
-      "model",
-      "category_id",
-      "condition",
-      "origin",
-      "compatibility",
-      "side",
-      "generation",
-      "year_from",
-      "year_to"
-    ],
-    "differing_fields": [
-      "oem",
-      "price",
-      "photos"
-    ],
-    "action": "owner_kept_separate_index_self_canonical",
-    "owner_decision": {
-      "action": "keep_separate",
-      "reason": "Владелец подтвердил, что позиции пока считаются разными: отличаются происхождение, фотографии, описания или цены. Canonical остаётся самостоятельным."
-    },
-    "primary_product_id": 2263,
-    "primary_url": "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2263/",
-    "duplicate_product_ids": [
-      2659
-    ],
-    "duplicate_urls": [
-      "/catalog/product/dver-zadnyaya-pravaya-byd-tang-l-2659/"
     ]
   },
   {
