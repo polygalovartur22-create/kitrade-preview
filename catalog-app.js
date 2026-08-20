@@ -449,7 +449,13 @@
     const optionLink = event.target.closest("[data-filter-option-link]");
     if (optionLink && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey && event.button === 0) {
       event.preventDefault();
-      optionLink.closest("label")?.querySelector("input")?.click();
+      const input = optionLink.closest("label")?.querySelector("input");
+      if (input?.type === "radio" && input.checked) {
+        input.checked = false;
+        input.dispatchEvent(new Event("change", { bubbles: true }));
+      } else {
+        input?.click();
+      }
       return;
     }
     const trigger = event.target.closest("[data-filter-toggle]");
