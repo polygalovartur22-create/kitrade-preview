@@ -936,3 +936,71 @@ h1, h2, h3, p { margin: 0; }
     grid-template-columns: 1fr;
   }
 }
+
+@media (min-width: 1101px) {
+  .parts-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .part-card {
+    grid-template-rows: clamp(150px, 11vw, 190px) auto;
+  }
+
+  .part-photo img {
+    padding: 8px;
+  }
+
+  .part-content {
+    grid-template-rows: auto 3.75em 2.9em auto;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .part-category {
+    font-size: 10px;
+  }
+
+  .part-content h3 {
+    display: -webkit-box;
+    min-height: 0;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.25;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  .part-description {
+    min-height: 0;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .part-meta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 5px;
+    padding-top: 9px;
+  }
+
+  .part-price {
+    min-width: 0;
+    font-size: 14px;
+  }
+
+  .part-time {
+    font-size: 10px;
+  }
+
+  .card-action {
+    min-height: 34px;
+    padding-inline: 10px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .parts-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

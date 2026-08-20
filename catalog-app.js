@@ -54,6 +54,7 @@
   };
   const routePage = Math.max(1, Number(document.body.dataset.catalogPage) || 1);
   const PAGE_SIZE = 24;
+  const DISPLAY_PAGE_SIZE = 16;
   const items = rawItems
     .filter((item) => item && item.title)
     .map((item) => {
@@ -81,7 +82,7 @@
 
   const state = {
     query: "",
-    visible: PAGE_SIZE,
+    visible: DISPLAY_PAGE_SIZE,
     page: routePage,
     offset: (routePage - 1) * PAGE_SIZE,
     selected: [],
@@ -404,7 +405,7 @@
   function resetPaging() {
     state.page = 1;
     state.offset = 0;
-    state.visible = PAGE_SIZE;
+    state.visible = DISPLAY_PAGE_SIZE;
   }
 
   function clearCatalogQuery() {
@@ -541,7 +542,7 @@
     render();
   });
 
-  loadMore.addEventListener("click", (event) => { event.preventDefault(); state.visible += PAGE_SIZE; render(); });
+  loadMore.addEventListener("click", (event) => { event.preventDefault(); state.visible += DISPLAY_PAGE_SIZE; render(); });
   document.querySelector("#requestSubmit").addEventListener("click", () => {
     if (!state.selected.length) {
       showToast("Сначала добавьте хотя бы одну позицию.");
