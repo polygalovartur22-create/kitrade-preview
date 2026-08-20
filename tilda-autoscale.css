@@ -6164,20 +6164,3 @@ body.reference-only[data-artboard="390"] #catalog.catalog-autoscale .catalog-pre
 body.reference-only[data-artboard="390"] #catalog.catalog-autoscale .catalog-preview-disclaimer a b {
   margin-left: 2cqw !important;
 }
-
-/* Keep the four delivery regions inside the right-hand case stat. */
-body.reference-only #company .as-company__stat--region strong {
-  font-size: 1cqw;
-}
-
-@media (min-width: 600px) and (max-width: 1199px) {
-  body.reference-only #company .as-company__stat--region strong {
-    font-size: 1.58cqw;
-  }
-}
-
-@media (max-width: 599px) {
-  body.reference-only #company .as-company__stat--region strong {
-    font-size: 1.64cqw;
-  }
-}
