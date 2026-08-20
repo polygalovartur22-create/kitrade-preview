@@ -6164,3 +6164,71 @@ body.reference-only[data-artboard="390"] #catalog.catalog-autoscale .catalog-pre
 body.reference-only[data-artboard="390"] #catalog.catalog-autoscale .catalog-preview-disclaimer a b {
   margin-left: 2cqw !important;
 }
+
+/* Keep the edited guarantee copy inside the original desktop card geometry. */
+@media (min-width: 1200px) {
+  body.reference-only #guarantee .guarantee-grid {
+    grid-template-rows: repeat(3, 270.2px) !important;
+  }
+
+  body.reference-only #guarantee .guarantee-card,
+  body.reference-only #guarantee .guarantee-card-primary {
+    min-height: 0 !important;
+  }
+
+  body.reference-only #guarantee .guarantee-card-new {
+    padding-right: 26% !important;
+  }
+
+  body.reference-only #guarantee .guarantee-card-new p {
+    max-width: 610px !important;
+    margin-top: 12px !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1199px) {
+  body.reference-only #guarantee .guarantee-card-primary .guarantee-card-copy,
+  body.reference-only #guarantee .guarantee-card-new .guarantee-card-copy {
+    width: 100% !important;
+    max-width: 82% !important;
+  }
+
+  body.reference-only #guarantee .guarantee-card-primary h3,
+  body.reference-only #guarantee .guarantee-card-new h3 {
+    max-width: none !important;
+  }
+
+  body.reference-only #guarantee .guarantee-card-primary p {
+    max-width: 620px !important;
+    margin-top: 10px !important;
+    font-size: clamp(12px, 1.68vw, 14px) !important;
+    line-height: 1.32 !important;
+  }
+
+  body.reference-only #guarantee .guarantee-card-new p {
+    max-width: 620px !important;
+    margin-top: 8px !important;
+    font-size: clamp(10px, 1.68vw, 14px) !important;
+    line-height: 1.28 !important;
+  }
+}
+
+@media (max-width: 599px) {
+  body.reference-only #guarantee .guarantee-card-new .guarantee-card-copy {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body.reference-only #guarantee .guarantee-card-new h3 {
+    max-width: none !important;
+  }
+
+  body.reference-only #guarantee .guarantee-card-new p {
+    max-width: none !important;
+    margin-top: 1.2cqw !important;
+    font-size: 2.2cqw !important;
+    line-height: 1.18 !important;
+  }
+}
