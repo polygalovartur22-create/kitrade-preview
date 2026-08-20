@@ -249,11 +249,8 @@
       if (filter.id === "typeFilters" && selectedBrand && selectedModel) return sitePath(routeMap.categories?.[routeKey(selectedBrand, selectedModel, value)] || "/catalog/");
       return sitePath("/catalog/");
     };
-    const allowsMultiple = filter.id === "typeFilters";
-    const inputType = allowsMultiple ? "checkbox" : "radio";
-    const inputName = allowsMultiple ? "" : ` name="${filter.id === "brandFilters" ? "catalogBrand" : "catalogModel"}"`;
     options.innerHTML = values.map((value) => `
-      <label data-filter-value="${escapeHtml(value)}"><input type="${inputType}"${inputName} value="${escapeHtml(value)}" /><a href="${escapeHtml(hrefFor(value))}" data-filter-option-link>${escapeHtml(value)}</a><i aria-hidden="true"></i></label>
+      <label data-filter-value="${escapeHtml(value)}"><input type="checkbox" value="${escapeHtml(value)}" /><a href="${escapeHtml(hrefFor(value))}" data-filter-option-link>${escapeHtml(value)}</a><i aria-hidden="true"></i></label>
     `).join("");
     const search = filter.querySelector("[data-filter-search]");
     if (search) search.value = "";
@@ -427,6 +424,12 @@
 
   document.querySelector(".filter-panel").addEventListener("change", (event) => {
     if (!event.target.matches("input") || event.target.matches("[data-filter-search]")) return;
+    const singleChoiceFilter = event.target.closest("#brandFilters, #modelFilters");
+    if (singleChoiceFilter && event.target.checked) {
+      singleChoiceFilter.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+        if (input !== event.target) input.checked = false;
+      });
+    }
     clearCatalogQuery();
     if (event.target.closest("#brandFilters")) {
       renderModelFilter(checkedValues("#brandFilters"));
@@ -450,12 +453,7 @@
     if (optionLink && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey && event.button === 0) {
       event.preventDefault();
       const input = optionLink.closest("label")?.querySelector("input");
-      if (input?.type === "radio" && input.checked) {
-        input.checked = false;
-        input.dispatchEvent(new Event("change", { bubbles: true }));
-      } else {
-        input?.click();
-      }
+      input?.click();
       return;
     }
     const trigger = event.target.closest("[data-filter-toggle]");
