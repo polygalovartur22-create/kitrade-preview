@@ -82,7 +82,7 @@
               <span>Подбор запчасти</span>
               <h2>Фильтры каталога</h2>
             </div>
-            <button id="resetFilters" type="button">Сбросить</button>
+            <button id="resetFilters" type="button" aria-label="Очистить фильтры">Очистить</button>
           </div>
 
           <div class="catalog-filter-stack">
@@ -132,7 +132,7 @@
             </div>
           </fieldset>
 
-          <p class="filter-note">Выберите несколько значений, если хотите сравнить варианты.</p>
+          <p class="filter-note">Можно выбрать несколько категорий для сравнения.</p>
         </aside>
 
         <section class="results-panel" id="catalog-results" aria-live="polite">
@@ -143,15 +143,6 @@
             </label>
             <button type="submit">Найти</button>
           </form>
-
-          <nav class="catalog-tabs" id="catalogTabs" aria-label="Категории каталога">
-            <button class="active" type="button" data-category="">Популярное</button>
-            <button type="button" data-category="Оптика">Оптика</button>
-            <button type="button" data-category="Кузов">Кузов</button>
-            <button type="button" data-category="Подвеска">Подвеска</button>
-            <button type="button" data-category="Двигатель">Двигатель</button>
-            <button type="button" data-category="Салон">Салон</button>
-          </nav>
 
           <div class="results-toolbar">
             <div>
@@ -198,7 +189,7 @@
     <script src="/product-quick-view.js?v=1"></script>
     <script src="/site-runtime-config.js?v=1"></script>
     <script src="/analytics.js?v=2"></script>
-    <script src="/catalog-app.js?v=18"></script>
+    <script src="/catalog-app.js?v=19"></script>
     <script src="/catalog-adaptive.js?v=1"></script>
   </body>
 </html>

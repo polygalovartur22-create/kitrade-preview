@@ -80,7 +80,6 @@
     });
 
   const state = {
-    tab: routeDefaults.category,
     query: "",
     visible: PAGE_SIZE,
     page: routePage,
@@ -139,9 +138,10 @@
   function updateCatalogRoute() {
     const brands = checkedValues("#brandFilters");
     const models = checkedValues("#modelFilters");
+    const categories = checkedValues("#typeFilters");
     const brand = brands.length === 1 ? brands[0] : "";
     const model = brand && models.length === 1 ? models[0] : "";
-    const category = brand && model ? state.tab : "";
+    const category = brand && model && categories.length === 1 ? categories[0] : "";
     const brandRoute = brand ? routeMap.brands?.[routeKey(brand)] : "";
     const modelRoute = model ? routeMap.models?.[routeKey(brand, model)] : "";
     const categoryRoute = category ? routeMap.categories?.[routeKey(brand, model, category)] : "";
@@ -249,8 +249,11 @@
       if (filter.id === "typeFilters" && selectedBrand && selectedModel) return sitePath(routeMap.categories?.[routeKey(selectedBrand, selectedModel, value)] || "/catalog/");
       return sitePath("/catalog/");
     };
+    const allowsMultiple = filter.id === "typeFilters";
+    const inputType = allowsMultiple ? "checkbox" : "radio";
+    const inputName = allowsMultiple ? "" : ` name="${filter.id === "brandFilters" ? "catalogBrand" : "catalogModel"}"`;
     options.innerHTML = values.map((value) => `
-      <label data-filter-value="${escapeHtml(value)}"><input type="checkbox" value="${escapeHtml(value)}" /><a href="${escapeHtml(hrefFor(value))}" data-filter-option-link>${escapeHtml(value)}</a><i aria-hidden="true"></i></label>
+      <label data-filter-value="${escapeHtml(value)}"><input type="${inputType}"${inputName} value="${escapeHtml(value)}" /><a href="${escapeHtml(hrefFor(value))}" data-filter-option-link>${escapeHtml(value)}</a><i aria-hidden="true"></i></label>
     `).join("");
     const search = filter.querySelector("[data-filter-search]");
     if (search) search.value = "";
@@ -302,7 +305,6 @@
         if (brands.length && !brands.some((brand) => item.brand.toLocaleLowerCase("ru") === brand.toLocaleLowerCase("ru"))) return false;
         if (models.length && !models.includes(item.model)) return false;
         if (types.length && !types.includes(item.group)) return false;
-        if (state.tab && item.group !== state.tab) return false;
         if (condition && !String(item.condition || "").toLocaleLowerCase("ru").startsWith(condition.slice(0, 5))) return false;
         if (state.query && fuzzyScore(state.query, item.search) < 0) return false;
         return true;
@@ -359,7 +361,7 @@
     const brands = checkedValues("#brandFilters");
     const models = checkedValues("#modelFilters");
     const types = checkedValues("#typeFilters");
-    resultSummary.textContent = [brands.join(" / "), models.join(" / "), state.tab || types.join(" / ")]
+    resultSummary.textContent = [brands.join(" / "), models.join(" / "), types.join(" / ")]
       .filter(Boolean).join(" / ") || "Все марки и категории";
     emptyState.hidden = filtered.length > 0;
     loadMore.hidden = state.offset + visible.length >= filtered.length;
@@ -402,8 +404,30 @@
     toastTimer = setTimeout(() => toast.classList.remove("visible"), 2200);
   }
 
+  function resetPaging() {
+    state.page = 1;
+    state.offset = 0;
+    state.visible = PAGE_SIZE;
+  }
+
+  function clearCatalogQuery() {
+    document.querySelector("#catalogQuery").value = "";
+    state.query = "";
+  }
+
+  function clearFilterControls() {
+    document.querySelectorAll("#brandFilters input, #modelFilters input, #typeFilters input").forEach((input) => {
+      input.checked = false;
+    });
+    renderModelFilter([]);
+    document.querySelector('#conditionFilters input[value=""]').checked = true;
+    updateFilterSummary(document.querySelector("#brandFilters"));
+    updateFilterSummary(document.querySelector("#typeFilters"));
+  }
+
   document.querySelector(".filter-panel").addEventListener("change", (event) => {
-    if (!event.target.matches("input")) return;
+    if (!event.target.matches("input") || event.target.matches("[data-filter-search]")) return;
+    clearCatalogQuery();
     if (event.target.closest("#brandFilters")) {
       renderModelFilter(checkedValues("#brandFilters"));
       updateFilterSummary(document.querySelector("#modelFilters"));
@@ -411,13 +435,13 @@
     const filter = event.target.closest(".filter-dropdown");
     if (filter) {
       updateFilterSummary(filter);
-      filter.classList.remove("is-open");
-      filter.querySelector("[data-filter-popover]").hidden = true;
-      filter.querySelector("[data-filter-toggle]").setAttribute("aria-expanded", "false");
+      if (filter.id !== "typeFilters") {
+        filter.classList.remove("is-open");
+        filter.querySelector("[data-filter-popover]").hidden = true;
+        filter.querySelector("[data-filter-toggle]").setAttribute("aria-expanded", "false");
+      }
     }
-    state.page = 1;
-    state.offset = 0;
-    state.visible = PAGE_SIZE;
+    resetPaging();
     render();
   });
 
@@ -473,46 +497,23 @@
 
   document.querySelector("#catalogSearch").addEventListener("submit", (event) => {
     event.preventDefault();
-    state.query = document.querySelector("#catalogQuery").value.trim();
-    state.page = 1;
-    state.offset = 0;
-    state.visible = PAGE_SIZE;
+    const query = document.querySelector("#catalogQuery").value.trim();
+    if (query) clearFilterControls();
+    state.query = query;
+    resetPaging();
     render();
   });
 
   document.querySelector("#catalogQuery").addEventListener("search", (event) => {
     if (event.target.value) return;
     state.query = "";
-    state.page = 1;
-    state.offset = 0;
-    state.visible = PAGE_SIZE;
-    render();
-  });
-
-  document.querySelector("#catalogTabs").addEventListener("click", (event) => {
-    const button = event.target.closest("button[data-category]");
-    if (!button) return;
-    document.querySelectorAll("#catalogTabs button").forEach((item) => item.classList.toggle("active", item === button));
-    state.tab = button.dataset.category;
-    state.page = 1;
-    state.offset = 0;
-    state.visible = PAGE_SIZE;
+    resetPaging();
     render();
   });
 
   document.querySelector("#resetFilters").addEventListener("click", () => {
-    document.querySelectorAll("#brandFilters input, #modelFilters input, #typeFilters input").forEach((input) => { input.checked = false; });
-    renderModelFilter([]);
-    document.querySelector('#conditionFilters input[value=""]') .checked = true;
-    document.querySelector("#catalogQuery").value = "";
-    state.query = "";
-    updateFilterSummary(document.querySelector("#brandFilters"));
-    updateFilterSummary(document.querySelector("#typeFilters"));
-    document.querySelectorAll("#catalogTabs button").forEach((button) => button.classList.toggle("active", button.dataset.category === ""));
-    state.tab = "";
-    state.page = 1;
-    state.offset = 0;
-    state.visible = PAGE_SIZE;
+    clearFilterControls();
+    resetPaging();
     render();
   });
 
@@ -582,9 +583,12 @@
     });
     updateFilterSummary(document.querySelector("#modelFilters"));
   }
-  document.querySelectorAll("#catalogTabs button").forEach((button) => {
-    button.classList.toggle("active", button.dataset.category === routeDefaults.category);
-  });
+  if (routeDefaults.category) {
+    document.querySelectorAll("#typeFilters input").forEach((input) => {
+      input.checked = input.value.toLocaleLowerCase("ru") === routeDefaults.category.toLocaleLowerCase("ru");
+    });
+    updateFilterSummary(document.querySelector("#typeFilters"));
+  }
   document.addEventListener("kitrade:add-product", (event) => {
     const id = String(event.detail?.id || "");
     if (!id || state.selected.includes(id)) return;
