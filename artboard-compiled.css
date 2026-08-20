@@ -19850,6 +19850,13 @@ body.reference-only[data-artboard="390"] #catalog.catalog-autoscale .catalog-pre
   margin-left: 2cqw !important;
 }
 
+
+  body.reference-only #guarantee .guarantee-card-new {
+    height: 48cqw !important;
+    min-height: 48cqw !important;
+  }
+
+
 }
 
 @media (min-width: 600px) and (max-width: 1199px) {
@@ -36472,6 +36479,8 @@ body.reference-only[data-artboard="390"] #catalog.catalog-autoscale .catalog-pre
   margin-left: 2cqw !important;
 }
 
+
+
 }
 
 @media (min-width: 1200px) {
@@ -48948,5 +48957,7 @@ body.reference-only[data-artboard="390"] #catalog.catalog-autoscale .catalog-pre
 body.reference-only[data-artboard="390"] #catalog.catalog-autoscale .catalog-preview-disclaimer a b {
   margin-left: 2cqw !important;
 }
+
+
 
 }
